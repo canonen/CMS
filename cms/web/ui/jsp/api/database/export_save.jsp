@@ -1,0 +1,248 @@
+<%@ page
+		language="java"
+		import="com.britemoon.*,
+		com.britemoon.cps.*,
+		com.britemoon.cps.imc.*,
+		com.britemoon.cps.exp.*,
+		com.britemoon.cps.ctl.CategortiesControl,
+		java.sql.*,java.util.*,
+		java.io.*,java.net.*,
+		java.text.DateFormat,org.w3c.dom.*,
+		org.apache.log4j.*"
+%>
+
+<%@ include file="../header.jsp"%>
+<%@ include file="../validator.jsp"%>
+<%! static Logger logger = null;%>
+<%
+	if(logger == null)
+	{
+		logger = Logger.getLogger(this.getClass().getName());
+	}
+	AccessPermission can = user.getAccessPermission(ObjectType.EXPORT);
+	boolean STANDARD_UI = (ui.n_ui_type_id == UIType.STANDARD);
+
+	if(!can.bWrite)
+	{
+		response.sendRedirect("../access_denied.jsp");
+		return;
+	}
+
+	PreparedStatement	pstmt = null;
+	ResultSet			rs;
+	ConnectionPool 		cp = null;
+	Connection 			conn  = null;
+
+	try {
+		cp = ConnectionPool.getInstance();
+		conn = cp.getConnection(this);
+	} catch(Exception ex) {
+		return;
+	}
+
+	//String sSelectedCategoryId = request.getParameter("category_id");
+	String 		sFileID = request.getParameter("file_id");
+
+	String		USER_ID		= user.s_user_id;
+	String		CUSTOMER_ID	= cust.s_cust_id;
+
+	String		VIEWFIELDS	= request.getParameter("view").trim();
+	String		GROUP_SELECTED	= request.getParameter("GroupSelected").trim();
+	String		CORRESPONDING_ID= request.getParameter("IdSelected").trim();
+	String		ADDIT_STRING	= request.getParameter("AdditString");
+	String		DELIMETER	= request.getParameter("delim").trim();
+	String		EXPORT_NAME	= request.getParameter("export_name");
+
+	//export name utf-8 encoding
+	if (EXPORT_NAME != null){
+		EXPORT_NAME = new String(EXPORT_NAME.getBytes("ISO-8859-1"),"UTF-8");
+		EXPORT_NAME = EXPORT_NAME.trim();
+	}
+	String		PARAMS = "";
+
+
+	if (DELIMETER != null)
+	{
+		if (DELIMETER.equalsIgnoreCase("TAB")||DELIMETER.equals("Tab")||DELIMETER.equals("tab"))
+			DELIMETER = "\t";
+		if (DELIMETER.equals (","))
+			DELIMETER = ",";
+		if (DELIMETER.equals (";"))
+			DELIMETER = ";";
+		if (DELIMETER.equals ("pipe"))
+			DELIMETER = "|";
+	}
+	String outXml="";
+
+	try {
+
+		outXml = "<RecipRequest>\n" +
+				"<cust_id>"+CUSTOMER_ID+"</cust_id>\n";
+		if (sFileID != null)
+			outXml += "<recip_id>"+sFileID+"</recip_id>\n";
+
+
+		if (GROUP_SELECTED.equals ("1")) {	/* Campaign */
+			outXml += "<camp_id>"+CORRESPONDING_ID+"</camp_id>\n";
+
+			//4 types for campaign
+			String campType = request.getParameter("which1").trim();
+			if (campType.equals("1")) {
+				outXml += "<action>ExpCampSent</action>\n";
+				PARAMS += "ExpCampSent; ";
+			} else if (campType.equals("2")) {
+				outXml += "<action>ExpCampRead</action>\n";
+				PARAMS += "ExpCampRead; ";
+			} else if (campType.equals("3")) {
+				outXml += "<action>ExpCampBBack</action>\n";
+				PARAMS += "ExpCampBBack; ";
+			} else if (campType.equals("4")) {
+				outXml += "<action>ExpCampUnsub</action>\n";
+				PARAMS += "ExpCampUnsub; ";
+			} else if (campType.equals("5")) {
+				outXml += "<action>ExpCampClick</action>\n";
+				PARAMS += "ExpCampClick; ";
+			} else {
+				throw new Exception("Invalid type of campaign");
+			}
+
+			PARAMS += "camp_id="+CORRESPONDING_ID+"; ";
+
+		} else if (GROUP_SELECTED.equals ("1b")) {	/* Click-Thrus */
+
+            if (CORRESPONDING_ID.contains(":")) {
+                int colonIndex = CORRESPONDING_ID.indexOf(":");
+                String linkID = CORRESPONDING_ID.substring(colonIndex + 1);
+                CORRESPONDING_ID = CORRESPONDING_ID.substring(0, colonIndex);
+
+                outXml += "<action>ExpCampLinkClick</action>\n" +
+                        "<camp_id>"+CORRESPONDING_ID+"</camp_id>\n" +
+                        "<link_id>"+linkID+"</link_id>\n";
+
+                PARAMS += "ExpCampLinkClick; camp_id="+CORRESPONDING_ID+"; link_id="+linkID+"; ";
+            } else {
+                throw new Exception("IdSelected parametresinde iki id olmali ':' ile ayrilmali. Ornek camp_id:link_id ");
+            }
+
+		} else if (GROUP_SELECTED.equals ("2")) {	/* Target group */
+			outXml += "<action>ExpTgt</action>\n" +
+					"<filter_id>"+CORRESPONDING_ID+"</filter_id>\n";
+
+			PARAMS += "ExpTgt; filter_id="+CORRESPONDING_ID+"; ";
+
+		} else if (GROUP_SELECTED.equals ("3")) {	/* Batch */
+			outXml += "<action>ExpBatch</action>\n" +
+					"<batch_id>"+CORRESPONDING_ID+"</batch_id>\n";
+
+			PARAMS += "ExpBatch; batch_id="+CORRESPONDING_ID+"; ";
+
+		} else if (GROUP_SELECTED.equals ("4")) {	/* Bounce Backs */
+			outXml += "<action>ExpBBack</action>\n";
+
+			PARAMS += "ExpBBack; ";
+
+		} else if (GROUP_SELECTED.equals ("5"))	{ /* Unsubscribes */
+			outXml += "<action>ExpUnsub</action>\n";
+
+			PARAMS += "ExpUnsub; ";
+
+		} else {
+			throw new Exception ();
+		}
+
+		outXml += "<num_recips>all</num_recips>\n" +
+				"<attr_list>"+VIEWFIELDS+"</attr_list>\n" +
+				"<delimiter>"+(DELIMETER.equals("\t")?"\\t":DELIMETER)+"</delimiter>\n" +
+				"</RecipRequest>\n";
+
+		PARAMS += "attr_list="+VIEWFIELDS+"; delimiter=''"+(DELIMETER.equals("\t")?"\\t":DELIMETER)+"''; ";
+
+		//Send request to RCP
+		String sMsg = Service.communicate(ServiceType.REXP_EXPORT_SETUP, CUSTOMER_ID, outXml);
+
+		//Receive response and save export
+		String fileUrl = "";
+		try {
+
+			Element eDetails = XmlUtil.getRootElement(sMsg);
+
+			fileUrl = XmlUtil.getChildCDataValue(eDetails,"file_url");
+			if (fileUrl == null) {
+				//Probably an error
+				String error = XmlUtil.getChildCDataValue(eDetails,"error");
+				if (error == null)
+					throw new Exception("");
+				else
+					throw new Exception(error);
+			}
+		} catch (Exception e) {
+			throw new Exception("RCP could not setup the export.  Please check the RCP system: "+e.getMessage());
+		}
+
+		outXml = outXml.substring(0,outXml.indexOf("</RecipRequest>"));
+		outXml += "<type_id>"+ExportType.STANDARD+"</type_id>\n";
+		outXml += "<export_name>"+EXPORT_NAME+"</export_name>\n";
+		outXml += "<file_url>"+fileUrl+"</file_url>\n";
+		if (fileUrl == null) {
+			outXml += "<status_id>"+ExportStatus.ERROR+"</status_id>\n";
+		} else {
+			outXml += "<status_id>"+ExportStatus.QUEUED+"</status_id>\n";
+		}
+		outXml += "<params>"+PARAMS+"</params>\n";
+		outXml += "</RecipRequest>\n";
+
+		try
+		{
+			RecipList rl = new RecipList(XmlUtil.getRootElement(outXml));
+			Export exp = new Export(rl);
+			exp.save();
+
+			//Send back the URL of the export text file
+			String returnXml =
+					"<export><file_url><![CDATA["+exp.s_file_url+"]]></file_url></export>";
+			out.print(returnXml);
+		}
+		catch (Exception e)
+		{
+			logger.error("Exception: ", e);
+
+			String returnXml =
+					"<export><error><![CDATA["+e.getMessage()+"]]></error></export>";
+
+			out.print(returnXml);
+		}
+		String fileID = null;
+
+		pstmt = conn.prepareStatement("SELECT file_id FROM cexp_export_file WHERE file_url = '"+fileUrl+"'");
+		rs = pstmt.executeQuery();
+		if (!rs.next()) throw new Exception("Could not get file_id for new export");
+		fileID = rs.getString(1);
+
+		if (sFileID == null)
+			sFileID = fileID;
+
+		//------------------------- Categories -------
+
+        String[] sCategories = request.getParameterValues("categories");
+
+        if (sCategories != null && sCategories.length > 0) {
+            List<String> cleanedList = new ArrayList<String>();
+
+            for (String item : sCategories) {
+                if (item != null && !item.trim().isEmpty()) {
+                    cleanedList.add(item.trim());
+                }
+            }
+            if (!cleanedList.isEmpty()) {
+                CategortiesControl.saveCategories(cust.s_cust_id, ObjectType.EXPORT, sFileID, request);
+            }
+        }
+    } catch(Exception ex) {
+		ErrLog.put(this,ex,"export_save.jsp",out,1);
+		return;
+	} finally {
+		if (pstmt != null) pstmt.close();
+		if (conn != null) cp.free(conn);
+	}
+
+%>

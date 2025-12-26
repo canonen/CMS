@@ -1,0 +1,164 @@
+body
+{
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	margin:	0px;
+	border: 0px;
+	background-color: #eeeeee;
+	cursor: default;
+}
+
+td
+{
+	font-size: 11px;
+}
+
+table
+{
+	cursor: default;
+}
+
+a
+{
+	color: #0000ff;
+	font-weight: bold;
+}
+
+button
+{
+	filter:	progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde);
+	cursor:	hand;
+	font-size: 11px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border:	1px solid #7b9ebd;
+}
+
+body.stage
+{
+	padding: 10px;
+	padding-top: 0px;
+	background-color: #efefeb;
+}
+
+table.stdTable
+{
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+}
+.title
+{
+	background-color: #7B8BA4;
+	border-bottom: #3F4F77 1px solid;
+	color: #FFFFFF;
+	width: 100%;
+	font-size: 16pt;
+	font-family: Verdana;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 12px;
+}
+
+SPAN.menu
+{
+	height: 100%;
+	padding: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 1px solid #7288AC;
+}
+
+SPAN.button
+{
+	height: 100%;
+	cursor: hand;
+	padding: 2px;
+	border: 1px solid #7288AC;
+}
+
+TABLE.mnuList
+{
+	border: #00377a 1px solid;
+	display: none;
+	filter:	progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr=#efefeb, EndColorStr=#ffffff);
+}
+
+TABLE.mnuBar
+{
+	color: #ffffff;
+	height: 23px;
+	width: 100%;
+	background-color: #7288AC;
+	border: #abc0e7 1px solid;
+	border-right: #00377a 1px solid;
+	border-bottom: #00377a 1px solid;
+}
+
+TR.mnuSpacer
+{
+	padding: 0px;
+	font-size: 1px;
+}
+
+TD.icMenu
+{
+	behavior: url(/ccps/ui/mscrm/menu.htc);
+}
+
+TD.mnuTitle
+{
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	cursor: default;
+	color: #ffff00;
+	padding-left: 25px;
+}
+
+TD.mnuRight
+{
+	width: 100%;
+	text-align: right;
+	padding-right: 5px;
+}
+
+IMG.mnuBtn 
+{
+	width: 16px;
+	height: 16px;
+	margin-right: 1px;
+	margin-bottom: -1px;
+	vertical-align: top;
+}
+
+HR.mnuSpacer
+{
+	height: 1px;
+	margin-left: 10px;
+}
+
+COL.mnuItm 
+{
+	padding-top: 5px;
+	padding-left: 10px;
+}
+
+COL.mnuLeft
+{
+	width: 27px;
+	text-align: center;
+	background-color: #889DC2;
+}
+
+NOBR.mnuTitle
+{
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+U.mnuKey
+{
+	accelerator: true;
+}

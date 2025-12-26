@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year</title>
+</head>
+<style>
+    .giftgroup{
+        width: 35px;
+        padding-right: 10px;
+    }
+    @media only screen and (max-width: 600px) {
+        .image{
+            display: none;
+        }
+}
+</style>
+<body>
+    <div class="card" style="background-color: white;width: auto;max-width: 700px;border-radius: 15px;">
+        <div style="display: flex;justify-content: center;align-items: center;width: auto;max-width: 700px;padding: 40px;">
+            <div class="image">
+                <img is_editable="true" src="templates/(Image).png" alt="gift" class="responsive" style="width: auto;max-width:450px ; margin-left: 15px;">
+            </div>
+            <div style="display: flex; flex-direction: column;width: auto;">
+                <div is_editable="true" style="font-weight: bold;font-size: 30px;">Hediye kazanmak ister misiniz?</div>
+                <div is_editable="true" style="font-size: larger;font-weight: 400;padding:10px 0">Yeni yılın ilk hediyesi bizden</div>
+                <div style="display: flex;">
+                    <img class="giftgroup" src="templates/(Group).png" alt="">
+                    <img class="giftgroup" src="templates/(Group).png" alt="">
+                    <img class="giftgroup" src="templates/(Group).png" alt="">
+                    <img class="giftgroup" src="templates/(Group).png" alt="">
+                    <img class="giftgroup" src="templates/(Group).png" alt="">
+                </div>
+                <form action="https://revoform.revotas.com/frm/sv/FormProcessor" method="Post" name="Subscribe" style="padding:0;margin:0" border="0" onsubmit="submitForm(this); return false">
+                    
+                <input is_editable="true" style="margin-top: 10px;border-radius: 10px;border:1px solid rgb(211,211,211);padding: 10px;width: auto;max-width: 225px;font-size:15px;font-weight:100;" type="text" class="email-input" name="rvs_in_email" onchange="isEmail(this, 'E-mail Address');" placeholder="E-posta adresini giriniz">
+                <div id="form_error" style="color: red;"></div>
+            <button is_editable="true" style="margin-top: 10px;border-radius: 10px;background-color:rgb(211,0,0);border:none;padding: 10px;width:214px;max-width: 225px;color: white;font-size:x-large;" activity_type="submit" id="push-smart-widget-activity" type="submit" class="submit-button">Oyna</button>
+            <div>
+                <div style="display: flex;margin-top: 10px;">
+                    <input type="checkbox" name="rvts_check" id="rvts_check">
+                    <a is_editable="true" target="_blank" class="policy-link" href="#" style="text-decoration: none; color: black;">Gizlilik ve Güvenlik Politikasını Onaylıyorum.</a>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        	
+var submitcount=0;
+function submitForm(f) {
+
+	var check =	f.rvts_check.checked;
+	
+	
+	 if (!isEmail(f.rvs_in_email.value)) {
+		 f.querySelector('#form_error').textContent = 'Lütfen email adresinizi giriniz.';
+
+		  
+return false;
+	}else  if(!check){
+				f.querySelector('#form_error').textContent = "Lütfen Sözleşmeyi Onaylaylayınız.";
+				return false;
+	} else{
+		// submit the form
+		if (submitcount == 0){	//check for double click
+      			submitcount++;
+      		} else {
+				f.querySelector('#form_error').textContent = "Bu form gönderildi";
+			return;
+      		}      
+		f.submit();
+  	}
+  }
+  	function isEmail(str) {
+ 	     var supported = 0;
+		  if (window.RegExp) {
+		    var tempStr = "a";
+		    var tempReg = new RegExp(tempStr);
+		    if (tempReg.test(tempStr)) supported = 1;
+		  }
+		  if (!supported) 
+		    return (str.indexOf(".") > 2) && (str.indexOf("@") > 0);
+		  var r1 = new RegExp("(@.*@)|(info.*@)| |(admin.*@)| |(sales.*@)| |(webmaster.*@)| (\\.\\.)|(@\\.)|(^\\.)");
+		  var r2 = new RegExp("^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$");
+		  return (!r1.test(str) && r2.test(str)); 
+	}
+	
+function checkEmail(field){		
+	if (!isEmail(field.value)) {			
+		f.querySelector('#form_error').textContent = "Lütfen geçerli bir email adresi giriniz!";			
+		field.focus();			
+		field.blur();
+		field.select();			
+		return;		
+	}	
+}
+
+    </script>
+</body>
+</html>

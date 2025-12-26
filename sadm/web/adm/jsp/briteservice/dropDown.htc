@@ -1,0 +1,784 @@
+<public:property name="defaulttext" />
+<public:property name="canclick" />
+<public:property name="hlcolor" />
+<public:property name="slcolor" />
+<public:property name="doonclick" />
+<public:property name="setrecent" />
+<public:method name="setRow"/>
+<public:method name="setcanclick"/>
+<public:method name="setDataTable"/>
+<public:method name="onKeyUp"/>
+<public:method name="addRecentRow"/>
+<public:method name="addRowCollection"/>
+<public:attach event="oncontentready" onevent="init()" />
+<public:attach event="ondetach" onevent="cleanup()" />
+
+<script language=jscript>
+
+var showDebug = false;
+var debugMsg = "";
+var bClickable = false;
+
+var oCol, oRow, oCell, oInput, oImg;
+var dropTable, droppedTable, inputTable;
+
+var currRow, selRow, _oPop, _oTbl, _iY, hasPopped, parItem, reTry;
+
+function init()
+{
+	if (canclick == "yes") bClickable = true;
+
+	/* DETECT ELEMENT */
+	if (element.tagName == 'DIV')
+	{
+		//element.attachEvent('onclick', onDivClick);
+		setDebugMsg("is div");
+	}
+	else
+	{
+		alert("Error: dropDown.htc not attached to a DIV element");
+		setDebugMsg("Error: dropDown.htc not attached to a DIV element");
+	}
+	
+	dropTable = element.children[0];
+	droppedTable = element.removeChild(dropTable);
+
+	inputTable = element.document.createElement("TABLE");
+	element.appendChild(inputTable);
+	
+	inputTable.style.width = "100%";
+	inputTable.style.height = "100%";
+	inputTable.style.tableLayout = "fixed";
+	inputTable.cellSpacing = "0";
+	inputTable.cellPadding = "0";
+	inputTable.border = "0";
+	
+	oCol = element.document.createElement("COL");
+	
+	inputTable.appendChild(oCol);
+	
+	oCol = element.document.createElement("COL");
+	
+	inputTable.appendChild(oCol);
+	oCol.width = "18";
+	
+	oRow = inputTable.insertRow();
+	oCell = oRow.insertCell();
+	
+	oInput = element.document.createElement("INPUT");
+	oInput.id = "dataItem";
+	oInput.tabIndex = "0";
+	oInput.contentEditable = "false";
+	oInput.className = "selectBox";
+	oInput.style.width = "100%";
+	oInput.name = "";
+	oInput.value = defaulttext;
+	
+	//oInput.onselectstart = "return false;";
+	//oInput.onfocus = "runtimeStyle.backgroundColor='#abc0e7';";
+	//oInput.onblur = "runtimeStyle.backgroundColor='';";
+	
+	oCell.appendChild(oInput);
+	
+	oCell = oRow.insertCell();
+	oCell.width = "20";
+	
+	oImg = element.document.createElement("IMAGE");
+	oImg.style.cursor = "hand";
+	oImg.align = "absmiddle";
+	oImg.src = "selectOff.gif";
+	
+	oCell.appendChild(oImg);
+	
+	//element.document.getElementById("test").innerHTML = inputTable.outerHTML;
+	
+	element.appendChild(droppedTable);
+	dropTable = droppedTable;
+
+	if (inputTable.tagName == 'TABLE' && dropTable.tagName == 'TABLE')
+	{
+		inputTable.attachEvent('onclick', loadDropDown);
+		setDebugMsg("has two tables");
+	}
+	else
+	{
+		alert("Error: dropDown.htc not attached to a properly formatted element");
+		setDebugMsg("Error: dropDown.htc not attached to a properly formatted element");
+	}
+	
+	//element.document.parentWindow.hasLoaded();
+
+	/* SET VARIABLES */
+	currRow = -1;
+	selRow = -1;
+	_oPop = dropTable;
+	_oTbl;
+	_iY = 200;
+	hasPopped = false;
+	parItem = element;
+	reTry = 0;
+	
+	addRowCollection(element.document.parentWindow.pastCustIDs);
+}
+
+
+/* DROP DOWN WINDOW */
+	function loadDropDown()
+	{
+		setDebugMsg("START loadDropDown");
+		
+		if (bClickable == true && dropTable != window.undefined)
+		{
+			if (!hasPopped)
+			{
+				setDebugMsg("NOT hasPopped");
+				
+				hasPopped = true;
+				_oPop = element.document.parentWindow.createPopup();
+				
+				if (dropTable.rows.length <= 6) _iY = (dropTable.rows.length * 17) + 2;
+			
+				_oPop.document.body.innerHTML = "<span style='width:100%; height:" + _iY + "px; border:1px solid #000000; overflow-y:auto; overflow-x:hidden;'>" + dropTable.outerHTML + "</span>";
+				
+			}
+			_oPop.show(0, 22, inputTable.clientWidth - 2, _iY, inputTable);
+			_oTbl = _oPop.document.body.firstChild.firstChild;
+			
+			_oTbl.detachEvent('onclick', onClick);
+			_oTbl.detachEvent('onmouseover', onMouseOver);
+			_oTbl.detachEvent('onmouseout', onMouseOut);
+				
+			_oTbl.style.display = "inline";
+			_oTbl.attachEvent('onclick', onClick);
+			_oTbl.attachEvent('onmouseover', onMouseOver);
+			_oTbl.attachEvent('onmouseout', onMouseOut);
+			
+			for (i=0; i < _oTbl.rows.length; i++)
+			{
+				if (_oTbl.rows[i].isSel == "1")
+				{
+					inputTable.rows[0].cells[0].children[0].value = _oTbl.rows[i].cells[1].innerText;
+					setRow(_oTbl.rows[i]);
+					break;
+				}
+			}
+		}
+		else
+		{
+			if (reTry < 10)
+			{
+				reTry++;
+				loadDropDown();
+			}
+		}
+		
+		setDebugMsg("END loadDropDown");
+	}
+
+	function cancelIt()
+	{
+		setDebugMsg("START cancelIt");
+		
+		_oPop.hide();
+		
+		setDebugMsg("END cancelIt");
+	}
+
+
+/* DROP DOWN TABLE CLICK */
+	function onClick()
+	{	
+		setDebugMsg("START onClick");
+		
+		srcElem = _oPop.document.parentWindow.event.srcElement;
+		
+		_oPop.document.parentWindow.event.cancelBubble = true;
+		
+		if(srcElem.tagName == "INPUT" || srcElem.noClick == "yes")
+		{
+			return;
+		}
+
+		//crawl up the tree to find the table row
+		while (srcElem.tagName != "TR" && srcElem.tagName != "TABLE")
+		{
+			srcElem = srcElem.parentElement;
+		}
+
+		if(srcElem.tagName != "TR")
+		{
+			return;
+		}
+		
+		if (doonclick == "yes")
+		{
+			eval("element.document.parentWindow." + srcElem.clickAction);
+		}
+
+		if(srcElem.rowIndex == 0 || srcElem.noHL == "1")
+		{
+			inputTable.rows[0].cells[0].children[0].value = defaulttext;
+			if (selRow != window.undefined && selRow != "-1")
+			{
+				selRow.runtimeStyle.backgroundColor = '';
+				selRow.isHL = "0";
+			}
+			cancelIt();
+			return;
+		}
+		
+		setRow(srcElem);
+		
+		inputTable.rows[0].cells[0].children[0].value = srcElem.cells[1].innerText;
+
+		cancelIt();
+		
+		setDebugMsg("END onClick");
+	}
+
+
+/* DROP DOWN TABLE MOUSE GESTURES */
+	function onMouseOver()
+	{
+		setDebugMsg("START onMouseOver");
+				
+		srcElem = _oPop.document.parentWindow.event.srcElement;
+		
+		if(srcElem.tagName == "INPUT" || srcElem.noClick == "yes")
+		{
+			return;
+		}
+		
+		//crawl up to find the row
+		while (srcElem.tagName != "TR" && srcElem.tagName != "TABLE")
+			srcElem = srcElem.parentElement;
+
+		if(srcElem.tagName != "TR") return;
+
+		if (srcElem.rowIndex > 0)
+		{
+			hilite(srcElem);
+		}
+		else
+		{
+			hilite(-1);
+		}
+		
+		setDebugMsg("END onMouseOver");
+	}
+
+	function onMouseOut()
+	{
+		setDebugMsg("START onMouseOut");
+		
+		hilite(-1, -1);
+		
+		setDebugMsg("END onMouseOut");
+	}
+
+	function hilite(newRow)
+	{
+		setDebugMsg("START hilite");
+		
+		if (hlcolor != null && newRow.noHL != "1")
+		{
+			if (currRow != -1 && currRow != selRow)
+			{
+				if (currRow.id != "SelectedRow")
+				{
+					currRow.runtimeStyle.backgroundColor = '';
+					currRow.isHL = "0";
+				}
+			}
+
+			if (newRow != -1 && newRow != selRow)
+			{
+				if (newRow.id != "SelectedRow")
+				{
+					newRow.runtimeStyle.backgroundColor = hlcolor;
+					newRow.isHL = "1";
+				}
+				else
+				{
+					newRow.runtimeStyle.backgroundColor = slcolor;
+					newRow.isHL = "1";
+				}
+			}
+		}
+		currRow = newRow;
+		
+		setDebugMsg("END hilite");
+	}
+
+
+/* DROP DOWN TABLE KEY EVENTS */
+	var curItem;
+	
+	function onKeyUp(keyCode)
+	{		
+		var KEY_UP = 38;
+		var KEY_DOWN = 40;
+		var KEY_ENTER = 13;
+		var KEY_DLE = 16;
+		var KEY_TAB = 9;
+		
+		var curKeyCode = keyCode; //_oPop.document.parentWindow.event.keyCode;
+		
+		if (_oPop.isOpen)
+		{
+			var newChar;
+			newChar = String.fromCharCode(curKeyCode);
+
+			var custTable = _oTbl.rows;
+
+			for (i=0; i < custTable.length; i++)
+			{
+				if (custTable(i).noHL == "1")
+				{
+					//ignore
+				}
+				else if (custTable(i).sortval.indexOf(newChar) >= 0)
+				{
+					custTable(i).scrollIntoView();
+					custTable(i).fireEvent("onMouseOver");
+					curItem = custTable(i);
+					i = custTable.length;
+				}
+				else if (curKeyCode == KEY_DOWN)
+				{
+					_oTbl.rows(curItem.rowIndex + 1).scrollIntoView();
+					_oTbl.rows(curItem.rowIndex + 1).fireEvent("onMouseOver");
+					i = custTable.length;
+					curItem = _oTbl.rows(curItem.rowIndex + 1);
+				}
+				else if (curKeyCode == KEY_UP)
+				{
+					_oTbl.rows(curItem.rowIndex - 1).scrollIntoView();
+					_oTbl.rows(curItem.rowIndex - 1).fireEvent("onMouseOver");
+					i = custTable.length;
+					curItem = _oTbl.rows(curItem.rowIndex - 1);
+				}
+				else if (curKeyCode == KEY_ENTER)
+				{
+					curItem.scrollIntoView();
+					curItem.fireEvent("onClick");
+					i = custTable.length;
+					//setRow(curItem);
+				}
+			}
+		}
+	}
+
+
+/* METHODS */
+	function setcanclick()
+	{
+		canclick = "yes";
+		bClickable = true;
+	}
+
+	function setRow(oRow)
+	{
+		if (selRow != -1)
+		{
+			selRow.runtimeStyle.backgroundColor = '';
+			selRow.isSel = "0";
+		}
+
+		oRow.runtimeStyle.backgroundColor = slcolor;
+		selRow = oRow;
+		selRow.isSel = "1";
+		curItem = selRow;
+	}
+	
+	function setDataTable(newTable, pastCustIDs)
+	{
+		//alert("setDataTable");
+		//hasPopped = false;
+		dropTable = newTable;
+		
+		if (dropTable != window.undefined)
+		{
+			for (i=0; i < dropTable.rows.length; i++)
+			{
+				if (dropTable.rows[i].isHL == "1")
+				{
+					setdefaulttext(dropTable.rows[i].cells[1].innerText);
+					break;
+				}
+			}
+		}
+		
+		setcanclick();
+		
+		addRowCollection(pastCustIDs);
+	}
+	
+	function setdefaulttext(sText)
+	{
+		inputTable.rows[0].cells[0].children[0].value = sText;
+	}
+	
+	function setDebugMsg(message)
+	{
+		if (showDebug == true)
+		{
+			alert(message);
+		}
+	}
+
+
+/* RECENT DATA FUNCTIONS */
+	
+	//ERROR CHECKING
+		var createMessage = "";
+		var showMsg;
+		showMsg = false;
+
+		function logMessage(msg)
+		{
+			createMessage += msg + "\n";
+		}
+	
+	//ADD RECENT ROW
+		function addRecentRow(itemID, itemName, cookieVals)
+		{
+			if (setrecent == "yes")
+			{
+				//Function adds new Rows to the Recent Selections section
+				//------------------------------------------------------------------------
+				
+				var oRow, oCell;
+				
+				canclick = "no";
+				bClickable = false;
+				
+				//Variable for finding dupes in the cookie
+					var foundRow;
+					foundRow = false;
+
+				//Variable for the loop
+					var i;
+					i = 1;
+					var y;
+					y = 0;
+					var x;
+					x = 0;
+
+				//Error Checking
+					logMessage("cookie: " + cookieVals);
+
+				//If the cookie has no records yet,
+				//then a new heading needs to be added into the drop down list
+					if (cookieVals == "0")
+					{
+						//Error Checking
+							logMessage("First Row: ");
+
+						//Create Header Row
+							oRow = dropTable.insertRow(0);
+							oRow.noHL = "1";
+							oCell = oRow.insertCell();
+							oCell.innerHTML = "<b>Recent Selections</b>";
+							oRow.sortval = "0";
+							oRow.id = "0";
+							oRow.name = "";
+							oCell.colSpan = "2";
+							oCell.style.borderBottom = "1px solid #3C3C3C";
+							oRow.clickAction = "loadCust('', '');";
+					}
+
+				//Loop through the rows of the recent customers to find a match
+					while (i <= 5)
+					{						
+						//If the id of the row = the itemID to be added, it's already there
+						//so don't add a new row
+							if (_oTbl != null && _oTbl.rows[i] != window.undefined)
+							{
+								if (_oTbl.rows[i].id == itemID)
+								{
+									//Error Checking
+										logMessage("matched row: " + itemID);
+
+									//Set the variable to false
+										foundRow = true;
+										_oTbl.rows[0].scrollIntoView();
+										setRow(_oTbl.rows[i]);
+								}
+								else
+								{
+									//No match is found
+									
+									if (_oTbl.rows[i].id == "0" && i != 1)
+									{
+										break;
+									}
+
+									//Error Checking
+										logMessage("no match for row: " + itemID);
+
+								}
+							}
+						
+						i++;
+					}
+
+				//No rows were found for the item,
+				//so it needs to be added to the list
+					if (foundRow == false)
+					{
+						//Call function to insert new row
+							insertOption(_oTbl, itemID, itemName, true);
+
+						//Check for additional rows that are beyond the 5 that should be shown
+							if (cookieVals == "0")
+							{
+								//There are no records in the cookie, so never mind
+							}
+							else
+							{
+								//Start with the 6th row and clear them out
+									for (y=1; y < 7; y++)
+									{
+										if (_oTbl.rows[y] != window.undefined)
+										{
+											if (_oTbl.rows[y].id == "0")
+											{
+												y = 8;
+												break;
+											}
+											else
+											{
+												if ((y == 6) && (_oTbl.rows[y].id != "0"))
+												{
+													_oTbl.deleteRow(6);
+												}
+											}
+										}
+									}
+							}
+
+					}
+
+				//Error Checking
+					if (showMsg == true)
+					{
+						alert(createMessage);
+						createMessage = "";
+					}
+				
+				canclick = "yes";
+				bClickable = true;
+				
+			}
+		}
+	
+	//ADD RECENT ROW GROUPS
+		function addRowCollection(cookieVals)
+		{
+			if (cookieVals == null) return;
+			
+			element.document.parentWindow.status = dropTable.rows.length;
+			
+			if (setrecent == "yes")
+			{
+				//alert("addRowCollection");
+				//Function is called on Page Load
+				//It adds new Rows to the Recent Selections section
+				//of the Customer Drop Down List
+				//from a cookie stored on the users computer
+				//------------------------------------------------------------------------
+					
+				//Arrays to hold Item IDs
+					var arrCookies;
+					var arrCreatedIds = new Array();
+
+				//Set PastIDs to hold cookie data
+					arrCookies = cookieVals.split(",");
+
+				//Variables for loops
+					var i, x, y;
+					i = 5;
+					x = 0;
+					y = 0;
+
+				//Variable for array of item info
+					var splitItem;
+
+				//Variables to create new cells in the drop down list
+					var isBound;
+					var createRow, oRow, oCell;
+				
+				if (cookieVals != "0" && dropTable != window.undefined)
+				{
+					//Loop through the past IDs of items in the cookie (arrCookies)
+					//to create the Recent section of the drop down list
+						for (i=0; i < arrCookies.length - 1; i++)
+						{
+							//Error Checking
+								logMessage("-------------------" + i);
+								logMessage("*** LOOP: " + i + "***");
+
+							//Check that there is a valid customer in the cookie (arrCookies)
+							//and that we aren't past the maximum of showing 5 recent customers
+								if (arrCookies[i] != "0" && x <= 4)
+								{
+									//Error Checking
+										logMessage("Not 0 & < 5: ");
+
+									//i = 0
+									//First time through the loop, so create header for the static Internal list
+									//and insert first recent customer row
+										if (i == 0)
+										{
+											//Error Checking
+												logMessage("First Row: ");
+
+											//Create Header Row
+												oRow = dropTable.insertRow(0);
+												oRow.noHL = "1";
+												oCell = oRow.insertCell();
+												oCell.innerHTML = "<b>Recent Selections</b>";
+												oRow.val = "0";
+												oRow.sortval = "0";
+												oRow.id = "0";
+												oRow.name = "";
+												oCell.colSpan = "2";
+												oCell.style.borderBottom = "1px solid #3C3C3C";
+												oRow.clickAction = "loadCust('', '');";
+																					
+											//Set Array for values from the cookie
+											//0 = item_id
+											//1 = item_name
+												splitItem = arrCookies[i].split("xxx");
+
+											//Call function to insert new row
+												insertOption(dropTable, splitItem[0], splitItem[1], false);
+
+											//Add the item to the array of created items
+											//arrCreatedIds is used to check that duplicates aren't added to the list
+												arrCreatedIds[i] = arrCookies[i];
+
+											//Error Checking
+												logMessage("New Row: " + x + " created: " + arrCreatedIds[i]);
+												logMessage("Based On: " + arrCookies[i]);
+
+											//x = number of items added to the recent list
+											//the maximum will be 5
+												x = 1;
+										}
+										else if (i <= arrCookies.length - 1)
+										{
+											//i < total number of items in the cookie (arrCookies)
+											//There are still items in the cookie to potentially add to the list
+
+											//Set Array for values from the cookie
+											//0 = item_id
+											//1 = item_name
+												splitItem = arrCookies[i].split("xxx");
+												
+											//Loop through the created rows (arrCreatedIds) to find duplicates in the cookie (arrCookies)
+												for (y = 0; y <= arrCreatedIds.length - 1; y++)
+												{
+													//Error Checking
+														logMessage("Compare created: " + arrCreatedIds[y] + " with this loop: " + arrCookies[i]);
+
+													//Check if the this already created item exists in the cookie again
+														if (arrCreatedIds[y] == arrCookies[i])
+														{
+															//Error Checking
+																logMessage("Match: " + arrCreatedIds[y] + " = " + arrCookies[i]);
+
+															//It's a match, so it already exists, don't create another row
+															//In fact, get out of the loop since this cookie is a duplicate,
+															//there's no need to check it against the rest of the already created items
+																createRow = false;
+																break;
+														}
+														else
+														{
+															//Error Checkin
+																logMessage("No Match ");
+
+															//It's not a match,
+															//so create this cookie item since it hasn't been created yet
+																createRow = true;
+														}
+												}
+
+											//createRow = True
+											//Because the item in the cookie hasn't been added to the drop down list yet
+												if (createRow == true)
+												{
+													//Call function to insert new row
+														insertOption(dropTable, splitItem[0], splitItem[1], false);
+
+													//x = number of items added to the recent list
+													//the maximum will be 5
+													//Increment by one
+														x++;
+
+													//Add the item to the array of created items
+													//arrCreatedIds is used to check that duplicates aren't added to the list
+														arrCreatedIds[i] = arrCookies[i];
+
+													//Error Checking
+														logMessage("New Row: " + x + " created: " + arrCreatedIds[i]);
+														logMessage("Based On: " + arrCookies[i]);
+												}
+										}
+								}
+								logMessage("-------------------" + i);
+						}
+				}
+
+				//Error Checking
+					if (showMsg == true)
+					{
+						alert(createMessage);
+						createMessage = "";
+					}
+			}
+			
+			element.document.parentWindow.status = "";
+		}
+	
+	//GLOBAL INSERT ROW FUNCTION
+		function insertOption(dataTable, item_id, item_name, isNew)
+		{
+			//Function creates new rows in the drop down list
+			//Requires item_id and item_name
+			//------------------------------------------------------------------------
+			var oRow, oCell;
+			
+			oRow = dataTable.insertRow(1);
+			oRow.noHL = "0";
+			oCell = oRow.insertCell();
+			oCell = oRow.insertCell();
+			oCell.innerHTML = item_name + " (" + item_id + ")";
+			oRow.sortval = "0";
+			oRow.id = item_id;
+			oRow.name = item_name;
+			oRow.clickAction = "loadCust('" + item_id + "', '" + item_name + "');";
+			oRow.isHL = "0";
+			
+			if (isNew == true)
+			{
+				dataTable.rows[0].scrollIntoView();
+				setRow(oRow);
+			}
+		}
+
+
+/* CLEAN UP */
+	function cleanup()
+	{
+		if (dropTable != window.undefined)
+		{
+			dropTable.detachEvent('onclick', onClick);
+			dropTable.detachEvent('onclick', onClick);
+			dropTable.detachEvent('onclick', onClick);
+		}
+	}
+
+</script>

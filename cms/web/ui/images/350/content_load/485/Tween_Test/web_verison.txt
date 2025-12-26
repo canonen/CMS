@@ -1,0 +1,44 @@
+Merhaba,
+
+Bu maili göremiyorsanýz týklayýnýz.
+
+Harf: Ü UTF-8 Kodu:  Ã&#339;
+Harf: Þ UTF-8 Kodu: Å&#376;
+Harf: Ð UTF-8 Kodu: Ä&#376;
+Harf: Ç UTF-8 Kodu: Ã&#8225;
+Harf: Ý  UTF-8 Kodu: Ä°
+Harf: Ö UTF-8 Kodu: Ã&#8211;
+Harf: ü UTF-8 Kodu: Ã¼
+Harf: þ UTF-8 Kodu: Å&#376;
+Harf: ð UTF-8 Kodu: Ä&#376;
+Harf: ç UTF-8 Kodu: Ã§
+Harf: ý  UTF-8 Kodu: Ä±
+Harf: ö UTF-8 Kodu: Ã¶
+
+Numerik Karþýlýk
+
+Harf: Ý Numerik Kodu: &#304;
+Harf: ý Numerik Kodu: &#305;
+Harf: Ö Numerik Kodu: &#214;
+Harf: ö Numerik Kodu: &#246;
+Harf: Ü Numerik Kodu: &#220;
+Harf: ü Numerik Kodu: &#252;
+Harf: Ç Numerik Kodu: &#199;
+Harf: ç Numerik Kodu: &#231;
+Harf: Ð Numerik Kodu: &#286;
+Harf: ð Numerik Kodu: &#287;
+Harf: Þ Numerik Kodu: &#350;
+Harf: þ Numerik Kodu: &#351;
+
+Harf: Ü UTF-8 Kodu: Ãœ
+Harf: Þ UTF-8 Kodu: Åž
+Harf: Ð UTF-8 Kodu: Äž
+Harf: Ç UTF-8 Kodu: Ã‡
+Harf: Ý  UTF-8 Kodu: Ä°
+Harf: Ö UTF-8 Kodu: Ã–
+Harf: ü UTF-8 Kodu: Ã¼
+Harf: þ UTF-8 Kodu: ÅŸ
+Harf: ð UTF-8 Kodu: ÄŸ
+Harf: ç UTF-8 Kodu: Ã§
+Harf: ý  UTF-8 Kodu: Ä±
+Harf: ö UTF-8 Kodu: Ã¶

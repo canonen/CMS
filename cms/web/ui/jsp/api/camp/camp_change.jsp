@@ -1,0 +1,108 @@
+<%@ page
+	language="java"
+	import="com.britemoon.*,
+			com.britemoon.cps.*,
+			com.britemoon.cps.que.*,
+			com.britemoon.cps.cnt.*,
+			java.io.*,java.util.*,
+			java.sql.*,java.net.*,
+			java.text.*,org.apache.log4j.*"
+	contentType="text/html;charset=UTF-8"
+%>
+<%! static Logger logger = null;%>
+<%@ include file="../header.jsp"%>
+<%@ include file="../validator.jsp"%>
+<%@ page import="com.restfb.json.JsonObject" %>
+<%@ page import="com.restfb.json.JsonArray" %>
+
+<%
+if(logger == null)
+{
+	logger = Logger.getLogger(this.getClass().getName());
+}
+AccessPermission can = user.getAccessPermission(ObjectType.CAMPAIGN);
+
+AccessPermission canCat = user.getAccessPermission(ObjectType.CATEGORY);
+boolean canStep2 = ui.getFeatureAccess(Feature.CAMP_STEP_2);
+boolean isHyatt = ui.getFeatureAccess(Feature.HYATT);
+
+String sSelectedCategoryId = request.getParameter("category_id");
+if ((sSelectedCategoryId == null) && ((user.s_cust_id).equals(cust.s_cust_id)))
+	sSelectedCategoryId = ui.s_category_id;
+
+// === === ===
+
+String sCampId = request.getParameter("camp_id");
+if(sCampId == null) 
+		throw new Exception("Campaign id = " + sCampId + "does not exist");
+		
+Campaign camp = new Campaign();
+camp.s_camp_id = sCampId;
+if(camp.retrieve() < 1)
+	throw new Exception("Campaign id = " + sCampId + "does not exist");
+if(!cust.s_cust_id.equals(camp.s_cust_id))
+	throw new Exception("Campaign id = " + sCampId + "does not belong to customer id = " + cust.s_cust_id);
+	
+camp.s_camp_id = camp.s_origin_camp_id;
+if(camp.retrieve() < 1)
+	throw new Exception("Campaign id = " + sCampId + "does not exist");
+if(!cust.s_cust_id.equals(camp.s_cust_id))
+	throw new Exception("Campaign id = " + sCampId + "does not belong to customer id = " + cust.s_cust_id);
+
+// === === ===
+
+CampSendParam 	camp_send_param = new CampSendParam(camp.s_camp_id);
+Schedule 	schedule = new Schedule(camp.s_camp_id);
+MsgHeader 	msg_header = new MsgHeader(camp.s_camp_id);
+
+// === SET DEFAULTS ===
+
+if(camp.s_camp_name == null) camp.s_camp_name = "New campaign";
+if(camp.s_status_id == null) camp.s_status_id = String.valueOf(CampaignStatus.DRAFT);
+
+if(camp_send_param.s_recip_qty_limit == null)			camp_send_param.s_recip_qty_limit			= "0";
+if(camp_send_param.s_randomly == null)					camp_send_param.s_randomly					= "0";
+if(camp_send_param.s_delay == null)						camp_send_param.s_delay						= "0";
+if(camp_send_param.s_limit_per_hour == null)			camp_send_param.s_limit_per_hour			= "0";
+if(camp_send_param.s_msg_per_email821_limit == null)	camp_send_param.s_msg_per_email821_limit	= "0";
+if(camp_send_param.s_msg_per_recip_limit != null )		camp_send_param.s_msg_per_recip_limit 		= "1";
+if(camp_send_param.s_queue_daily_weekday_mask == null )	camp_send_param.s_queue_daily_weekday_mask	= "127";
+
+// === SET MEDIA TYPE DEFAULTS ===
+
+boolean isPrintCampaign = false;
+if (camp.s_media_type_id != null && camp.s_media_type_id.equals("2")) {
+	isPrintCampaign = true;
+}
+JsonObject myObj = new JsonObject();
+JsonArray myArr = new JsonArray();
+
+myObj.put("status","success");
+myArr.put(myObj);
+
+out.print(myArr);
+// === === ===
+
+ConnectionPool	cp		= null;
+Connection		conn	= null;
+Statement		stmt	= null;
+ResultSet		rs		= null; 
+
+try
+{
+	cp = ConnectionPool.getInstance();
+	conn = cp.getConnection(this);
+	stmt = conn.createStatement();
+
+	String sSql = null;	
+}
+catch(Exception ex) { throw ex; }
+finally
+{
+	if (stmt != null) stmt.close();
+	if (conn != null) cp.free(conn); 
+}
+%>
+
+<%@ include file="camp_change/functions.jsp"%>
+<%@ include file="camp_change/calendar.jsp"%>

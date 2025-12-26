@@ -1,0 +1,10 @@
+<!-- Deploy by:                                              -->
+<!--   java org.apache.axis.client.AdminClient CTIOrder.wsdd -->
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" 
+            xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+  <service name="CTIOrder" provider="java:RPC">
+    <parameter name="className" value="com.britemoon.cps.xcs.cti.CTIOrder" />
+    <parameter name="allowedMethods" value="submitCampaign"/>
+  </service>
+</deployment>

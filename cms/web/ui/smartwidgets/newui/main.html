@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="./dist/css/select2.min.css">
+    <link rel="stylesheet" href="./dist/css/all.min.css">
+    <link rel="stylesheet" href="./dist/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" href="./style.css">
+    
+    
+
+
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+ 
+ 
+  
+  <style>
+      
+      input[type="radio"] {
+          display: none;
+      }
+ 
+    input[type="radio"]:checked + .bbox {
+      color:#fff;
+      background-color: #59C8E6 ;
+    }
+    
+   .btn-app2{ 
+   		border-radius: 3px;
+	    padding: 15px 5px;
+	    width: 80%;
+	  
+	    text-align: center;
+	    color: #666;
+	    border: 1px solid #ddd;
+	    background-color: #f4f4f4;
+	    font-size: 16px;
+    }
+    .btn-app2 > .fas, .btn-app2 > .fab, .btn-app2 > .glyphicon, .btn-app2 > .ion {
+	    font-size: 30px;
+	    line-height: 30px;
+	    display: block;
+	}
+	.bg{background-color:#007e90;}
+	.blabel{width: 100%;}
+	
+  </style>
+  
+</head>
+<body>
+   
+   <div class="col-md-12">
+            <div class="card">
+             <!--HEADER-->
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active campaign_type" href="#campaign_type" data-toggle="tab">Campaign Type</a></li>
+                  <li class="nav-item"><a class="nav-link campaign_trigger" href="#campaign_trigger" data-toggle="tab">Trigger</a></li>
+                  <li class="nav-item"><a class="nav-link campaign_content" href="#campaign_content" data-toggle="tab">Content</a></li>
+                  <li class="nav-item"><a class="nav-link campaign_design" href="#campaign_design" data-toggle="tab">Design</a></li>
+                  <li class="nav-item"><a class="nav-link campaign_position" href="#campaign_position" data-toggle="tab">Position</a></li>
+                  <li class="nav-item"><a class="nav-link campaign_target_audience" href="#campaign_target_audience" data-toggle="tab">Target Audience</a></li>
+                </ul>
+              </div>
+              <!--HEADER-END-->
+              <!--BODY-->
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="campaign_type">
+                    
+         <div class="row">
+                     <div class="col-md-2 col-xs-2"> 
+                            <label for="sticky" class="blabel"> 
+                                <input onclick="selectType(this)" type="radio" name="type" id="sticky" value="sticky" checked>  
+                                <a class="btn btn-app2 bbox "><i class="fas fa-sticky-note"></i>Sticky</a>
+                           </label>
+
+                     </div>
+                     <div class="col-md-2 col-xs-2"> 
+                            <label for="sliding" class="blabel"> 
+                                <input onclick="selectType(this)" type="radio" name="type" id="sliding" value="sliding">  
+                                <a class="btn btn-app2 bbox "><i class="fas fa-arrows-alt-h"></i>Sliding</a>
+                           </label>
+
+                     </div>
+                     <div class="col-md-2 col-xs-2"> 
+                            <label for="fading" class="blabel"> 
+                                <input onclick="selectType(this)" type="radio" name="type" id="fading" value="fading">  
+                                <a class="btn btn-app2 bbox "><i class="fab fa-safari"></i>Fading</a>
+                           </label>
+
+                     </div>
+                     <div class="col-md-2 col-xs-2"> 
+                            <label for="drawer" class="blabel"> 
+                                <input onclick="selectType(this)" type="radio" name="type" id="drawer" value="drawer">  
+                                <a class="btn btn-app2 bbox "><i class="fas fa-caret-square-left"></i>Drawer</a>
+                           </label>
+
+                     </div>
+                     <div class="col-md-2 col-xs-2"> 
+                            <label for="script" class="blabel"> 
+                                <input onclick="selectType(this)" type="radio" name="type" id="script" value="script">  
+                                <a class="btn btn-app2 bbox "><i class="fas fa-scroll"></i>Script</a>
+                           </label>
+
+                     </div>
+	   </div>       
+
+                    
+                    
+                  </div>
+                  <div class="tab-pane" id="campaign_trigger"> 
+                   <div class="row">
+                     <div class="col-md-2 col-xs-2"> 
+                            <label for="afterLoad" class="blabel"> 
+                                <input onclick="selectTrigger(this)" type="radio" name="trigger" id="afterLoad" value="afterLoad" checked>  
+                                <a class="btn btn-app2 bbox "><i class="fas fa-spinner"></i>On Load</a>
+                           </label>
+
+                     </div>
+                     <div class="col-md-2 col-xs-2"> 
+                            <label for="scroll" class="blabel"> 
+                                <input onclick="selectTrigger(this)" type="radio" name="trigger" id="scroll" value="scroll">  
+                                <a class="btn btn-app2 bbox "><i class="fas fa-long-arrow-alt-down"></i>On Scroll</a>
+                           </label>
+
+                     </div>
+                     <div class="col-md-2 col-xs-2"> 
+                            <label for="mouseLeave" class="blabel"> 
+                                <input onclick="selectTrigger(this)" type="radio" name="trigger" id="mouseLeave" value="mouseLeave">  
+                                <a class="btn btn-app2 bbox "><i class="fas fa-sign-out-alt"></i>On Exit Intent</a>
+                           </label>
+
+                     </div>
+	   </div>  
+                    
+                    <div class="form-group row delay">
+                        <label for="delay" class="col-md-2 col-form-label">On Load Delay</label>
+                        <div class="col-md-6">
+                          <input class="widget_slider" name="delay" style="width:100%;" id="delay" data-slider-id='ex1Slider' type="text" data-slider-orientation="horizontal" data-slider-min="0" data-slider-max="120000" data-slider-step="500" data-slider-value="500"/>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row scrollPercentage" style="display:none;">
+                        <label for="scrollPercentage" class="col-md-2 col-form-label">On Scroll Percentage</label>
+                        <div class="col-md-6">
+                          <input class="widget_slider" name="scrollPercentage" style="width:100%;" id="scrollPercentage" data-slider-id='ex2Slider' type="text" data-slider-orientation="horizontal" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="campaign_content">
+                    <div class="row">
+                     <div class="col-md-2 col-xs-2"> 
+                            <label for="iframeType" class="blabel"> 
+                                <input onclick="selectContentType(this)" type="radio" name="contentType" id="iframeType" value="iframeType" checked>  
+                                <a class="btn btn-app2 bbox "><i class="fas fa-window-maximize"></i>Iframe</a>
+                           </label>
+
+                     </div>
+                     <div class="col-md-2 col-xs-2"> 
+                            <label for="htmlCode" class="blabel"> 
+                                <input onclick="selectContentType(this)" type="radio" name="contentType" id="htmlCode" value="htmlCode">  
+                                <a class="btn btn-app2 bbox "><i class="fas fa-code"></i>HTML</a>
+                           </label>
+
+                     </div>
+	   </div> 
+                   <div class="form-group row">
+                        <label for="iframeLink" class="col-md-2 col-form-label">Iframe Link</label>
+                        <div class="col-md-4">
+                          <input type="text" class="form-control" name="iframeLink" id="iframeLink" placeholder="http:....">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row">
+                        <label for="iframeClassName" class="col-md-2 col-form-label">Iframe Class</label>
+                        <div class="col-md-4">
+                          <input type="text" class="form-control" name="iframeClassName" id="iframeClassName" placeholder="optional">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row">
+                        <label for="cssLinks" class="col-md-2 col-form-label">Css Links</label>
+                        <div class="col-md-4">
+                          <input type="text" class="form-control" name="cssLinks" id="cssLinks" placeholder="optional">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group col-md-12" style="display:none;">
+                            <label for="html">Html Code</label>
+                            <textarea name="html" id="html" class="form-control" rows="4"></textarea>
+                      </div>
+                      
+                      <div class="form-group col-md-12 scriptCode">
+                            <label for="scriptCode">Script Code</label>
+                            <textarea name="scriptCode" id="scriptCode" class="form-control" rows="4"></textarea>
+                      </div>
+                      
+                      
+                    </div>
+                    <div class="tab-pane" id="campaign_design"> 
+                        
+                        
+                        
+                        <div class="form-group row">
+                        <label for="height" class="col-md-2 col-form-label">Height</label>
+                        <div class="col-md-10">
+                          <input class="widget_slider" name="height" style="width:100%;" id="height" data-slider-id='ex3Slider' type="text" data-slider-orientation="horizontal" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-value="0"/>
+                        </div>
+                      </div>
+                       
+                       <div class="form-group row">
+                        <label for="width" class="col-md-2 col-form-label">Width</label>
+                        <div class="col-md-10">
+                          <input class="widget_slider" name="width" style="width:100%;" id="width" data-slider-id='ex4Slider' type="text" data-slider-orientation="horizontal" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-value="0"/>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row">
+                        <label for="previewSize" class="col-md-2 col-form-label">Preview Size</label>
+                        <div class="col-md-10">
+                          <input class="widget_slider" name="previewSize" style="width:100%;" id="previewSize" data-slider-id='ex15Slider' type="text" data-slider-orientation="horizontal" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-value="0"/>
+                        </div>
+                      </div>
+                       
+                       <div class="form-group row">
+                        <label for="showDuration" class="col-md-2 col-form-label">Show Duration</label>
+                        <div class="col-md-6">
+                          <input class="widget_slider" name="showDuration" style="width:100%;" id="showDuration" data-slider-id='ex5Slider' type="text" data-slider-orientation="horizontal" data-slider-min="0" data-slider-max="120000" data-slider-step="500" data-slider-value="1000"/>
+                        </div>
+                      </div>
+                       
+                       <div class="form-group row">
+                        <label for="closeDuration" class="col-md-2 col-form-label">Close Duration</label>
+                        <div class="col-md-6">
+                          <input class="widget_slider" name="closeDuration" style="width:100%;" id="closeDuration" data-slider-id='ex6Slider' type="text" data-slider-orientation="horizontal" data-slider-min="0" data-slider-max="120000" data-slider-step="500" data-slider-value="1000"/>
+                        </div>
+                      </div>
+                       
+                       <div class="form-group row">
+                        <label for="autoCloseDelay" class="col-md-2 col-form-label">Auto Close Duration</label>
+                        <div class="col-md-6">
+                          <input class="widget_slider" name="autoCloseDelay" style="width:100%;" id="autoCloseDelay" data-slider-id='ex7Slider' type="text" data-slider-orientation="horizontal" data-slider-min="0" data-slider-max="120000" data-slider-step="500" data-slider-value="0"/>
+                        </div>
+                      </div>
+                       
+                       <div class="form-group row">
+                        <div class="col-md-6">
+                          <label for="background-color">Background Color</label>
+                            <div id="background-color"></div>
+                        </div>
+                      </div>
+                       
+                       <div class="form-group row overlayColor">
+                        <div class="col-md-6">
+                         <div class="custom-control custom-switch">
+                      <input type="checkbox" class="custom-control-input" id="overlayColorEnabled">
+                      <label class="custom-control-label" for="overlayColorEnabled">Overlay Color</label>
+                    </div>
+                            <div id="overlay-color"></div>
+                        </div>
+                      </div>
+                        
+                        
+                    </div>
+                    <div class="tab-pane" id="campaign_position">
+                    <div class="form-group col-md-6 row">
+                          <label>Start Position</label>
+                          <select id="startPosition" name="startPosition" class="form-control select2" style="width: 100%;">
+                                <option value="top right">top right</option>
+                                <option value="top center">top center</option>
+                                <option value="top left">top left</option>
+                                <option value="left top">left top</option>
+                                <option value="left center">left center</option>
+                                <option value="left bottom">left bottom</option>
+                                <option value="bottom left">bottom left</option>
+                                <option value="bottom center">bottom center</option>
+                                <option value="bottom right">bottom right</option>
+                                <option value="right bottom">right bottom</option>
+                                <option value="right center" selected>right center</option>
+                                <option value="right top">right top</option>
+                          </select>
+                        </div>
+                        
+                        <div class="form-group col-md-6 row">
+                          <label>Starting State</label>
+                          <select id="drawerStartState" name="drawerStartState" class="form-control select2" style="width: 100%;">
+                                <option value="closed" selected>Closed</option>
+                                <option value="opened">Opened</option>
+                          </select>
+                        </div>
+                    <div class="form-group col-md-6 row">
+                          <label>End Position</label>
+                          <select id="endPosition" name="endPosition" class="form-control select2" style="width: 100%;">
+                                <option value="start" selected>start</option>
+                                <option value="center">center</option>
+                                <option value="end">end</option>
+                          </select>
+                        </div>
+                    <div class="form-group col-md-6 row">
+                          <label>Position</label>
+                          <select id="position" name="position" class="form-control select2" style="width: 100%;">
+                                <option value="top left">top left</option>
+                                <option value="top center">top center</option>
+                                <option value="top right">top right</option>
+                                <option value="left center">left center</option>
+                                <option value="center" selected>center</option>
+                                <option value="right center">right center</option>
+                                <option value="bottom left">bottom left</option>
+                                <option value="bottom center">bottom center</option>
+                                <option value="bottom right">bottom right</option>
+                          </select>
+                        </div>
+                    <div class="form-group col-md-6 row">
+                          <label>Vertical Align</label>
+                          <select id="vAlign" name="vAlign" class="form-control select2" style="width: 100%;">
+                              <option value="top">Top</option>
+                              <option value="center" selected>Center</option>
+                              <option value="bottom">Bottom</option>
+                          </select>
+                        </div>
+                    <div class="form-group col-md-6 row">
+                          <label>Horizontal Align</label>
+                          <select id="hAlign" name="hAlign" class="form-control select2" style="width: 100%;">
+                              <option value="left">Left</option>
+                              <option value="center" selected>Center</option>
+                              <option value="right">Right</option>
+                          </select>
+                        </div>
+                        
+                        <div class="form-group col-md-6 row">
+                          <label>Overlay Click</label>
+                          <select id="overlayClick" name="overlayClick" class="form-control select2" style="width: 100%;">
+                              <option value="donotclose" selected>Do not close</option>
+                              <option value="close">Close</option>
+                          </select>
+                        </div>
+                        
+                        <div class="form-group col-md-6 row">
+                          <label>Overlay Lock</label>
+                          <select id="overlayLock" name="overlayLock" class="form-control select2" style="width: 100%;">
+                              <option value="true" selected>True</option>
+                              <option value="false">False</option>
+                          </select>
+                        </div>
+                    
+                    
+                    
+                    </div>
+                    <div class="tab-pane" id="campaign_target_audience">
+                    <div class="input-group condition-configs">
+                        <div class="condition-panel">
+                            <button class="smart-widget-button" id="group-conditions">Group Conditions</button>
+                            <button class="smart-widget-button" id="remove-group">Remove Group</button>
+                            <button class="smart-widget-button" id="ungroup-conditions">Ungroup conditions</button>
+                        </div>
+                    </div>
+                     </div>
+                </div>
+              </div>
+              <!--BODY-END-->
+            </div>
+  </div>
+  
+  <script src="./dist/js/jquery.min.js"></script>
+    <script src="./dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./dist/js/adminlte.min.js"></script>
+    <script src="./dist/js/select2.full.min.js"></script>
+    <script src="./dist/js/bootstrap-slider.min.js"></script>
+    
+    <script>
+        var smartWidgetConfig = {};
+        var startPositionLabels = ['top right','top center','top left','left top','left center','left bottom','bottom left','bottom center','bottom right','right bottom','right center','right top'];
+        document.getElementById('height').setAttribute('data-slider-max', outerHeight);
+        document.getElementById('width').setAttribute('data-slider-max', outerWidth);
+        document.getElementById('previewSize').setAttribute('data-slider-max', outerWidth > outerHeight ? outerWidth : outerHeight);
+        
+        $('#delay').slider({
+            formatter: function(value) {
+                document.querySelector('label[for=delay]').textContent = 'On Load Delay (' + (value/1000) + ' s)';
+                return (value/1000) + ' s';
+            }
+        });
+        
+        $('#scrollPercentage').slider({
+            formatter: function(value) {
+                document.querySelector('label[for=scrollPercentage]').textContent = 'On Scroll Percentage (' + value + '%)';
+                return value + '%';
+            }
+        });
+        
+       $('#height').slider({
+            formatter: function(value) {
+                document.querySelector('label[for=height]').textContent = 'Height ('+(value == 0 ? 'auto' : value + ' px')+')';
+                return (value == 0 ? 'auto' : value + ' px');
+            }
+        });
+        
+        $('#width').slider({
+            formatter: function(value) {
+                document.querySelector('label[for=width]').textContent = 'Width ('+(value == 0 ? 'auto' : value + ' px')+')';
+                return (value == 0 ? 'auto' : value + ' px');
+            }
+        });
+        
+        $('#previewSize').slider({
+            formatter: function(value) {
+                document.querySelector('label[for=previewSize]').textContent = 'Preview Size ('+(value == 0 ? 'auto' : value + ' px')+')';
+                return (value == 0 ? 'auto' : value + ' px');
+            }
+        });
+        
+        $('#showDuration').slider({
+            formatter: function(value) {
+                document.querySelector('label[for=showDuration]').textContent = 'Show Duration (' + (value/1000) + ' s)';
+                return (value/1000) + ' s';
+            }
+        });
+        
+        $('#closeDuration').slider({
+            formatter: function(value) {
+                document.querySelector('label[for=closeDuration]').textContent = 'Close Duration (' + (value/1000) + ' s)';
+                return (value/1000) + ' s';
+            }
+        });
+        
+        $('#autoCloseDelay').slider({
+            formatter: function(value) {
+                document.querySelector('label[for=autoCloseDelay]').textContent = 'Auto Close Duration (' + (value == 0 ? 'Disabled' : (value/1000) + ' s') + ')';
+                return (value == 0 ? 'Disabled' : (value/1000) + ' s');
+            }
+        });
+        
+        
+        $("#height").on("slide", function(slideEvt) {
+            //console.log(slideEvt.value);
+        });
+    </script>
+    <script src="./colorpicker.js"></script>
+    <script src="./smartwidget.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

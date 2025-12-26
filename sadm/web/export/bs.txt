@@ -1,0 +1,42 @@
+Partner Name	Client Name	Bill Plan	Emails Sent This Period	Total Sent Since Start of Term	Extra Sent Since Start of Term	Price of This Period	Price of Extra Since Start of Term	
+Direct	_NEW_RCP_311	null	0	0	0	null	null
+Direct	_NEW_RCP_312	null	0	0	0	null	null
+Direct	_NEW_RCP_313	null	0	0	0	null	null
+Direct	_NEW_RCP_314	null	0	0	0	null	null
+Direct	_NEW_RCP_315	null	0	0	0	null	null
+Direct	Adissad	null	9344	0	0	null	null
+Direct	Afrodit	null	4414	0	0	null	null
+Direct	AkabeBilisim	null	0	0	0	null	null
+Direct	Akademik Platform Egitim	null	49420	0	0	null	null
+Direct	Alisveris Saati	null	0	0	0	null	null
+Direct	Alka Grup Kampanya	null	6	0	0	null	null
+Direct	Alka Grup Private	null	5	0	0	null	null
+Direct	Alternate Gear	null	0	0	0	null	null
+Direct	Anneysen	null	137637	0	0	null	null
+Direct	Arooda	null	50000	0	0	null	null
+Direct	Arzu Ugur	null	44677	0	0	null	null
+Direct	Arzu Ugur 2	null	15499	0	0	null	null
+Direct	Ascenda Creative	null	0	0	0	null	null
+Direct	Auctionopia LLC	null	0	0	0	null	null
+Direct	Bamtur	null	476046	0	0	null	null
+Direct	BeTravel	null	1509558	0	0	null	null
+Direct	Bevisible	null	484524	0	0	null	null
+Direct	Bilginet	null	133795	0	0	null	null
+Direct	Bilginet Demo	null	0	0	0	null	null
+Direct	Birebin	null	214309	0	0	null	null
+Direct	Birkudo	null	0	0	0	null	null
+Direct	Bm Cam Donanimlari	null	3548	0	0	null	null
+Direct	Bonbonmarket	null	11	0	0	null	null
+Direct	BonnyFood	null	1329688	0	0	null	null
+Direct	BonnyFood_Gift	null	0	0	0	null	null
+Direct	Cabani Ayakkabı	null	1935	0	0	null	null
+Direct	Camasirstore	null	0	0	0	null	null
+Direct	Century21 Bravo	null	0	0	0	null	null
+Direct	Ceska Enerji	null	14614	0	0	null	null
+Direct	Cklt cikolata fabrikasi	null	0	0	0	null	null
+Seganet	Conversionpath Media, LLC	null	0	0	0	null	null
+Direct	Corap Terzisi	null	92002	0	0	null	null
+Direct	Dekoryon	null	6762	0	0	null	null
+Seganet	Deli Kupon	null	0	0	0	null	null
+Direct	DemosFuarcilik	null	0	0	0	null	null
+Direct	Dinamo Training / Consulting	null	32311	0	0	null	null

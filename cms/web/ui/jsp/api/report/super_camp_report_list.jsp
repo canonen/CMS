@@ -1,0 +1,202 @@
+﻿<%@ page
+	language="java"
+	import="com.britemoon.*,
+			com.britemoon.cps.*,
+			java.sql.*,java.io.*,
+			java.util.*,
+			org.xml.sax.*,
+			javax.xml.transform.*,
+			javax.xml.transform.stream.*,
+			org.apache.log4j.*"
+	errorPage="../error_page.jsp"
+	contentType="text/html;charset=UTF-8"
+%>
+<%@ page import="com.restfb.json.JsonObject" %>
+<%@ page import="com.restfb.json.JsonArray" %>
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%
+	response.setHeader("Expires", "0");
+	response.setHeader("Pragma", "no-cache");
+	response.setHeader("Cache-Control", "no-cache");
+	response.setHeader("Cache-Control", "max-age=0");
+	response.setContentType("text/html; charset=UTF-8");
+%>
+
+<%@ include file="../validator.jsp"%>
+<%@ include file="../header.jsp"%>
+<%! static Logger logger = null;%>
+<%
+if(logger == null)
+{
+	logger = Logger.getLogger(this.getClass().getName());
+}
+
+AccessPermission can = user.getAccessPermission(ObjectType.CAMPAIGN_REPORT);
+
+if(!can.bRead)
+{
+	response.sendRedirect("../access_denied.jsp");
+	return;
+}
+
+AccessPermission canCat = user.getAccessPermission(ObjectType.CATEGORY);
+boolean STANDARD_UI = (ui.n_ui_type_id == UIType.STANDARD);
+%>
+
+<%
+
+// Connection
+Statement		stmt	= null;
+ResultSet		rs		= null; 
+ConnectionPool	cp		= null;
+Connection		conn	= null;
+
+try	{
+	cp = ConnectionPool.getInstance();
+	conn = cp.getConnection("super_camp_report_list.jsp");
+	stmt = conn.createStatement();
+	String sSQL = null;
+	
+	String		scurPage	= request.getParameter("curPage");
+	String		samount		= request.getParameter("amount");
+
+	JsonObject categoryData = new JsonObject();
+	JsonArray categoryArray = new JsonArray();
+	JsonObject campListData = new JsonObject();
+	JsonArray  campListArray = new JsonArray();
+
+	JsonArray superCampListData = new JsonArray();
+	int			curPage			= 1;
+	int			amount			= 0;
+	
+	curPage		= (scurPage		== null) ? 1 : Integer.parseInt(scurPage);
+	boolean isUpdateRptEnabled = ui.getFeatureAccess(Feature.UPDATE_AUTO_REPORT);
+	if (samount == null) samount = ui.getSessionProperty("super_report_page_size");
+	if ((samount == null)||("".equals(samount))) samount = "25";
+	try { amount = Integer.parseInt(samount); }
+	catch (Exception ex) { samount = "25"; amount = 25; }
+	ui.setSessionProperty("super_report_page_size", samount);
+
+	String sSelectedCategoryID = request.getParameter("category_id");
+	if ((sSelectedCategoryID == null) && ((user.s_cust_id).equals(cust.s_cust_id)))
+		sSelectedCategoryID = ui.s_category_id;
+
+
+	sSQL = "SELECT category_id, category_name"
+		+ " FROM ccps_category"
+		+ " WHERE cust_id = "+cust.s_cust_id
+		+ " ORDER BY category_name";
+	rs = stmt.executeQuery(sSQL);
+
+	String sCategoryID = null;
+	String sCategoryName = null;
+	while (rs.next()) {
+		categoryData = new JsonObject();
+
+		sCategoryID = rs.getString(1);
+		sCategoryName = new String(rs.getBytes(2), "UTF-8");
+
+		categoryData.put("categoryId",sCategoryID);
+		categoryData.put("categoryName",sCategoryName);
+
+		categoryArray.put(categoryData);
+
+
+		superCampListData.put(categoryArray);
+
+
+	}
+	rs.close();
+	int iCount = 0;
+	String sClassAppend = "_other";
+	sSQL="EXEC usp_crpt_super_camp_list @cust_id="+cust.s_cust_id;
+	if (sSelectedCategoryID!=null)
+		sSQL +=",@category_id=" + sSelectedCategoryID;
+
+	if (stmt.execute(sSQL))
+	{
+		rs = stmt.getResultSet();
+
+		while (rs.next())
+		{
+			campListData = new JsonObject();
+			if (iCount % 2 != 0)
+			{
+				sClassAppend = "_other";
+			}
+			else
+			{
+				sClassAppend = "";
+			}
+			
+			iCount++;
+
+			if ((iCount <= (curPage-1)*amount) || (iCount > curPage*amount)) continue;
+			campListData.put("id",rs.getString(1));
+			campListData.put("name",new String(rs.getBytes(2),"UTF-8"));
+			campListData.put("size",rs.getString(3));
+			campListData.put("bBacks",rs.getString(4) + " ("+rs.getString(10)+"%)");
+			campListData.put("clicks",rs.getString(5) + " ("+rs.getString(11)+"%)");
+			campListData.put("unsubs",rs.getString(6) + " ("+rs.getString(12)+"%)");
+			campListData.put("updateDate",dateFormatter(rs.getString(7)));
+			campListData.put("updateStatusId",rs.getString(8));
+			campListData.put("updateStatus",rs.getString(9));
+			campListData.put("bBackPrc",rs.getString(10));
+			campListData.put("clickPrc",rs.getString(11));
+			campListData.put("unsubPrc",rs.getString(12));
+			campListData.put("styleClass",sClassAppend);
+
+			campListArray.put(campListData);
+
+			superCampListData.put(campListArray);
+
+
+		}
+		rs.close();
+
+
+	}
+	
+
+out.print(campListArray.toString());
+
+}
+catch(Exception ex)
+{
+	ErrLog.put(this,ex,"Error: "+ex.getMessage(),out,1);
+}
+finally
+{
+	if (stmt!=null) stmt.close();
+	if (conn!=null) cp.free(conn);
+	out.flush();
+}
+
+	response.setContentType("application/json");
+	response.setCharacterEncoding("UTF-8");
+	response.setHeader("Access-Control-Allow-Origin", "*");
+
+%>
+
+<%!
+    private static final DateTimeFormatter IN =
+            DateTimeFormatter.ofPattern("MMM d yyyy h:mma", Locale.ENGLISH);
+
+    private static final DateTimeFormatter OUT =
+            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+    private String dateFormatter(String raw) {
+        if (raw == null || raw.isEmpty() || raw.equals("---"))
+            return "";
+
+        try {
+
+            String cleanedRaw = raw.trim().replaceAll("\\s{2,}", " ");
+            return LocalDateTime.parse(cleanedRaw, IN).format(OUT);
+        } catch (Exception ex) {
+            // Hata durumunda mesaj döndür
+            return "HATA: Tarih formatı dönüştürülemedi! (" + ex.getMessage() + ")";
+        }
+    }
+%>

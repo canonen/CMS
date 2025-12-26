@@ -1,0 +1,16 @@
+﻿Merhaba,
+
+Bu maili göremiyorsanız tıklayınız.
+
+Harf: İ Numerik Kodu: &#304;
+Harf: ı Numerik Kodu: &#305;
+Harf: Ö Numerik Kodu: &#214;
+Harf: ö Numerik Kodu: &#246;
+Harf: Ü Numerik Kodu: &#220;
+Harf: ü Numerik Kodu: &#252;
+Harf: Ç Numerik Kodu: &#199;
+Harf: ç Numerik Kodu: &#231;
+Harf: Ğ Numerik Kodu: &#286;
+Harf: ğ Numerik Kodu: &#287;
+Harf: Ş Numerik Kodu: &#350;
+Harf: ş Numerik Kodu: &#351;

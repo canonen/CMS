@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    background-color: #e8e8e8;
+}
+
+button, select, input {
+    outline: none;
+}
+
+.control-panel {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin: 8px;
+}
+
+.condition-group {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.condition-configs {
+    max-width: calc(100vw - 287px);
+    max-height: 300px;
+    overflow: auto;
+}
+
+.label {
+    color: black;
+    padding-left: 5px;
+    font-size: 13px;
+}
+
+.input-group {
+    display:flex;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.input-subgroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.config-select::-ms-expand {	display: none; }
+.config-select{
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    background-color: #ffffff;
+    color: black;
+    border: 1px solid black;
+    padding: 5px 0 3px 5px;
+    width: 90%;
+    margin: 0 20px 10px 0;
+    height: 30px;
+}
+
+.preview-panel {
+    margin: 5px 5px 5px 0;
+    flex-grow: 1;
+    border: 1px solid black;
+    height: calc(100vh - 250px);
+    width: calc(100vw - 266px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.group {
+    position: relative;
+    margin-top: 10px
+}
+
+.group .form-input, .condition-input {
+    font-size: 13px;
+    padding: 5px 8px 5px 5px;
+    display: block;
+    width: 80%;
+    background-color: #ffffff;
+    color: black;
+    border: 1px solid black;
+    margin: 5px 0;
+}
+
+.group .form-input:focus {
+    outline: none;
+}
+
+.group .form-input:focus ~ .form-input-label {
+    top: -12px;
+    font-size: 13px;
+    color: black;
+}
+
+.group .form-input-label {
+    color: #c9c9c9;
+    font-size: 13px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 12px;
+    transition: 300ms ease all;
+}
+
+.group .form-input-label.shrink {
+    top: -12px;
+    font-size: 13px;
+    color: black;
+}
+
+.condition-div {
+    display: flex;
+    align-items: center;
+}
+
+.condition-select {
+    width: auto;
+    height: 25px;
+    margin: 3px;
+    padding: 3px;
+}
+
+.condition-input {
+    width: 50px;
+    height: auto;
+    display: inline;
+}
+
+.smart-widget-button {
+    background-color: #337ab7;
+    color: white;
+    border: 1px solid #3371a7;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.smart-widget-button:hover {
+    background-color: #286090;
+    border-color: #27557b;
+}
+
+.button-red {
+    background-color: #d9534f;
+    border: 1px solid #ac2925;
+    padding: 6px 12px;
+}
+
+.button-red:hover {
+    background-color: #c9302c;
+    border-color: #c62d28;
+}

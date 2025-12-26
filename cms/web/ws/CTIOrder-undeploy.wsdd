@@ -1,0 +1,5 @@
+<!-- using this command: java org.apache.axis.client.AdminClient CTIOrder-remove.wsdd -->
+
+<undeployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+  <service name="CTIOrder"/>
+</undeployment>

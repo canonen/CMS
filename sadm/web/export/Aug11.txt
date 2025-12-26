@@ -1,0 +1,73 @@
+Partner Name	Client Name	Emails Sent	Prints Sent
+Direct	_NEW_DB_234	0	0
+Direct	_NEW_DB_235	0	0
+Direct	11833 - Vastech iletisim	0	0
+Direct	Afrodit	0	0
+Direct	Alisveris Saati	3397941	0
+Direct	Alternate Gear	5450	0
+Direct	Anneysen	191902	0
+Direct	Arooda	0	0
+Direct	Baskentfirsati.com	219162	0
+Direct	BeTravel	1755889	0
+Direct	Bevisible	150547	0
+Direct	Birebin	0	0
+Direct	Bm Cam Donanimlari	0	0
+Direct	BonnyFood	6930	0
+Direct	BonnyFood_Gift	0	0
+Direct	bunlarkacmaz.com	0	0
+Direct	Ceska Enerji	0	0
+Moda Elinizde	Damat Tween Shop	0	0
+Seganet	Deli Kupon	1471973	0
+Direct	DemosFuarcilik	50218	0
+Direct	Do Not Use	RCP Error	--
+Direct	Dominos Pizza	0	0
+Moda Elinizde	DS Damat Shop	0	0
+Direct	Duvar Dizayn	38200	0
+Direct	Egitim Firsatim	0	0
+Direct	Erkan insaat	19492	0
+Direct	Erkengelenalir.com	29330	0
+Direct	Ersa / Casio	0	0
+Direct	Evtekstilibul	142113	0
+Gelecek Internet	Ford Cevizli	25647	0
+Direct	Grupo Sinergia Fc	7505	0
+Direct	Hayal Kahvesi Caddebostan	0	0
+Direct	Hayal Kahvesi Saskinbakkal	0	0
+Direct	Hotic	0	0
+Direct	i-gunler.CoM	125218	0
+Direct	ICT	235519	0
+Direct	imza Gayrimenkul	0	0
+Direct	ISF Demo	0	0
+Direct	Izlesene.CoM	0	0
+Direct	Jetmilstar	0	0
+Direct	Jimg Media	236930	0
+Direct	KatyaUK	0	0
+Direct	Kent Optimum	11446	0
+Direct	LTE	4	0
+Direct	Mavi Egitim	0	0
+Moda Elinizde	Moda Elinizde	896058	0
+Moda Elinizde	Moda Elinizde Kampanya	0	0
+Direct	NanoDRM	2096	0
+Direct	Nasel iletisim	0	0
+Direct	nfinitygames	0	0
+Direct	Offer Beam	0	0
+Direct	Orkagroup	0	0
+Direct	OutBox	1419	0
+Direct	Pagos	60352	0
+Direct	People Communication	1570	0
+Direct	Portline	1523	0
+Moda Elinizde	Private Shopping	879466	0
+Direct	Reklamz	0	0
+Gelecek Internet	Renault Maslak	16566	0
+Direct	Revotas	3045	0
+Direct	Revotas Demo	0	0
+Direct	Revotas Demo US	155	0
+Direct	Revotas New Demo	14	0
+Direct	Roxy	0	0
+Direct	Saatturk	0	0
+Direct	Sigortam.net	1504282	0
+Direct	SMP Promosyon	0	0
+Direct	Trend.im	4	0
+Direct	Voit  - Arcelik - Yetkilisaticim	0	0
+Direct	www.lushturkey.com	19232	0
+Gelecek Internet	Yeni Bir Sigorta	40817	0
+Direct	YYM Demo	41547	0

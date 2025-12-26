@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Save HTML</title>
+    <style>
+        body {
+            background-color: #818181;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+        textarea {
+            height: 88vh;
+            width: 98vw;
+            resize: none;
+        }
+        button {
+            background-color: #59C8E6;
+            color: white;
+            border: 1px solid #94e7fd;
+            border-radius: 5px;
+            padding: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #94e7fd;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="html-code" cols="66" rows="16" spellcheck="false"></textarea>
+    <button id="save-html">Save</button>
+    <script>
+        document.getElementById('html-code').value = window.opener.getHtml();
+        document.getElementById('save-html').addEventListener('click', function() {
+            window.opener.saveHtml(document.getElementById('html-code').value);
+            window.opener.closePopup();
+        });
+    </script>
+</body>
+</html>

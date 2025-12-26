@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+        PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+
+    <context-param>
+        <param-name>JdbcDriver</param-name>
+        <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>JdbcUrl</param-name>
+        <param-value>jdbc:sqlserver://192.168.151.66;databaseName=brite_rrcp_500_common</param-value>
+    </context-param>
+    <context-param>
+        <param-name>JdbcUser</param-name>
+        <param-value>revotasadm</param-value>
+    </context-param>
+    <context-param>
+        <param-name>JdbcPassword</param-name>
+        <param-value>abs0lut</param-value>
+    </context-param>
+    <context-param>
+        <param-name>JdbcConnectionsMin</param-name>
+        <param-value>5</param-value>
+    </context-param>
+    <context-param>
+        <param-name>JdbcConnectionsMax</param-name>
+        <param-value>500</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>
+            com.britemoon.rcp.ContextListener
+        </listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>
+            BBackPostServlet
+        </servlet-name>
+        <servlet-class>
+            com.britemoon.rcp.inb.BBackPostServlet
+        </servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>
+            ChunkRequest
+        </servlet-name>
+        <servlet-class>
+            com.britemoon.rcp.que.ChunkRequest
+        </servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>
+            PreFillResponder
+        </servlet-name>
+        <servlet-class>
+            com.britemoon.rcp.sbs.PreFillResponder
+        </servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>
+            SbsActivityXMLServlet
+        </servlet-name>
+        <servlet-class>
+            com.britemoon.rcp.sbs.SbsActivityXMLServlet
+        </servlet-class>
+    </servlet>
+
+
+    <servlet>
+        <servlet-name>
+            BlobStore
+        </servlet-name>
+        <servlet-class>
+            com.britemoon.rcp.sbs.BlobStore
+        </servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>
+            BlobStoreXMLServlet
+        </servlet-name>
+        <servlet-class>
+            com.britemoon.rcp.sbs.BlobStoreXMLServlet
+        </servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>
+            CampMsgResponder
+        </servlet-name>
+        <servlet-class>
+            com.britemoon.rcp.sbs.CampMsgResponder
+        </servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>jersey-serlvet</servlet-name>
+        <servlet-class>
+            com.sun.jersey.spi.container.servlet.ServletContainer
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>jersey-serlvet</servlet-name>
+        <url-pattern>/service/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BBackPostServlet</servlet-name>
+        <url-pattern>/servlet/BBackPostServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ChunkRequest</servlet-name>
+        <url-pattern>/servlet/ChunkRequest</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>PreFillResponder</servlet-name>
+        <url-pattern>/servlet/PreFillResponder</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SbsActivityXMLServlet</servlet-name>
+        <url-pattern>/servlet/SbsActivityXMLServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>BlobStore</servlet-name>
+        <url-pattern>/servlet/BlobStore</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>BlobStoreXMLServlet</servlet-name>
+        <url-pattern>/servlet/BlobStoreXMLServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CampMsgResponder</servlet-name>
+        <url-pattern>/servlet/CampMsgResponder</url-pattern>
+    </servlet-mapping>
+
+    <!-- start Axis-specific servlet settings -->
+
+    <servlet>
+        <servlet-name>SvcsServlet</servlet-name>
+        <display-name>Apache-Axis Servlet</display-name>
+        <servlet-class>
+            org.apache.axis.transport.http.AxisServlet
+        </servlet-class>
+    </servlet>
+
+    <!--
+        <servlet>
+            <servlet-name>AdminServlet</servlet-name>
+            <display-name>Axis Admin Servlet</display-name>
+            <servlet-class>
+                    org.apache.axis.transport.http.AdminServlet
+            </servlet-class>
+            <load-on-startup>10</load-on-startup>
+        </servlet>
+    -->
+
+    <!--
+        Use this only while testing and turn off immediately after testing
+
+        <servlet>
+            <servlet-name>SOAPMonitorService</servlet-name>
+            <display-name>SOAPMonitorService</display-name>
+            <servlet-class>
+                    org.apache.axis.monitor.SOAPMonitorService
+            </servlet-class>
+            <init-param>
+                <param-name>SOAPMonitorPort</param-name>
+                <param-value>5001</param-value>
+            </init-param>
+            <load-on-startup>100</load-on-startup>
+        </servlet>
+
+        <servlet-mapping>
+            <servlet-name>SOAPMonitorService</servlet-name>
+            <url-pattern>/SOAPMonitor</url-pattern>
+        </servlet-mapping>
+    -->
+
+    <servlet-mapping>
+        <servlet-name>SvcsServlet</servlet-name>
+        <url-pattern>/servlet/SvcsServlet </url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SvcsServlet</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+
+    <!--
+        <servlet-mapping>
+            <servlet-name>SvcsServlet</servlet-name>
+            <url-pattern>*.jws</url-pattern>
+        </servlet-mapping>
+    -->
+
+    <!-- currently the W3C havent settled on a media type for WSDL;
+    http://www.w3.org/TR/2003/WD-wsdl12-20030303/#ietf-draft
+    for now we go with the basic 'it's XML' response -->
+
+    <mime-mapping>
+        <extension>wsdl</extension>
+        <mime-type>text/xml</mime-type>
+    </mime-mapping>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Revotas Administration</web-resource-name>
+            <url-pattern>/adm/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>revotas_admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>Revotas Admin</realm-name>
+    </login-config>
+</web-app>

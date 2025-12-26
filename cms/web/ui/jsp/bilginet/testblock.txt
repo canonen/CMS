@@ -1,0 +1,33 @@
+		<tr>
+			<td class="htexts" width="120">Test listesi Seçin</td>
+			<td width="300">
+				<select name="test_list_id" size="1">
+					<option selected value="">---  Bir test listesi seçin  -----</option>
+				<%
+					rs = stmt.executeQuery("SELECT l.list_id, l.list_name, t.type_name FROM cque_email_list l, cque_list_type t " +
+										"WHERE l.type_id = t.type_id AND (l.type_id = 2 OR l.type_id = 5) AND list_name not like 'ApprovalRequest(%)' " +
+										"AND l.cust_id =" + cust.s_cust_id + " ORDER BY l.list_id DESC");
+					while( rs.next() ) { 
+				%>
+					<option value="<%=rs.getString(1)%>"> <%=new String(rs.getBytes(2),"ISO-8859-1")%> (<%=new String(rs.getBytes(3),"ISO-8859-1")%>) </option>
+				<%	} rs.close(); %>
+				</select>
+			</td>
+			<td>
+				<%
+				if( !isDone && !isSending && !isTesting && can.bExecute)
+				{
+				%>
+					<a class="btn btn-warning" href="#" onclick="send_test();">Test gönder</a>
+				<%
+				}
+				
+				if( !isDone && !isSending && !isTesting && can.bExecute)
+				{
+				%>
+					<a class="btn btn-primary" href="#" onclick="send();"><%= (isHyatt)?"Onay bekliyor":"Kampanyayi baslat" %></a>
+				<%
+				}
+				%>
+			</td>
+		</tr>

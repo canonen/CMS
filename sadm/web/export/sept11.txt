@@ -1,0 +1,73 @@
+Partner Name	Client Name	Emails Sent	Prints Sent
+Direct	_NEW_DB_234	0	0
+Direct	_NEW_DB_235	0	0
+Direct	11833 - Vastech iletisim	0	0
+Direct	Afrodit	0	0
+Direct	Alisveris Saati	2463733	0
+Direct	Alternate Gear	0	0
+Direct	Anneysen	177270	0
+Direct	Arooda	0	0
+Direct	Baskentfirsati.com	172372	0
+Direct	BeTravel	986839	0
+Direct	Bevisible	232209	0
+Direct	Birebin	0	0
+Direct	Bm Cam Donanimlari	0	0
+Direct	BonnyFood	83335	0
+Direct	BonnyFood_Gift	0	0
+Direct	bunlarkacmaz.com	0	0
+Direct	Ceska Enerji	0	0
+Moda Elinizde	Damat Tween Shop	0	0
+Seganet	Deli Kupon	197623	0
+Direct	DemosFuarcilik	9129	0
+Direct	Do Not Use	RCP Error	--
+Direct	Dominos Pizza	81247	0
+Moda Elinizde	DS Damat Shop	0	0
+Direct	Duvar Dizayn	0	0
+Direct	Egitim Firsatim	8	0
+Direct	Erkan insaat	0	0
+Direct	Erkengelenalir.com	6174	0
+Direct	Ersa / Casio	0	0
+Direct	Evtekstilibul	140511	0
+Gelecek Internet	Ford Cevizli	0	0
+Direct	Grupo Sinergia Fc	17125	0
+Direct	Hayal Kahvesi Caddebostan	0	0
+Direct	Hayal Kahvesi Saskinbakkal	4185	0
+Direct	Hotic	0	0
+Direct	i-gunler.CoM	122694	0
+Direct	ICT	0	0
+Direct	imza Gayrimenkul	0	0
+Direct	ISF Demo	0	0
+Direct	Izlesene.CoM	0	0
+Direct	Jetmilstar	0	0
+Direct	Jimg Media	160992	0
+Direct	KatyaUK	0	0
+Direct	Kent Optimum	0	0
+Direct	LTE	5126	0
+Direct	Mavi Egitim	10025	0
+Moda Elinizde	Moda Elinizde	401166	0
+Moda Elinizde	Moda Elinizde Kampanya	0	0
+Direct	NanoDRM	0	0
+Direct	Nasel iletisim	0	0
+Direct	nfinitygames	0	0
+Direct	Offer Beam	0	0
+Direct	Orkagroup	0	0
+Direct	OutBox	1018	0
+Direct	Pagos	0	0
+Direct	People Communication	1620	0
+Direct	Portline	0	0
+Moda Elinizde	Private Shopping	392833	0
+Direct	Reklamz	0	0
+Gelecek Internet	Renault Maslak	0	0
+Direct	Revotas	7135	0
+Direct	Revotas Demo	1400	0
+Direct	Revotas Demo US	0	0
+Direct	Revotas New Demo	0	0
+Direct	Roxy	1580	0
+Direct	Saatturk	0	0
+Direct	Sigortam.net	650907	0
+Direct	SMP Promosyon	0	0
+Direct	Trend.im	0	0
+Direct	Voit  - Arcelik - Yetkilisaticim	27161	0
+Direct	www.lushturkey.com	29291	0
+Gelecek Internet	Yeni Bir Sigorta	0	0
+Direct	YYM Demo	113277	0

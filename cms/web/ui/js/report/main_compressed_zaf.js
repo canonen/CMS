@@ -1,0 +1,9 @@
+document.write('<script type="text/javascript" src="../../js/report/jquery-1.5.1.js"></script>');
+document.write('<script type="text/javascript" src="../../js/report/jquery.ui.core.js"></script>');
+document.write('<script type="text/javascript" src="../../js/report/jquery.ui.widget.js"></script>');
+document.write('<script type="text/javascript" src="../../js/report/jquery.ui.mouse.js"></script>');
+document.write('<script type="text/javascript" src="../../js/report/jquery.ui.sortable.js"></script>');
+document.write('<script type="text/javascript" src="../../js/report/FusionCharts.js"></script>');
+document.write('<script type="text/javascript" src="../../js/report/highcharts.js"></script>');
+document.write('<script type="text/javascript" src="../../js/report/FusionChartsExportComponent.js"></script>');
+document.write('<script type="text/javascript" src="../../js/report/scripts_compressed_zaf.js"></script>');

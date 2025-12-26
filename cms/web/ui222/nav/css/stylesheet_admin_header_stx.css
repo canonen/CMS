@@ -1,0 +1,90 @@
+/* SITE CONTEXT STYLESHEET - v1 */
+
+
+/* Anchor Definitions */
+
+a		{color: #03406a; text-decoration: none}
+a:visited		{color: #03406a}
+a:hover		{color: #30406a; text-decoration: underline}
+
+a.welcome		{font-weight: bold; text-decoration: none; color: #99ccff}
+a.welcome:visited	{font-weight: bold; text-decoration: none; color: #99ccff}
+a.welcome:hover	{font-weight: bold; text-decoration: underline ; color:#ffffff}
+
+a.menu		{color: #000000; font-weight: bold; text-decoration: none}
+a.menu:visited	{color: #000000}
+a.menu:hover		{color: #000000; text-decoration: underline}
+
+a.trail		{text-decoration: none; color: #333333}
+a.trail:visited		{color:#333333}
+a.trail:hover		{color:#000000; text-decoration: underline}
+
+a.help		{text-decoration: none;font-weight:bold; color: #03406a}
+a.help:visited		{font-weight:bold;color:#03406a}
+a.help:hover		{font-weight:bold;color:#03406a; text-decoration: underline}
+
+a.button		{text-decoration: underline; color: #03406a}
+a.button:visited	{text-decoration: underline; color: #03406a}
+a.button:hover	{text-decoration: underline; color: #000000}
+
+a.table-header	{text-decoration: none; color: #000000}
+a.table-header:visited	{color:#000000}
+a.table-header:hover	{color:#000000; text-decoration: underline}
+
+a.table-item		{color: #345098; text-decoration: none}
+a.table-item:visited	{color: #345098; text-decoration: none}
+a.table-item:hover	{color: #345098; text-decoration: underline}
+
+a.prototype		{font-size:xx-small; font-family: verdana, geneva, arial, helvetica, sans-serif; color: #ff9900; text-decoration: none}
+a.prototype:visited	{color: #ff9900}
+a.prototype:hover	{color: #ff9900; text-decoration: underline}
+
+
+/* Color Definitions */
+
+.color-header-background	{background-color: #003366}
+.color-welcome-text 	{color: #99ccff }
+.color-context-name 	{color: #ffffff }
+
+.color-trail-1		{background-color: #b1cfe9}
+.color-trail-2		{background-color: #336699}
+.color-trail-3		{background-color: #dddddd}
+.color-trail-4		{background-color: #bbbbbb}
+
+.color-row-header	{background-color: #b1cfe9}
+.color-row-special	{background-color: #dddddd}
+.color-row-odd	{background-color: #efefef}
+.color-row-even	{background-color: #fafafa}
+
+.color-1		{background-color: #cccccc}
+.color-2		{background-color: #dddddd}
+.color-3		{background-color: #eeeeee}
+.color-4		{background-color: #fafafa}
+.color-5		{background-color: #ffffff}
+
+.color-success	{color:#003300}
+.color-alert		{color:#ff0000}
+.color-alert-rows	{color:#000000}
+.color-alert-notes	{color:#0099ff}
+.color-accent-1	{background-color:#0099ff}
+.color-accent-2	{background-color:#336699}
+.color-text-on-accent-2	{color:#ffffff}
+.color-hr-dark		{color: #cccccc}
+
+
+/* Font Definitions */
+
+.font-table-header-tip	{font-weight:normal; color: #345098}
+
+/* Builder Definitions */
+.vis0, .hidden		{visibility: hidden}
+.vis1, .visible		{visibility: visible}
+
+.display0, .display-off {display: none}
+.display1, .display-on	{ }
+
+.focused		{background-color: #b7d6f1; cursor: default}
+.selection	{background-color: #aecce6; cursor: default}
+
+.group-header	{background-color: #69c}
+.group-label	{color: #fff}

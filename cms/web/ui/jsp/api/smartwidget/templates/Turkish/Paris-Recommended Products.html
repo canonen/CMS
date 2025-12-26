@@ -1,0 +1,92 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris</title>
+</head>
+<style>
+    .item{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        max-width: 175px;
+        padding: 30px 10px;
+    }
+
+    .pricediv{
+        display: flex;
+        padding-top: 17px;
+    }
+    .productTitle{
+        font-weight:bold;
+        font-size: 15px;
+        padding-top: 20px;
+        height: 20px;
+    }
+    .newPrice{
+        padding-left: 10px;
+        font-weight: bold;
+    }
+
+    .oldPrice{
+        text-decoration: line-through;
+    }
+    .productButton{
+        margin-top:10px;
+        padding:5px;
+        border: none;
+        background-color: rgb(255, 102, 0);
+        color: white;
+        border-radius: 5px;
+        width: auto;
+        max-width: 150px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    @media screen and (max-width: 600px) {
+        .item:nth-child(3){
+            display: none;
+        }
+    }
+</style>
+<body>
+    <div style="width: auto;max-width: 600px;background-color: white;border-radius: 10px;">
+        <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;width: auto;padding:20px 0;">
+            <div is_editable="true" style="color:rgb(63,63,63);font-size:25px;font-weight: bold;">Sadece Senin için Seçtiğimiz Ürünler</div>
+            <div style="display: flex">
+                <div class="item">
+                    <img is_editable="true" class="responsive" src="https://cms.revotas.com/cms/ui/smartwidgets/newui/templates/parisimage1.jpg" alt="ayakkabı" style="width: auto;max-width: 150px;max-height: 225px; border-radius: 10%;">
+                    <div is_editable="true" class="productTitle">Bej kadın spor ayakkabı</div>
+                    <div class="pricediv">
+                        <div is_editable="true" class="oldPrice">340 TL</div>
+                        <div is_editable="true" class="newPrice">279 TL</div>
+                    </div>
+                    <button is_editable="true" class="productButton"><a is_editable="true" style="color: white;text-decoration: none;" href="">Şimdi İncele</a></button>
+                </div>
+                <div class="item">
+                    <img is_editable="true" class="responsive" src="https://cms.revotas.com/cms/ui/smartwidgets/newui/templates/parisimage2.jpg" alt="ayakkabı" style="width: auto;max-width: 150px;max-height: 225px; border-radius: 10%;">
+                    <div is_editable="true" class="productTitle">Mavi kadın el çantası</div>
+                    <div class="pricediv">
+                        <div is_editable="true" class="oldPrice">350 TL</div>
+                        <div is_editable="true" class="newPrice">249 TL</div>
+                    </div>
+                    <button is_editable="true" class="productButton"><a is_editable="true" style="color: white;text-decoration: none;" href="">Şimdi İncele</a> </button>
+                </div>
+                <div class="item">
+                    <img is_editable="true" class="responsive" src="https://cms.revotas.com/cms/ui/smartwidgets/newui/templates/parisimage3.jpg" alt="ayakkabı" style="width: auto;max-width: 150px;max-height: 225px; border-radius: 10%;">
+                    <div is_editable="true" class="productTitle">Yeşil kadın omuz çantası</div>
+                    <div class="pricediv">
+                        <div is_editable="true" class="oldPrice">210 TL</div>
+                        <div is_editable="true" class="newPrice">189 TL</div>
+                    </div>
+                    <button is_editable="true" class="productButton"><a is_editable="true" style="color: white;text-decoration: none;" href="">Şimdi İncele</a></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,768 @@
+<public:component>
+<public:attach event="onmousedown"	onevent="loadMenu(null, false)"/>
+<public:attach event="onmouseover"	onevent="menuRollOver(true)"/>
+<public:attach event="onmouseout"	onevent="menuRollOver(false)"/>
+<public:attach event="onkeyup"		onevent="menuKeyHandler()"/>
+<public:attach event="onkeydown"	onevent="menuCleanup()"/>
+<public:method name="hideItem"/>
+<public:method name="showItem"/>
+
+<script language="JavaScript">
+
+// Define Key Consts
+var KEY_LEFT = 37;
+var KEY_RIGHT = 39;
+var KEY_UP = 38;
+var KEY_DOWN = 40;
+var KEY_ENTER = 13;
+var KEY_TAB = 9;
+var KEY_ESC = 27;
+var KEY_F4 = 115;
+
+var _oMenuLast, _oMenuLastOpened, _oSubMenuLast;
+
+// Create Main & Sub Popup Menus
+var _oPopup		= window.createPopup();
+var _oSubPopup	= _oPopup.document.parentWindow.createPopup();
+
+// Configure Popup Style Sheets
+_oPopup.document.createStyleSheet("/ccps/ui/mscrm/menu.css");
+_oSubPopup.document.createStyleSheet("/ccps/ui/mscrm/menu.css");
+
+// Pre-compile the ID Replace Regular Express (30% faster than inline RegExp)
+var _oIdRegExp = new RegExp("[^A-Za-z0-9]","g");
+
+
+// Hide the provided menu item
+function hideItem(o)
+{
+	toggleItem(o, false);
+}
+
+
+// Show the provided menu item
+function showItem(o)
+{
+	toggleItem(o, true);
+}
+
+
+// Show/Hide Helper Function
+function toggleItem(o, bOn)
+{
+	var bHide = true;
+	var oTmp = o.parentElement.parentElement;
+
+	o.style.display = bOn ? "inline" : "none";
+
+	// If all menus are hidden then hide the parent
+	for (var i = 0; i < oTmp.rows.length; i++)
+	{
+		if (oTmp.rows[i].style.display != "none")
+		{
+			bHide = false;
+			break;
+		}
+	}
+
+	// Hide or show the Menu
+	oTmp.parentElement.style.display = bHide ? "none" : "inline";
+}
+
+
+// Menu Cleaner
+function menuCleanup()
+{
+	if (!event.altKey)
+	{
+		resetGlow(_oMenuLast);
+		_oMenuLast = null;
+	}
+}
+
+
+// Handles the "glowing" of top level menu bar items
+function menuRollOver(bTurnOn)
+{
+	// Make sure the document is loaded
+	if (!checkReadyState())
+	{
+		return false;
+	}
+
+	var o = getElem();
+	var bAutoOpen = false;
+
+	// If this is the same menu then don't close the Popup
+	if (_oPopup.document.parentMenu && _oPopup.document.parentMenu !== o)
+	{
+		// If a popup is already open, the auto open others on rollover
+		bAutoOpen = _oPopup.isOpen;
+		closeWindows();
+	}
+
+	// Cleanup the Menu SPAN
+	closedWindowHandler();
+
+	// If this is a different popup then the one currently being displayed
+	if (_oPopup.document.parentMenu !== o)
+	{
+		_oMenuLast = o;
+
+		if (bTurnOn)
+		{
+			// Set the colors
+			setGlow(o, "#00377a", "#64799c");
+			o.hideFocus = true;
+
+			// Handle when this element looses focus - so it cleans itself up
+			// Important when TAB around Menu Bar 1 and then activating Menu Bar 2 with Access Keys
+			o.onblur = closedWindowHandler;
+
+			try
+			{
+				var oAE = o.ownerDocument.activeElement;
+
+				// Give the element focus if it deserves it - This handles the cases when
+				// another CRM Menu is beginning rolled over while one is already opened
+				// If that menu gets focus that will close the this one.
+				if (oAE.tagName != "BODY" &&
+					oAE.tagName != "IFRAME" &&
+					(oAE.className != "menu" || bAutoOpen))
+				{
+					o.focus();
+				}
+			} catch (e) {}
+		}
+		else
+		{
+			// Reset the colors & blur
+			resetGlow(o);
+			o.blur();
+		}
+	}
+
+	// If there is another main popup showing, then auto open this one
+	if (o && bAutoOpen)
+	{
+		o.fireEvent("onmousedown");
+	}
+}
+
+
+// Load a Main or Sub menu
+function loadMenu(o, bSubMenu)
+{
+	// Make sure the document is loaded
+	if (!checkReadyState())
+	{
+		return false;
+	}
+
+	// Get a reference to the approriate Popup Object
+	var oPopup = bSubMenu ? _oSubPopup : _oPopup;
+
+	// If o hasn't been provided, get it
+	if (!o)
+	{
+		o = bSubMenu ? getMenuItemElem() : getElem();
+	}
+
+	// Handle Double Opening of a single menu - So that the menu goes away when you click
+	// on the title again
+	if (_oMenuLastOpened === o)
+	{
+		_oMenuLastOpened = null;
+		return false;
+	}
+
+	var oMenu;
+
+	if (bSubMenu)
+	{
+		// Get the Sub-Menu from the parent window's menu
+		oMenu = o.ownerDocument.parentMenu.children[o.menu];
+		
+		// Cache this as the last sub menu
+		_oSubMenuLast = o;
+	}
+	else
+	{
+		// Only allow left and "none" mouse buttons to do work
+		// 0 for when programmatically loading a menu
+		if (event && event.button > 1)
+		{
+			return false;
+		}
+
+		// If there is no menu, then return TRUE to let the onclick event fire as normal
+		if (!o.menu)
+		{
+			return true;
+		}
+
+		// Glow the Menu name
+		setGlow(o, "#00377a", "#889DC2");
+
+		oMenu = o.children[o.menu];
+
+		// Store the last menus
+		_oMenuLast = o;
+		_oMenuLastOpened = o;
+
+		o.hideFocus = true;
+
+		o.onblur = closedWindowHandler;
+	}
+
+	with (oPopup.document.body)
+	{
+		// Populate the Popup's HTML
+		innerHTML = oMenu.outerHTML;
+
+		// Hook events - onselectstart prevents drag & dropped
+		onselectstart = function x() { getMenuItemEvent().returnValue = false};
+		onkeydown = menuItemKeyHandler;
+
+		// With the Menu Table
+		with (firstChild)
+		{
+			// Make the table visible to the user
+			style.display = "inline";
+
+			// Hook events
+			onclick = menuItemClick;
+			onmouseover = menuItemOver;
+			onmouseout = menuItemOut;
+			
+			var i = 0;
+			var iLen = rows.length
+			
+			// Add an ID for test automation
+			while (i < iLen)
+			{
+				if ((rows[i].action || rows[i].menu) && !rows[i].id)
+				{
+					rows[i].id = buildMenuItemTestId(rows[i]);
+				}
+
+				i++;
+			}
+		}
+	}
+
+	// Pre-render the HTML for the calcs below
+	oPopup.show(0, 0, 0, 0);
+
+	// Calculate popup location and dimensions
+	var iX = bSubMenu ? o.offsetWidth : 0;
+	var iY = bSubMenu ? -1 : 20;
+	var iW = Math.max(oPopup.document.body.firstChild.offsetWidth + 27 + 20, 200);
+	var iH = oPopup.document.body.firstChild.offsetHeight;
+	var oOffset = bSubMenu ? o : oMenu.parentElement;
+
+	// Fix the table width to keep the left col from collapsing
+	oPopup.document.body.firstChild.style.tableLayout = "fixed";
+
+	// Show the menu for real so the user can see the HTML
+	oPopup.show(iX, iY, iW, iH, oOffset);
+
+	// Cache the parent menu object on the popup
+	oPopup.document.parentMenu = o;
+	
+	// Default the Last Menu Item expando
+	oPopup.document.lastMenuItem = null;
+}
+
+
+// Handles the keyboard navigation of the top level menu items
+function menuKeyHandler()
+{
+	// Cancel the event
+	event.returnValue = false;
+	try
+	{
+		// Handle Menu - Access keys
+		if (_oPopup && _oPopup.isOpen)
+		{
+			var oRows = _oPopup.document.body.firstChild.rows;
+			
+			if (menuFireAcceleratorKey(oRows, event))
+			{
+				return false;
+			}
+		}
+	}
+	catch (e)
+	{
+		// Ignore any errors
+	}
+
+	// Handle ALT-Key Functions
+	if (event.altKey)
+	{
+		// If the Access Keys do not match then do not open the menu
+		if (event.srcElement.accessKey.toUpperCase() != String.fromCharCode(event.keyCode).toUpperCase())
+		{
+			return false;
+		}
+
+		// Handle ALT-F4 & ALT-TAB from child windows
+		switch (event.keyCode)
+		{
+			case KEY_TAB:
+			case KEY_F4:
+				return false;
+				break;
+		}
+		
+		closeWindows();
+		resetGlow(_oMenuLast);
+		loadMenu(null, false);
+
+		// highlight the first row
+		menuItemOver(_oPopup.document.body.firstChild.rows[0]);
+	}
+
+	// Kill this event if a popup is already open
+	// Gets around a bug with bubbling events from the popup menu to the HTC
+	if (_oPopup.isOpen)
+	{
+		return false;
+	}
+
+	// Get the item that fired the event
+	var o = getElem();
+	
+	// Handle the User's Inputted Key
+	switch (event.keyCode)
+	{
+
+		case KEY_TAB:
+			menuRollOver(true);
+			break;
+
+		case KEY_ENTER:
+			// If there is no menu then fire the onclick event for this item
+			if (!o.menu)
+			{
+				o.click();
+				break;
+			}
+
+			// Fall through
+
+		case KEY_DOWN:
+		case KEY_UP:
+
+			// Only do this is there is a menu to open
+			if (o.menu)
+			{
+				loadMenu(null, false);
+				
+				// Only do this if there is a menu			
+				if (_oMenuLast)
+				{
+					// highlight the first row
+					menuItemOver(_oPopup.document.body.firstChild.rows[0]);
+				}
+			}
+			break;
+	}
+}
+
+
+// Handles the keyboard navigation of the top level menu items
+function menuItemKeyHandler()
+{
+	var e = getMenuItemEvent()
+	e.returnValue = false;
+
+	// Cache pointers to frequently used items
+	var oTable = _oSubPopup.isOpen ? _oSubPopup.document.body.firstChild : _oPopup.document.body.firstChild;
+	var iTableLen = oTable.rows.length;
+	var oLast = oTable.ownerDocument.lastMenuItem;
+	var oMenu = _oPopup.document.parentMenu;
+
+	// Handle the user's key input
+	switch (e.keyCode)
+	{
+		case KEY_LEFT:
+
+			if (_oSubPopup.isOpen)
+			{
+				// Collapse the submenu
+				_oSubPopup.hide();
+			}
+			else if (oMenu.previousSibling &&
+				oMenu.previousSibling.menu)
+			{
+				// Move to the Previous Main Menu
+				_oPopup.hide();
+				oMenu.previousSibling.focus();
+				resetGlow(oMenu);
+				loadMenu(oMenu.previousSibling, false);
+				menuItemOver(_oPopup.document.body.firstChild.rows[0]);
+			}
+
+			break;
+
+		case KEY_RIGHT:
+
+			if (oLast && oLast.menu)
+			{
+				// Expand the submenu
+				loadMenu(oLast, true);
+				menuItemOver(_oSubPopup.document.body.firstChild.rows[0]);
+			}
+			else if (oMenu.nextSibling &&
+				oMenu.nextSibling.menu)
+			{
+				// Move to the Next Main Menu
+				_oPopup.hide();
+				oMenu.nextSibling.focus();
+				resetGlow(oMenu);
+				loadMenu(oMenu.nextSibling, false);
+				menuItemOver(_oPopup.document.body.firstChild.rows[0]);
+			}
+
+			break;
+
+		case KEY_DOWN:
+
+			if (oLast)
+			{
+				var i = oLast.rowIndex + 1;
+
+				while (i < iTableLen && oTable.rows[i].className == "mnuSpacer")
+				{
+					i++;
+				}
+
+				menuItemOut(oLast);
+				menuItemOver(oTable.rows[i%(iTableLen)]);
+			}
+			else
+			{
+				menuItemOver(_oPopup.document.body.firstChild.rows[0]);
+			}
+
+			break;
+
+		case KEY_UP:
+
+			if (oLast)
+			{
+				if (oLast.rowIndex == 0)
+				{
+					menuItemOut(oLast);
+					menuItemOver(oTable.rows[iTableLen - 1]);
+				}
+				else
+				{
+					var i = oLast.rowIndex - 1;
+
+					while (i > -1 && oTable.rows[i].className == "mnuSpacer")
+					{
+						i--;
+					}
+
+					menuItemOut(oLast);
+					menuItemOver(oTable.rows[i]);
+				}
+			}
+			else
+			{
+				menuItemOver(_oPopup.document.body.firstChild.rows[0]);
+			}
+
+			break;
+
+		case KEY_ESC:
+
+			// Close all Popups
+			closeWindows();
+			closedWindowHandler();
+			break;
+
+		case KEY_ENTER:
+			menuItemClick(oLast);
+			break;
+		default:
+			try
+			{
+				// Not currently supported but should currently work
+				//if (_oSubPopup && _oSubPopup.isOpen)
+				//{
+				//	var oRows = _oSubPopup.document.body.firstChild.rows;
+				//}
+				if (_oPopup && _oPopup.isOpen)
+				{
+					var oRows = _oPopup.document.body.firstChild.rows;
+				}
+				else
+				{
+					break;
+				}
+				
+				// Return value explicitly ignored
+				menuFireAcceleratorKey(oRows, e);
+				
+			}
+			catch (oError)
+			{
+				// Ignore any errors
+			}
+	}
+}
+
+// Finds the right menu item for the given accelerator key.  If found clicks that item and returns true.
+function menuFireAcceleratorKey(oRows, oEvent)
+{
+	var i = 0;
+	var iLen = oRows.length
+	
+	while (i < iLen)
+	{
+		// Always Compare Upper Case
+		if (oRows[i].key && oRows[i].key.toUpperCase() == String.fromCharCode(oEvent.keyCode).toUpperCase())
+		{
+			oRows[i].click();
+			return true;
+		}
+
+		i++;
+	}
+	return false;
+}
+
+// Popup Menu Item Mouse Roll Over Event Handler
+function menuItemOver(o)
+{
+	var bAuto = false;
+
+	if (!o)
+	{
+		o = getMenuItemElem();
+		bAuto = true;
+	}
+
+	// Don't highlight Menu Spacers or re-highlight the current item
+	if (o.className == "mnuSpacer" ||
+		o === o.ownerDocument.lastMenuItem)
+	{
+		return false;
+	}
+
+	if (_oSubPopup.isOpen &&
+		o.menu != _oSubMenuLast &&
+		_oSubPopup.document.body !== o.ownerDocument.body)
+	{
+		// Check to see if we are not in a submenu by comparing the event body to the submenu body
+		_oSubPopup.hide();
+	}
+
+	// Auto load sub-menus
+	if (o.menu && bAuto)
+	{
+		loadMenu(null, true);
+	}
+
+	// If there is a last item - clear it... this handles dragging issues
+	if (o.ownerDocument.lastMenuItem)
+	{
+		o.ownerDocument.lastMenuItem.runtimeStyle.backgroundColor = "";
+	}
+
+	o.runtimeStyle.backgroundColor = "#abc0e7";
+	o.ownerDocument.lastMenuItem = o;
+}
+
+
+// Popup Menu Item Mouse Roll Out Event Handler
+function menuItemOut(o)
+{
+	if (!o)
+	{
+		o = getMenuItemElem();
+	}
+
+	// If this is not the menu item of the current submenu
+	if (!o.menu ||
+		(_oSubPopup.isOpen && _oSubPopup.document.parentMenu != o))
+	{
+		resetGlow(o);
+		resetGlow(o.ownerDocument.lastMenuItem);
+
+		o.ownerDocument.lastMenuItem = null;
+	}
+}
+
+
+// Popup Menu Item Click Handler
+function menuItemClick(o)
+{
+	if (!o)
+	{
+		o = getMenuItemElem();
+	}
+
+	if (!o.action)
+	{
+		// If this is a sub-menu, reload it
+		if (o.menu)
+		{
+			loadMenu(o, true);
+		}
+		else
+		{
+			menuItemOut(o);
+		}
+
+		return false;
+	}
+	
+	closeWindows();
+	closedWindowHandler();
+	
+	// Need to blur the last menu opened (opened onkeyup event).  
+	// Before this was causing the menu to stay open and the arrow key controls affected both the menu and the grid.  
+	try
+	{
+		if (_oMenuLast)
+		{
+			_oMenuLast.blur();
+		}
+	}
+	catch (e)
+	{
+		// do nothing
+	}
+	
+	// Execute the script in the parent window
+	window.execScript(o.action);
+}
+
+
+// Close all popup menus
+function closeWindows()
+{
+	with (_oPopup)
+	{
+		document.parentMenu = null;
+		hide();
+	}
+
+	with (_oSubPopup)
+	{
+		document.parentMenu = null;
+		hide();
+	}
+}
+
+
+// Cleanup after a window has closed
+function closedWindowHandler()
+{
+	if (!_oPopup.isOpen)
+	{
+		_oPopup.document.parentMenu = null;
+
+		if (_oMenuLast)
+		{
+			resetGlow(_oMenuLast);
+			_oMenuLast.onblur = null;
+		}
+
+		_oMenuLastOpened = null;
+	}
+}
+
+
+// Reset the background and border of an object
+function resetGlow(o)
+{
+	setGlow(o, "", "");
+}
+
+
+// Set the background and border of an object
+function setGlow(o, sBorder, sBackground)
+{
+	if (!o)
+	{
+		return false;
+	}
+
+	with (o.runtimeStyle)
+	{
+		borderColor = sBorder;
+		backgroundColor = sBackground;
+	}
+}
+
+
+// Return false if the document is not fully rendered & ready
+function checkReadyState()
+{
+	return document.readyState == "complete";
+}
+
+
+// Gets the element in a popup that fired the event
+function getMenuItemElem()
+{
+	var o = getMenuItemEvent().srcElement;
+
+	while (o.tagName != "HTML" && o.tagName != "TR")
+	{
+		o = o.parentElement;
+	}
+
+	return o;
+}
+
+
+// Gets the event object for the popup that fired the event
+function getMenuItemEvent()
+{
+	var o = _oPopup.document.parentWindow;
+
+	if (!o.event)
+	{
+		o = _oSubPopup.document.parentWindow;
+	}
+
+	o.event.cancelBubble = true;
+
+	return o.event;
+}
+
+
+// Gets the element that fired the event
+function getElem()
+{
+	var o = event.srcElement;
+
+	while (o != undefined && o.className != "menu")
+	{
+		o = o.parentElement;
+	}
+
+	return o;
+}
+
+// Builds an ID for the given MenuItem Row
+function buildMenuItemTestId(o)
+{
+	if (o.menu)
+	{
+		return "_MS" + o.menu;
+	}
+	else
+	{
+		return "_MI" + o.action.replace(_oIdRegExp, "");
+	}
+}
+</script>
+</public:component>

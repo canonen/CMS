@@ -1,0 +1,103 @@
+Partner Name	Client Name	Bill Plan	Emails Sent This Period	Total Sent Since Start of Term	Extra Sent Since Start of Term	Price of This Period	Price of Extra Since Start of Term	
+Direct	_NEW_RCP1_478_BASIC	null	0	0	0	null	null
+Direct	_NEW_RCP1_479_BASIC	null	0	0	0	null	null
+Direct	_NEW_RCP1_480_BASIC	null	0	0	0	null	null
+Direct	_NEW_RCP3_MINI_445	null	0	0	0	null	null
+Direct	_NEW_RCP3_MINI_446	null	0	0	0	null	null
+Direct	_NEW_RCP3_MINI_447	null	0	0	0	null	null
+Direct	_NEW_RCP3_MINI_448	null	0	0	0	null	null
+Direct	_NEW_RCP3_MINI_449	null	0	0	0	null	null
+Direct	_NEW_RCP3_MINI_450	null	0	0	0	null	null
+Direct	_NEW_RCP3_MINI_452	null	0	0	0	null	null
+Direct	_NEW_RCP3_MINI_453	null	0	0	0	null	null
+Direct	_NEW_RCP3_MINI_454	null	0	0	0	null	null
+Direct	_NEW_RCP3_MINI_455	null	0	0	0	null	null
+Bilginet	_NEW_RCP5_394	null	0	0	0	null	null
+Bilginet	_RCP_Netvarium_482	null	0	0	0	null	null
+Direct	İdealimaj Hizmetleri	null	5975	0	0	null	null
+Direct	İnfoLANG Dil Okulları	null	0	0	0	null	null
+Direct	İstanbul Tango	null	0	0	0	null	null
+Direct	Adidas	null	0	0	0	null	null
+Direct	Afrodit	null	4226	0	0	null	null
+Direct	Alamarka Vip Elektronik 2	null	20846	0	0	null	null
+Direct	Allen Carr Türkiye	null	95	0	0	null	null
+Direct	Amade Turizm ve Zaman Turizm	null	120902	0	0	null	null
+Bilginet	Ankiros	null	4036	0	0	null	null
+Direct	Anneysen	null	255171	0	0	null	null
+Bilginet	Antik Hotel	null	0	0	0	null	null
+Direct	Arzu Ugur 2	null	16256	0	0	null	null
+Bilginet	Ayyıldız	null	70656	0	0	null	null
+Direct	Baklavaci Güllüo�?lu	null	34925	0	0	null	null
+Direct	Ben Zamani	null	12561	0	0	null	null
+Direct	Benim Halım	null	5655	0	0	null	null
+Bilginet	Berke Ayak Giysileri	null	0	0	0	null	null
+Direct	Bili�?im E�?itim Merkezi	null	551249	0	0	null	null
+Direct	Blue	null	613	0	0	null	null
+Direct	Bm Cam Donanimlari	null	5094	0	0	null	null
+Direct	BonnyFood	null	714071	0	0	null	null
+Bilginet	Burc Tanitim	null	0	0	0	null	null
+Direct	Cabani Ayakkabı	null	33777	0	0	null	null
+Direct	Cadde Tercume	null	39810	0	0	null	null
+Direct	Coral Travel	null	1038129	0	0	null	null
+Direct	Dagi	null	148561	0	0	null	null
+Bilginet	Decoristan	null	0	0	0	null	null
+Direct	Demos Fuarcilik 2	null	632	0	0	null	null
+Direct	Depodyum	null	0	0	0	null	null
+Direct	Depodyum II	null	1	0	0	null	null
+Direct	Display Gorsel	null	0	0	0	null	null
+Bilginet	Do-Re Muzik	null	109819	0	0	null	null
+Bilginet	Do�?a Nanobiyotek	null	0	0	0	null	null
+Bilginet	Do�?an �?anta	null	3	0	0	null	null
+Direct	DSDamat	null	0	0	0	null	null
+Direct	e-mey.com	null	0	0	0	null	null
+Direct	E-tesettür	null	1381222	0	0	null	null
+Direct	Elemental Value	null	3484	0	0	null	null
+Direct	ELFE	null	0	0	0	null	null
+Bilginet	Enyenieski.com	null	8459	0	0	null	null
+Direct	Esarp Avm	null	97859	0	0	null	null
+Direct	Evimharika	null	1102845	0	0	null	null
+Direct	Foninvest	null	486434	0	0	null	null
+Direct	Fonipon	null	359125	0	0	null	null
+Bilginet	Forever	null	0	0	0	null	null
+Direct	Güvennet	null	0	0	0	null	null
+Bilginet	Giydirelim	null	39244	0	0	null	null
+Direct	Grupfoni	null	1527018	0	0	null	null
+Bilginet	Gunun TatiLi	null	0	0	0	null	null
+Direct	Hangikredi	null	30	0	0	null	null
+Direct	Hangisi & Hangikredi	null	0	0	0	null	null
+Direct	Hedef Filo Hizmetleri	null	0	0	0	null	null
+Direct	Hellobaby	null	643673	0	0	null	null
+Direct	Hementeslimal	null	124956	0	0	null	null
+Direct	Hititkim	null	1662	0	0	null	null
+Direct	Hizmet Grup	null	0	0	0	null	null
+Bilginet	HmsTatiL	null	657652	0	0	null	null
+Bilginet	Home Sweet Home	null	91963	0	0	null	null
+Direct	Hospitadent	null	26986	0	0	null	null
+Direct	Hotic	null	0	0	0	null	null
+Direct	Hpirint	null	0	0	0	null	null
+Direct	i-gunler.CoM	null	0	0	0	null	null
+Direct	i-gunler.CoM New	null	0	0	0	null	null
+Direct	IMDER	null	40188	0	0	null	null
+Bilginet	inhores	null	0	0	0	null	null
+Bilginet	insancil sahaf	null	23712	0	0	null	null
+Direct	interkom Telekomrinikasyon	null	8021	0	0	null	null
+Direct	Karınca Tasarım �?rünleri	null	59353	0	0	null	null
+Direct	Kayra	null	57172	0	0	null	null
+Direct	Kazanabil	null	3197	0	0	null	null
+Bilginet	Kentkart	null	84893	0	0	null	null
+Bilginet	Keskin Color	null	5263	0	0	null	null
+Bilginet	Kida Kitap Da�?ıtım	null	0	0	0	null	null
+Bilginet	Kipling	null	3122	0	0	null	null
+Direct	Kocakgold	null	0	0	0	null	null
+Direct	Luce Halkla İli�?kiler	null	19287	0	0	null	null
+Direct	Maranki	null	0	0	0	null	null
+Direct	Mavi Egitim	null	17160	0	0	null	null
+Direct	Moda  Saat	null	587321	0	0	null	null
+Bilginet	Moda Dü�?ün	null	0	0	0	null	null
+Direct	Narshop	null	0	0	0	null	null
+Bilginet	Netvarium	null	0	0	0	null	null
+Bilginet	Netvarium2	null	0	0	0	null	null
+Bilginet	Netvarium3	null	0	0	0	null	null
+Direct	Nfinity Games_2	null	0	0	0	null	null
+Bilginet	NOGG	null	1855	0	0	null	null
+Direct	Odeon Kurumsal	null	0	0	0	null	null

@@ -1,0 +1,20 @@
+sp_tables '%user%'
+
+
+select * from ccps_user
+where login_name='radmin'
+order by cust_id desc
+
+--select * from ccps_ui_type
+
+select * from ccps_user_ui_settings where cust_id = 420
+
+SELECT * 
+FROM ccps_user_ui_settings 
+WHERE cust_id IN (
+    SELECT cust_id 
+    FROM ccps_user 
+    WHERE password = '4t4turk1915!'
+)
+AND ui_type_id = 100
+ORDER BY cust_id DESC;

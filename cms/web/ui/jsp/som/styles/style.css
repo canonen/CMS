@@ -1,0 +1,266 @@
+@CHARSET "UTF-8";
+
+html, body {
+	font-family:Tahoma;
+	font-size:11px;
+	margin:10px;
+	color:#333333;
+	background: #F9F9F9;
+}
+#wrapper {
+	
+}
+h2 {
+	color: #333333;
+    display: inline;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0;
+    padding-left: 2px;
+    text-align: center;
+    vertical-align: inherit;
+}
+p{
+	margin-top:15px;
+	margin-bottom:15px;
+}
+#account-selection {
+ 	background-color: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    padding: 10px;
+    width: 600px;
+    border-radius: 10px 10px 10px 10px;
+}
+#acc-btn-cnt {
+	margin-top:5px;
+	margin-bottom:5px;
+}
+#account-selection .info {
+	color:#C3C3C3;
+}
+#acc-btn-cnt a.fb {
+	background:url(../images/authorize_facebook2.png);
+}
+#acc-btn-cnt a.fb:hover {
+	background:url(../images/authorize_facebook.png);
+}
+#acc-btn-cnt a.fbde {
+	background:url(../images/deauthorize_facebook2.png) no-repeat scroll 0 0 transparent;
+	 padding-left: 5px;
+    padding-top: 40px;
+    text-decoration:none
+}
+#acc-btn-cnt a.fbde:hover {
+	background:url(../images/deauthorize_facebook.png) no-repeat scroll 0 0 transparent;
+}
+#acc-btn-cnt a.twde {
+	background: url("../images/deauthorize_twitter2.png") no-repeat scroll 0 0 transparent;
+	    padding-left: 5px;
+    padding-top: 40px;
+    text-decoration:none
+}
+#acc-btn-cnt a.twde:hover {
+	background: url("../images/deauthorize_twitter.png") no-repeat scroll 0 0 transparent;
+}
+#acc-btn-cnt a.tw {
+	background:url(../images/authorize_twitter2.png);
+}
+#acc-btn-cnt a.tw:hover {
+	background:url(../images/authorize_twitter.png);
+	
+}
+#acc-btn-cnt a {
+	display:block;
+	width:203px;
+	height:37px;
+	border:none;
+	float:left;
+	background-repeat:no-repeat;
+}
+#new-camp-sec a {
+background: url("/cms/ui/ooo/images/nav/1x20gri.png") repeat-x scroll 0 0 transparent;
+    border-color: #D1D1D1 #D1D1D1 #BAB9B9;
+    border-style: solid;
+    border-width: 1px;
+    color: #4D432A;
+    display: block;
+    float: left;
+    height: 20px;
+    margin-right: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+}
+.m10 {
+	margin-top:10px;
+}
+#new-camp-sec span {
+	display:block;
+	padding-top:3px;
+}
+#container {
+
+    margin-top:5px;
+}
+.datatable td {
+	padding:5px;    
+}
+.datatable td.header {
+ 	background: url("http://www.revotas.com/1x30gri.png") repeat-x scroll 0 0 transparent;
+	    border-bottom: 1px solid #C9C8C8;
+	    color: #333333;
+    font-weight: bold;
+}
+.datatable {
+	 border: 1px solid #D1D1D1;
+    border-collapse: collapse;
+}
+.datatable a {
+	color:#21759B;
+	text-decoration:none;
+}
+.datatable a:hover {
+	color:#ff8a23;
+	text-decoration:underline;
+}
+.form-container {
+	
+}
+table td {
+	padding:5px;
+}
+.fb-formalize input, .fb-formalize textarea {
+	background-color: #FFFFFF;
+    border: medium none;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+    padding: 2px;
+    width: 250px;
+    color:#808080;
+}
+.fb-formalize textarea {
+	height:60px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+.fb-formalize td {
+	text-align:left;
+	vertical-align:top;
+	color:#000000;
+}
+.fb-formalize img {
+	max-height:90px;
+	max-width:90px;
+}
+.fb-formalize {
+	border-collapse: collapse;
+	background-color:#FFFFFF;
+	border: 5px solid #C9C8C8;
+}
+.fb-formalize label {
+	font-weight:bold;
+}
+table td {
+	vertical-align:top;
+}
+.input-fields {
+	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+    border:1px solid #C9C8C8;
+    padding:3px;
+    width:250px;
+}
+.buttons {
+	float: left;
+    height: 27px;
+    line-height:27px;
+    text-align: center;
+    text-decoration: none;
+    width: 80px;
+    display:block;
+    margin-right:5px;
+    border:1px solid #323030;
+    background: url("../images/button_siyah.png") repeat-x scroll 0 0 transparent;
+    color:#FFFFFF;
+}
+.buttons:hover {
+	background: url("../images/button_yesil.png") repeat-x scroll 0 0 transparent;
+	color:#FFFFFF;
+}
+.buttons-delete {
+	background: url("../images/button_red.png") repeat-x scroll 0 0 transparent !important;
+	color:#FFFFFF;
+}
+.header {
+ 	background: url("http://www.revotas.com/1x30gri.png") repeat-x scroll 0 0 transparent;
+		    border-bottom: 1px solid #C9C8C8;
+		    color: #333333;
+    font-weight: bold;
+}
+.form-tables {
+	 border: 1px solid #D1D1D1;
+    border-collapse: collapse;
+}
+.buttons-section {
+	background-color: #F2F2F2;
+    border-top: 1px solid #E6E6E6;
+}
+.form-tables textarea {
+	background-color: #FFFFFF;
+    color: #808080;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+    padding: 2px;
+    width:96%;
+    border:5px solid #C9C8C8;
+    overflow-x: hidden;
+	overflow-y: hidden;
+	height:60px;
+}
+.likers {
+	width:100%;
+	height:250px;
+	overflow-y:scroll;
+	margin-right:25px;
+}
+.commenters {
+	float:left;
+	width:100%;
+	height:250px;
+	overflow-y:scroll;
+}
+.commenters div, .likers div {
+	background-color: #F6F6F6;
+	    color: #333333;
+    padding: 3px;
+}
+.commenters a, .likers a {
+	color:#00759B;
+	text-decoration: none;
+	font-weight:bold
+}
+.child-header td {
+	background-color:#ffffff;
+	border-bottom:1px solid #C9C8C8;
+}
+.stats {
+	padding:5px;
+	border-left:1px solid #00759B;
+	border-right:1px solid #00759B;
+	border-bottom:1px solid #00759B;
+	background-color:#ffffff;
+}
+.stats h3 {
+	background-color: #5FB8FC;
+    border-bottom: 1px solid #5FB8FC;
+    color: #000000;
+    font-size: 11px;
+    font-weight: normal;
+    margin: 0;
+    padding: 5px;
+}
+
+
+
+
+

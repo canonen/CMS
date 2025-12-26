@@ -1,0 +1,10 @@
+a.wizard-steps-normal	{text-decoration: none; color: #000000}
+a.wizard-steps-normal:visited	{color:#000000}
+a.wizard-steps-normal:hover	{color:#000000; text-decoration: underline}
+
+a.wizard-steps-active	{text-decoration: none; color: #336633}
+a.wizard-steps-active:visited	{color:#336633}
+a.wizard-steps-active:hover	{color:#336633; text-decoration: underline}
+
+.color-wizard-steps-dim 	{text-decoration: none; color: #666666}
+.color-wizard-steps-active 	{text-decoration: none; color: #336633}

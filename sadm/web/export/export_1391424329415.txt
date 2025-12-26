@@ -1,0 +1,22 @@
+Partner Name	Client Name	Bill Plan	Emails Sent This Period	Total Sent Since Start of Term	Extra Sent Since Start of Term	Price of This Period	Price of Extra Since Start of Term	
+Direct	_NEW_RCP1_426	null	0	0	0	null	null
+Direct	_NEW_RCP1_427	null	0	0	0	null	null
+Direct	_NEW_RCP1_428	null	0	0	0	null	null
+Bilginet	_NEW_RCP5_394	null	0	0	0	null	null
+Direct	İdealimaj Hizmetleri	null	9978	0	0	null	null
+Direct	İnfoLANG Dil Okulları	null	0	0	0	null	null
+Direct	İstanbul Tango	null	34318	0	0	null	null
+Direct	Afrodit	null	0	0	0	null	null
+Direct	Alamarka Vip Elektronik	null	0	0	0	null	null
+Direct	Alamarka Vip Elektronik 2	null	21406	0	0	null	null
+Direct	Allen Carr Türkiye	null	5620	0	0	null	null
+Direct	Aluexpo	null	0	0	0	null	null
+Direct	Amade Turizm ve Zaman Turizm	null	169003	0	0	null	null
+Bilginet	Ankiros	null	0	0	0	null	null
+Direct	Anneysen	null	254913	0	0	null	null
+Bilginet	Antik Hotel	null	7440	0	0	null	null
+Bilginet	Apolena	null	0	0	0	null	null
+Direct	Arzu Ugur 2	null	40315	0	0	null	null
+Direct	Ayakkabici.co	null	0	0	0	null	null
+Bilginet	Ayyıldız	null	90208	0	0	null	null
+Direct	Baklavaci Güllüo�?lu	null	0	0	0	null	null

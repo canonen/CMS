@@ -1,0 +1,96 @@
+TD.SubMenuTableBackground
+{
+	font-family: arial;
+	font-size: 10px;
+	color: #FFFFFF;
+	background-color: #333399;
+}
+
+TABLE.SubMenuTableOff
+{
+	font-family: arial;
+	font-size: 10px;
+	color: #FFFFFF;
+	background-color: #333399;
+}
+
+TABLE.SubMenuTableOn
+{
+	font-family: arial;
+	font-size: 10px;
+	color: #000000;
+	background-color: #eeeeee;
+}
+
+TD.SubMenuItemOff
+{
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-bottom: 3px;
+	padding-top: 2px;
+}
+
+TD.SubMenuItemOff A, .SubMenuItemOff A:link, .SubMenuItemOff A:active, .SubMenuItemOff A:visited, .SubMenuItemOff A:hover
+{
+	font-family: arial;
+	font-size: 10px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+TD.SubMenuItemOff A:hover
+{
+	font-family: arial;
+	font-size: 10px;
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+TD.SubMenuItemOn
+{
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-bottom: 2px;
+	padding-top: 1px;
+}
+
+TD.SubMenuItemOn A, .SubMenuItemOn A:link, .SubMenuItemOn A:active, .SubMenuItemOn A:visited, .SubMenuItemOn A:hover
+{
+	font-family: arial;
+	font-size: 10px;
+	color: #000000;
+	text-decoration: none;
+}
+
+TD.SubMenuItemOn A:hover
+{
+	font-family: arial;
+	font-size: 10px;
+	color: #000000;
+	text-decoration: underline;
+}
+
+TD.SubMenuItemActive
+{
+
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+
+TD.SubMenuItemActive A, .SubMenuItemActive A:link, .SubMenuItemActive A:active, .SubMenuItemActive A:visited, .SubMenuItemActive A:hover
+{
+	font-family: arial;
+	font-size: 10px;
+	color: #000000;
+	text-decoration: none;
+}
+
+TD.SubMenuItemActive A:hover
+{
+	font-family: arial;
+	font-size: 10px;
+	color: #000000;
+	text-decoration: underline;
+}

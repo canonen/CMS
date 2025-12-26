@@ -1,0 +1,222 @@
+@page
+{ font-size:12px;
+  size:14.18in 14.88in;
+  margin:0.25in;
+  -fs-flow-top:"header";
+  -fs-flow-bottom:"footer";
+  -fs-flow-left:"left";
+  -fs-flow-right:"right";
+  border:1px solid black; }
+
+html,body,td
+{ background-color:#F9F9F9;
+  font:11px Tahoma;
+  color:#333333;
+  margin:10px; }
+
+br
+{ display:block; }
+
+.lessmoreBtn a
+{ border:0 none;
+  display:block;
+  float:left;
+  text-decoration:none;
+  width:16px;
+  height:16px; }
+
+
+	.topLinks {
+			background: url("../ooo/images/1x22sari.png") repeat-x scroll 0 0 transparent;
+		    border-color: #B88917 #A2770F #A2770F #B88917;
+		    border-style: solid;
+		    border-width: 1px;
+		    color: #FFFFFF;
+		    display: inline-block;
+		    font-family: tahoma;
+		    font-size: 11px;
+		    height: 22px;
+		    line-height: 22px;
+		    padding: 0 10px;
+		    text-decoration: none;
+	border-radius: 3px 3px 3px 3px;
+	}
+	
+	.topLinks:hover {
+		background: url("../ooo/images/1x22siyah.png") repeat-x scroll 0 0 transparent;
+		border-color: #191818 #000000 #000000 #191818;
+		color: #FFFFFF;
+		text-decoration: none;
+	}
+	
+
+.sectionSheaders
+{ background: url("../ooo/images/cursor_drag_hand_icon&16.png") no-repeat scroll 2px 2px transparent;
+    border-bottom: 1px solid #C9C8C8;
+    color: #333333;
+    display: block;
+    font-weight: 700;
+    height: 23px;
+    line-height: 23px;
+    outline: medium none;
+    text-decoration: none;}
+
+.clearfix
+{ clear:both; }
+
+.sectionContainerTbl
+{ border-collapse:collapse;
+  table-layout:fixed; }
+
+.sectionContainerTbl td
+{ background-color:#ffffff;
+  vertical-align:top;
+  padding:5px; }
+
+.sectionHeaders td,.sectionHeadersWhite td
+{background: url("../ooo/images/1x26gri.png") repeat-x scroll 0 0 transparent;
+    border-bottom: 1px solid #C9C8C8;
+    padding: 5px; }
+
+.sectionHeaders td
+{ color:#333333;
+  vertical-align:top; }
+
+.sectionHeadersWhite td
+{ color:#666666;
+  font-weight:700;
+  vertical-align:top; }
+
+.sectionItem1 td
+{ background-color:#5a5959;
+  vertical-align:top; }
+
+.borderTbl
+{ border:1px solid #DFDFDF; }
+
+#summaryTabsContainer a
+{ background: url("../ooo/images/nav/1x20gri.png") repeat-x scroll 0 0 transparent;
+    border-color: #D1D1D1;
+    border-style: solid;
+    border-width: 1px;
+    color: #757676;
+    display: block;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    margin-right: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-decoration: none; }
+
+#summaryTabsContent
+{ border:1px solid #DFDFDF;
+  padding:5px; }
+
+.summaryTabsActive
+{ 
+  border-top:2px solid #21759B!important; }
+
+.sectionTopHeader
+{ margin-top:10px;
+  min-width:470px; }
+
+.sectionTopHeader a
+{ background: url("../ooo/images/1x26gri.png") repeat-x scroll 0 0 transparent;
+    border-color: #C9C8C8;
+    border-left: 1px solid #C9C8C8;
+    border-right: 1px solid #C9C8C8;
+    border-style: solid;
+    border-width: 1px;
+    color: #757676;
+    display: block;
+    float: left;
+    height: 20px;
+    margin-right: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none; }
+
+.sectionTopHeader .activeTab
+{ border-top: 1px solid #21759B;
+    color: #333333;
+    font-weight: bold; }
+
+.sectionTopHeader a span
+{ display:block;
+  margin-top:4px; }
+
+.contentRows td
+{ background-color:#F6F6F6; }
+
+.blockborderbottom td
+{ border-bottom:1px solid #DFDFDF; }
+
+.sectionblock
+{	background: url("../ooo/images/1x26gri.png") repeat-x scroll 0 0 transparent;
+    border: 1px solid #C9C8C8;
+    margin-bottom: 6px; }
+
+.sectionblock span
+{ display:block;
+  float:left;
+  margin-left:20px; }
+
+.sectionSheaders:hover
+{ cursor:move; }
+
+.sectionBox
+{  }
+
+a.reportPopDetail
+{ text-decoration:underline;
+  color:#21759B; }
+
+.lessmoreBtn
+{ text-align:right;
+  position:absolute;
+  top:2px;
+  right:2px!important; }
+
+.lessmoreContentLess
+{ overflow:hidden;
+  height:114px; }
+
+.lessmoreContentMore
+{ height:auto!important;
+  overflow:visible; }
+
+.borderDark
+{ border:1px solid #393939; }
+
+.noCollapse
+{ padding:5px; }
+
+.sectionSheaders img
+{ display:block;
+  float:right;
+  margin-top:2px;
+  margin-right:3px; }
+
+.hovercontent
+{ position:relative; }
+
+.bubbleContainer td
+{ background-color: #FFFFFF;
+    color: #666666;
+    padding: 3px;
+    vertical-align: middle; }
+.bubbleContainer
+    { 
+        border: 1px solid #DFDFDF;
+ }
+    
+
+#sortableColumnLeft,#sortableColumnRight
+{ border: 1px solid #F9F9F9;
+    float: left;
+    margin: 0 5px 0 0;
+    min-width: 470px;
+    padding: 0;
+    width: 49%; }
+

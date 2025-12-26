@@ -1,0 +1,2 @@
+Partner Name	Client Name	Bill Plan	Emails Sent This Period	Total Sent Since Start of Term	Extra Sent Since Start of Term	Price of This Period	Price of Extra Since Start of Term	
+Direct	i-gunler.CoM	null	825389	0	0	null	null

@@ -1,0 +1,479 @@
+<%@ page
+        language="java"
+        import="com.britemoon.cps.*,
+                com.britemoon.*,
+                com.britemoon.cps.ctl.*,
+                java.util.*,
+                java.sql.*,
+                java.net.*,
+                org.apache.log4j.*"
+        errorPage="../../error_page.jsp"
+        contentType="text/html;charset=UTF-8"
+%>
+
+<%@ page import="com.restfb.json.JsonArray" %>
+<%@ page import="com.restfb.json.JsonObject" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+
+<%@ include file="../header.jsp" %>
+<%@ include file="../validator.jsp" %>
+<%! static Logger logger = null;%>
+<%
+    if (logger == null) {
+        logger = Logger.getLogger(this.getClass().getName());
+    }
+
+//    AccessPermission can = user.getAccessPermission(ObjectType.IMPORT);
+
+
+//    AccessPermission canCat = user.getAccessPermission(ObjectType.CATEGORY);
+
+//Is it the standard ui?
+//    boolean STANDARD_UI = (ui.n_ui_type_id == UIType.STANDARD);
+
+
+    String sBatchID = request.getParameter("batch_id");
+
+    int nBatchID = Integer.parseInt((sBatchID == null) ? "0" : sBatchID);
+
+//    boolean bCanExecute = can.bExecute;
+
+// === === ===
+
+//    String scurPage = request.getParameter("curPage");
+    String samount = request.getParameter("amount");
+
+//    int curPage = 1;
+
+//    curPage = (scurPage == null) ? 1 : Integer.parseInt(scurPage);
+
+// === === ===
+
+    String sImportListGroupBy = ui.getSessionProperty("import_list_group_by");
+    String sGroupBy = request.getParameter("group_by");
+    if (sGroupBy == null) {
+        if ((null != sImportListGroupBy) && ("" != sImportListGroupBy)) {
+            sGroupBy = sImportListGroupBy;
+        } else {
+            sGroupBy = "import";
+        }
+    }
+
+
+    ui.setSessionProperty("import_list_group_by", sGroupBy);
+
+    String sImportListOrderBy = ui.getSessionProperty("import_list_order_by");
+    String sOrderBy = request.getParameter("order_by");
+    if (sOrderBy == null) {
+        if ((null != sImportListOrderBy) && ("" != sImportListOrderBy)) {
+            sOrderBy = sImportListOrderBy;
+        } else {
+            sOrderBy = "date";
+        }
+    }
+
+    ui.setSessionProperty("import_list_order_by", sOrderBy);
+
+    String sImportListPageSize = ui.getSessionProperty("import_list_page_size");
+    if (samount == null) {
+        if ((null != sImportListPageSize) && ("" != sImportListPageSize)) {
+            samount = sImportListPageSize;
+        } else {
+            samount = "25";
+        }
+    }
+
+    ui.setSessionProperty("import_list_page_size", samount);
+
+
+    String sSelectedCategoryId = request.getParameter("category_id");
+    if ((sSelectedCategoryId == null) && ((user.s_cust_id).equals(cust.s_cust_id)))
+        sSelectedCategoryId = ui.s_category_id;
+
+    ConnectionPool connectionPool = null;
+    Connection connection = null;
+    Statement statement = null;
+    ResultSet resultSet = null;
+
+%>
+<%
+
+    try {
+
+        connectionPool = ConnectionPool.getInstance();
+        connection = connectionPool.getConnection(this);
+        statement = connection.createStatement();
+
+        JsonObject data = new JsonObject();
+        JsonArray dataArray = new JsonArray();
+        JsonArray dataArrayTwo = new JsonArray();
+        JsonArray array = new JsonArray();
+
+        Integer batchId = 0;
+        String batchName = null;
+
+        StringBuilder sql = new StringBuilder();
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        sql.append(
+                "SELECT DISTINCT " +
+                        "    b.batch_id, " +
+                        "    b.batch_name, " +
+                        "    STUFF(( " +
+                        "        SELECT ',' + CAST(c2.category_id AS VARCHAR(10)) " +
+                        "        FROM ccps_object_category c2 WITH (NOLOCK) " +
+                        "        WHERE c2.object_id = b.batch_id " +
+                        "          AND c2.cust_id = b.cust_id " +
+                        "        FOR XML PATH(''), TYPE " +
+                        "    ).value('.', 'NVARCHAR(MAX)'), 1, 1, '') AS category_ids " +
+                        "FROM cupd_batch b WITH (NOLOCK) " +
+                        "WHERE b.type_id = 1 " +
+                        "  AND b.cust_id = ? " + // param 1
+                        "  AND b.batch_id IN ( " +
+                        "        SELECT DISTINCT i.batch_id " +
+                        "        FROM cupd_import i WITH (NOLOCK) " +
+                        "        INNER JOIN cupd_batch b2 WITH (NOLOCK) ON i.batch_id = b2.batch_id " +
+                        "        WHERE i.status_id = ? " + // param 2
+                        "          AND b2.cust_id = ? " // param 3
+        );
+
+// Eğer kategori seçildiyse, alt sorguya join ekle
+        if (sSelectedCategoryId != null && !sSelectedCategoryId.equals("0")) {
+            sql.append(
+                    "          AND EXISTS ( " +
+                            "              SELECT 1 FROM ccps_object_category oc WITH (NOLOCK) " +
+                            "              WHERE oc.object_id = i.import_id " +
+                            "                AND oc.cust_id = b2.cust_id " +
+                            "                AND oc.category_id = ? " + // param 4
+                            "          ) "
+            );
+        }
+
+// batchId filtreleme
+        if (nBatchID != 0) {
+            sql.append(" AND b.batch_id = ? "); // param (4 veya 5)
+        }
+
+        sql.append(") ORDER BY b.batch_id DESC");
+
+// ---- prepared statement oluştur ----
+        pstmt = connection.prepareStatement(sql.toString());
+
+        int paramIndex = 1;
+        pstmt.setString(paramIndex++, cust.s_cust_id);
+        pstmt.setInt(paramIndex++, UpdateStatus.COMMIT_COMPLETE);
+        pstmt.setString(paramIndex++, cust.s_cust_id);
+
+        if (sSelectedCategoryId != null && !sSelectedCategoryId.equals("0")) {
+            pstmt.setString(paramIndex++, sSelectedCategoryId);
+        }
+
+        if (nBatchID != 0) {
+            pstmt.setInt(paramIndex++, nBatchID);
+        }
+
+// ---- sorguyu çalıştır ----
+        resultSet = pstmt.executeQuery();
+
+        array = new JsonArray();
+        while (resultSet.next()) {
+            data = new JsonObject();
+            data.put("batch_id", resultSet.getInt("batch_id"));
+            data.put("batch_name", resultSet.getString("batch_name"));
+
+            String categories = resultSet.getString("category_ids");
+            if (categories != null && !categories.isEmpty()) {
+                data.put("category_ids",categories);
+            }
+
+            array.put(data);
+        }
+
+        dataArray.put(array);
+        resultSet.close();
+        pstmt.close();
+
+        System.out.println("-----------ImportList---------------");
+
+        Integer importId = 0;
+        String importName = null;
+        String importDate = null;
+        String statusName = null;
+
+        String totRows = null;
+        String badEmailsBadRows = null;
+        String warningRecips = null;
+        String fileDups = null;
+        String dupRecips = null;
+        String newRecips = null;
+        String numCommitted = null;
+        String leftToCommit = null;
+        Integer statusId = 0;
+
+
+            String importListNonCategorySqlQuery =
+                    "SELECT i.import_id, " +
+                            "       i.import_name, " +
+                            "       i.import_date AS import_date, " +
+                            "       s.display_name, " +
+                            "       b.batch_name, " +
+                            "       ISNULL(st.tot_rows,0) AS tot_rows, " +
+                            "       ISNULL(st.bad_emails,0) + ISNULL(st.bad_rows,0) AS bad_emails_bad_rows, " +
+                            "       ISNULL(st.warning_recips,0) AS warning_recips, " +
+                            "       ISNULL(st.file_dups,0) AS file_dups, " +
+                            "       ISNULL(st.dup_recips,0) AS dup_recips, " +
+                            "       ISNULL(st.new_recips,0) AS new_recips, " +
+                            "       ISNULL(st.num_committed,0) AS num_committed, " +
+                            "       ISNULL(st.left_to_commit,0) AS left_to_commit, " +
+                            "       s.status_id, " +
+                            "       c.category_id " +
+                            "FROM cupd_import i WITH (NOLOCK) " +
+                            "INNER JOIN cupd_batch b WITH (NOLOCK) " +
+                            "   ON i.batch_id = b.batch_id " +
+                            "  AND b.type_id = 1 " +
+                            "  AND b.cust_id = " + cust.s_cust_id + " " +
+                            "INNER JOIN cupd_import_status s WITH (NOLOCK) ON i.status_id = s.status_id " +
+                            "LEFT OUTER JOIN cupd_import_statistics st WITH (NOLOCK) ON i.import_id = st.import_id " +
+                            "LEFT OUTER JOIN ccps_object_category c WITH (NOLOCK) " +
+                            "   ON c.object_id = i.import_id " + // sadece eşleştirme
+                            "WHERE i.status_id < " + ImportStatus.COMMIT_COMPLETE + " " +
+                            "  AND (c.cust_id = " + cust.s_cust_id + " OR c.cust_id IS NULL) " +
+                            "  AND (c.type_id = " + ObjectType.IMPORT + " OR c.type_id IS NULL) " +
+                            (sSelectedCategoryId != null && !sSelectedCategoryId.equals("0")
+                                    ? "  AND c.category_id = " + sSelectedCategoryId + " "
+                                    : "") +
+                            "ORDER BY b.batch_name, i.import_id DESC";
+
+            resultSet = statement.executeQuery(importListNonCategorySqlQuery);
+
+            dataArray = new JsonArray();
+            while (resultSet.next()) {
+                data = new JsonObject();
+
+                importId = resultSet.getInt(1);
+                importName = resultSet.getString(2);
+                importDate = dateFormatter(resultSet.getTimestamp(3));
+                statusName = resultSet.getString(4);
+                batchName = resultSet.getString(5);
+                totRows = resultSet.getString(6);
+                badEmailsBadRows = resultSet.getString(7);
+                warningRecips = resultSet.getString(8);
+                fileDups = resultSet.getString(9);
+                dupRecips = resultSet.getString(10);
+                newRecips = resultSet.getString(11);
+                numCommitted = resultSet.getString(12);
+                leftToCommit = resultSet.getString(13);
+                statusId = resultSet.getInt(14);
+                String categoryId = resultSet.getString("category_id");
+
+
+                data.put("importId", importId);
+                data.put("importName", importName);
+                data.put("importDate", importDate);
+                data.put("statusName", statusName);
+                data.put("batchName", batchName);
+                data.put("totRows", totRows);
+                data.put("badEmailsBadRows", badEmailsBadRows);
+                data.put("warningRecips", warningRecips);
+                data.put("fileDups", fileDups);
+                data.put("dupRecips", dupRecips);
+                data.put("newRecips", newRecips);
+                data.put("numCommitted", numCommitted);
+                data.put("leftToCommit", leftToCommit);
+                data.put("statusId", statusId);
+
+                if (categoryId!=null) {
+                    data.put("category_id", categoryId);
+                }
+                dataArrayTwo.put(data);
+            }
+
+            resultSet.close();
+
+        String sSQL = "";
+
+        if ((sSelectedCategoryId == null) || (sSelectedCategoryId.equals("0"))) {
+            sSQL = "SELECT	i.import_id, \n"
+                    + " i.import_name, \n"
+                    + " i.import_date as show_date, \n "
+                    + " s.display_name, \n"
+                    + " b.batch_name, \n"
+                    + " ISNULL(st.tot_rows,0) as tot_rows, \n"
+                    + " ISNULL(st.bad_emails,0) + ISNULL(st.bad_rows,0)as bad_emails_bad_rows, \n"
+                    + " ISNULL(st.warning_recips,0) as warning_recips, \n"
+                    + " ISNULL(st.file_dups,0) as file_dups, \n"
+                    + " ISNULL(st.dup_recips,0) as dup_recips, \n"
+                    + " ISNULL(st.new_recips,0) as new_recips, \n"
+                    + " ISNULL(st.num_committed,0) as num_commited, \n"
+                    + " ISNULL(st.left_to_commit,0) as left_to_commit, \n"
+                    + " s.status_id,"
+                    + " b.batch_id"
+                    + " FROM cupd_import i with (nolock)";
+
+            if (sGroupBy.equals("batch")) {
+                sSQL += " INNER JOIN (cupd_batch b with (nolock) INNER JOIN cupd_import ii with (nolock) ON b.batch_id = ii.batch_id)";
+            } else {
+                sSQL += " INNER JOIN cupd_batch b with (nolock)";
+
+            }
+            sSQL += " ON (i.batch_id = b.batch_id"
+                    + " AND b.type_id = 1"
+                    + " AND b.cust_id = " + cust.s_cust_id + ")"
+                    + " INNER JOIN cupd_import_status s with (nolock) ON i.status_id = s.status_id"
+                    + " LEFT OUTER JOIN cupd_import_statistics st with (nolock) ON i.import_id = st.import_id"
+                    + " WHERE i.status_id >= 50" //ImportStatus.COMMIT_COMPLETE
+                    + " AND i.status_id < 80"; //ImportStatus.DELETED
+
+            if (sGroupBy.equals("batch")) {
+                sSQL += " GROUP BY b.batch_name, b.batch_id, i.import_date, i.import_id, i.import_name, s.display_name, b.batch_name,"
+                        + " st.tot_rows, st.bad_emails, st.bad_rows, st.warning_recips, st.file_dups, st.dup_recips, "
+                        + " st.new_recips, st.num_committed, st.left_to_commit, s.status_id";
+
+                if (sOrderBy.equals("name")) {
+                    sSQL += "  ORDER BY b.batch_name, i.import_date DESC";
+                } else {
+                    sSQL += "  ORDER BY max(ii.import_date) DESC, b.batch_name, i.import_date DESC";
+                }
+            } else {
+                if (sOrderBy.equals("name")) {
+                    sSQL += "  ORDER BY i.import_name, i.import_date DESC";
+                } else {
+                    sSQL += "  ORDER BY i.import_date DESC";
+                }
+            }
+
+        } else {
+
+            sSQL = "SELECT	i.import_id,"
+                    + " i.import_name,"
+                    + " i.import_date as show_date,"
+                    + " s.display_name,"
+                    + " b.batch_name,"
+                    + " ISNULL(st.tot_rows,0),"
+                    + " ISNULL(st.bad_emails,0) + ISNULL(st.bad_rows,0),"
+                    + " ISNULL(st.warning_recips,0),"
+                    + " ISNULL(st.file_dups,0),"
+                    + " ISNULL(st.dup_recips,0),"
+                    + " ISNULL(st.new_recips,0),"
+                    + " ISNULL(st.num_committed,0),"
+                    + " ISNULL(st.left_to_commit,0),"
+                    + " s.status_id,"
+                    + " b.batch_id"
+                    + " FROM cupd_import i with (nolock)";
+
+            if (sGroupBy.equals("batch")) {
+                sSQL += " INNER JOIN (cupd_batch b with (nolock) INNER JOIN cupd_import ii with (nolock) ON b.batch_id = ii.batch_id)";
+            } else {
+                sSQL += " INNER JOIN cupd_batch b with (nolock)";
+
+            }
+            sSQL += " ON (i.batch_id = b.batch_id"
+                    + " AND b.type_id = 1"
+                    + " AND b.cust_id = " + cust.s_cust_id + ")"
+                    + " INNER JOIN ccps_object_category c"
+                    + " ON (i.import_id = c.object_id"
+                    + " AND c.cust_id = " + cust.s_cust_id
+                    + " AND c.type_id = " + ObjectType.IMPORT
+                    + " AND c.category_id = " + sSelectedCategoryId + ")"
+                    + " INNER JOIN cupd_import_status s with (nolock) ON i.status_id = s.status_id"
+                    + " LEFT OUTER JOIN cupd_import_statistics st with (nolock) ON i.import_id = st.import_id"
+                    + " WHERE i.status_id >= 50" //ImportStatus.COMMIT_COMPLETE
+                    + " AND i.status_id < 80"; //ImportStatus.DELETED
+
+            if (sGroupBy.equals("batch")) {
+                sSQL += "  GROUP BY b.batch_name, b.batch_id, i.import_date, i.import_id, i.import_name, s.display_name, b.batch_name,"
+                        + "  st.tot_rows, st.bad_emails, st.bad_rows, st.warning_recips, st.file_dups, st.dup_recips, "
+                        + "  st.new_recips, st.num_committed, st.left_to_commit, s.status_id"
+                        + "  ORDER BY max(ii.import_date) DESC, b.batch_name, i.import_date DESC";
+            } else {
+                sSQL += "  ORDER BY i.import_id DESC";
+            }
+
+        }
+
+        resultSet = statement.executeQuery(sSQL);
+
+
+        dataArray = new JsonArray();
+        while (resultSet.next()) {
+            data = new JsonObject();
+
+            importId = resultSet.getInt(1);
+            importName = resultSet.getString(2);
+            importDate = dateFormatter(resultSet.getTimestamp(3));
+            statusName = resultSet.getString(4);
+            batchName = resultSet.getString(5);
+            totRows = resultSet.getString(6);
+            badEmailsBadRows = resultSet.getString(7);
+            warningRecips = resultSet.getString(8);
+            fileDups = resultSet.getString(9);
+            dupRecips = resultSet.getString(10);
+            newRecips = resultSet.getString(11);
+            numCommitted = resultSet.getString(12);
+            leftToCommit = resultSet.getString(13);
+            statusId = resultSet.getInt(14);
+            batchId = resultSet.getInt(15);
+
+
+            data.put("import_id", importId);
+            data.put("import_name", importName);
+            data.put("import_date", importDate);
+            data.put("status_name", statusName);
+            data.put("batch_name", batchName);
+            data.put("tot_rows", totRows);
+            data.put("badEmails_badRows", badEmailsBadRows);
+            data.put("warning_recips", warningRecips);
+            data.put("file_dups", fileDups);
+            data.put("dup_recips", dupRecips);
+            data.put("new_recips", newRecips);
+            data.put("num_committed", numCommitted);
+            data.put("left_to_commit", leftToCommit);
+            data.put("status_id", statusId);
+            data.put("batch_id", batchId);
+            String categorySqlQuery = "SELECT category_id FROM ccps_object_category WHERE cust_id = ? AND object_id = ?";
+            PreparedStatement pstmt3 = connection.prepareStatement(categorySqlQuery);
+            pstmt3.setString(1, cust.s_cust_id);
+            pstmt3.setString(2, importId.toString());
+
+            ResultSet categoryRs = pstmt3.executeQuery();
+
+
+            while (categoryRs.next()) {
+
+                data.put("category_id", categoryRs.getString(1));
+
+            }
+
+
+            dataArrayTwo.put(data);
+        }
+        dataArray.put(array);
+        dataArray.put(dataArrayTwo);
+
+        resultSet.close();
+        out.print(dataArray.toString());
+    } catch (Exception exception) {
+        System.out.println(cust.s_cust_id + exception.getMessage());
+        exception.printStackTrace();
+
+    } finally {
+        if (statement != null) statement.close();
+        if (connection != null) connectionPool.free(connection);
+    }
+
+
+%>
+
+<%!
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+    private String dateFormatter(Timestamp ts) {
+        try {
+            return (ts != null) ? ts.toLocalDateTime().format(formatter) : null;
+        } catch (Exception ex) {
+            // Tarih formatlama hatası için belirgin mesaj
+            return "HATA: Tarih formatı dönüştürülemedi! (" + ex.getMessage() + ")";
+        }
+    }
+%>

@@ -1,0 +1,1 @@
+importScripts('https://revotrack.revotas.com/trc/webpush-test/service-worker.js');

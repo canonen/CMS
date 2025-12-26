@@ -1,0 +1,27 @@
+SELECT s.ticket_id, s.cust_id,
+c.cust_name,
+s.user_id,
+u.user_name + ' ' + u.last_name as 'user_name',
+s.status_id,
+st.display_name,
+s.level_id,
+s.source_id,
+s.subject,
+s.original_issue,
+s.further_info,
+s.support_diary,
+s.issue_type,
+s.resolution_time,
+s.resolution_what,
+s.resolution_solve,
+s.resolution_prevent,
+s.create_date,
+CONVERT(varchar(100), s.create_date, 100) as 'create_date_txt',
+s.modify_date,
+CONVERT(varchar(100), s.modify_date, 100) as 'modify_date_txt' ,
+s.origin_ticket_id as origin_ticket
+FROM shlp_support_ticket s with(nolock)
+LEFT OUTER JOIN sadm_customer c ON s.cust_id = c.cust_id
+LEFT OUTER JOIN scps_user u ON s.user_id = u.user_id
+LEFT OUTER JOIN shlp_support_status st ON s.status_id = st.status_id
+WHERE s.cust_id=sCustId

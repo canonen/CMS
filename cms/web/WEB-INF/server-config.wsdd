@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<globalConfiguration>
+		<parameter name="adminPassword" value="admin"/>
+		<parameter name="attachments.Directory" value="D:\britemoon\cps\web\WEB-INF\attachments"/>
+		<parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+		<parameter name="sendXsiTypes" value="true"/>
+		<parameter name="sendMultiRefs" value="true"/>
+		<parameter name="sendXMLDeclaration" value="true"/>
+		<requestFlow>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter name="scope" value="session"/>
+			</handler>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter name="scope" value="request"/>
+				<parameter name="extension" value=".jwr"/>
+			</handler>
+			<handler type="java:org.apache.axis.handlers.SOAPMonitorHandler"/> 
+		</requestFlow>
+	</globalConfiguration>
+	<handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+	<handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+	<handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+	<service name="Ping" provider="java:RPC">
+		<requestFlow>
+			<handler type="java:org.apache.ws.axis.security.WSDoAllReceiver">
+				<parameter name="passwordCallbackClass" value="com.britemoon.cps.xcs.cti.BritePWCallbackServer"/>
+				<parameter name="action" value="UsernameToken"/>
+			</handler>
+		</requestFlow>
+		<parameter name="allowedMethods" value="echo ping"/>
+		<parameter name="wsdlPortType" value="PingImpl"/>
+		<parameter name="className" value="com.britemoon.cps.xcs.cti.PingImpl"/>
+		<parameter name="wsdlServicePort" value="Ping"/>
+		<parameter name="wsdlTargetNamespace" value="urn:CPSWs"/>
+		<parameter name="wsdlServiceElement" value="PingImplService"/>
+	</service>
+	<service name="CtiOrder" provider="java:RPC">
+		<requestFlow>
+			<handler type="java:org.apache.ws.axis.security.WSDoAllReceiver">
+				<parameter name="passwordCallbackClass" value="com.britemoon.cps.xcs.cti.BritePWCallbackServer"/>
+				<parameter name="action" value="UsernameToken"/>
+			</handler>
+		</requestFlow>
+		<parameter name="allowedMethods" value="*"/>
+		<parameter name="className" value="com.britemoon.cps.xcs.cti.CTIOrder"/>
+		<parameter name="wsdlServicePort" value="CtiOrder"/>
+		<typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns2:CampaignSummary" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.britemoon.cps.xcs.cti.bean.CampaignSummary" xmlns:ns2="http://bean.cti.xcs.cps.britemoon.com"/>
+		<typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns2:OrderStatus" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.britemoon.cps.xcs.cti.bean.OrderStatus" xmlns:ns2="http://bean.cti.xcs.cps.britemoon.com"/>
+	</service>
+	<service name="CtiMarsh" provider="java:RPC">
+		<requestFlow>
+			<handler type="java:org.apache.ws.axis.security.WSDoAllReceiver">
+				<parameter name="passwordCallbackClass" value="com.britemoon.cps.xcs.cti.BritePWCallbackServer"/>
+				<parameter name="action" value="UsernameToken"/>
+			</handler>
+		</requestFlow>
+		<parameter name="allowedMethods" value="*"/>
+		<parameter name="wsdlPortType" value="CtiMarshImpl"/>
+		<parameter name="className" value="com.britemoon.cps.xcs.cti.CtiMarshImpl"/>
+		<parameter name="wsdlServicePort" value="CtiMarsh"/>
+		<parameter name="wsdlTargetNamespace" value="urn:cti_marsh"/>
+		<parameter name="wsdlServiceElement" value="CtiMarshImplService"/>
+		<typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns1:ArrayOf_tns2_MessageActivity" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:com.britemoon.cps.xcs.cti.bean.MessageActivity[]" xmlns:ns1="urn:cti_marsh"/>
+		<typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns2:ClickActivity" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.britemoon.cps.xcs.cti.bean.ClickActivity" xmlns:ns2="http://bean.cti.xcs.cps.britemoon.com"/>
+		<typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns3:MessageActivity" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.britemoon.cps.xcs.cti.bean.MessageActivity" xmlns:ns3="http://bean.cti.xcs.cps.britemoon.com"/>
+		<typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns4:ArrayOf_tns2_ClickActivity" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:com.britemoon.cps.xcs.cti.bean.ClickActivity[]" xmlns:ns4="urn:cti_marsh"/>
+	</service>
+      <service name="CTIDeliveryStatus" provider="java:RPC" style="rpc" use="encoded">
+		<requestFlow>
+			<handler type="java:org.apache.ws.axis.security.WSDoAllReceiver">
+				<parameter name="passwordCallbackClass" value="com.britemoon.cps.xcs.cti.BritePWCallbackServer"/>
+				<parameter name="action" value="UsernameToken"/>
+			</handler>
+		</requestFlow>
+
+            <parameter name="wsdlTargetNamespace" value="urn:STIP"/>
+            <parameter name="wsdlServiceElement" value="CTIDeliveryStatusService"/>
+            <parameter name="wsdlServicePort" value="CTIDeliveryStatus"/>
+            <parameter name="className" value="com.britemoon.cps.xcs.cti.CTIDeliveryStatus"/>
+            <parameter name="wsdlPortType" value="CTIDeliveryStatus"/>
+            <parameter name="allowedMethods" value="*"/>
+
+      </service>
+	<transport name="http">
+		<requestFlow>
+			<handler type="URLMapper"/>
+			<handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+		</requestFlow>
+		<parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+		<parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+		<parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+		<parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+		<parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+		<parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+	</transport>
+	<transport name="local">
+		<responseFlow>
+			<handler type="LocalResponder"/>
+		</responseFlow>
+	</transport>
+</deployment>

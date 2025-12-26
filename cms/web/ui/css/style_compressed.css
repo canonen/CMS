@@ -1,0 +1,207 @@
+@page
+{ font-size:12px;
+  size:14.18in 14.88in;
+  margin:0.25in;
+  -fs-flow-top:"header";
+  -fs-flow-bottom:"footer";
+  -fs-flow-left:"left";
+  -fs-flow-right:"right";
+  border:1px solid black; }
+
+html,body,td
+{ background-color:#4F4F4F;
+  font:11px Tahoma;
+  color:#FFF;
+  margin:10px; }
+
+br
+{ display:block; }
+
+.lessmoreBtn a
+{ border:0 none;
+  display:block;
+  float:left;
+  text-decoration:none;
+  width:16px;
+  height:16px; }
+
+.topLinks
+{ background-color:#FC0;
+  border:1px solid #282517;
+  border-radius:3px 3px 3px 3px;
+  color:#000;
+  display:block;
+  float:left;
+  margin-right:3px;
+  text-decoration:none;
+  padding:4px; }
+
+.topLinks:hover
+{ background-color:#e6b904; }
+
+.sectionSheaders
+{ color:#FC0;
+  font-weight:700;
+  text-decoration:none;
+  display:block;
+  height:20px;
+  outline:none;
+  background:url(../images/report/dragdrop.gif) no-repeat scroll 4px 6px transparent; }
+
+.clearfix
+{ clear:both; }
+
+.sectionContainerTbl
+{ border-collapse:collapse;
+  table-layout:fixed; }
+
+.sectionContainerTbl td
+{ background-color:#414141;
+  vertical-align:top;
+  padding:5px; }
+
+.sectionHeaders td,.sectionHeadersWhite td
+{ background:url(../images/report/tops.gif);
+  background-repeat:repeat-x;
+  border-bottom:1px solid #404040;
+  padding:5px; }
+
+.sectionHeaders td
+{ color:silver;
+  vertical-align:top; }
+
+.sectionHeadersWhite td
+{ color:#FFF;
+  font-weight:700;
+  vertical-align:top; }
+
+.sectionItem1 td
+{ background-color:#5a5959;
+  vertical-align:top; }
+
+.borderTbl
+{ border:1px solid #555; }
+
+#summaryTabsContainer a
+{ display:block;
+  float:left;
+  text-decoration:none;
+  color:#757676;
+  margin-right:2px;
+  background-color:#333;
+  border-left:1px solid #555;
+  border-right:1px solid #555;
+  border-top:1px solid #555;
+  border-bottom:1px solid #0d0d0d;
+  padding:5px; }
+
+#summaryTabsContent
+{ border:1px solid #555;
+  padding:5px; }
+
+.summaryTabsActive
+{ background-color:#414141!important;
+  color:#FFF!important;
+  border-bottom:1px solid #414141;
+  border-top:1px solid #E80!important; }
+
+.sectionTopHeader
+{ margin-top:10px;
+  min-width:470px; }
+
+.sectionTopHeader a
+{ display:block;
+  padding-left:10px;
+  padding-right:10px;
+  height:20px;
+  float:left;
+  background-color:red;
+  text-decoration:none;
+  background:url(../images/report/tops.gif);
+  background-repeat:repeat-x;
+  border-left:1px solid #404040;
+  border-right:1px solid #404040;
+  border-top:1px solid #404040;
+  border-bottom:1px solid #0D0D0D;
+  margin-right:3px;
+  color:#757676; }
+
+.sectionTopHeader .activeTab
+{ color:#FFF;
+  border-top:1px solid #e80; }
+
+.sectionTopHeader a span
+{ display:block;
+  margin-top:4px; }
+
+.contentRows td
+{ background-color:#4f4f4f; }
+
+.blockborderbottom td
+{ border-bottom:1px solid #555; }
+
+.sectionblock
+{ margin-bottom:6px;
+  border:1px solid #383838;
+  background:url(../images/report/tops.gif) repeat-x scroll 0 0 #414141; }
+
+.sectionblock span
+{ display:block;
+  float:left;
+  margin-top:4px;
+  margin-left:20px; }
+
+.sectionSheaders:hover
+{ cursor:move; }
+
+.sectionBox
+{ background-color:#464646;
+  border:1px solid #555; }
+
+a.reportPopDetail
+{ text-decoration:underline;
+  color:#FFF; }
+
+.lessmoreBtn
+{ text-align:right;
+  position:absolute;
+  top:2px;
+  right:2px!important; }
+
+.lessmoreContentLess
+{ overflow:hidden;
+  height:114px; }
+
+.lessmoreContentMore
+{ height:auto!important;
+  overflow:visible; }
+
+.borderDark
+{ border:1px solid #393939; }
+
+.noCollapse
+{ padding:5px; }
+
+.sectionSheaders img
+{ display:block;
+  float:right;
+  margin-top:3px;
+  margin-right:3px; }
+
+.hovercontent
+{ position:relative; }
+
+.bubbleContainer td
+{ background-color:#f9e98e;
+  vertical-align:middle;
+  color:#666;
+  padding:3px; }
+
+#sortableColumnLeft,#sortableColumnRight
+{ border:1px solid #464646;
+  float:left;
+  width:49%;
+  min-width:470px;
+  margin:0;
+  padding:3px; }
+

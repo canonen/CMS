@@ -1,0 +1,42 @@
+1. Sunucu ve OpenSSH Kurulumu
+OpenSSH Kurulumu:
+Windows Server ortamında OpenSSH kurulumu manuel olarak yapıldı.
+İndirilen Win32‑OpenSSH paketi, “C:\Program Files\OpenSSH” klasörüne çıkarıldı.
+Servis ve Firewall Ayarları:
+OpenSSH servisi “sshd” olarak yapılandırıldı ve Windows hizmeti (Services.msc) üzerinden uygun kullanıcı (ör. “revotas” veya “REVOTAS\Domain Admins”) ile çalıştırıldı.
+Windows Defender Firewall’da 22 numaralı TCP portu inbound kuralıyla açıldı.
+SSH Anahtarları ve Kimlik Doğrulama:
+Yerel makinede yeni bir SSH anahtar çifti oluşturuldu (ssh-keygen -t rsa -b 4096).
+Oluşturulan public key (id_rsa.pub) GitHub hesabına eklendi.
+Sunucuda ilgili kullanıcıya ait .ssh\authorized_keys (ve/veya, yöneticiler için administrators_authorized_keys) dosyasına public key yerleştirildi.
+Bu sayede sunucu, SSH anahtar tabanlı kimlik doğrulamayı destekler hale getirildi.
+
+2. Sunucudaki Repo Konfigürasyonu
+Sunucuda, uygulama kodlarının bulunduğu repository “E:\Revotas\rrcp” dizinine klonlandı ve Git remote URL’si, HTTPS yerine SSH formatında (örneğin, git@github.com:Revotas/rrcp.git) ayarlandı.
+Bu yapı, sunucudaki repo ile GitHub arasındaki senkronizasyonu sağlamak amacıyla kullanıldı.
+
+3. Self-Hosted Runner Kurulumu
+Runner İndirme ve Kurulum:
+GitHub Actions self‑hosted runner paketi, “C:\actions-runner” klasöründe kuruldu.
+config.cmd --url https://github.com/Revotas/rrcp --token <TOKEN> komutu ile runner, ilgili repo ile eşleştirildi.
+Runner Durumu:
+Runner “RVTSRCP-003” olarak isimlendirildi, “Default” grubuna eklendi ve GitHub Actions panelinde “Online” ve “Idle” olarak göründü.
+Çalışma Ortamı:
+Runner, Windows ortamında çalışacak şekilde konfigüre edildi; self‑hosted runner sayesinde yerel (LAN içindeki) IP’lere erişim sağlandı.
+
+4. GitHub Actions Workflow Kurulumu
+Workflow Dosyasının Oluşturulması:
+
+Repository kök dizininde .github/workflows/git-action.yml dosyası oluşturuldu.
+Bu workflow, “main” dalına yapılan her push ile tetiklenmektedir.
+Workflow İçeriği:
+
+İlk adımda, actions/checkout@v3 kullanılarak repo self‑hosted runner’a indirilir.
+Sonrasında, yerel olarak düzenlediğimiz SSH action (appleboy/ssh-action’ın uyarlanmış sürümü) kullanılarak sunucuya SSH üzerinden bağlanılır.
+Workflow içerisinde DRONE_SSH_VERSION değeri “1.7.7” olarak belirlendi, böylece Windows binary’si olan “drone-ssh-1.7.7-windows-amd64.exe” indiriliyor.
+Komutların Windows ortamında doğru çalışması için, SSH action içerisinde cmd /c "cd /d E:\Revotas\rrcp && git pull origin main" komutu kullanıldı.
+Bu, Windows CMD formatında sürücü değiştirme ve dizine geçme işlemini gerçekleştiriyor.
+Workflow Sonuçları:
+
+GitHub Actions loglarında “Successfully executed commands to all host” mesajı alındı.
+Sunucudaki E:\Revotas\rrcp dizininde, git pull origin main komutu çalıştı.

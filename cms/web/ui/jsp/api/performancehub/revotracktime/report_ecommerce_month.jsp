@@ -1,0 +1,222 @@
+<%@ page
+        language="java"
+        import="com.britemoon.*,
+                com.britemoon.cps.*,
+                com.britemoon.cps.imc.*,
+                com.britemoon.cps.que.*,
+                java.sql.*,
+                java.util.Calendar,
+                java.io.*,
+                org.apache.log4j.Logger,
+                java.text.DateFormat,
+                org.json.JSONObject,
+                org.w3c.dom.*"
+        contentType="text/html;charset=UTF-8"
+%>
+<%@ page import="java.util.Vector" %>
+<%@ page import="com.restfb.json.JsonObject" %>
+<%@ page import="com.restfb.json.JsonArray" %>
+<%! static Logger logger = null;%>
+<%
+    if (logger == null) {
+        logger = Logger.getLogger(this.getClass().getName());
+    }
+%>
+<%@ include file="../../header.jsp" %>
+<%@ include file="../validator.jsp" %>
+
+
+<%
+boolean STANDARD_UI = (ui.n_ui_type_id == UIType.STANDARD);
+
+    System.out.println("--------------SMARTWIDGETREPORT----------");
+    String sCustId = cust.s_cust_id;
+
+    Service service = null;
+    Vector services = Services.getByCust(ServiceType.RRCP_RECIP_VIEW, sCustId);
+    service = (Service) services.get(0);
+    String rcpLink = service.getURL().getHost();
+
+
+    Campaign camp = new Campaign();
+    camp.s_cust_id = sCustId;
+
+
+    String d_startdate = null;
+    String d_enddate = null;
+
+    String firstDate = request.getParameter("firstDate");
+    String lastDate = request.getParameter("lastDate");
+    String MonthlyGrowth = request.getParameter("MonthlyGrowth");
+    String valuee = request.getParameter("oldData");
+    Integer value = 0;
+
+    value = Integer.parseInt(valuee);
+    if (firstDate != null) {
+        d_startdate = firstDate;
+    }
+    if (lastDate != null) {
+        d_enddate = lastDate;
+    }
+
+
+    Statement stmt = null;
+    ResultSet rs = null;
+    ResultSet resultSet =null ;
+    ConnectionPool cp = null;
+    Connection conn = null;
+
+    JsonObject data = new JsonObject();
+    JsonArray arrayData = new JsonArray();
+    JsonArray smartWidgetActivityDay = new JsonArray();
+
+    try {
+        cp = ConnectionPool.getInstance();
+        conn = cp.getConnection(this);
+        stmt = conn.createStatement();
+
+        String sSql_day = "";
+
+        if (d_startdate != null) {
+
+            sSql_day = "select CONVERT(VARCHAR(10), activity_date, 120) DAY, count(*), popup_id, form_id, type_name, activity, impression, revenue from ccps_smart_widget_activity_day with(nolock) WHERE " + "cust_id=" + sCustId + " AND activity_date >='" + d_startdate + "' AND activity_date<='" + d_enddate + "' GROUP BY CONVERT(VARCHAR(10), activity_date, 120), popup_id, form_id, type_name, activity, impression, revenue ORDER BY 1";
+            System.out.println("SQL_DAY:" + sSql_day);
+
+
+        } else {
+
+            sSql_day = "select CONVERT(VARCHAR(10), activity_date, 120) DAY, count(*), popup_id, form_id, type_name, activity, impression, revenue from ccps_smart_widget_activity_day with(nolock) WHERE " + "cust_id=" + sCustId + " AND activity_date >= DATEADD(day, -30, getdate()) GROUP BY CONVERT(VARCHAR(10), activity_date, 120), popup_id, form_id, type_name, activity, impression, revenue ORDER BY 1";
+            System.out.println("SQL_DAY:" + sSql_day);
+        }
+
+        rs = stmt.executeQuery(sSql_day);
+
+        arrayData = new JsonArray();
+        while (rs.next()) {
+            data = new JsonObject();
+            String day = rs.getString(1);
+            String count = rs.getString(2);
+            String popup_id = rs.getString(3);
+            String form_id = rs.getString(4);
+            String type_name = rs.getString(5);
+            String activity_count = rs.getString(6);
+            String impression = rs.getString(7);
+            String revenue = rs.getString(8);
+
+            data.put("day", day);
+            data.put("count", count);
+            data.put("popup_id", popup_id);
+            data.put("form_id", form_id);
+            data.put("type_name", type_name);
+            data.put("activity_count", activity_count);
+            data.put("impression", impression);
+            data.put("revenue", revenue);
+            arrayData.put(data);
+        }
+        smartWidgetActivityDay.put(arrayData);
+        rs.close();
+
+        String sql = "select popup_id, popup_name, config_param, form_id, create_date, modify_date from c_smart_widget_config where cust_id=" + sCustId;
+        System.out.println("SQL':" + sql);
+
+        rs = stmt.executeQuery(sql);
+
+        arrayData = new JsonArray();
+        while (rs.next()) {
+
+
+            data = new JsonObject();
+            String popup_id = rs.getString(1);
+            String popup_name = rs.getString(2);
+            JsonObject configParam = new JsonObject(rs.getString(3));
+            String form_id = rs.getString(4);
+            String create_date = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(rs.getTimestamp(5));
+            String modify_date = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(rs.getTimestamp(6));
+
+            data.put("popup_id", popup_id);
+            data.put("popup_name", popup_name);
+            data.put("form_id", form_id);
+            data.put("create_date", create_date);
+            data.put("modify_date", modify_date);
+            data.put("configParam", configParam);
+
+            arrayData.put(data);
+
+        }
+        smartWidgetActivityDay.put(arrayData);
+        rs.close();
+
+        Integer totalView=0;
+        Integer totalSubmit=0;
+        Integer totalClick = 0;
+        Double totalRevenue =0.0;
+
+
+        String totalViewSqlQuery = "select  sum(impression) as totalview  from ccps_smart_widget_activity_day WHERE cust_id=" +sCustId+"  AND activity_date >= DATEADD(day,"+"-"+value+", getdate())";
+
+
+        resultSet = stmt.executeQuery(totalViewSqlQuery);
+        arrayData = new JsonArray();
+        while (resultSet.next()) {
+            totalView = resultSet.getInt(1);
+
+        }
+
+        resultSet.close();
+        String totalRevenueSqlQuery = "select   sum(revenue) as revenue    from ccps_smart_widget_activity_day WHERE cust_id=" +"'" +sCustId +"'"+"  AND activity_date >= DATEADD(day,"+"-"+value+", getdate())";
+
+
+        resultSet = stmt.executeQuery(totalRevenueSqlQuery);
+
+        while (resultSet.next()) {
+            totalRevenue = resultSet.getDouble(1);
+
+        }
+
+        resultSet.close();
+        String  totalClickSqlQuery= "select  sum(activity) as click  from ccps_smart_widget_activity_day WHERE cust_id=" +sCustId+"  AND activity_date >= DATEADD(day,"+"-"+value+", getdate())  and type_name = 1";
+
+
+        resultSet = stmt.executeQuery(totalClickSqlQuery);
+
+        while (resultSet.next()) {
+            totalClick = resultSet.getInt(1);
+
+        }
+
+        resultSet.close();
+        String totalSubmitSqlQuery = "select  sum(activity) as submit  from ccps_smart_widget_activity_day WHERE cust_id=" +sCustId+"  AND activity_date >= DATEADD(day,"+"-"+value+", getdate()) and type_name = 2 ";
+
+
+        resultSet = stmt.executeQuery(totalSubmitSqlQuery);
+
+        while (resultSet.next()) {
+            totalSubmit = resultSet.getInt(1);
+
+        }
+        resultSet.close();
+
+        data = new JsonObject();
+        data.put("totalClick", totalClick);
+        data.put("totalView", totalView);
+        data.put("totalSubmit", totalSubmit);
+        data.put("totalRevenue", totalRevenue);
+
+        arrayData.put(data);
+
+        smartWidgetActivityDay.put(arrayData);
+
+        out.print(smartWidgetActivityDay.toString());
+    } catch (Exception ex) {
+        ErrLog.put(this, ex, "Error in " + this.getClass().getName(), out, 1);
+    } finally {
+        try {
+            if (stmt != null) stmt.close();
+            if (conn != null) cp.free(conn);
+        } catch (SQLException e) {
+            logger.error("Could not clean db statement or connection", e);
+        }
+    }
+
+
+%>

@@ -1,0 +1,98 @@
+body,td
+{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+
+}
+
+
+table.navmain
+{
+	font-size: 11px;
+	font-weight: bold;
+	color: #ffffff;
+	background-color: #3C3C3C;
+	padding-top: 5px;
+}
+
+
+table.navmainon
+{
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: bottom;
+	color: #ffffff;
+	background-color: #3F4F77;
+
+}
+
+a.navmain
+{
+	text-decoration: none;
+	font-weight: none;
+	color: #dddddd;
+
+}
+
+a.navmain:hover
+{
+	color: #ffcc00;
+	text-decoration: none;
+	font-weight: none;
+}
+
+
+
+
+table.navsub
+{
+	font-size: 10px;
+	font-weight: bold;
+	color: #ffffff;
+	background-color: #3F4F77;
+}
+
+
+td.navsub
+{
+	border-right: #ffffff 1px solid;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: center;
+}
+
+td.navsubend
+{
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: center;
+}
+
+td.subnavbuffer
+{
+	background-image: images/subnavbg.gif;
+	text-align: center;
+
+}
+
+
+a.navsub
+{
+	text-decoration: none;
+	color: #ffffff;
+
+}
+
+a.navsubon
+{
+	text-decoration: none;
+	color: #ffcc00;
+	font-weight: bold;
+
+}
+
+a.navsub:hover,a.navsubon:hover
+{
+	text-decoration: underline;
+
+}

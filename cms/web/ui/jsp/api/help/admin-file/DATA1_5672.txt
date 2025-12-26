@@ -1,0 +1,6 @@
+aykutcandan@hotmail.com|aykut|test|testt.com
+mucahit.yuksel@revotas.com|muco|test2|testt2.com
+kadir.kara@revotas.com|kadir|test3|testt3.com
+seyid.gencoglu@revotas.com|seyid|test4|testt4.com
+aykut.candan@revotas.com|aykut2|test5|testt5.com
+kursat.ozer@revotas.com|kursat|test6|testt6.com

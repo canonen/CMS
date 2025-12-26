@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+	<context-param>
+		<param-name>JdbcDriver</param-name>
+		<param-value>sun.jdbc.odbc.JdbcOdbcDriver</param-value>
+	</context-param>
+	<context-param>
+		<param-name>JdbcUrl</param-name>
+		<param-value>jdbc:odbc:brite_ccps_500</param-value>
+	</context-param>
+	<context-param>
+		<param-name>JdbcUser</param-name>
+		<param-value>briteadm</param-value>
+	</context-param>
+	<context-param>
+		<param-name>JdbcPassword</param-name>
+		<param-value>m00nh34d</param-value>
+	</context-param>
+	<context-param>
+		<param-name>JdbcConnectionsMin</param-name>
+		<param-value>5</param-value>
+	</context-param>
+	<context-param>
+		<param-name>JdbcConnectionsMax</param-name>
+		<param-value>100</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>ImageURL</param-name>
+		<param-value>http://localhost:80/cctm/ui/images/</param-value>
+	</context-param>
+	<context-param>
+		<param-name>ImagePath</param-name>
+		<param-value>D:\Britemoon\ctm\web\ui\images\</param-value>
+	</context-param>
+	<context-param>
+		<param-name>ValidImageExtensions</param-name>
+		<param-value>gif jpg jpeg</param-value>
+	</context-param>
+	<context-param>
+		<param-name>NumCategories</param-name>
+		<param-value>4</param-value>
+	</context-param>
+	<!-- Seperate category names with ";"-->
+	<context-param>
+		<param-name>CategoryList</param-name>
+		<param-value>Newsletter;Promo;Letter;Postcard</param-value>
+	</context-param>
+	<context-param>
+		<param-name>NumTemplatesPerPage</param-name>
+		<param-value>6</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>
+			com.britemoon.cps.ContextListener
+		</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>
+			campaignRequest
+		</servlet-name>
+		<servlet-class>
+			com.britemoon.cps.que.campaignRequest
+		</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>
+			FTPExportScheduler
+		</servlet-name>
+		<servlet-class>
+			com.britemoon.cps.exp.FTPExportScheduler
+		</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>
+			FTPImportScheduler
+		</servlet-name>
+		<servlet-class>
+			com.britemoon.cps.upd.FTPImportScheduler
+		</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+	    <servlet-name>campaignRequest</servlet-name>
+	    <url-pattern>/servlet/campaignRequest</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+	    <servlet-name>FTPExportScheduler</servlet-name>
+	    <url-pattern>/servlet/FTPExportScheduler</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+	    <servlet-name>FTPImportScheduler</servlet-name>
+	    <url-pattern>/servlet/FTPImportScheduler</url-pattern>
+	</servlet-mapping>
+
+<!-- start Axis-specific servlet settings -->
+<!-- Changed the name of AxisServlet to SvcsServlet for security purposes -->
+  <servlet>
+    <servlet-name>AxisServlet</servlet-name>
+    <display-name>Apache-Axis Servlet</display-name>
+    <servlet-class>
+        org.apache.axis.transport.http.AxisServlet
+    </servlet-class>
+  </servlet>
+<!--
+  <servlet>
+    <servlet-name>AdminServlet</servlet-name>
+    <display-name>Axis Admin Servlet</display-name>
+    <servlet-class>
+        org.apache.axis.transport.http.AdminServlet
+    </servlet-class>
+    <load-on-startup>10</load-on-startup>
+  </servlet>
+-->
+<!-- Use this only while testing and turn off immediately after testing 
+  <servlet>
+    <servlet-name>SOAPMonitorService</servlet-name>
+    <display-name>SOAPMonitorService</display-name>
+    <servlet-class>
+        org.apache.axis.monitor.SOAPMonitorService
+    </servlet-class>
+    <init-param>
+      <param-name>SOAPMonitorPort</param-name>
+      <param-value>5001</param-value>
+    </init-param>
+    <load-on-startup>100</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SOAPMonitorService</servlet-name>
+    <url-pattern>/SOAPMonitor</url-pattern>
+  </servlet-mapping>
+-->
+
+  <servlet-mapping>
+    <servlet-name>AxisServlet</servlet-name>
+    <url-pattern>/servlet/AxisServlet</url-pattern>
+  </servlet-mapping>
+
+<!--
+  <servlet-mapping>
+    <servlet-name>AxisServlet</servlet-name>
+    <url-pattern>*.jws</url-pattern>
+  </servlet-mapping>
+-->
+  <servlet-mapping>
+    <servlet-name>AxisServlet</servlet-name>
+    <url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
+
+
+    <!-- currently the W3C havent settled on a media type for WSDL;
+    http://www.w3.org/TR/2003/WD-wsdl12-20030303/#ietf-draft
+    for now we go with the basic 'it's XML' response -->
+  <mime-mapping>
+    <extension>wsdl</extension>
+     <mime-type>text/xml</mime-type>
+  </mime-mapping>
+  
+
+
+
+</web-app>

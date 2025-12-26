@@ -1,0 +1,105 @@
+Partner Name	Client Name	Emails Sent	Prints Sent
+Direct	_NEW_RCP_268	0	0
+Direct	_NEW_RCP_269	0	0
+Direct	_NEW_RCP_270	0	0
+Direct	11833 - Vastech iletisim	0	0
+Direct	Afrodit	4567	0
+Direct	Agon	0	0
+Direct	AkabeBilisim	19951	0
+Direct	Akademik Platform Egitim	0	0
+Direct	Alisveris Saati	170270	0
+Direct	Alternate Gear	4814	0
+Direct	Anneysen	293040	0
+Direct	Arooda	77709	0
+Direct	Arzu Ugur	144019	0
+Direct	Auctionopia LLC	84047	0
+Direct	Bamtur	1500	0
+Direct	Baskentfirsati.com	0	0
+Direct	BeTravel	828556	0
+Direct	Bevisible	675296	0
+Direct	Bilginet	87018	0
+Direct	Birebin	34134	0
+Direct	Birkudo	3429	0
+Direct	Bm Cam Donanimlari	0	0
+Direct	BonnyFood	833465	0
+Direct	BonnyFood_Gift	0	0
+Direct	bunlarkacmaz.com	0	0
+Direct	Camasirstore	0	0
+Direct	Century21 Bravo	0	0
+Direct	Ceska Enerji	199865	0
+Seganet	Conversionpath Media, LLC	0	0
+Direct	Corap Terzisi	45060	0
+Seganet	Deli Kupon	2133226	0
+Direct	DemosFuarcilik	117854	0
+Direct	Dinamo Training / Consulting	45230	0
+Direct	Do Not Use	RCP Error	--
+Moda Elinizde	DS Damat Shop	0	0
+Direct	Egitim Firsatim	0	0
+Direct	ELFE	448501	0
+Direct	Erkan insaat	0	0
+Direct	Ersa / Casio	505737	0
+Direct	Etesettur	176627	0
+Direct	Evgor Mobilya	0	0
+Direct	Evtekstilibul	301046	0
+Direct	Farn Away Travel	20570	0
+Direct	Film Hafizasi	0	0
+Gelecek Internet	Ford Cevizli	16210	0
+Direct	Grupo Sinergia Fc	15320	0
+Direct	Hayal Kahvesi Caddebostan	0	0
+Direct	Hayal Kahvesi Saskinbakkal	0	0
+Direct	Hotic	61751	0
+Direct	i-gunler.CoM	107726	0
+Direct	ICT	0	0
+Direct	ISF Demo	0	0
+Direct	Jetmilstar	920289	0
+Direct	Jimg Media	0	0
+Direct	KatyaUK	0	0
+Direct	Kent Optimum	0	0
+Direct	KentinRengi	55048	0
+Direct	Konsept Saat	944078	0
+Direct	LTE	0	0
+Direct	Maks Medya	140	0
+Direct	MaksYemek	0	0
+Direct	Mangolino	0	0
+Direct	Maranki	0	0
+Direct	Marjinart	4471	0
+Direct	Marqet	0	0
+Direct	Matchandtalk By Invitelecom	56466	0
+Direct	Mavi Egitim	92468	0
+Direct	Maxicep	0	0
+Direct	Minikbaby	36114	0
+Moda Elinizde	Moda Elinizde	940344	0
+Moda Elinizde	Moda Elinizde Kampanya	1020951	0
+Direct	NanoDRM	0	0
+Direct	Nasel iletisim	0	0
+Direct	nfinitygames	0	0
+Direct	Offer Beam Acquisition	519	0
+Direct	Offer Beam II	48573	0
+Nasel iletisim	organikozmetiksepeti.com	0	0
+Direct	Orkagroup	807132	0
+Direct	OutBox	738	0
+Direct	Pagos	50837	0
+Direct	panborekspress	0	0
+Direct	People Communication	2606	0
+Direct	Portline	0	0
+Moda Elinizde	Private Shopping	804530	0
+Direct	Reklamz	0	0
+Gelecek Internet	Renault Maslak	0	0
+Direct	Revotas	4876	0
+Direct	Revotas Demo	0	0
+Direct	Revotas Demo US	0	0
+Direct	Revotas New Demo	0	0
+Direct	Roxy	4020	0
+Direct	Saatturk	0	0
+Direct	Sigortam.net	2490921	0
+Direct	SMP Promosyon	5706	0
+Direct	Toptangrup	230865	0
+Direct	Travel Talk	56720	0
+Direct	Travelpark	0	0
+Direct	Trend.im	0	0
+Direct	Ustun Zekalilar Enstitusu	45924	0
+Direct	Vip Online	144808	0
+Direct	Voit  - Arcelik - Yetkilisaticim	102162	0
+Direct	www.lushturkey.com	29361	0
+Gelecek Internet	Yeni Bir Sigorta	0	0
+Direct	YYM Demo	172052	0

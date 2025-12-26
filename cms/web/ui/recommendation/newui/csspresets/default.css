@@ -1,0 +1,199 @@
+/*Tüm Slider ı kapsayan en dıştaki elementtir. Eğer Slider ı genel olarak GENİŞLİK VE YÜKSEKLİK olarak büyütmek istiyorsak ilk önce buraya değerler yazılmalı.*/
+.<rvts_recommendation_selector> {
+    position: relative;
+    height: 370px;
+    margin: 25px auto;
+    overflow: hidden;
+    display: none;
+}
+
+/*Slider da sadece slider ın kayan kısmında bulunan element. Burada genel olarak slider içinde bulunan kartların yüksekliğini ayarlayabiliriz.*/
+.<rvts_recommendation_selector>-container {
+    transition: left 0.5s ease 0s;
+    position: absolute;
+    height: calc(100% - 30px);
+    top: 30px;
+}
+
+/*Container içindeki slider içinde bulunan kartların yanyana gelmesini sağlayan kısım.*/
+.<rvts_recommendation_selector>-container__flex {
+    display: flex;
+    height: 100%;
+}
+
+/*Flex içersindeki herbir slider kartının özellikleri buradadır.*/
+.<rvts_recommendation_selector>-container__element {
+    position: relative;
+    width: 178px;
+    height: calc(100% - 2px);
+    margin-left: 49px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.<rvts_recommendation_selector>-container__element:last-child {
+    margin-right: 50px;
+}
+
+/*Kartlar içersindeki resimlerin özelliklerinin bulunduğu kısım.*/
+.<rvts_recommendation_selector>-container__element_image {
+	max-height: 250px;
+	overflow: hidden;
+	top: 8px;
+    position: absolute;
+    width: 241px;
+    left: calc(50% - 118px);
+}
+
+/*Kartlar içersindeki ilk resmin özelliklerinin bulunduğu kısım.*/
+.<rvts_recommendation_selector>-container__element_image > img:first-child {
+    position: relative;
+    max-height: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*Kartların içinde ürün isimlerini etkileyen kısım.*/
+.<rvts_recommendation_selector>-container__element_name {
+    position: absolute;
+    overflow: hidden;
+	font-family: 'SourceSansPro', sans-serif;
+    font-weight: 100;
+    top: 253px;
+    left: 0;
+    width: 100%;
+	max-height: 45px;
+	font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*Kartların içinde ürün fiyatlarını etkileyen kısım ve eğer üründe indirim varsa üzeri çizilen kısım.*/
+.<rvts_recommendation_selector>-container__element_price {
+    position: absolute;
+    overflow: hidden;
+    font-family: 'SourceSansPro', sans-serif;
+    font-weight: 100;
+    top: 292px;
+    left: 0;
+    width: 100%;
+	font-size: 15px;
+    height: 25px;
+    text-decoration: line-through;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.<rvts_recommendation_selector>-container__element_name.original-price {
+	bottom: 33px;
+    top: 253px;
+}
+
+.<rvts_recommendation_selector>-container__element_price.original-price {
+	top: 272px;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+/*Kartların içinde ürün fiyatlarında indirim olduğunda üzeri çizili olmayan kısım.*/
+.<rvts_recommendation_selector>-container__element_sales_price {
+    position: absolute;
+    overflow: hidden;
+    font-family: 'SourceSansPro', sans-serif;
+    font-weight: 700;
+	color:#bb0712;
+    top: 272px;
+    left: 0;
+    width: 100%;
+    font-size: 15px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Kartların içinde indirim varsa indirim yüzdesini gösteren kısım*/
+.<rvts_recommendation_selector>-container__element_sales_discount {
+    display: none;
+}
+
+/*Slider içinde ki sol tarafı gösteren oku etkileyen yer. YÜKSEKLİK ve GENİŞLİK değerleri yazılarak ilgili okları büyütebilirsiniz.*/
+.<rvts_recommendation_selector>_buttons__left {
+    position:absolute;
+    position: absolute;
+    display: flex !important;
+    align-items: center !important;
+    top: calc(50% - 15px);
+    cursor: pointer;
+    left: 0;
+    width: 3rem !important;
+    height: 3.5rem !important;
+    box-shadow: none !important;
+    border-radius: 50% !important;
+
+}
+
+/*Slider içinde ki sol tarafı gösteren oku etkileyen yer. YÜKSEKLİK ve GENİŞLİK değerleri yazılarak ilgili okları büyütebilirsiniz.*/
+.<rvts_recommendation_selector>_buttons__right {
+    position: absolute;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center;
+    top: calc(50% - 15px);
+    cursor: pointer;
+    right: 0;
+    width: 3rem !important;
+    height: 3.5rem !important;
+    box-shadow: none !important;
+    border-radius: 50% !important;
+}
+
+/*Slider içinde ki sol tarafı gösteren okun image'ını buradan değiştirebilirsiniz.*/
+.<rvts_recommendation_selector>_buttons__left > img:first-child {
+    content: url("https://revocdn.revotas.com/trc/web/revo/arrow2.png");
+    height: 40px;
+    width: 40px;
+}
+
+/*Slider içinde ki sağ tarafı gösteren okun image'ını buradan değiştirebilirsiniz.*/
+.<rvts_recommendation_selector>_buttons__right > img:first-child {
+    content: url("https://revocdn.revotas.com/trc/web/revo/arrow3.png");
+    height: 40px;
+    width: 40px;
+}
+
+/*Slider İçindeki Genel Başlığın bulunduğu alan SİZİN İÇİN SEÇTİKLERİMİZ vb. Yazısının bulunduğu alan.*/
+.<rvts_recommendation_selector>-header {
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'SourceSansPro', sans-serif;
+    font-weight: 700;  
+    font-size: 18px;
+	top: -5px;
+}
+
+.<rvts_recommendation_selector>-header:after {
+	position: absolute;
+    content: '';
+    height: 1px;
+    bottom: 2px;
+    width: 300px;
+    background: #000;
+}
+
+
+@media only screen and (max-width: 599px),(min-device-width : 320px) and (max-device-width : 480px){
+    .<rvts_recommendation_selector> {
+        width: 393px !important;
+    }
+
+    .<rvts_recommendation_selector>-container {
+        width: 378px !important
+    }
+    
+}

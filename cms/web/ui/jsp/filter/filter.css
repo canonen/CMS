@@ -1,0 +1,86 @@
+.filter_generic
+{
+	border: 1 solid #ffffff;
+	font-family: Arial, Helvetica;
+	font-size: 10px;
+	BACKGROUND-COLOR: #FFFFFF;
+}
+
+.formula
+{
+	border: 1 solid #555555;
+	font-family: Arial, Helvetica;
+	font-size: 10px;
+	BACKGROUND-COLOR: #E8E8FF;
+
+}
+
+.filter_simple
+{
+	border: 1 solid #555555;
+	font-family: Arial, Helvetica;
+	font-size: 10px;
+	BACKGROUND-COLOR: #E8E8FF;
+
+}
+
+.filter_mulipart
+{
+	border: 1 solid #ffffff;
+	font-family: Arial, Helvetica;
+	font-size: 10px;
+	BACKGROUND-COLOR: #FFFFFF;
+}
+
+.filter_parts
+{
+	border: 0 solid #0000AA;
+	font-family: Arial, Helvetica;
+	font-size: 10px;
+	BACKGROUND-COLOR: #FFFFFF;
+}
+
+.filter_part
+{
+	font-family: Arial, Helvetica;
+	font-size: 10px;
+}
+
+.filter_part_capsule
+{
+	border: 1 solid #555555;
+	font-family: Arial, Helvetica;
+	font-size: 10px;
+	BACKGROUND-COLOR: #ffffff;
+	border-style : double;
+}
+
+.filter_part_control
+{
+	border: 1 solid #cccccc;
+	font-family: Arial, Helvetica;
+	font-size: 10px;
+	BACKGROUND-COLOR: #FFFFFF;
+	cursor: hand;
+}
+
+.menu
+{
+	border: 0
+}
+
+.menu_item
+{
+	border: 1 solid #111111;
+	font-family: Arial, Helvetica;
+	font-size: 10px;
+	BACKGROUND-COLOR: #FFE26C;
+	cursor: hand;
+}
+
+select
+{
+	font-family: Arial, Helvetica;
+	font-size: 10px;
+}
+

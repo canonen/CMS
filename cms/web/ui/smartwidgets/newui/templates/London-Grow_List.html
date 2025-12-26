@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<style>
+
+
+
+.out {width: 400px; height:285px; background:#fff; border-radius:15px; overflow: hidden;}
+.header {
+	text-align:center;
+	padding: 20px 0 20px 0;
+	background:#5ccddf;
+	color:#fff;
+	font-weight:bold;
+	font-size:24px;
+	font-family:'Roboto', sans-serif;
+	}
+
+
+
+.caption{font-size:16px;
+         color:#000;
+         text-align:center;
+         font-family:'Roboto', sans-serif;
+         padding:10px 10px 10px 10px;
+		 
+		 }
+		 
+.caption2{font-size:15px;
+         color:#000;
+         text-align:center;
+         font-family:'Roboto', sans-serif;
+         padding:10px 10px 10px 10px;
+		 
+		 }
+
+
+
+.text{font-size:15px; color:#000; text-align:left; font-family:'Roboto', sans-serif; padding:0 0 15px 0;}
+.caption , .text {background:#fff;}
+
+
+.submit-button {
+	width:150px;
+	height:35px;
+	border-radius: 25px 25px 25px 25px;
+	border:0px;
+	background-color:#ff6f0e;
+	color:#fff;
+	font-size:16px;
+	}
+
+
+#form_error {
+            margin-bottom: 5px;
+			font-size: 12px;
+			color: red;
+        }
+
+
+.email-input {
+width: 200px;
+height: 35px;
+border-radius: 25px 0px 0px 25px;
+text-align: center;
+font-family: 'Roboto', sans-serif;
+font-weight: 600;
+margin-bottom: 0px;
+position:relative;
+background-color: #f0f0f0;
+border:0px;
+font-size:16px;
+
+
+}
+
+   @media screen and (max-width: 600px)  {
+.out { width:370px; 
+    
+    height: 180px;}
+
+.button { padding: 10px 30px 10px 30px; width:70px; height:auto; font-size:12px;}
+
+.caption {padding-bottom:10px;}
+
+.text {padding-bottom:10px;}
+}
+
+
+
+</style>
+
+</head>
+
+<body style="margin:0px;">
+
+<div class="out" align="center">
+ <form action="https://revoform.revotas.com/frm/sv/FormProcessor" method="Post" name="Subscribe" style="padding:0;margin:0" border="0" onsubmit="submitForm(this); return false">
+            
+            <input type="hidden" name="my_form_id" value="REVOTAS_FORM_ID">
+            <input type="hidden" name="rvs_in_optin_email" value="1">
+           
+ 
+<div class="header" is_editable="true" type="text" activity_type="text" align="center">
+Did you know?
+</div>
+<div is_editable="true" class="caption"><strong>The ROI of email marketing</strong> is <strong>44$ for every 1$ spent</strong>(according to the DMA,2021).Try Revotas and see your revenue grow!</div>
+<div is_editable="true" class="caption2">Try Revotas and see your revenue grow!</div>
+<div class="table">
+<table width="%100" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+   		<input is_editable="true" type="text" name="rvs_in_email" onchange="isEmail(this, 'E-mail Address');" class="email-input" placeholder="Enter your email">
+    </td>
+    <td style="background-color: #f0f0f0; border-radius: 0px 25px 25px 0px;">
+        <button is_editable="true" activity_type="submit" class="submit-button" id="push-smart-widget-activity" type="submit" >Get started now</button>
+    </td>
+  </tr>
+  <tr>
+  	<td>
+  		<div id="form_error"></div>
+  	</td>
+  </tr>
+</table>
+</div>
+
+
+</form>
+</div>
+
+</body>
+</html>
+
+<script>
+	
+var submitcount=0;
+function submitForm(f) {
+	
+	if (!isEmail(f.rvs_in_email.value)) {
+		 f.querySelector('#form_error').textContent = 'Lütfen email adresinizi giriniz.';
+		 f.rvs_in_email.focus();			
+		f.rvs_in_email.blur();
+		f.rvs_in_email.select();
+		 return
+		 }
+	
+	
+	}
+	</script>

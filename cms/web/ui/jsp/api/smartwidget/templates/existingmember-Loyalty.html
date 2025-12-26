@@ -1,0 +1,75 @@
+
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&amp;display=swap" rel="stylesheet">
+    <script src="https://revocdn.revotas.com/trc/web/revo/template/popup_revo_new.js" language="javascript"></script>
+    <title>Document</title>
+    <style>
+        .main {
+            display: flex;
+            flex-direction: row;
+        }
+        .flex-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .click-button {
+            width: 260px;
+            align-self: center;
+            padding: 10px 40px 10px 40px;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            text-align: center;
+            background: linear-gradient(to right, #5fd8ee, #243dc7);
+            border-radius: 10px;
+            transition: all 0.1s ease-in-out;
+            cursor: pointer;
+            border: 1px solid transparent;
+            margin-bottom: 30px;
+        }
+        .caption {
+            padding: 0 0 30px 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            width: 60%;
+        }
+        .nomobile{
+        border-top-right-radius: 144px;
+        border-bottom-right-radius: 150px;
+        }
+        
+
+        @media screen and (max-width: 600px)  {
+            .nomobile { display:none;
+                border-top-right-radius: 169px;
+                border-bottom-right-radius: 169px;
+            }
+        }
+    </style>
+
+
+    <div class="main noOptinButton">
+        <div class="flex-left">
+            <img class="nomobile" is_editable="true" src="https://revocdn.revotas.com/trc/web/revo/existingmember/images/new.jpg">
+        </div>
+        <div class="flex-right">
+            <input type="hidden" name="my_form_id" value="undefined">
+            <input type="hidden" name="rvs_in_optin_email" value="1">
+            <img is_editable="true" style="width: fit-content;" width="100" src="https://www.revotas.com/wp-content/uploads/2020/01/revotas-logo.png">
+            <div is_editable="true" class="caption">Have you visited our Home category?</div>
+
+            <button is_editable="true" activity_type="click" id="push-smart-widget-activity" type="click" class="click-button"><a is_editable="true" href="#" style="text-decoration: none;  color: white;">View Now</a> </button>
+        </div>
+    </div>
+

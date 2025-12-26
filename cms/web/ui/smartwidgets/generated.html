@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Code</title>
+    <style>
+        body {
+            background-color: #818181;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+        textarea {
+            height: 88vh;
+            width: 98vw;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="html-code" cols="66" rows="16" spellcheck="false" readonly>
+<script>
+if(!window['rvtsPopupArray'])
+    window['rvtsPopupArray'] = [];
+rvtsPopupArray.push({rvts_customer_id:'<rvts_customer_id>'});
+(function() {
+    var _rTag = document.getElementsByTagName('script')[0];
+    var _rcTag = document.createElement('script');
+    _rcTag.type = 'text/javascript';
+    _rcTag.async = 'true';
+    _rcTag.src = ('https://<rvts_customer_name>.revotas.com/trc/smartwidget/smartwidget.js');
+    _rTag.parentNode.insertBefore(_rcTag, _rTag);
+})();
+</script>
+</textarea>
+<script>
+    document.getElementById('html-code').value = document.getElementById('html-code').value.replace('<rvts_customer_id>',window.opener.customerId);
+    document.getElementById('html-code').value = document.getElementById('html-code').value.replace('<rvts_customer_name>',window.opener.custName.toLowerCase());
+</script>
+</body>
+</html>

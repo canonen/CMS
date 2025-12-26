@@ -1,0 +1,73 @@
+Partner Name	Client Name	Emails Sent	Prints Sent
+Direct	_NEW_DB_234	0	0
+Direct	_NEW_DB_235	0	0
+Direct	11833 - Vastech iletisim	8435	0
+Direct	Afrodit	4115	0
+Direct	Alisveris Saati	1907620	0
+Direct	Alternate Gear	0	0
+Direct	Anneysen	179752	0
+Direct	Arooda	99099	0
+Direct	Baskentfirsati.com	282357	0
+Direct	BeTravel	1574895	0
+Direct	Bevisible	1255505	0
+Direct	Birebin	21304	0
+Direct	Bm Cam Donanimlari	19772	0
+Direct	BonnyFood	992873	0
+Direct	BonnyFood_Gift	14275	0
+Direct	bunlarkacmaz.com	0	0
+Direct	Ceska Enerji	0	0
+Moda Elinizde	Damat Tween Shop	0	0
+Seganet	Deli Kupon	0	0
+Direct	DemosFuarcilik	40837	0
+Direct	Do Not Use	RCP Error	--
+Direct	Dominos Pizza	0	0
+Moda Elinizde	DS Damat Shop	0	0
+Direct	Duvar Dizayn	0	0
+Direct	Egitim Firsatim	6342003	0
+Direct	Erkan insaat	13830	0
+Direct	Erkengelenalir.com	1035	0
+Direct	Ersa / Casio	284030	0
+Direct	Evtekstilibul	164543	0
+Gelecek Internet	Ford Cevizli	19310	0
+Direct	Grupo Sinergia Fc	41429	0
+Direct	Hayal Kahvesi Caddebostan	81592	0
+Direct	Hayal Kahvesi Saskinbakkal	36220	0
+Direct	Hotic	121258	0
+Direct	i-gunler.CoM	120423	0
+Direct	ICT	0	0
+Direct	imza Gayrimenkul	0	0
+Direct	ISF Demo	0	0
+Direct	Izlesene.CoM	0	0
+Direct	Jetmilstar	613924	0
+Direct	Jimg Media	0	0
+Direct	KatyaUK	0	0
+Direct	Kent Optimum	17712	0
+Direct	LTE	0	0
+Direct	Mavi Egitim	54405	0
+Moda Elinizde	Moda Elinizde	590985	0
+Moda Elinizde	Moda Elinizde Kampanya	0	0
+Direct	NanoDRM	1306	0
+Direct	Nasel iletisim	0	0
+Direct	nfinitygames	453913	0
+Direct	Offer Beam	34383	0
+Direct	Orkagroup	92531	0
+Direct	OutBox	615	0
+Direct	Pagos	0	0
+Direct	People Communication	2015	0
+Direct	Portline	1393	0
+Moda Elinizde	Private Shopping	720890	0
+Direct	Reklamz	0	0
+Gelecek Internet	Renault Maslak	34746	0
+Direct	Revotas	1713	0
+Direct	Revotas Demo	2066	0
+Direct	Revotas Demo US	0	0
+Direct	Revotas New Demo	0	0
+Direct	Roxy	1540	0
+Direct	Saatturk	362586	0
+Direct	Sigortam.net	1364651	0
+Direct	SMP Promosyon	0	0
+Direct	Trend.im	2276	0
+Direct	Voit  - Arcelik - Yetkilisaticim	118331	0
+Direct	www.lushturkey.com	48747	0
+Gelecek Internet	Yeni Bir Sigorta	121182	0
+Direct	YYM Demo	242961	0

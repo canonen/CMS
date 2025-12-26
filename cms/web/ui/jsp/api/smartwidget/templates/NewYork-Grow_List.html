@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        .main {
+            display: flex;
+            flex-direction: row;
+        }
+        .flex-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .email-input {
+               text-align: center;
+            width: 200px;
+            height: 30px;
+            border: 1px solid black;
+            letter-spacing: 1px;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        .submit-button {
+             margin-bottom: 25px;
+            background-color: black;
+            color:white;
+            border-radius: 4px;
+            border:none;
+            padding: 9px;
+            font-size: 11px;
+        }
+        .caption {
+            padding: 20px 0 30px 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+			text-align:center;
+            justify-content: center;
+            width: 100%;
+        }
+        .policy-link {
+            text-decoration: none;
+            color: #515151;
+        }
+        #form_error {
+            margin-bottom: 15px;
+			font-size: 12px;
+			color: red;
+        }
+        @media screen and (max-width: 600px)  {
+            .nomobile { display:none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+       
+        <form action="https://revoform.revotas.com/frm/sv/FormProcessor" method="Post" name="Subscribe" style="padding:0;margin:0" border="0" onsubmit="submitForm(this); return false">
+        <div class="flex-right">
+            <input type="hidden" name="my_form_id" value="REVOTAS_FORM_ID">
+            <input type="hidden" name="rvs_in_optin_email" value="1">
+            <img is_editable="true" style="width:fit-content;" src="https://www.revotas.com/tr/wp-content/uploads/2020/12/revotas-1-2.png">
+            <div is_editable="true" class="caption">Enjoy 10% off your first order!<br>
+Sign up now and get instant discount</div>
+            
+            <input is_editable="true" type="text" class="email-input" name="rvs_in_email" onchange="isEmail(this, 'E-mail Address');" placeholder="Email Adress">
+            <div id="form_error"></div>
+            <button is_editable="true" activity_type="submit" id="push-smart-widget-activity" type="submit" class="submit-button">SUBSCRIBE</button>
+            <div>
+                <input type="checkbox" name="rvts_check" id="rvts_check">
+                <a is_editable="true" target="_blank" class="policy-link" href="#">I agree to receive emails</a>
+            </div>
+            
+          
+          
+        </div>
+    </form> <div class="flex-left">
+            <img class="nomobile" is_editable="true" src="https://revocdn.revotas.com/trc/web/5in1canpolat/newmemberpopup/img/aaaa.jpg">
+        </div>
+    </div>
+	<script>
+	
+var submitcount=0;
+function submitForm(f) {
+
+	var check =	f.rvts_check.checked;
+	
+	
+	 if (!isEmail(f.rvs_in_email.value)) {
+		 f.querySelector('#form_error').textContent = 'Lütfen email adresinizi giriniz.';
+
+		  
+return false;
+	}else  if(!check){
+				f.querySelector('#form_error').textContent = "Lütfen Sözleşmeyi Onaylayınız.";
+				return false;
+	} else{
+		// submit the form
+		if (submitcount == 0){	//check for double click
+      			submitcount++;
+      		} else {
+				f.querySelector('#form_error').textContent = "Bu form gönderildi";
+			return;
+      		}      
+		f.submit();
+  	}
+  }
+  	function isEmail(str) {
+ 	     var supported = 0;
+		  if (window.RegExp) {
+		    var tempStr = "a";
+		    var tempReg = new RegExp(tempStr);
+		    if (tempReg.test(tempStr)) supported = 1;
+		  }
+		  if (!supported) 
+		    return (str.indexOf(".") > 2) && (str.indexOf("@") > 0);
+		  var r1 = new RegExp("(@.*@)|(info.*@)| |(admin.*@)| |(sales.*@)| |(webmaster.*@)| (\\.\\.)|(@\\.)|(^\\.)");
+		  var r2 = new RegExp("^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$");
+		  return (!r1.test(str) && r2.test(str)); 
+	}
+	
+function checkEmail(field){		
+	if (!isEmail(field.value)) {			
+		f.querySelector('#form_error').textContent = "Lütfen geçerli bir email adresi giriniz!";			
+		field.focus();			
+		field.blur();
+		field.select();			
+		return;		
+	}	
+}
+
+</script>
+</body>
+</html>

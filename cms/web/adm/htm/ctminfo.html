@@ -1,0 +1,158 @@
+<html>
+<head>
+<title>CTM Documentation</title>
+</head>
+<body>
+
+<h2>How to Create a CTM Template</h2>
+A CTM Template consists of two template files and two image files.
+You also specify the category it belongs in and whether everyone can
+use it or only one customer is allowed to use it.
+
+<br><br>
+Here are the files you need:
+<ul>
+<li><a href="#1">HTML Template</a>
+<li><a href="#2">Text Template</a>
+<li><a href="#3">Small Image</a>
+<li><a href="#4">Large Image</a>
+</ul>
+
+<hr>
+<a name="1"></a>
+<h3>HTML Template</h3>
+This is the important template.  The structure for the template, sections and inputs,
+is derived from this template.  There are three main tags &lt;bmsectionX&gt;,
+&lt;bmeditX&gt;, and &lt;bminputX:Y&gt;
+<br><br>
+<b>Section Syntax:</b><br>
+Place the section label tags anywhere, although usually they are placed at the end of the document.
+The section edit tags should be placed where you want the edit links to go.
+<pre>
+X = section order
+&lt;bmsectionX&gt;Section Label&lt;/bmsectionX&gt;
+&lt;bmeditX&gt;Edit link text or an edit image&lt;/bmeditX&gt;
+</pre>
+
+<b>Input Syntax:</b>
+<pre>
+X = section order
+Y = input order
+&lt;bminputX:Y&gt;
+&lt;bmtype&gt;type&lt;/bmtype&gt;
+&lt;bmlabel&gt;label&lt;/bmlabel&gt;
+&lt;bmdefault&gt;default&lt;/bmdefault&gt;
+&lt;/bminputX:Y&gt;
+</pre>
+<b>Valid Input Types:</b><br>
+Must be spelled exactly this way and must be all lowercase.
+<ul>
+<li><b>'richtext':</b>  input type=textarea with a javascript WYSIWYG editor (with all allowed edit functions)
+<li><b>'richtextsimple':</b>  input type=textarea with a javascript WYSIWYG editor (with limited edit features)
+<li><b>'richtexthyatt':</b>  input type=textarea with a javascript WYSIWYG editor (with only edit features requested by Hyatt)
+<li><b>'shorttext':</b>  input type=text
+<li><b>'text':</b>  textarea rows=10 cols=65
+<li><b>'colorpicker':</b> input box with a javascript colorpicker
+<li><b>'image':</b> input type=file - file extension must be jpg, jpeg, or gif
+<li><b>'imagelib':</b> input box with UI to select from image library
+<li><b>'link':</b> 3 input boxes: name, link, and link color which has a javascript colorpicker
+<li><b>'pers':</b>  input type=text for default value - checkbox to remove this personalization<br>
+					default must have the pers name, ';', then default value. (i.e. "pmnfull;Valued Customer") 
+<li><b>'subs':</b>  input not allowed, value is automatically substituted and must be defined.<br>
+					default must have the subs name, ';', then default value. (i.e. "officename;an office near you")<br>
+                    (note: default value is used only when the subs name is defined to be null by the user)<br>
+</ul>
+<b>Default Values:</b><br>
+These will show up in the edit template page but will not show up in the preview template page, unless
+this is a hidden section. (See hidden section below)
+<br><br>
+<b>Repeating the Same Input:</b><br>
+Sometimes you may want the same input to show up in more then one place on the template.
+You can do this by repeating the input definition with no type, label, or default fields defined.
+The first instance of the input in the template must be defined. (Must have type, label, and default fields.)
+<br><br>
+See the Advanced Color Example below for an example.
+<br><br>
+
+<b>Hidden Sections:</b><br>
+In some cases you may want a section to be hidden to the user but still have the values passed on
+as though the user entered them.  This will most likely occur in custom templates.  A section will
+be consided hidden if you leave the bmsection and bmedit values blank.
+<pre>
+&lt;bmsectionX&gt;&lt;/bmsectionX&gt;
+&lt;bmeditX&gt;&lt;/bmeditX&gt;
+</pre>
+
+<b>Advanced Color Example:</b><br>
+This example shows how to use the colorpicker type to allow the user to set the color
+attributes for the entire page.  It also shows you how to use the same bminput tag
+more than once in order to set the link and vlink color to the same value.
+
+<pre>
+&lt;BODY BGCOLOR="&lt;bminput1:1&gt;
+&lt;bmtype&gt;colorpicker&lt;/bmtype&gt;
+&lt;bmlabel&gt;Background Color&lt;/bmlabel&gt;
+&lt;bmdefault&gt;#000000&lt;/bmdefault&gt;
+&lt;/bminput1:1&gt;" TEXT="#000000" LINK="&lt;bminput1:2&gt;
+&lt;bmtype&gt;colorpicker&lt;/bmtype&gt;
+&lt;bmlabel&gt;TOC Link Color&lt;/bmlabel&gt;
+&lt;bmdefault&gt;#000000&lt;/bmdefault&gt;
+&lt;/bminput1:2&gt;" VLINK="&lt;bminput1:2&gt;&lt;/bminput1:2&gt;"&gt;
+</pre>
+
+<b>Using Personalization</b><br>
+Personalization can be a little tricky since you have to make sure the template will
+still look ok if the user decides to not use it.  This can be accomplished by uing extra
+shorttext inputs.  Below is an example of a common "Dear Customer," input section.  Notice
+the spacing between the inputs.
+
+<pre>
+&lt;bminput1:2&gt;
+&lt;bmtype&gt;shorttext&lt;/bmtype&gt;
+&lt;bmlabel&gt;Customer Greeting&lt;/bmlabel&gt;
+&lt;bmdefault&gt;Dear&lt;/bmdefault&gt;
+&lt;/bminput1:2&gt; &lt;bminput1:3&gt;
+&lt;bmtype&gt;pers&lt;/bmtype&gt;
+&lt;bmlabel&gt;Customer's Full Name&lt;/bmlabel&gt;
+&lt;bmdefault&gt;pnmfull;Valued Customer&lt;/bmdefault&gt;
+&lt;/bminput1:3&gt;&lt;bminput1:4&gt;
+&lt;bmtype&gt;shorttext&lt;/bmtype&gt;
+&lt;bmlabel&gt;Comma&lt;/bmlabel&gt;
+&lt;bmdefault&gt;,&lt;/bmdefault&gt;
+&lt;/bminput1:4&gt;
+</pre>
+
+
+<b>Using Substitutions</b><br>
+Substitutions are client-level personalizations (also referred as Content Fields in UI).
+Each client have a set of defined fields that should be substituted during template-to-content generation.
+Substitutions have similar behavior as personalization. For example:
+
+<pre>
+Please visit our office at 
+&lt;bminput1:3&gt;
+&lt;bmtype&gt;subs&lt;/bmtype&gt;
+&lt;bmlabel&gt;Office Name&lt;/bmlabel&gt;
+&lt;bmdefault&gt;officename;a location near you&lt;/bmdefault&gt;
+&lt;/bminput1:3&gt;
+</pre>
+
+<br><br><hr>
+<a name="2"></a>
+<h3>Text Template</h3>
+Should not include any tags.  If there are tags the ctm will remove them.
+
+<br><br><hr>
+<a name="3"></a>
+<h3>Small Image</h3>
+This is the image that the user sees when selecting a template.<br>
+<b>Should be 175 X 200.</b>
+
+<br><br><hr>
+<a name="4"></a>
+<h3>Large Image</h3>
+This is the image that the user sees when they click on preview in the select template page.<br>
+<b>Should be the actual size of the page.</b>
+<br><br><hr>
+</body>
+</html>

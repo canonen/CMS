@@ -1,0 +1,99 @@
+/* Drop Down List Styles */
+
+	COL.dropDown
+	{
+		padding-left: 5px;
+		cursor: default;
+		font-size: 8pt;
+		font-family: Verdana;
+	}
+	
+	DIV.dropDown
+	{
+		width: 100%;
+		behavior: url(dropDown.htc);
+	}
+	
+	TR.dataRow TD, TR.dataRowOver TD
+	{
+		padding: 3px;
+		padding-left: 8px;
+		border-bottom: 1px solid #E4E4E4;
+	}
+
+	TR.dataRowSel TD
+	{
+		padding-top: 2px;
+		padding-bottom: 3px;
+		margin-bottom: 1px;
+		padding-right: 4px;
+		padding-left: 9px;
+		border-top: 1px solid #FDFDFD;
+		border-bottom: 1px solid #B7B7B7;
+		background-color: #DADADA;
+		color: #000000;
+	}
+	
+	TD.dataExpand
+	{
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-bottom: 12px;
+		margin-left: 15px;
+		margin-right: 15px;
+		border-bottom: 1px solid #cccccc;
+		background-color: #FFFFFF;
+	}
+
+	TD.dataExpandCell
+	{
+		filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#FFFFFF, EndColorStr=#EFEFEF);
+		font-size: 8pt;
+		color: #000000;
+		width: 100%;
+		padding: 6px;
+		border-bottom: solid 1px #999999;
+		border-left: solid 1px #CCCCCC;
+		border-right: solid 1px #999999;
+	}
+	
+	TR.noselect TD
+	{
+		border-bottom: 1px solid #DDDDDD;
+		cursor: default;
+		padding: 4px;
+	}
+	
+	.top_heading
+	{
+		font-size: 16pt;
+		padding-bottom: 20px;
+		padding-top: 10px;
+	}
+	
+	#IPtextBox
+	{
+		padding-left: 7px;
+		padding-right: 7px;
+		padding-top: 7px;
+		padding-bottom: 7px;
+		width: 100%;
+		border-left: 1px solid #cccccc;
+		border-right: 1px solid #cccccc;
+		border-top: 1px solid #cccccc;
+		border-bottom: 1px solid #999999;
+		filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#EAF1FF);
+	}
+	
+	TD.sec
+	{
+		color:				#606050;
+		font-weight:		bold;
+		padding-left:		0px;
+		padding-bottom:		2px;
+	}
+	
+	TD.bar 
+	{
+		border-bottom:		1px solid #838574;
+	}

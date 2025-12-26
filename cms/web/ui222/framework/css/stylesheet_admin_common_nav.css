@@ -1,0 +1,45 @@
+/* COMMON STYLESHEET FOR NETSCAPE 4.X - v1 */
+
+/* Fonts - NOTE: any font with size information should be defined in this stylesheet */
+
+td		{font-size:x-small; font-family: verdana, geneva, arial, helvetica, sans-serif; color: #000000}
+th		{font-size:x-small; font-family: verdana, geneva, arial, helvetica, sans-serif; font-weight: bold; color: #000000}
+
+.font-context-name	{font-size:large; font-family: arial, helvetica, sans-serif; font-weight: bold}
+
+.font-normal		{font-size:x-small; font-family: verdana, geneva, arial, helvetica, sans-serif;font-weight: normal; color: #000000}
+
+.font-trail		{font-size: small; font-family: verdana, geneva, arial, helvetica, sans-serif; color: #000000}
+.font-trail-current	{font-size: small; font-family: verdana, geneva, arial, helvetica, sans-serif; font-weight:bold; color: #000000}
+
+.font-menu		{font-size:x-small; font-family: verdana, geneva, arial, helvetica, sans-serif; font-weight: normal; color: #000000}
+.font-menu-current	{font-size:x-small; font-family: verdana, geneva, arial, helvetica, sans-serif; font-weight: bold; color: #000000}
+
+.font-title		{font-size: medium; font-family: arial, helvetica, sans-serif; font-weight:bold; color: #000000}
+.font-title-lite		{font-size: medium; font-family: arial, helvetica, sans-serif; font-weight:normal; color: #000000}
+
+.font-form-item	{font-size: x-small; font-family:verdana, geneva, arial, helvetica, sans-serif; color: #000000}
+.font-form-item-lg	{font-size: small; font-family:verdana, geneva, arial, helvetica, sans-serif; color: #000000}
+
+.font-inline-help-1	{font-size: small; font-family: verdana, geneva, arial, helvetica, sans-serif; color: #666666}
+
+.font-subhead		{font-size: small; font-family: verdana, geneva, arial, helvetica, sans-serif; font-weight:bold; color: #000000}
+.font-subhead-lite	{font-size: small; font-family: verdana, geneva, arial, helvetica, sans-serif; font-weight:normal; color: #000000}
+
+.font-dimmed		{color: #666666}
+
+.font-list-description	{font-size:x-small; font-family: verdana, geneva, arial, helvetica, sans-serif; font-weight:normal; color: #666666}
+.font-list-item-bold 	{font-size:x-small; font-family: verdana, geneva, arial, helvetica, sans-serif; font-weight: bold; color: #000000}
+.font-list-header	{font-size:x-small; font-family: verdana, geneva, arial, helvetica, sans-serif; font-weight: bold; color: #000000}
+
+.font-alert		{font-size: small; font-family: verdana, geneva, arial, helvetica, sans-serif; font-weight:bold; color: #FF0000}
+.font-attention	{font-size: small; font-family: verdana, geneva, arial, helvetica, sans-serif; font-weight:normal; color: #FF0000}
+.font-success		{font-size: small; font-family: verdana, geneva, arial, helvetica, sans-serif; color: #003300}
+.font-note		{font-size: x-small; font-family: verdana, geneva, arial, helvetica, sans-serif; color: #000000}
+
+
+/* Objects */
+
+hr		{color: #dddddd; height: 1; noshade}
+ol		{margin-top: 3px; margin-bottom: 9px}
+ul		{margin-top: 3px; margin-bottom: 9px}

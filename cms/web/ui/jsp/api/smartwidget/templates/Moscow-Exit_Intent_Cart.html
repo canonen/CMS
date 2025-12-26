@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moscow</title>
+</head>
+<body >
+    <div style="width: auto;max-width: 350px;height: 340px;align-items: center;justify-content: center;background-color: white;padding: 25px;border:1px solid #ff6600;border-radius: 10px;">
+        <div style="display: flex;flex-direction: column;align-items: center;">
+            <img is_editable="true" src="https://cms.revotas.com/cms/ui/jsp/api/smartwidget/templates/revotas_logo.png" alt="logo" width="100" style="margin-top: 5px;">
+            <div is_editable="true" style="text-align: center;padding:20px 0">Leave your email address to get <b>5% off</b> the items in your cart.</div>
+            <div style="width: 180px;">
+                <form action="https://revoform.revotas.com/frm/sv/FormProcessor" method="Post" name="Subscribe"border="0" onsubmit="submitForm(this); return false" style="display: flex;flex-direction: column;padding:0;margin:0">
+                    <input is_editable="true" style="border: 1px solid black;padding: 1px 2px;text-align: center;line-height: 30px;" type="text" class="email-input" name="rvs_in_email" onchange="isEmail(this, 'E-mail Address');" placeholder="Enter your email address">
+                    <div id="form_error" style="color: red;"></div>
+                    <button is_editable="true" style="margin-top: 15px;padding: 4px;background-color: #ff6600; color: white;cursor: pointer;border: none;"  class="submit-button">Sign Up</button>
+					 <button is_editable="true" style="display: none;" activity_type="submit" id="push-smart-widget-activity" type="submit" >Sign Up</button>
+                    <div style="margin-top: 10px;display:flex">
+                        <input type="checkbox" style="cursor:pointer" name="rvts_check" id="rvts_check">
+                        <a is_editable="true" target="_blank" class="policy-link" href="#" style="font-size: 10px;color: #3c3c3c;line-height: 16px;text-decoration: underline;text-align: center;display: block;">By entering your email address, you agree to receive communications from linens.com.tr in accordance with the Privacy Policy.</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        var submitcount=0;
+function submitForm(f) {
+
+	var check =	f.rvts_check.checked;
+	let buttonSubmit = f.querySelector("#push-smart-widget-activity");
+	
+	 if (!isEmail(f.rvs_in_email.value)) {
+		 f.querySelector('#form_error').textContent = 'Please enter your email address.';
+
+		  
+return false;
+	}else  if(!check){
+				f.querySelector('#form_error').textContent = "Please accept the agreement.";
+				return false;
+	} else{
+		// submit the form
+		if (submitcount == 0){	//check for double click
+      			submitcount++;
+      		} else {
+				f.querySelector('#form_error').textContent = "This form has been submitted.";
+			return;
+      		}    
+	    buttonSubmit.click();			
+		f.submit();
+  	}
+  }
+  	function isEmail(str) {
+ 	     var supported = 0;
+		  if (window.RegExp) {
+		    var tempStr = "a";
+		    var tempReg = new RegExp(tempStr);
+		    if (tempReg.test(tempStr)) supported = 1;
+		  }
+		  if (!supported) 
+		    return (str.indexOf(".") > 2) && (str.indexOf("@") > 0);
+		  var r1 = new RegExp("(@.*@)|(info.*@)| |(admin.*@)| |(sales.*@)| |(webmaster.*@)| (\\.\\.)|(@\\.)|(^\\.)");
+		  var r2 = new RegExp("^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$");
+		  return (!r1.test(str) && r2.test(str)); 
+	}
+	
+function checkEmail(field){		
+	if (!isEmail(field.value)) {			
+		f.querySelector('#form_error').textContent = "Lütfen geçerli bir email adresi giriniz!";			
+		field.focus();			
+		field.blur();
+		field.select();			
+		return;		
+	}	
+}
+
+    </script>
+</body>
+</html>

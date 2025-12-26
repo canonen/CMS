@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Full Page Editing with Document Properties Plugin &mdash; CKEditor Sample</title>
+	<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+	<script type="text/javascript" src="ckeditor.js"></script>
+</head>
+<body>
+
+			<textarea cols="10" id="editor1" name="editor1" rows="10"></textarea>
+			<script type="text/javascript">
+			//<![CDATA[
+
+				CKEDITOR.replace( 'editor1',
+				{
+					on :
+						{
+							instanceReady : function( ev )
+							{
+								this.dataProcessor.writer.selfClosingEnd = '>';
+							}
+						},
+						enterMode : CKEDITOR.ENTER_BR,
+						shiftEnterMode: CKEDITOR.ENTER_P,		
+						fullPage : true,
+						toolbarCanCollapse : false,
+						uiColor : '#e5e5e5',
+						extraPlugins : '',
+						toolbar :
+						[
+							['Source','Preview'],	
+							['Undo','Redo','Cut','Copy','Paste','PasteText','PasteFromWord','RemoveFormat'],
+							['Image','Table','HorizontalRule','SpecialChar', 'Link','Unlink'],	
+							'/',
+							[ 'Bold','Italic','Underline','Strike','Outdent','Indent','NumberedList','BulletedList','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','TextColor','BGColor','Format','Font','FontSize'],
+						],
+
+						
+				});
+					
+					
+
+			//]]>
+			</script>
+</body>
+</html>

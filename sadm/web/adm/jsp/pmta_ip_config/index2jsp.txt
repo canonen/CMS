@@ -1,0 +1,110 @@
+<%@ page
+	language="java"
+	import="com.britemoon.*"
+	import="com.britemoon.sas.*"
+	import="java.io.*"
+	import="java.sql.*"
+	import="java.util.*"
+	import="org.w3c.dom.*"
+	import="org.apache.log4j.*"
+%>
+<%! static Logger logger = null; %>
+<% if(logger == null) logger = Logger.getLogger(this.getClass().getName()); %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html>
+	<head>
+		<title>Revotas Administration</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+		<style>
+		body {
+			margin:15px;
+			font-size:11px;
+		}
+		</style>
+	</head>
+	<body>
+		<%
+		ConnectionPool cp = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sSql = null;
+
+		try
+		{
+			cp = ConnectionPool.getInstance();	
+			conn = cp.getConnection(this);
+
+			sSql = "select * from mail_pmta_ip_config with(nolock) order by status, update_date desc";
+			
+			try
+			{				
+				pstmt = conn.prepareStatement(sSql);
+				rs = pstmt.executeQuery();			
+				byte[] b = null;
+				%>	
+				<a class="btn btn-primary" href="add.jsp">ADD</a>
+				<table class="table table-bordered">					
+					<tr>
+						<th>PMTA #</th>
+						<th>IP Address</th>
+						<th>Customer ID</th>
+						<th>Customer Name</th>
+						<th>Create Date</th>
+						<th>Update Date</th>
+						<th>Domain</th>
+						<th>Status</th>
+						<th>Options</th>
+					</tr>					
+				<%
+				while (rs.next())
+				{
+					String a = "";
+					%>
+					<tr>
+						<td><% out.print(rs.getInt(2)); %></td>
+						<td>
+							<%=rs.getString(3)%>
+						</td>
+						<td><% out.print(rs.getInt(4)); %></td>
+						<td>
+							<%   
+								b = rs.getBytes(5); 
+								a = (b==null)?null:new String(b, "UTF-8");		
+								out.print(a);
+							%>
+						</td>
+						<td><%=rs.getString(6)%></td>
+						<td><%=rs.getString(7)%></td>
+						<td><%=rs.getString(9)%></td>
+						<td><% if(rs.getInt(8) == 0){out.print("Passive");}else{out.print("Active");} %></td>
+						<td><a class="btn btn-small" href="edit.jsp?id=<% out.print(rs.getInt(1)); %>">Edit</a> <a class="btn btn-danger" href="delete.jsp?id=<% out.print(rs.getInt(1)); %>">Delete</td>
+					</tr>
+					<%
+				}
+				%>
+								
+				</table>
+				<%
+				rs.close();			
+			}
+			catch(Exception ex)
+			{
+				throw new Exception(sSql+"\r\n"+ex.getMessage());
+			}
+			finally
+			{
+				if(pstmt != null) pstmt.close();
+			}
+		 }
+		 catch(Exception e) {
+			e.printStackTrace();
+		 }
+		 finally
+		 {
+			if (conn != null) cp.free(conn);		 
+		 }
+		%>
+	</body>
+</html>

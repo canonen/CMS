@@ -1,0 +1,73 @@
+Partner Name	Client Name	Emails Sent	Prints Sent
+Direct	_NEW_DB_234	0	0
+Direct	_NEW_DB_235	0	0
+Direct	11833 - Vastech iletisim	1629865	0
+Direct	Afrodit	0	0
+Direct	Alisveris Saati	882263	0
+Direct	Alternate Gear	0	0
+Direct	Anneysen	204320	0
+Direct	Arooda	0	0
+Direct	Baskentfirsati.com	211610	0
+Direct	BeTravel	1064546	0
+Direct	Bevisible	617286	0
+Direct	Birebin	0	0
+Direct	Bm Cam Donanimlari	1	0
+Direct	BonnyFood	900945	0
+Direct	BonnyFood_Gift	0	0
+Direct	bunlarkacmaz.com	0	0
+Direct	Ceska Enerji	321734	0
+Moda Elinizde	Damat Tween Shop	0	0
+Seganet	Deli Kupon	863879	0
+Direct	DemosFuarcilik	48672	0
+Direct	Do Not Use	RCP Error	--
+Direct	Dominos Pizza	0	0
+Moda Elinizde	DS Damat Shop	0	0
+Direct	Duvar Dizayn	48970	0
+Direct	Egitim Firsatim	3468503	0
+Direct	Erkan insaat	28056	0
+Direct	Erkengelenalir.com	0	0
+Direct	Ersa / Casio	0	0
+Direct	Evtekstilibul	46282	0
+Gelecek Internet	Ford Cevizli	39341	0
+Direct	Grupo Sinergia Fc	20236	0
+Direct	Hayal Kahvesi Caddebostan	0	0
+Direct	Hayal Kahvesi Saskinbakkal	0	0
+Direct	Hotic	0	0
+Direct	i-gunler.CoM	101700	0
+Direct	ICT	0	0
+Direct	imza Gayrimenkul	0	0
+Direct	ISF Demo	0	0
+Direct	Izlesene.CoM	0	0
+Direct	Jetmilstar	2279458	0
+Direct	Jimg Media	0	0
+Direct	KatyaUK	0	0
+Direct	Kent Optimum	9626	0
+Direct	LTE	0	0
+Direct	Mavi Egitim	9180	0
+Moda Elinizde	Moda Elinizde	608569	0
+Moda Elinizde	Moda Elinizde Kampanya	0	0
+Direct	NanoDRM	2075	0
+Direct	Nasel iletisim	0	0
+Direct	nfinitygames	467390	0
+Direct	Offer Beam	0	0
+Direct	Orkagroup	0	0
+Direct	OutBox	1421	0
+Direct	Pagos	0	0
+Direct	People Communication	2072	0
+Direct	Portline	142	0
+Moda Elinizde	Private Shopping	1023937	0
+Direct	Reklamz	0	0
+Gelecek Internet	Renault Maslak	12428	0
+Direct	Revotas	1736	0
+Direct	Revotas Demo	81	0
+Direct	Revotas Demo US	3132	0
+Direct	Revotas New Demo	0	0
+Direct	Roxy	2778	0
+Direct	Saatturk	98541	0
+Direct	Sigortam.net	2076492	0
+Direct	SMP Promosyon	0	0
+Direct	Trend.im	1851498	0
+Direct	Voit  - Arcelik - Yetkilisaticim	117982	0
+Direct	www.lushturkey.com	39312	0
+Gelecek Internet	Yeni Bir Sigorta	30734	0
+Direct	YYM Demo	287892	0

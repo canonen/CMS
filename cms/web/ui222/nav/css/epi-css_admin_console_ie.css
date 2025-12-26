@@ -1,0 +1,363 @@
+/* ------- EPI CLASSES FOR USE IN THE ADMINISTRATION CONSOLE -------- */
+/* GENERAL FONT AND LINK SETTINGS  */						
+BODY,
+PRE,
+TR, 
+TD, 
+TH, 
+P				{font-family: verdana, geneva, arial, helvetica, sans-serif;
+	 			font-size: xx-small; 
+				color: #000000;
+				font-weight: normal;
+				font-style: normal;}				
+ 
+p				{margin-top: 0px; margin-bottom: 1.3em}
+
+TH				{font-weight: bold}
+
+.epi-fontSm,
+.wsui-font-small		{font-size: xx-small}
+
+.epi-font,
+.wsui-font			{font-size: xx-small}
+	
+.epi-fontLg,
+.wsui-font-large		{font-size: x-small}
+											
+a:link				{color: #333300;
+				text-decoration: none}
+
+a:visited			{color: #333300;
+				text-decoration: none}
+				
+a:active,
+a:hover				{color: #333300;
+				text-decoration: underline !important}		
+				
+a.epi-headline			{font-size: xx-small;
+				font-weight: normal;
+			        text-decoration: underline !important}
+			        
+/* FOR TRAIL, PAGE, AND SECTION TITLES  */
+/* NAVIGATION TRAILS */
+.epi-trail,
+.wsui-trail      		{font-family: arial;
+				font-size: small;
+				color: #666666;
+				font-weight: normal;
+				margin-bottom: 0px}
+                     	
+.epi-trail a,
+.wsui-trail a     		{color: #666666 !important;
+                     		text-decoration: none !important}
+                     	            	
+.epi-trail a:hover,
+.wsui-trail a:hover    		{color: #000000;
+                      		text-decoration: underline !important}
+                       	     
+.epi-trailOn,
+.wsui-trail-current    		{font-family: arial;
+				font-size: small;
+				color: #000000;
+				font-weight: bold;
+				margin-bottom: 0px}
+				
+			
+/* PAGE TITLES */					
+h1,
+.epi-pageTitle,
+.wsui-page-title		{font-family: arial, helvetica, sans-serif;
+				font-size: small;
+				color: #000000;
+				font-weight: bold;
+				margin-bottom: 0px}
+
+/* SECTION TITLES*/
+h2,
+.epi-sectionTitle,
+.wsui-section-title		{font-family: verdana, geneva, arial, helvetica, sans-serif;
+				font-size: x-small;
+				color: #000000;
+				font-weight: bold;
+				margin-top: 0px;
+				margin-bottom: .5em;}
+				
+.epi-sectionTitleBG		{background-color: #A4BFCA}
+
+/* ERROR AND CONFIRMATION MESSAGE COLORS  */				
+.epi-error,
+.wsui-error			{color: #ff0000 !important}
+
+.epi-ok,
+.wsui-ok			{color: #003300 !important}
+
+.epi-dim,
+.wsui-dim			{color: #666666 !important}
+
+
+/* NAVIGATIONAL MENUS AND LINKS  */	
+.epi-menu,
+.wsui-menu			{color: #333300;
+				text-decoration: none}
+				
+.epi-menuOn,
+.wsui-menu-current		{color: #000000 !important;
+				font-weight: bold;
+				text-decoration: none}
+						
+.epi-nextPrev,
+.wsui-nextPrev			{color: #333300;
+				text-decoration: none}				
+				
+.epi-menu:hover,
+.epi-menuOn:hover,
+.epi-nextPrev:hover,
+.wsui-menu:hover,
+.wsui-menu-current:hover,
+.wsui-nextPrev:hover		{color: #333300;
+				text-decoration: underline !important}
+
+					
+/* FORM ELEMENTS  */	
+/* FOR LAYOUT TABLES THAT CONTAIN FORMS -- CONVENIENTLY PROVIDES FOR APPROPRIATE SPACING */
+table.epi-formTable td			{padding-top: .25em;
+					padding-bottom: .25em}
+
+table.epi-formTable td table td		{padding: 0em}
+
+table.epi-formTable td.epi-spacerCell	{font-size: 0px; height: 1em}
+
+/* FORM LABELS */
+.epi-formLabel,
+.wsui-form-label		{font-weight: bold;
+				text-align: left;
+				padding-right: .75em}
+			
+					
+/* FORM INPUT ELEMENTS */													
+select,
+textarea,
+.epi-input			{font-family: verdana, geneva, arial, helvetica, sans-serif;
+				font-size: xx-small;
+				color: ;
+				background-color: }
+				
+
+/* FORM HTML BUTTONS */				
+.epi-button			{font-family: verdana, geneva, arial, helvetica, sans-serif;
+				font-size: xx-small;
+				color: ;
+				background-color: }
+				
+												
+/* FOR LINKS THAT BEHAVE LIKE BUTTONS   */																						
+.epi-buttonLink			{color: #333300;
+				text-decoration: underline !important}
+
+.epi-buttonLink:hover		{color: #000000;
+				text-decoration: underline !important}
+					
+					
+/* MISC. UI ELEMENTS   */
+HR 				{color: #cccccc; 
+				height: 1px;
+				noshade}
+
+.epi-lineBreak			{background-color: #cccccc}
+
+.epi-block			{background-color: #efefef;
+				border: 1px solid #cccccc}
+				
+.wsui-block-bgcolor		{background-color: #efefef}
+
+.epi-blockBorder		{background-color: #cccccc}
+								
+li				{padding: .2em}
+					
+						
+/* STANDARD DATA TABLES */													
+.epi-dataTable,
+.wsui-table			{border-bottom: solid 1px #ffffff;
+				border-left: solid 1px #ffffff;
+				border-right: solid 0px #ffffff}	
+													
+.epi-dataTable TH,
+.wsui-table TH			{color: #000000 !important;
+				background-color: #cccc99;
+				border-top: solid 1px #ffffff;
+				border-right: solid 1px #ffffff;
+				padding: .5em}	
+														
+.epi-dataTable TH a,
+.wsui-table TH a		{color: #000000 !important;
+				text-decoration: none}																										
+				
+.epi-dataTable TH.epi-rowHeadSorted,
+.epi-dataTable TH.epi-rowHeadSorted a		{color: #000000 !important;
+						background-color: #cccc99;
+						text-decoration: none}																							
+		
+.epi-dataTable TD,
+.wsui-table TD 			{color: #000000;
+				border-top: solid 1px #ffffff;
+				border-right: solid 1px #ffffff;
+				padding-top: .3em;
+				padding-bottom: .3em;
+				padding-left: .5em;
+				padding-right: .5em}
+								
+.epi-dataTable TD a,
+.wsui-table TD a  		{color: #333300}
+
+.epi-dataTable .epi-padRight	{padding-right: 2em}
+
+
+/* DATA TABLE LITE: generally not used with background colors on odd and even row */	
+.epi-dataTableLite		{border-bottom: solid 0px #ffffff;
+				border-left: solid 0px #ffffff;
+				border-right: solid 0px #ffffff}
+
+.epi-dataTableLite TH		{color: #000000;
+				background-color: #f7f7f7;
+				border-top: solid 1px #ffffff;
+				padding: .5em}
+							
+.epi-dataTableLite TH a		{color: #333300;
+				text-decoration: none}	
+							
+.epi-dataTableLite TD		{color: #000000;
+				border-top: solid 1px #dddddd;
+				padding-top: .3em;
+				padding-bottom: .3em;
+				padding-left: .5em;
+				padding-right: .5em}
+							
+.epi-dataTableLite TD a  	{color: #333300}
+
+.epi-dataTableLite .epi-padRight  	{padding-right: 2em}
+
+
+/* DATA TREE */
+.epi-dataTree			{border: solid 1px #ffffff}	
+																							
+.epi-dataTree TH		{color: #000000;
+				background-color: #cccc99;
+				border-bottom: solid 1px #ffffff;
+				padding-top: .3em;
+				padding-bottom: .3em}
+							
+.epi-dataTree TH a		{color: #000000 !important;
+				text-decoration: none}
+							
+.epi-dataTree TD		{color: #000000} 
+
+.epi-dataTree TD a  		{color: #333300}
+
+.epi-dataTree .epi-padding  	{padding-right: .5em;
+				padding-left: .5em}
+				
+.epi-dataTree .epi-padLeft	{padding: 0px 0px 0px 3px}
+
+/* TABLES WITHIN DATA TABLES: BORDERS AND PADDING */					
+.epi-dataTable .epi-embeddedTable TD,
+.epi-dataTableLite .epi-embeddedTable TD,
+.epi-dataTree .epi-embeddedTable TD	{border: 0px;
+					padding: 0px}
+					
+
+/* SHARED BACKGROUND COLORS */
+.epi-rowOdd,
+.wsui-table-row-odd		{background-color: #fafafa}
+
+.epi-rowEven,
+.wsui-table-row-even		{background-color: #efefef}
+
+.epi-rowSpecial1,
+.wsui-table-row-sectionheader	{background-color: #dddddd}
+
+.epi-rowSpecial1 td,
+.wsui-table-row-sectionheader td	{color: #000000 !important}
+
+.epi-rowFooter			{background-color: #ffffff}
+
+.epi-rowFooter td		{color: #000000 !important}
+
+.epi-dataTableBorder		{background-color: #ffffff}
+
+/* EPI-ROWHEAD: used only to simulate the effect of a data table's header row; not necessary if using <th> within a epi-dataTable or epi-dataTree */
+.epi-rowHead,
+.wsui-table-row-header		{color: #000000;
+				font-weight: bold;
+				background-color: #cccc99;
+				padding-top: .3em;
+				padding-bottom: .3em}
+							
+.epi-rowHead a,
+.wsui-table-row-header a	{color: #000000  !important;
+				text-decoration: none}
+
+
+/* CHROME, PAGE, AND ALIGNMENT CLASSES    */	
+.epi-pageBG			{background-color: #ffffff}
+
+.epi-chromeHeader		{font-family: arial;
+				font-size: x-small;
+				color: #ffffff;
+				font-weight: bold;
+				background-color: #336699}
+
+.epi-chromeBG			{background-color: #ffffff}
+
+.epi-chromeBorder		{background-color: #003366}		
+				
+/* DEPRECATED: do not use in new code */	
+.epi-align			{text-align: left}
+
+.epi-rowSpecial2		{background-color: #ffffff}
+
+.epi-rowSpecial2 td		{color: #000000 !important}
+	
+.epi-errorColor,
+.epi-errorSm,
+.wsui-error-small	{color: #ff0000 !important}
+
+.epi-okColor,		
+.epi-okSm,
+.wsui-ok-small         	{color: #003300 !important}
+
+.epi-dimColor,		         
+.epi-dimSm,
+.wsui-dim-small       	{color: #666666 !important}
+
+.epi-form,
+.epi-formSm		{font-family: verdana;
+			font-size: xx-small;
+			color: #000000;
+			background-color: #ffffff}
+
+.epi-buttonSm		{font-family: verdana;
+			font-size: xx-small;
+			color: #000000;
+			background-color: #f3f3f3}
+
+.epi-buttonLinkSm		{color: #333300;
+				text-decoration: underline !important}
+
+.epi-buttonLinkSm:hover		{color: #000000;
+				text-decoration: underline !important}
+				
+.epi-blockBGColor	{background-color: #f6f6f6}
+
+.epi-chromeHeaderFont	{font-family: arial;
+			font-size: x-small;
+			color: #000000;
+			font-weight: bold;}
+
+.epi-chromeHeaderBG	{background-color: #003366}
+
+.epi-rowSubHead		{background-color: #DCDCDC}
+
+/* ANY OTHER CLASSES that appeared on this style sheet prior to VAP 4.0 SP4 are now handled by one of the classes above.  
+Any use of those classes will simply be ignored. */
+
+

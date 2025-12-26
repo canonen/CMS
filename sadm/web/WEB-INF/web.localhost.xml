@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+	<context-param>
+		<param-name>JdbcDriver</param-name>
+		<param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+	</context-param>
+	<context-param>
+		<param-name>JdbcUrl</param-name>
+		<param-value>jdbc:sqlserver://localhost;databaseName=brite_ccps_500</param-value>
+	</context-param>
+	<context-param>
+		<param-name>JdbcUser</param-name>
+		<param-value>briteadm</param-value>
+	</context-param>
+	<context-param>
+		<param-name>JdbcPassword</param-name>
+		<param-value>m00nh34d</param-value>
+	</context-param>
+	<context-param>
+		<param-name>JdbcConnectionsMin</param-name>
+		<param-value>5</param-value>
+	</context-param>
+	<context-param>
+		<param-name>JdbcConnectionsMax</param-name>
+		<param-value>100</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>
+			com.britemoon.sas.ContextListener
+		</listener-class>
+	</listener>
+
+</web-app>

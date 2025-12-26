@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<META NAME="description" CONTENT="Ovalca provides cost effective email campaign management tools.  The easy to use web based tools provide everything necessary for a closed loop campaign management solution from database management to realtime reporting.">
+<META NAME="keywords" CONTENT= "Email Marketing, Emarketing, ASP, Email Management, Bulk Email, Broadcast Email, Email, HTML Email, Email Campaign, Email Promotion, Outbound Email, Self service Email marketing, Campaign Management, Cost Effective Email Marketing, Web Based Email.">
+</HEAD>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<script language="JavaScript" src="../jsp/help/help_functions.js"></script>
+<script language="JavaScript">
+<!--
+// VARIABLES
+	var on = new Array(6);
+	var off = new Array(6);
+	var imageState = false;
+
+// OFF DEFINITIONS
+	for (x=0;x<6;x++)
+	{
+		off[x] = new Image;
+	}
+
+	off[1].src = "../images/campaignB.gif";
+	off[2].src = "../images/databaseB.gif";
+	off[3].src = "../images/contentB.gif";
+	off[4].src = "../images/reportingB.gif";
+	off[5].src = "../images/setupB.gif";
+
+// ON DEFINITIONS
+	for (x=0;x<6;x++)
+	{
+		on[x] = new Image;
+	}
+
+	on[1].src = "../images/campaignC.gif";
+	on[2].src = "../images/databaseC.gif";
+	on[3].src = "../images/contentC.gif";
+	on[4].src = "../images/reportingC.gif";
+	on[5].src = "../images/setupC.gif";
+
+	function flipImg (imgName, img)
+	{
+		document[imgName].src = img.src;
+	}
+
+	function gotoFunction()
+	{
+		self.location = document.wizard.page.options[document.wizard.page.selectedIndex].value;
+	}
+
+//-->
+</script>
+<BODY BGCOLOR="#ffffff" TEXT="#000000" LINK="#0000FF" VLINK="#800080">
+<table border=0 cellpadding=0 cellspacing=0 width=650>
+<tr>
+<td width=200><img src="../images/logo.gif"></td>
+<td width=450 align=right valign=bottom>  <IFRAME src="../jsp/cust/session_info.jsp" width="400" height="50"
+             scrolling="0" frameborder="0">
+  [Your user agent does not support frames or is currently configured
+  not to display frames. However, you may visit
+  <A href="foo.html">the related document.</A>]
+  </IFRAME>
+<br>
+<a href="javascript:openPopup('../jsp/help/', 'HelpPop', 635, 390)"><img src="../images/onlinehelp.gif" border=0 align="texttop"></a></td>
+</tr>
+</table>
+<table border=0 cellpadding=0 cellspacing=0 width=650>
+<tr>
+<td width=130><a href='frame-campaign.html' target=_parent  onMouseOver="flipImg('m1',on[1])" onMouseOut="flipImg('m1', off[1])"><img name='m1' src="../images/campaignB.gif" width="130" height="17" border=0></a></td>
+<td width=130><a href='frame-database.html' target=_parent onMouseOver="flipImg('m2',on[2])" onMouseOut="flipImg('m2', off[2])"><img name='m2' src="../images/databaseB.gif" width="130" height="17" border=0></a></td>
+<td width=130><a href='frame-content.html' target=_parent onMouseOver="flipImg('m3',on[3])" onMouseOut="flipImg('m3', off[3])"><img name='m3' src="../images/contentB.gif" width="130" height="17" border=0></a></td>
+<td width=130><a href='frame-reporting.html' target=_parent onMouseOver="flipImg('m4',on[4])" onMouseOut="flipImg('m4', off[4])"><img name='m4' src="../images/reportingB.gif" width="130" height="17" border=0></a></td>
+<td width=130><img src="../images/setupA.gif" width="130" height="17"></td>
+</tr>
+</table>
+<table border=0 bgcolor=#333399 cellpadding=0 cellspacing=0 width=100%>
+<tr>
+<td width=5 class=submenuoff background="../images/sideleftborder.gif"><img src="../images/blank.gif" width="1" height="20"></td>
+<td width=380 class=submenuoff valign=center align=center background="../images/navbarbg.gif">&nbsp;  <a class=submenu href="frame-setup.html" target=_parent>Account Setup</a>&nbsp; | &nbsp;<a class=submenu href="frame-setupfrom.html" target=_parent>From Address</a> &nbsp; | &nbsp;<a class=submenu href="frame-setupsubscription.html" target=_parent>Subscription Form</a> &nbsp; | &nbsp;<a class=submenu href="frame-setupcustomfields.html" target=_parent>Custom Fields</a></td>
+<td class=submenuoff width=4 height=20 valign=bottom><img src="../images/sumenubg.gif" width="4" height="15"></td>
+
+<td width=120 class=submenuoff align=center valign=bottom background="../images/sumenubg3.gif"><a class=submenuon href="frame-setupscheduler.html" target=_parent>Admin Scheduler</A></td>
+<td width=4 class=submenuoff  height=20 valign=bottom><img src="../images/sumenubg2.gif" width="4" height="15"></td>
+<td width=32 valign=center class=submenuoff  background="../images/navbarbg.gif"> &nbsp; </td>
+<td class=submenuoff background="../images/navbarbg.gif">&nbsp;</td>
+<td width=5 class=submenuoff background="../images/siderightborder.gif"><img src="../images/blank.gif" width="1" height="1"></td>
+</tr>
+</table>
+</BODY>
+</HTML>

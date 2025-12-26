@@ -1,0 +1,1 @@
+<%response.sendRedirect("/cms/ui/jsp/mini/login.jsp");%>

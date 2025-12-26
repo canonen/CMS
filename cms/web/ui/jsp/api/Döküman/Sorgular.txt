@@ -1,0 +1,17 @@
+--- SP de tablo arama 
+
+SELECT OBJECT_NAME(object_id) AS ProcedureName FROM sys.sql_modules WHERE definition LIKE '%tablo_adı%'
+
+--- Aynı datayı cust id değiştirerek tabloya ekleme 
+
+INSERT INTO [dbo].[ccps_smart_widget_activity_day] (cust_id	,popup_id,popup_name,form_id,impression,activity,contribution,revenue,type_name,activity_date,last_update_date,total_order,total_revenue,total_qty)
+SELECT 194 AS cust_id,popup_id,popup_name,form_id,impression,activity,contribution,revenue,type_name,activity_date,last_update_date,total_order,total_revenue,total_qty
+FROM [dbo].[ccps_smart_widget_activity_day]
+WHERE cust_id = 838;
+
+--- Farklı rcpler arasında veri kullanımı 
+
+select * 
+from OPENDATASOURCE('SQLOLEDB','Data Source=192.168.151.71;User ID=revotasadm;Password=l3br0nj4m3s').brite_rrcp_500_cust_1020.dbo.rrcp_pers_search_activity_day
+
+

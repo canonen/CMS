@@ -1,0 +1,8 @@
+﻿Merhaba,
+
+Bu emaili göremiyorsanız lütfen tıklayınız.
+
+
+http://form.damatmail.com:80//frm/sv/WebContView?C=!*CampaignID;*!&R=!*RecipID;*!&K=!*recip_key;*!
+
+

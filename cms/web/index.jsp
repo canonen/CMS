@@ -1,0 +1,1 @@
+<%response.sendRedirect("http://cms.revotas.com/cms/ui/jsp/login.jsp");%>

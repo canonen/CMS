@@ -1,0 +1,157 @@
+<%@ page
+        language="java"
+        import="com.britemoon.*,
+                com.britemoon.cps.*,
+                com.britemoon.cps.imc.*,
+                com.britemoon.cps.que.*,
+                java.sql.*,
+                java.io.*,
+                java.util.*,
+                org.w3c.dom.*"
+%>
+<%@ include file="../header.jsp" %>
+<%@ include file="../validator.jsp" %>
+<%@ page import="com.restfb.json.JsonObject" %>
+<%@ page import="com.restfb.json.JsonArray" %>
+<% response.setContentType("application/json;charset=UTF-8"); %>
+<%
+  String sCustId = cust.s_cust_id;
+  String firstDate = request.getParameter("first_date");
+  String lastDate = request.getParameter("last_date");
+
+  JsonArray array = new JsonArray();
+  JsonObject data = new JsonObject();
+
+
+  Statement stmt = null;
+  ResultSet rs = null;
+  ConnectionPool cp = null;
+  Connection conn = null;
+  String sql = "";
+
+  try {
+
+    cp = ConnectionPool.getInstance();
+    conn = cp.getConnection(this);
+    stmt = conn.createStatement();
+
+    
+
+    sql = "select * from ccps_webpush_device_type with(nolock) where cust_id= " + sCustId;
+    //sql = "select * from crpt_cust_webpush_summary with(nolock) where cust_id= \" + sCustId ";
+
+    rs = stmt.executeQuery(sql);
+    JsonArray unsubDeviceData = new JsonArray();
+    JsonArray subDeviceData = new JsonArray();
+    JsonObject unsubDeviceObj = new JsonObject();
+    JsonObject subDeviceObj = new JsonObject();
+    JsonArray totalDeviceData = new JsonArray();
+    JsonObject totalDeviceObj = new JsonObject();
+
+    while (rs.next()) {
+
+      unsubDeviceObj = new JsonObject();
+      subDeviceObj = new JsonObject();
+           /* int passiveTabletSub = rs.getInt("tablet_passive_count");
+            int activeTabletSub = rs.getInt("tablet_active_count");
+            int passiveMobileSub = rs.getInt("mobile_passive_count");
+            int activeMobileSub = rs.getInt("mobile_active_count");
+            int passiveDesktopSub = rs.getInt("desktop_passive_count");
+            int activeDesktopSub = rs.getInt("desktop_active_count");*/
+
+      int passiveTabletSub = rs.getInt("tablet_passive_count");
+      int activeTabletSub = rs.getInt("tablet_active_count");
+      int passiveMobileSub = rs.getInt("mobile_passive_count");
+      int activeMobileSub = rs.getInt("mobile_active_count");
+      int passiveDesktopSub = rs.getInt("desktop_passive_count");
+      int activeDesktopSub = rs.getInt("desktop_active_count");
+
+      unsubDeviceObj.put("counts", passiveTabletSub);
+      unsubDeviceObj.put("device", "Tablet");
+      unsubDeviceData.put(unsubDeviceObj);
+
+      subDeviceObj.put("counts", activeTabletSub);
+      subDeviceObj.put("device", "Tablet");
+      subDeviceData.put(subDeviceObj);
+
+      unsubDeviceObj = new JsonObject();
+      subDeviceObj = new JsonObject();
+
+      unsubDeviceObj.put("counts", passiveMobileSub);
+      unsubDeviceObj.put("device", "Mobile");
+      unsubDeviceData.put(unsubDeviceObj);
+
+      subDeviceObj.put("counts", activeMobileSub);
+      subDeviceObj.put("device", "Mobile");
+      subDeviceData.put(subDeviceObj);
+
+
+      unsubDeviceObj = new JsonObject();
+      subDeviceObj = new JsonObject();
+
+      unsubDeviceObj.put("counts", passiveDesktopSub);
+      unsubDeviceObj.put("device", "Desktop");
+      unsubDeviceData.put(unsubDeviceObj);
+
+      subDeviceObj.put("counts", activeDesktopSub);
+      subDeviceObj.put("device", "Desktop");
+      subDeviceData.put(subDeviceObj);
+
+      totalDeviceObj.put("totalActiveSub", activeDesktopSub + activeMobileSub + activeTabletSub);
+      totalDeviceObj.put("activeMobileSub", activeMobileSub);
+      totalDeviceObj.put("inactiveMobileSub", passiveMobileSub);
+
+
+      totalDeviceData.put(totalDeviceObj);
+
+    }
+    data.put("subDevice", subDeviceData);
+    data.put("unsubDevice", unsubDeviceData);
+    data.put("totalData", totalDeviceData);
+
+
+
+
+    sql = "select * from ccps_webpush_recipient_day with(nolock) where cust_id= " + sCustId + " and day between '" + firstDate + "' and '"
+            + lastDate + "' order by day";
+
+    rs = stmt.executeQuery(sql);
+    JsonArray subDayData = new JsonArray();
+    JsonArray unsubDayData = new JsonArray();
+    JsonObject subDayObj = new JsonObject();
+    JsonObject unsubDayObj = new JsonObject();
+    while (rs.next()) {
+      subDayObj = new JsonObject();
+      unsubDayObj = new JsonObject();
+      String datetime = rs.getString("day");
+      String[] datetimeParts = datetime.split(" ");
+      String date = datetimeParts[0];
+      int sub = rs.getInt("sub_count");
+      int unsub =rs.getInt("unsub_count");
+
+      subDayObj.put("date", date);
+      subDayObj.put("sub",sub<1 ? 0 : sub);
+      subDayData.put(subDayObj);
+
+      unsubDayObj.put("date", date);
+      unsubDayObj.put("unsub",unsub <1 ? 0: unsub);
+      unsubDayData.put(unsubDayObj);
+    }
+    data.put("subOverview", subDayData);
+    data.put("unsubOverview", unsubDayData);
+
+
+    out.print(data);
+
+  } catch (Exception exception) {
+    exception.printStackTrace();
+  } finally {
+    if (rs != null) {
+      rs.close();
+    }
+    if (conn != null) {
+      cp.free(conn);
+    }
+  }
+
+%>

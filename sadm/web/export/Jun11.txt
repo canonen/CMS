@@ -1,0 +1,73 @@
+Partner Name	Client Name	Emails Sent	Prints Sent
+Direct	_NEW_DB_234	0	0
+Direct	_NEW_DB_235	0	0
+Direct	11833 - Vastech iletisim	0	0
+Direct	Afrodit	0	0
+Direct	Alisveris Saati	6082411	0
+Direct	Alternate Gear	0	0
+Direct	Anneysen	201376	0
+Direct	Arooda	0	0
+Direct	Baskentfirsati.com	84435	0
+Direct	BeTravel	1701120	0
+Direct	Bevisible	0	0
+Direct	Birebin	0	0
+Direct	Bm Cam Donanimlari	0	0
+Direct	BonnyFood	0	0
+Direct	BonnyFood_Gift	0	0
+Direct	bunlarkacmaz.com	0	0
+Direct	Ceska Enerji	0	0
+Moda Elinizde	Damat Tween Shop	0	0
+Seganet	Deli Kupon	1268121	0
+Direct	DemosFuarcilik	0	0
+Direct	Do Not Use	RCP Error	--
+Direct	Dominos Pizza	15251	0
+Moda Elinizde	DS Damat Shop	0	0
+Direct	Duvar Dizayn	19891	0
+Direct	Egitim Firsatim	0	0
+Direct	Erkan insaat	0	0
+Direct	Erkengelenalir.com	0	0
+Direct	Ersa / Casio	735670	0
+Direct	Evtekstilibul	192312	0
+Gelecek Internet	Ford Cevizli	0	0
+Direct	Grupo Sinergia Fc	0	0
+Direct	Hayal Kahvesi Caddebostan	0	0
+Direct	Hayal Kahvesi Saskinbakkal	17679	0
+Direct	Hotic	0	0
+Direct	i-gunler.CoM	147014	0
+Direct	ICT	0	0
+Direct	imza Gayrimenkul	0	0
+Direct	ISF Demo	0	0
+Direct	Izlesene.CoM	0	0
+Direct	Jetmilstar	0	0
+Direct	Jimg Media	0	0
+Direct	KatyaUK	0	0
+Direct	Kent Optimum	0	0
+Direct	LTE	0	0
+Direct	Mavi Egitim	0	0
+Moda Elinizde	Moda Elinizde	1411295	0
+Moda Elinizde	Moda Elinizde Kampanya	882186	0
+Direct	NanoDRM	3027	0
+Direct	Nasel iletisim	0	0
+Direct	nfinitygames	0	0
+Direct	Offer Beam	0	0
+Direct	Orkagroup	0	0
+Direct	OutBox	4385	0
+Direct	Pagos	70640	0
+Direct	People Communication	0	0
+Direct	Portline	0	0
+Moda Elinizde	Private Shopping	486121	0
+Direct	Reklamz	0	0
+Gelecek Internet	Renault Maslak	0	0
+Direct	Revotas	1473	0
+Direct	Revotas Demo	34	0
+Direct	Revotas Demo US	0	0
+Direct	Revotas New Demo	15	0
+Direct	Roxy	0	0
+Direct	Saatturk	0	0
+Direct	Sigortam.net	1428876	0
+Direct	SMP Promosyon	0	0
+Direct	Trend.im	0	0
+Direct	Voit  - Arcelik - Yetkilisaticim	0	0
+Direct	www.lushturkey.com	30761	0
+Gelecek Internet	Yeni Bir Sigorta	0	0
+Direct	YYM Demo	312871	0

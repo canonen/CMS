@@ -1,0 +1,44 @@
+﻿Merhaba,
+
+Bu maili göremiyorsanız tıklayınız.
+
+Harf: Ü UTF-8 Kodu:  Ã&#339;
+Harf: Ş UTF-8 Kodu: Å&#376;
+Harf: Ğ UTF-8 Kodu: Ä&#376;
+Harf: Ç UTF-8 Kodu: Ã&#8225;
+Harf: İ  UTF-8 Kodu: Ä°
+Harf: Ö UTF-8 Kodu: Ã&#8211;
+Harf: ü UTF-8 Kodu: Ã¼
+Harf: ş UTF-8 Kodu: Å&#376;
+Harf: ğ UTF-8 Kodu: Ä&#376;
+Harf: ç UTF-8 Kodu: Ã§
+Harf: ı  UTF-8 Kodu: Ä±
+Harf: ö UTF-8 Kodu: Ã¶
+
+Numerik Karşılık
+
+Harf: İ Numerik Kodu: &#304;
+Harf: ı Numerik Kodu: &#305;
+Harf: Ö Numerik Kodu: &#214;
+Harf: ö Numerik Kodu: &#246;
+Harf: Ü Numerik Kodu: &#220;
+Harf: ü Numerik Kodu: &#252;
+Harf: Ç Numerik Kodu: &#199;
+Harf: ç Numerik Kodu: &#231;
+Harf: Ğ Numerik Kodu: &#286;
+Harf: ğ Numerik Kodu: &#287;
+Harf: Ş Numerik Kodu: &#350;
+Harf: ş Numerik Kodu: &#351;
+
+Harf: Ü UTF-8 Kodu: Ãœ
+Harf: Ş UTF-8 Kodu: Å
+Harf: Ğ UTF-8 Kodu: Ä
+Harf: Ç UTF-8 Kodu: Ã‡
+Harf: İ  UTF-8 Kodu: Ä°
+Harf: Ö UTF-8 Kodu: Ã–
+Harf: ü UTF-8 Kodu: Ã¼
+Harf: ş UTF-8 Kodu: ÅŸ
+Harf: ğ UTF-8 Kodu: ÄŸ
+Harf: ç UTF-8 Kodu: Ã§
+Harf: ı  UTF-8 Kodu: Ä±
+Harf: ö UTF-8 Kodu: Ã¶

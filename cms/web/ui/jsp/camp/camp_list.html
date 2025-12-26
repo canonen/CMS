@@ -1,0 +1,897 @@
+
+
+
+
+
+
+
+
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="Expires" CONTENT="0">
+	<META HTTP-EQUIV="Caching" CONTENT="">
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	<META HTTP-EQUIV="Cache-Control" CONTENT="no-store, no-cache"> <!--, max-age=0" -->
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=UTF-8">
+<link rel="stylesheet" href="/ccps/ui/ooo/style.css" TYPE="text/css">
+<script language="JavaScript" src="/ccps/ui/ooo/script.js"></script>
+
+<script language="javascript">
+	
+	function openModal(sURL, oArgs, iX, iY)
+	{
+		window.showModalDialog(sURL, oArgs, "dialogWidth:" + iX + "px;dialogHeight:" + iY + "px;help:0;status:0;scroll:0;center:1");
+	}
+	
+</script>
+</HEAD>
+<BODY class="paging_body" onLoad="innerFramOnLoad();">
+	
+<table style="width: 100%">
+	<tr>
+		<td class="page_header">Campaign Lists</td>
+	</tr>
+</table>
+
+
+
+
+<div id="info">
+<div id="xsnazzy">
+<b class="xtop"><b class="xb1"></b><b class="xb2"></b><b class="xb3"></b><b class="xb4"></b></b>
+<div class="xboxcontent">
+	<table cellspacing="0" cellpadding="0" width="100%" border="0">
+		<tr>
+
+	
+		<!-- STANDARD -->
+		<td nowrap="true" valign="middle" align="left"><img width="10" src="../../images/blank.gif"/></td>
+		<td nowrap="true" valign="center" align="left"><a href="/ccps/ui/jsp/camp/camp_edit.jsp?type_id=2&category_id=0&media_type_id=1"><img border="0" width="45" src="../../images/45_45_new.png" onmouseout="this.src='../../images/45_45_new.png'" onmouseover="this.src='../../images/45_45_newg.png'"><br/>New Campaign</a></td>
+		<td nowrap="true" valign="middle" align="left"><img width="10" src="../../images/blank.gif"/></td>
+		
+		<!-- TRIGGER -->
+		<td valign="middle" nowrap align="left">
+		<a href="/ccps/ui/jsp/camp/camp_edit.jsp?type_id=4&media_type_id=1&&category_id=0"><img border="0" width="45" src="../../images/45_45_new.png" onmouseout="this.src='../../images/45_45_new.png'" onmouseover="this.src='../../images/45_45_newg.png'"><br/>Trigger Campaign</a></td>
+		<td valign="middle" nowrap align="left"><img width="10" src="../../images/blank.gif"/></td>
+
+		<!-- CHECK DAILY -->
+		<td valign="middle" nowrap align="left">
+		<a href="/ccps/ui/jsp/camp/camp_edit.jsp?type_id=2&media_type_id=1&&auto_queue_daily_flag=1&category_id=0"><img border="0" width="45" src="../../images/45_45_new.png" onmouseout="this.src='../../images/45_45_new.png'" onmouseover="this.src='../../images/45_45_newg.png'"><br/>Daily Campaign</a></td>
+		<td valign="middle" nowrap align="left"><img width="10" src="../../images/blank.gif"/></td>
+		<td width="100%" align="right" valign="middle" nowrap="true"></td>
+
+		</tr>	
+	</table>
+</div>
+<b class="xbottom"><b class="xb4"></b><b class="xb3"></b><b class="xb2"></b><b class="xb1"></b></b>
+</div>
+</div>
+
+
+<br>
+<FORM METHOD="GET" NAME="FT" ID="FT" ACTION="camp_list.jsp" style="display:inline;">
+	<INPUT TYPE="hidden" NAME="pageCount" VALUE="">
+	<INPUT TYPE="hidden" NAME="curPage" VALUE="1">
+	<INPUT TYPE="hidden" NAME="type_id" VALUE="">
+	<INPUT TYPE="hidden" NAME="auto_queue_daily_flag" VALUE="0">	
+	<table align="right" cellspacing="0" cellpadding="5" border="0">
+		<tr>
+			<td valign="middle" align="right">Category:&nbsp;</td>
+			<td valign="middle" align="left"><SELECT name="category_id" size="1" >
+<OPTION value="0">All</OPTION>
+</SELECT></td>
+			<td valign="middle" align="right">&nbsp;</td>
+
+			<td valign="middle" align="right">&nbsp;Paging:&nbsp;</td>
+			<td valign="middle" align="left">
+				<SELECT NAME="amount" SIZE="1">
+					<OPTION VALUE=1000>ALL</OPTION>
+					<OPTION VALUE=10>10</OPTION>
+					<OPTION VALUE=25>25</OPTION>
+					<OPTION VALUE=50>50</OPTION>
+					<OPTION VALUE=100>100</OPTION>
+				</SELECT>
+			</td>
+			<td valign="middle" align="center" colspan="2"><a class="subactionbutton" href="#" onClick="filterReveal(30);GO(0);">Filter</a></td>
+		</tr>
+	</table>
+</FORM>
+<br><br><br>
+<div id="info">
+<div id="xsnazzy">
+<b class="xtop"><b class="xb1"></b><b class="xb2"></b><b class="xb3"></b><b class="xb4"></b></b>
+<div class="xboxcontent">
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+	<tr>
+		<td valign="center" nowrap align="left">
+
+			<table class="list_table" width="100%" cellspacing="0" cellpadding="2">
+				<tr>
+					<th align="left" nowrap>All Campaigns</TH>
+					<th align="left" nowrap> &nbsp;</TH>
+					<th align="left" nowrap></TH>
+					<th align="left" nowrap></th>
+					<th align="left" nowrap></th>
+					<th align="left" nowrap><img src="../../images/16_L_refresh.gif"/>&nbsp; Refresh</TH>
+				</tr>			
+
+
+				<tr>
+					<th class="list_name" align="left" nowrap>Campaign Name</th>
+					<th class="list_name" align="left" nowrap>Type</th>
+					
+					<th class="list_name" align="left" nowrap>Target Group</th>
+					<th class="list_name" align="left" nowrap>Content</th>
+					<th class="list_name" align="left" nowrap>Status</th>
+					<th class="list_name" align="center" nowrap>Action</th>
+				</tr>									
+
+
+		
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463405&type_id=2&media_type_id=1&category_id=0'" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row"><a href="camp_edit.jsp?camp_id=2463405&type_id=2&media_type_id=1&category_id=0" target"=_self">cy test</a></td>
+					<td class="list_row" nowrap>Test</td>
+					
+					<!--<td class="list_row" nowrap>Dec 23 2008  3:24PM</td>
+					<td class="list_row">0</td>
+					<td class="list_row">0</td>-->
+					<td class="list_row">Whole DB</td>
+					<td class="list_row">test</td>
+					<td class="list_row">Test: Preprocessing Target Group</td>
+		
+					<td class="list_row" nowrap style="padding:5px;">
+					
+					-----
+				
+					</td>
+			
+				</tr>
+			</tbody>
+		
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463419&type_id=2&media_type_id=1&category_id=0'" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row"><a href="camp_edit.jsp?camp_id=2463419&type_id=2&media_type_id=1&category_id=0" target"=_self">test 888</a></td>
+					<td class="list_row" nowrap>Standard</td>
+					
+					<!--<td class="list_row" nowrap>---</td>
+					<td class="list_row">0</td>
+					<td class="list_row">0</td>-->
+					<td class="list_row">eee</td>
+					<td class="list_row">test</td>
+					<td class="list_row">Draft</td>
+					<td class="list_row" nowrap style="padding:5px;">-----</td>
+				</tr>
+			</tbody>
+
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463431&type_id=2&media_type_id=1&category_id=0'" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row_other"><a href="camp_edit.jsp?camp_id=2463431&type_id=2&media_type_id=1&category_id=0" target"=_self">New campaign</a></td>
+					<td class="list_row_other" nowrap>Standard</td>
+					
+					<!--<td class="list_row_other" nowrap>---</td>
+					<td class="list_row_other">0</td>
+					<td class="list_row_other">0</td>-->
+					<td class="list_row_other">eee</td>
+					<td class="list_row_other">test</td>
+					<td class="list_row_other">Draft</td>
+					<td class="list_row_other" nowrap style="padding:5px;">-----</td>
+				</tr>
+			</tbody>
+
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463425&type_id=2&media_type_id=1&category_id=0'" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row"><a href="camp_edit.jsp?camp_id=2463425&type_id=2&media_type_id=1&category_id=0" target"=_self">New campaign</a></td>
+					<td class="list_row" nowrap>Standard</td>
+					
+					<!--<td class="list_row" nowrap>---</td>
+					<td class="list_row">0</td>
+					<td class="list_row">0</td>-->
+					<td class="list_row">eee</td>
+					<td class="list_row">test</td>
+					<td class="list_row">Draft</td>
+					<td class="list_row" nowrap style="padding:5px;">-----</td>
+				</tr>
+			</tbody>
+
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463411&type_id=2&media_type_id=1&category_id=0'" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row_other"><a href="camp_edit.jsp?camp_id=2463411&type_id=2&media_type_id=1&category_id=0" target"=_self">test 1111</a></td>
+					<td class="list_row_other" nowrap>Standard</td>
+					
+					<!--<td class="list_row_other" nowrap>---</td>
+					<td class="list_row_other">0</td>
+					<td class="list_row_other">0</td>-->
+					<td class="list_row_other">Whole DB</td>
+					<td class="list_row_other">test</td>
+					<td class="list_row_other">Draft</td>
+					<td class="list_row_other" nowrap style="padding:5px;">-----</td>
+				</tr>
+			</tbody>
+
+<!--
+			</table>
+			
+			
+			<table class="listTable" width="100%" cellspacing="0" cellpadding="2">
+				<tr>
+					<th align="left" nowrap>Campaign NAme</th>
+					<th align="left" nowrap>Type</th>
+					
+					<th align="left" nowrap>Target group</th>
+					<th align="left" nowrap>Content</th>
+					<th align="left" nowrap>Status</th>
+					<th align="left" nowrap>Finish Date</th>
+					<!--<th align="left" nowrap>Reporting</th>
+				</tr>
+-->				
+		
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463399&type_id=2&media_type_id=1&category_id=0" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row"><a href="camp_edit.jsp?camp_id=2463399&type_id=2&media_type_id=1&category_id=0">test 11</a></td>
+					<td class="list_row" nowrap>Standard</td>
+					
+					<td class="list_row">Whole DB</td>
+					<td class="list_row">test</td>
+					<td class="list_row">Done</td>
+			<!--
+				
+					<td class="listItem_Data">
+				
+							<a href="../index.jsp?tab=Camp&sec=1&url=report%2Freport_object.jsp%3Fact%3DVIEW%26id%3D2463400" target="_top">View Report</a>
+				 
+					</td>
+				
+				-->
+					<td class="list_row" nowrap>Dec 10 2008  5:22PM</td>
+				</tr>
+			</tbody>
+		
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463402&type_id=2&media_type_id=1&category_id=0" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row_Other"><a href="camp_edit.jsp?camp_id=2463402&type_id=2&media_type_id=1&category_id=0">test 12</a></td>
+					<td class="list_row_Other" nowrap>Standard</td>
+					
+					<td class="list_row_Other">eee</td>
+					<td class="list_row_Other">test</td>
+					<td class="list_row_Other">Done</td>
+			<!--
+				
+					<td class="listItem_Data_Other">
+				
+							<a href="../index.jsp?tab=Camp&sec=1&url=report%2Freport_object.jsp%3Fact%3DVIEW%26id%3Dnull" target="_top">View Report</a>
+				 
+					</td>
+				
+				-->
+					<td class="list_row_Other" nowrap>---</td>
+				</tr>
+			</tbody>
+		
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463396&type_id=2&media_type_id=1&category_id=0" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row"><a href="camp_edit.jsp?camp_id=2463396&type_id=2&media_type_id=1&category_id=0">test 10</a></td>
+					<td class="list_row" nowrap>Standard</td>
+					
+					<td class="list_row">eee</td>
+					<td class="list_row">test</td>
+					<td class="list_row">Done</td>
+			<!--
+				
+					<td class="listItem_Data">
+				
+							<a href="../index.jsp?tab=Camp&sec=1&url=report%2Freport_object.jsp%3Fact%3DVIEW%26id%3Dnull" target="_top">View Report</a>
+				 
+					</td>
+				
+				-->
+					<td class="list_row" nowrap>---</td>
+				</tr>
+			</tbody>
+		
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463393&type_id=2&media_type_id=1&category_id=0" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row_Other"><a href="camp_edit.jsp?camp_id=2463393&type_id=2&media_type_id=1&category_id=0">test 9</a></td>
+					<td class="list_row_Other" nowrap>Standard</td>
+					
+					<td class="list_row_Other">eee</td>
+					<td class="list_row_Other">test</td>
+					<td class="list_row_Other">Done</td>
+			<!--
+				
+					<td class="listItem_Data_Other">
+				
+							<a href="../index.jsp?tab=Camp&sec=1&url=report%2Freport_object.jsp%3Fact%3DVIEW%26id%3Dnull" target="_top">View Report</a>
+				 
+					</td>
+				
+				-->
+					<td class="list_row_Other" nowrap>---</td>
+				</tr>
+			</tbody>
+		
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463390&type_id=2&media_type_id=1&category_id=0" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row"><a href="camp_edit.jsp?camp_id=2463390&type_id=2&media_type_id=1&category_id=0">test 8</a></td>
+					<td class="list_row" nowrap>Standard</td>
+					
+					<td class="list_row">eee</td>
+					<td class="list_row">test</td>
+					<td class="list_row">Done</td>
+			<!--
+				
+					<td class="listItem_Data">
+				
+							<a href="../index.jsp?tab=Camp&sec=1&url=report%2Freport_object.jsp%3Fact%3DVIEW%26id%3Dnull" target="_top">View Report</a>
+				 
+					</td>
+				
+				-->
+					<td class="list_row" nowrap>---</td>
+				</tr>
+			</tbody>
+		
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463387&type_id=2&media_type_id=1&category_id=0" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row_Other"><a href="camp_edit.jsp?camp_id=2463387&type_id=2&media_type_id=1&category_id=0">test 7</a></td>
+					<td class="list_row_Other" nowrap>Standard</td>
+					
+					<td class="list_row_Other">eee</td>
+					<td class="list_row_Other">test</td>
+					<td class="list_row_Other">Done</td>
+			<!--
+				
+					<td class="listItem_Data_Other">
+				
+							<a href="../index.jsp?tab=Camp&sec=1&url=report%2Freport_object.jsp%3Fact%3DVIEW%26id%3Dnull" target="_top">View Report</a>
+				 
+					</td>
+				
+				-->
+					<td class="list_row_Other" nowrap>---</td>
+				</tr>
+			</tbody>
+		
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463384&type_id=2&media_type_id=1&category_id=0" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row"><a href="camp_edit.jsp?camp_id=2463384&type_id=2&media_type_id=1&category_id=0">test 6</a></td>
+					<td class="list_row" nowrap>Standard</td>
+					
+					<td class="list_row">eee</td>
+					<td class="list_row">test</td>
+					<td class="list_row">Done</td>
+			<!--
+				
+					<td class="listItem_Data">
+				
+							<a href="../index.jsp?tab=Camp&sec=1&url=report%2Freport_object.jsp%3Fact%3DVIEW%26id%3Dnull" target="_top">View Report</a>
+				 
+					</td>
+				
+				-->
+					<td class="list_row" nowrap>---</td>
+				</tr>
+			</tbody>
+		
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463381&type_id=2&media_type_id=1&category_id=0" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row_Other"><a href="camp_edit.jsp?camp_id=2463381&type_id=2&media_type_id=1&category_id=0">test 5</a></td>
+					<td class="list_row_Other" nowrap>Standard</td>
+					
+					<td class="list_row_Other">eee</td>
+					<td class="list_row_Other">test</td>
+					<td class="list_row_Other">Done</td>
+			<!--
+				
+					<td class="listItem_Data_Other">
+				
+							<a href="../index.jsp?tab=Camp&sec=1&url=report%2Freport_object.jsp%3Fact%3DVIEW%26id%3Dnull" target="_top">View Report</a>
+				 
+					</td>
+				
+				-->
+					<td class="list_row_Other" nowrap>---</td>
+				</tr>
+			</tbody>
+		
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463375&type_id=2&media_type_id=1&category_id=0" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row"><a href="camp_edit.jsp?camp_id=2463375&type_id=2&media_type_id=1&category_id=0">New campaignsssssssssssssssssssss</a></td>
+					<td class="list_row" nowrap>Standard</td>
+					
+					<td class="list_row">eee</td>
+					<td class="list_row">test</td>
+					<td class="list_row">Done</td>
+			<!--
+				
+					<td class="listItem_Data">
+				
+							<a href="../index.jsp?tab=Camp&sec=1&url=report%2Freport_object.jsp%3Fact%3DVIEW%26id%3Dnull" target="_top">View Report</a>
+				 
+					</td>
+				
+				-->
+					<td class="list_row" nowrap>---</td>
+				</tr>
+			</tbody>
+		
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463373&type_id=2&media_type_id=1&category_id=0" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row_Other"><a href="camp_edit.jsp?camp_id=2463373&type_id=2&media_type_id=1&category_id=0">New campaign IIss</a></td>
+					<td class="list_row_Other" nowrap>Standard</td>
+					
+					<td class="list_row_Other">None</td>
+					<td class="list_row_Other">None</td>
+					<td class="list_row_Other">Done</td>
+			<!--
+				
+					<td class="listItem_Data_Other">
+				
+							<a href="../index.jsp?tab=Camp&sec=1&url=report%2Freport_object.jsp%3Fact%3DVIEW%26id%3Dnull" target="_top">View Report</a>
+				 
+					</td>
+				
+				-->
+					<td class="list_row_Other" nowrap>---</td>
+				</tr>
+			</tbody>
+		
+				<tbody id="Id2" onclick="location.href='camp_edit.jsp?camp_id=2463371&type_id=2&media_type_id=1&category_id=0" onmouseover="do_effect('navhover')" onmouseout="do_effect('navoff')">
+				<tr>
+					<td class="list_row"><a href="camp_edit.jsp?camp_id=2463371&type_id=2&media_type_id=1&category_id=0">TEST CAMPAIGNSSSS</a></td>
+					<td class="list_row" nowrap>Standard</td>
+					
+					<td class="list_row">None</td>
+					<td class="list_row">None</td>
+					<td class="list_row">Done</td>
+			<!--
+				
+					<td class="listItem_Data">
+				
+							<a href="../index.jsp?tab=Camp&sec=1&url=report%2Freport_object.jsp%3Fact%3DVIEW%26id%3Dnull" target="_top">View Report</a>
+				 
+					</td>
+				
+				-->
+					<td class="list_row" nowrap>---</td>
+				</tr>
+			</tbody>
+
+			</TABLE>
+			
+		</td>
+	</tr>
+</table>
+</div>
+<b class="xbottom"><b class="xb4"></b><b class="xb3"></b><b class="xb2"></b><b class="xb1"></b></b>
+</div>
+
+<SCRIPT>
+
+
+
+function _disable_forms()
+{
+	var l = document.forms.length;
+	for(var i=0; i < l; i++)
+	{
+		document.forms[i].action = null;
+		var m = document.forms[i].elements.length;
+		for(var j=0; j < m; j++) document.forms[i].elements[j].disabled = true;
+	}
+}
+
+function filterReveal(width)
+{
+	var filterSection = document.getElementById("filterBox");
+	
+	var clickX = window.event.clientX - width;
+	var clickY = window.event.clientY + 20;
+	
+	filterSection.style.left = clickX;
+	filterSection.style.top = clickY;
+	
+	if (filterSection.style.display == "none")
+	{
+		filterSection.style.display = "";
+	}
+	else
+	{
+		filterSection.style.display = "none";
+	}
+}
+
+function loadHelp(desc)
+{
+	var helpDoc = new HelpDocument(desc);
+	
+	var sUrl = "/ccps/ui/jsp/help/help_display.jsp?winState=pop&topic=" + helpDoc.topic + "&help_doc_id=" + helpDoc.help_doc_id;
+	
+	var sHeight = window.screen.availHeight - 50;
+	var sWidth = "325";
+	var sTop = "0";
+	var sLeft = window.screen.availWidth - 340;
+	
+	var sFeatures = "depedent=yes, scrollbars=no, resizable=yes, toolbar=no, location=no, menubar=no, height=" + sHeight + ", width=" + sWidth + ", top=" + sTop + ", left=" + sLeft;
+	
+	window.open(sUrl, "HelpDoc", sFeatures);
+}
+
+function HelpDocument(desc)
+{
+	this.topic = "";
+	this.help_doc_id = "";
+	
+	if (desc == "BBack Settings")
+	{
+		this.topic = "vl1185-ch1188";
+		this.help_doc_id = "1195";
+	}
+	else if (desc == "Standard Campaign")
+	{
+		this.topic = "vl1166-ch1171";
+		this.help_doc_id = "1171";
+	}
+	else if (desc == "Viral Marketing")
+	{
+		this.topic = "vl1166-ch1176";
+		this.help_doc_id = "1176";
+	}
+	else if (desc == "Triggered Campaign")
+	{
+		this.topic = "vl1166-ch1182";
+		this.help_doc_id = "1182";
+	}
+}
+
+
+/*
+ Please leave this notice.
+ DHTML tip message version 1.2 copyright Essam Gamal 2003 (http://migoicons.tripod.com, migoicons@hotmail.com)
+ All modifications are done in the style.js you should not modify this file.  Created on : 06/03/2003
+ Script featured on and can be found at Dynamic Drive (http://www.dynamicdrive.com)
+*/ 
+
+var ua = navigator.userAgent
+var ps = navigator.productSub 
+var dom = (document.getElementById)? 1:0
+var ie4 = (document.all&&!dom)? 1:0
+var ie5 = (document.all&&dom)? 1:0
+var nn4 =(navigator.appName.toLowerCase() == "netscape" && parseInt(navigator.appVersion) == 4)
+var nn6 = (dom&&!ie5)? 1:0
+var sNav = (nn4||nn6||ie4||ie5)? 1:0
+var cssFilters = ((ua.indexOf("MSIE 5.5")>=0||ua.indexOf("MSIE 6")>=0)&&ua.indexOf("Opera")<0)? 1:0
+var Style=[],Text=[],Count=0,sbw=0,move=0,hs="",mx,my,scl,sct,ww,wh,obj,sl,st,ih,iw,vl,hl,sv,evlh,evlw,tbody
+var HideTip = "eval(obj+sv+hl+';'+obj+sl+'=0;'+obj+st+'=-800')"
+var doc_root = ((ie5&&ua.indexOf("Opera")<0||ie4)&&document.compatMode=="CSS1Compat")? "document.documentElement":"document.body"
+var PX = (nn6)? "px" :"" 
+
+if(sNav) {
+	window.onresize = ReloadTip
+	document.onmousemove = MoveTip
+	if(nn4) document.captureEvents(Event.MOUSEMOVE) 
+}	
+if(nn4||nn6) {
+	mx = "e.pageX"
+	my = "e.pageY"
+	scl = "window.pageXOffset"
+	sct = "window.pageYOffset"	
+	if(nn4) {
+		obj = "document.TipLayer."
+		sl = "left"
+		st = "top"
+		ih = "clip.height"
+		iw = "clip.width"
+		vl = "'show'"
+		hl = "'hide'"
+		sv = "visibility="
+	}
+	else obj = "document.getElementById('TipLayer')."
+} 
+if(ie4||ie5) {
+	obj = "TipLayer."
+	mx = "event.x"
+	my = "event.y"
+	scl = "eval(doc_root).scrollLeft"
+	sct = "eval(doc_root).scrollTop"
+	if(ie5) {
+		mx = mx+"+"+scl 
+		my = my+"+"+sct
+	}
+}
+if(ie4||dom){
+	sl = "style.left"
+	st = "style.top"
+	ih = "offsetHeight"
+	iw = "offsetWidth"
+	vl = "'visible'"
+	hl = "'hidden'"
+	sv = "style.visibility="
+}
+if(ie4||ie5||ps>=20020823) {
+	ww = "eval(doc_root).clientWidth"
+	wh = "eval(doc_root).clientHeight"
+}	 
+else { 
+	ww = "window.innerWidth"
+	wh = "window.innerHeight"
+	evlh = eval(wh)
+	evlw = eval(ww)
+	sbw=15
+}	
+
+function applyCssFilter(){
+	if(cssFilters&&FiltersEnabled) { 
+		var dx = " progid:DXImageTransform.Microsoft."
+		TipLayer.style.filter = "revealTrans()"+dx+"Fade(Overlap=1.00 enabled=0)"+dx+"Inset(enabled=0)"+dx+"Iris(irisstyle=PLUS,motion=in enabled=0)"+dx+"Iris(irisstyle=PLUS,motion=out enabled=0)"+dx+"Iris(irisstyle=DIAMOND,motion=in enabled=0)"+dx+"Iris(irisstyle=DIAMOND,motion=out enabled=0)"+dx+"Iris(irisstyle=CROSS,motion=in enabled=0)"+dx+"Iris(irisstyle=CROSS,motion=out enabled=0)"+dx+"Iris(irisstyle=STAR,motion=in enabled=0)"+dx+"Iris(irisstyle=STAR,motion=out enabled=0)"+dx+"RadialWipe(wipestyle=CLOCK enabled=0)"+dx+"RadialWipe(wipestyle=WEDGE enabled=0)"+dx+"RadialWipe(wipestyle=RADIAL enabled=0)"+dx+"Pixelate(MaxSquare=35,enabled=0)"+dx+"Slide(slidestyle=HIDE,Bands=25 enabled=0)"+dx+"Slide(slidestyle=PUSH,Bands=25 enabled=0)"+dx+"Slide(slidestyle=SWAP,Bands=25 enabled=0)"+dx+"Spiral(GridSizeX=16,GridSizeY=16 enabled=0)"+dx+"Stretch(stretchstyle=HIDE enabled=0)"+dx+"Stretch(stretchstyle=PUSH enabled=0)"+dx+"Stretch(stretchstyle=SPIN enabled=0)"+dx+"Wheel(spokes=16 enabled=0)"+dx+"GradientWipe(GradientSize=1.00,wipestyle=0,motion=forward enabled=0)"+dx+"GradientWipe(GradientSize=1.00,wipestyle=0,motion=reverse enabled=0)"+dx+"GradientWipe(GradientSize=1.00,wipestyle=1,motion=forward enabled=0)"+dx+"GradientWipe(GradientSize=1.00,wipestyle=1,motion=reverse enabled=0)"+dx+"Zigzag(GridSizeX=8,GridSizeY=8 enabled=0)"+dx+"Alpha(enabled=0)"+dx+"Dropshadow(OffX=3,OffY=3,Positive=true,enabled=0)"+dx+"Shadow(strength=3,direction=135,enabled=0)"
+	}
+}
+
+function stm(t,s) {
+  if(sNav) {
+  	if(t.length<2||s.length<25) {
+		var ErrorNotice = "DHTML TIP MESSAGE VERSION 1.2 ERROR NOTICE.\n"
+		if(t.length<2&&s.length<25) alert(ErrorNotice+"It looks like you removed an entry or more from the Style Array and Text Array of this tip.\nTheir should be 25 entries in every Style Array even though empty and 2 in every Text Array. You defined only "+s.length+" entries in the Style Array and "+t.length+" entry in the Text Array. This tip won't be viewed to avoid errors")
+		else if(t.length<2) alert(ErrorNotice+"It looks like you removed an entry or more from the Text Array of this tip.\nTheir should be 2 entries in every Text Array. You defined only "+t.length+" entry. This tip won't be viewed to avoid errors.")
+		else if(s.length<25) alert(ErrorNotice+"It looks like you removed an entry or more from the Style Array of this tip.\nTheir should be 25 entries in every Style Array even though empty. You defined only "+s.length+" entries. This tip won't be viewed to avoid errors.")
+ 	}
+  	else {
+		var ab = "" ;var ap = ""
+		var titCol = (s[0])? "COLOR='"+s[0]+"'" : ""
+		var txtCol = (s[1])? "COLOR='"+s[1]+"'" : ""
+		var titBgCol = (s[2])? "style='background-color:"+s[2]+";'" : ""
+		var txtBgCol = (s[3])? "style='background-color:"+s[3]+";'" : ""
+		var titBgImg = (s[4])? "BACKGROUND='"+s[4]+"'" : ""	
+		var txtBgImg = (s[5])? "BACKGROUND='"+s[5]+"'" : ""
+		var titTxtAli = (s[6] && s[6].toLowerCase()!="left")? "ALIGN='"+s[6]+"'" : ""
+		var txtTxtAli = (s[7] && s[7].toLowerCase()!="left")? "ALIGN='"+s[7]+"'" : ""   
+		var add_height = (s[15])? "HEIGHT='"+s[15]+"'" : ""
+		if(!s[8])  s[8] = "Verdana,Arial,Helvetica"
+		if(!s[9])  s[9] = "Verdana,Arial,Helvetica"					
+		if(!s[12]) s[12] = 1
+		if(!s[13]) s[13] = 1
+		if(!s[14]) s[14] = 200
+		if(!s[16]) s[16] = 0
+		if(!s[17]) s[17] = 0
+		if(!s[18]) s[18] = 10
+		if(!s[19]) s[19] = 10
+		hs = s[11].toLowerCase() 
+		if(ps==20001108){
+		if(s[2]) ab="STYLE='border:"+s[16]+"px solid"+" "+s[2]+"'"
+		ap="STYLE='padding:"+s[17]+"px "+s[17]+"px "+s[17]+"px "+s[17]+"px'"}
+		var closeLink=(hs=="sticky")? "<TD ALIGN='right' valign='middle' "+titBgCol+" style='padding:2px;'><FONT SIZE='"+s[12]+"' FACE='"+s[8]+"'><A HREF='javascript:void(0)' ONCLICK='stickyhide()' STYLE='text-decoration:none;color:"+s[0]+"'><B>&nbsp;</B></A></FONT></TD>":""
+		var title=(t[0]||hs=="sticky")? "<TABLE WIDTH='100%' BORDER='0' CELLPADDING='0' CELLSPACING='0' "+titBgCol+" ><TR><TD "+titTxtAli+" "+titBgCol+" ><FONT SIZE='"+s[12]+"' FACE='"+s[8]+"' "+titCol+"><B>"+t[0]+"</B></FONT></TD>"+closeLink+"</TR></TABLE>" : ""
+		var txt="<TABLE "+titBgImg+" "+ab+" "+titBgCol+"  WIDTH='"+s[14]+"' BORDER='0' CELLPADDING='"+s[16]+"' CELLSPACING='0'><TR><TD style='PADDING: 0px;'>"+title+"<TABLE WIDTH='100%' "+add_height+" BORDER='0' CELLPADDING='"+s[17]+"' CELLSPACING='0' "+txtBgCol+" "+txtBgImg+"><TR><TD "+txtTxtAli+" "+ap+" VALIGN='top' "+txtBgCol+" ><FONT SIZE='"+s[13]+"' FACE='"+s[9]+"' "+txtCol +">"+t[1]+"</FONT></TD></TR></TABLE></TD></TR></TABLE>"
+		if(nn4) {
+			with(eval(obj+"document")) {
+				open()
+				write(txt)
+				close()
+			}
+		}
+		else eval(obj+"innerHTML=txt")
+		tbody = {
+			Pos:s[10].toLowerCase(), 
+			Xpos:s[18],
+			Ypos:s[19], 
+			Transition:s[20],
+			Duration:s[21], 
+			Alpha:s[22],
+			ShadowType:s[23].toLowerCase(),
+			ShadowColor:s[24],
+			Width:parseInt(eval(obj+iw)+3+sbw)
+		}
+		if(ie4) { 
+			TipLayer.style.width = s[14]
+	 		tbody.Width = s[14]
+		}
+		Count=0	
+		move=1
+ 	 }
+  }
+}
+
+function MoveTip(e) {
+	if(move) {
+		var X,Y,MouseX = eval(mx),MouseY = eval(my); tbody.Height = parseInt(eval(obj+ih)+3)
+		tbody.wiw = parseInt(eval(ww+"+"+scl)); tbody.wih = parseInt(eval(wh+"+"+sct))
+		switch(tbody.Pos) {
+			case "left" : X=MouseX-tbody.Width-tbody.Xpos; Y=MouseY+tbody.Ypos; break
+			case "center": X=MouseX-(tbody.Width/2); Y=MouseY+tbody.Ypos; break
+			case "float": X=tbody.Xpos+eval(scl); Y=tbody.Ypos+eval(sct); break	
+			case "fixed": X=tbody.Xpos; Y=tbody.Ypos; break		
+			default: X=MouseX+tbody.Xpos; Y=MouseY+tbody.Ypos
+		}
+
+		if(tbody.wiw<tbody.Width+X) X = tbody.wiw-tbody.Width
+		if(tbody.wih<tbody.Height+Y+sbw) {
+			if(tbody.Pos=="float"||tbody.Pos=="fixed") Y = tbody.wih-tbody.Height-sbw
+			else Y = MouseY-tbody.Height
+		}
+		if(X<0) X=0 
+		eval(obj+sl+"=X+PX;"+obj+st+"=Y+PX")
+		ViewTip()
+	}
+}
+
+function ViewTip() {
+  	Count++
+	if(Count == 1) {
+		if(cssFilters&&FiltersEnabled) {	
+			for(Index=28; Index<31; Index++) { TipLayer.filters[Index].enabled = 0 }
+			for(s=0; s<28; s++) { if(TipLayer.filters[s].status == 2) TipLayer.filters[s].stop() }
+			if(tbody.Transition == 51) tbody.Transition = parseInt(Math.random()*50)
+			var applyTrans = (tbody.Transition>-1&&tbody.Transition<24&&tbody.Duration>0)? 1:0
+			var advFilters = (tbody.Transition>23&&tbody.Transition<51&&tbody.Duration>0)? 1:0
+			var which = (applyTrans)?0:(advFilters)? tbody.Transition-23:0 
+			if(tbody.Alpha>0&&tbody.Alpha<100) {
+	  			TipLayer.filters[28].enabled = 1
+	  			TipLayer.filters[28].opacity = tbody.Alpha
+			}
+			if(tbody.ShadowColor&&tbody.ShadowType == "simple") {
+	  			TipLayer.filters[29].enabled = 1
+	  			TipLayer.filters[29].color = tbody.ShadowColor
+			}
+			else if(tbody.ShadowColor&&tbody.ShadowType == "complex") {
+	  			TipLayer.filters[30].enabled = 1
+	  			TipLayer.filters[30].color = tbody.ShadowColor
+			}
+			if(applyTrans||advFilters) {
+				eval(obj+sv+hl)
+	  			if(applyTrans) TipLayer.filters[0].transition = tbody.Transition
+	  			TipLayer.filters[which].duration = tbody.Duration 
+	  			TipLayer.filters[which].apply()
+			}
+		}
+ 		eval(obj+sv+vl)
+		if(cssFilters&&FiltersEnabled&&(applyTrans||advFilters)) TipLayer.filters[which].play()
+		if(hs == "sticky") move=0
+		
+		var sSelects;
+		sSelects = document.getElementsByTagName("SELECT");
+		
+		for (i=0; i < sSelects.length; i++)
+		{
+			sSelects[i].style.visibility = "hidden";
+		}
+  	}
+}
+
+function stickyhide() {
+	eval(HideTip)
+		
+	var sSelects;
+	sSelects = document.getElementsByTagName("SELECT");
+
+	for (i=0; i < sSelects.length; i++)
+	{
+		sSelects[i].style.visibility = "visible";
+	}
+}
+
+function ReloadTip() {
+	 if(nn4&&(evlw!=eval(ww)||evlh!=eval(wh))) location.reload()
+	 else if(hs == "sticky") eval(HideTip)
+		
+	var sSelects;
+	sSelects = document.getElementsByTagName("SELECT");
+
+	for (i=0; i < sSelects.length; i++)
+	{
+		sSelects[i].style.visibility = "visible";
+	}
+}
+
+function htm() {
+	if(sNav) {
+		if(hs!="keep") {
+			move=0; 
+			//if(hs!="sticky")
+			//{
+				eval(HideTip)
+				var sSelects;
+				sSelects = document.getElementsByTagName("SELECT");
+
+				for (i=0; i < sSelects.length; i++)
+				{
+					sSelects[i].style.visibility = "visible";
+				}
+			//}
+		
+		}	
+	} 
+}
+
+
+
+function innerFramOnLoad()
+{
+
+	var prevPage = document.getElementById("prev_page");
+	var firstPage = document.getElementById("first_page");
+	var nextPage = document.getElementById("next_page");
+	var lastPage = document.getElementById("last_page");
+
+	
+	FT.type_id.value = 2;
+	
+
+	FT.curPage.value = 1;
+	FT.amount.value = 25;
+
+	// === === ===
+
+	
+
+	
+
+	//camp_count.innerHTML = 11;
+
+	var recCount = new Number("11");
+	var perPage = new Number(FT.amount.value);
+	var thisPage = new Number(FT.curPage.value);
+	var catName = FT.category_id[FT.category_id.selectedIndex].text;
+
+	var pageCount = new Number(Math.ceil(recCount / perPage));
+
+	if (pageCount == 0) pageCount = 1;
+	FT.pageCount.value = pageCount;
+	
+	var startRec = ((thisPage - 1) * perPage) + 1;
+	var endRec = ((thisPage - 1) * perPage) + perPage;
+
+	if (endRec >= recCount) endRec = recCount;
+	if (perPage == 1000) perPage = "ALL";
+
+	if (thisPage == 1)
+	{
+		firstPage.style.display = "none";
+		prevPage.style.display = "none";
+	}
+
+	if (thisPage >= pageCount)
+	{
+		lastPage.style.display = "none";
+		nextPage.style.display = "none";
+	}
+
+	var finalMessage = "";
+
+	if (recCount == 0) finalMessage = "0 records";
+	else
+	{
+		finalMessage =
+			"Page " + thisPage + " of " + pageCount +
+			" (records " + startRec + " to " + endRec + " of " + recCount + " records)";
+	}
+
+	document.getElementById("cat_1").innerHTML = catName;
+	document.getElementById("rec_1").innerHTML = perPage;
+	document.getElementById("page_1").innerHTML = finalMessage;
+}
+
+function GO(parm)
+{
+	switch( parm )
+	{
+		case 0:
+				FT.curPage.value = 1;
+				break;
+		case 1:
+				FT.curPage.value = 2;
+				break;
+		case 2:
+				break;
+		case -1:
+				FT.curPage.value = 0;
+				break;
+		case 99:
+				FT.curPage.value = FT.pageCount.value;
+				break;
+	}
+	FT.submit();
+}
+
+</SCRIPT>
+</BODY>
+

@@ -1,0 +1,113 @@
+<%@ page
+	language="java"
+	import="com.britemoon.*,
+			com.britemoon.cps.*,
+			java.sql.*,java.io.*,
+			java.util.*,java.net.*,
+			org.apache.log4j.*"
+	contentType="text/html;charset=UTF-8"
+%>
+<%! static Logger logger = null;%>
+<%@ include file="header.jsp"%>
+
+<%
+	if(logger == null)
+	{
+		logger = Logger.getLogger(this.getClass().getName());
+	}
+	//grab query strings
+	String sCustLogin = request.getParameter("company");
+	String sUserLogin = request.getParameter("login");
+	
+	String sNavTab = request.getParameter("tab");
+	String sNavSection = request.getParameter("sec");
+	String sAltURL = request.getParameter("url");
+%>
+
+<HTML>
+
+<HEAD>
+	<TITLE>Revotas Media Login</TITLE>
+	<BASE target="_self">
+
+<SCRIPT>
+
+	function putFocus()
+	{
+		if (login_form.company.value=='')login_form.company.focus();
+		else if (login_form.login.value=='')login_form.login.focus();
+		else if (login_form.password.value=='')login_form.password.focus();
+	}
+
+</SCRIPT>
+
+            <SCRIPT LANGUAGE="JavaScript">
+                  function SetWindow_DesktopMode()
+                  {
+                    var height = 700                      //Set height
+                    var width = 758                        //Set width
+                    var name = "winname"                   //Set window name
+                    var top = 0                             //Set distance from top
+                    var left = 0                             //Set distance from left
+                               
+                  if(document.location.search=='')  {
+                   newwin=window.open(document.location + "?newwin=true", name, "fullscreen=no,toolbar=no,status=no,menubar=no,scrollbars=no,resizable=yes,directories=no,location=no,width=" + width + ",height=" + height + ",left=" + left + ",top=" + top);
+      
+                        this.focus();
+                        // *** hack removed ***
+                        self.close();
+                   
+                        }      
+                  }
+            </SCRIPT>
+            
+<link rel="stylesheet" href="D:\Britemoon\ccps\web\ui\css\style.css" TYPE="text/css"/>
+</HEAD>
+
+<BODY class="login" onload="SetWindow_DesktopMode();">
+	
+<FORM method="POST" action="login2.jsp" name="login_form">
+<input type="hidden" name="tab" value="<%= (sNavTab==null)?"":sNavTab %>">
+<input type="hidden" name="sec" value="<%= (sNavSection==null)?"":sNavSection %>">
+<input type="hidden" name="url" value="<%= (sAltURL==null)?"":sAltURL %>">
+	<font face=arial size=1>
+
+<center>
+<br><br><br><br><br><br>
+
+<table width=250 cellpadding=1 cellspacing=1>
+<tr>
+<td width=250>
+
+	<TABLE border="0" align="left" cellpadding=3 cellspacing=1>
+		<TR>
+			<TD></TD>
+			<TD align="left" valign=bottom>&nbsp;REVOTAS | MEDIA</TD>
+		</TR>
+		<TR>
+		<TR>
+			<TD align="right">Company:</TD>
+			<TD><INPUT type="text" name="company" size="32" value="<%=(sCustLogin==null)?"":sCustLogin%>"></TD>
+		</TR>
+		<TR>
+			<TD align="right">Login:</TD>
+			<TD><INPUT type="text" name="login" size="32" value="<%=(sUserLogin==null)?"":sUserLogin%>"></TD>
+		</TR>
+		<TR>
+			<TD align="right">Password:</TD>
+			<TD><INPUT type="password" name="password" size="32" value=""></TD>
+		</TR>
+		<TR>
+			<TD></TD>
+			<TD align="center"><INPUT type="submit" value="Submit"></TD>
+		</TR>
+	</TABLE>
+</td>
+</tr>
+</table>
+</center>
+
+</FORM>
+</BODY>
+
+</HTML>

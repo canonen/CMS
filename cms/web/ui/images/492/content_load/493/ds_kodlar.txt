@@ -1,0 +1,46 @@
+======================
+&#287;st Men&#287;
+======================
+<table align="center" cellpadding="0" cellspacing="0" style="width: 650px">
+	<tbody>
+		<tr>
+			<td colspan="2" style="font-size: 12px; font-family: Verdana; padding-bottom: 5px; text-align: center; padding-top: 5px; padding-left: 5px; padding-right: 5px">
+				<span>
+					<font style="font-size: 11px; font-family: arial, verdana, sans-serif; color: #000000">
+						B&#252;ltenlerimizin size engelsiz ula&#351;mas&#305; i&#231;in l&#252;tfen <a href="mailto:bulten@email.dsdamatmail.com">bulten@email.dsdamatmail.com</a> adresini<br />
+						e-posta listenize ekleyin veya &quot;G&#252;venli G&#246;nderici&quot;(Safe) 
+						olarak i&#351;aretleyin.
+					</font>
+				</span>
+			</td>
+		</tr>
+		
+		<tr>
+			<td align="left" style="font-size: 11px; font-family: Verdana; color: #000000; padding-bottom: 10px; text-align: left; padding-top: 10px; padding-left: 10px; padding-right: 10px">
+				<span>Bu Emaili G&#246;remiyorsan&#305;z L&#252;tfen <a href="http://f.dsdamatmail.com:80//frm/sv/WebContView?C=!*CampaignID;*!&R=!*RecipID;*!&K=!*recip_key;*!" name="Web version">T&#305;klay&#305;n&#305;z</a>
+				</span>
+			</td>
+			<td align="right" style="font-size: 11px; font-family: Verdana; color: #000000; padding-bottom: 10px; text-align: right; padding-top: 10px; padding-left: 10px; padding-right: 10px">
+				<span>
+				<a href="http://f.dsdamatmail.com/frm/sv/sb?fid=1386268&rr=!*RecipID;*!&rk=!*recip_key;*!&c=!*CampaignID;*!" name="&#304;zinsiz gonderim bildir">
+							&#304;zinsiz G&#246;nderim Bildir</a>
+				</span>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+======================
+Alt Taraf
+======================		
+<tr>
+<td colspan="9" style="font-size: 9px; font-family: Verdana; padding-bottom: 5px; padding-top: 5px; padding-left: 5px; padding-right: 5px">
+	<span><b>G&#304;ZL&#304;L&#304;K VE G&#220;VENL&#304;K</b></span><br />
+		  <span>
+			D'S Damat t&#220;m &#220;yelerinin gizlilik haklar&#305;na &#231;ok b&#220;y&#220;k &#246;nem vermektedir. Sitemizde toplanan ki&#351;isel bilgileriniz, sipari&#351;lerin tamamlanmas&#305; ve ilgili ileti&#351;imin sa&#287lanmas&#305;, &#220;r&#220;nler, servislerler, kampanyalar ve promosyonlarla ilgili bilgi vermek, m&#220;&#351;terilerimizin al&#305;&#351;veri&#351; tercihlerini daha iyi anlamak,  istatistiksel analizler yapmak, sitenin g&#220;venli&#287inin g&#220;&#231;lendirilmesi i&#231;in kullan&#305;l&#305;r. &#220;yelik formlar&#305;ndan toplanan bu bilgiler, s&#246;z konusu &#220;yenin haberi ya da aksi bir talimat&#305; olmaks&#305;z&#305;n, &#220;&#231;&#220;nc&#220; &#351;ah&#305;slarla kesinlikle payla&#351;&#305;lamaz, faaliyet d&#305;&#351;&#305; hi&#231;bir nedenle ticari ama&#231;la kullan&#305;lamaz ve sat&#305;lamaz. 
+			M&#220;&#351;teri bilgileri, ancak resmi makamlarca usul&#220; dairesinde bu bilgilerin talep edilmesi halinde ve y&#220;r&#220;rl&#220;kteki emredici mevzuat h&#220;k&#220;mleri gere&#287ince resmi makamlara a&#231;&#305;klama yapmak zorunda oldu&#287u durumlarda resmi makamlara a&#231;&#305;klanabilecektir. 
+			M&#220;&#351;terinin sisteme girdi&#287i t&#220;m bilgilere sadece M&#220;&#351;teri ula&#351;abilmekte ve bu bilgileri sadece M&#220;&#351;teri de&#287i&#351;tirebilmektedir. Bir ba&#351;kas&#305;n&#305;n bu bilgilere ula&#351;mas&#305; ve bunlar&#305; de&#287i&#351;tirmesi m&#220;mk&#220;n de&#287ildir. 
+		</span>
+</td>
+</tr>

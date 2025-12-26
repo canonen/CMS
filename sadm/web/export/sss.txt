@@ -1,0 +1,151 @@
+Partner Name	Client Name	Emails Sent	Prints Sent
+Direct	_NEW_RCP1_427	0	0
+Direct	_NEW_RCP1_428	0	0
+Bilginet	_NEW_RCP5_394	0	0
+Direct	Ä°dealimaj Hizmetleri	9978	0
+Direct	Ä°nfoLANG Dil OkullarÄ±	0	0
+Direct	Ä°stanbul Tango	34318	0
+Direct	Afrodit	0	0
+Direct	Alamarka Vip Elektronik	0	0
+Direct	Alamarka Vip Elektronik 2	21406	0
+Direct	Allen Carr TÃ¼rkiye	5620	0
+Direct	Aluexpo	0	0
+Direct	Amade Turizm ve Zaman Turizm	169003	0
+Bilginet	Ankiros	0	0
+Direct	Anneysen	254913	0
+Bilginet	Antik Hotel	7440	0
+Bilginet	Apolena	0	0
+Direct	Arzu Ugur 2	40315	0
+Direct	Ayakkabici.co	0	0
+Bilginet	AyyÄ±ldÄ±z	90208	0
+Direct	Baklavaci GÃ¼llÃ¼oÄ?lu	0	0
+Direct	Bamtur	RCP Error	--
+Direct	Beelogold	19451	0
+Bilginet	Berke Ayak Giysileri	0	0
+Direct	Bilginet	RCP Error	--
+Direct	Bilginet Demo	RCP Error	--
+Direct	BiliÅ?im EÄ?itim Merkezi	27680	0
+Direct	Binbirmarka Sanal MaÄ?azacÄ±lÄ±k	RCP Error	--
+Bilginet	Blackshot	0	0
+Direct	Blue	1395	0
+Direct	Bm Cam Donanimlari	4758	0
+Direct	BonnyFood	986468	0
+Direct	Bonte Turizm	3371	0
+Bilginet	Burc Tanitim	109795	0
+Direct	Cabani AyakkabÄ±	0	0
+Direct	Corap Terzisi	RCP Error	--
+Direct	Cosmetica	39559	0
+Direct	Damattweenshop	0	0
+Direct	Demos Fuarcilik 2	0	0
+Direct	Dinamo Training / Consulting	0	0
+Direct	Display Gorsel	0	0
+Bilginet	Do-Re Muzik	330613	0
+Bilginet	DoÄ?a Nanobiyotek	52059	0
+Bilginet	DoÄ?an Ã?anta	57924	0
+Moda Elinizde	DS Damat Shop	RCP Error	--
+Direct	DSDamat	3752	0
+Direct	e-mey.com	54348	0
+Direct	ELFE	222559	0
+Direct	Emel Pirlanta	RCP Error	--
+Direct	Enefm 2013	0	0
+Bilginet	Enyenieski.com	460637	0
+Bilginet	Erkan Sariyildiz	0	0
+Direct	Eticad	RCP Error	--
+Direct	Firo Turizm	0	0
+Direct	Fonipon	0	0
+Bilginet	Forever	3016	0
+Bilginet	Giydirelim	92635	0
+Bilginet	Gunun TatiLi	1051111	0
+Direct	Hangisi & Hangikredi	146851	0
+Direct	Hedef Filo Hizmetleri	0	0
+Direct	Hellobaby	96981	0
+Direct	Hementeslimal	153412	0
+Bilginet	Heristedigin.com	0	0
+Direct	Hiperaktif	0	0
+Direct	Hizmet Grup	2350	0
+Bilginet	HmsTatiL	1558366	0
+Direct	Hospitadent	14130	0
+Direct	Hotic	70	0
+Direct	i-gunler.CoM	0	0
+Direct	i-gunler.CoM New	0	0
+Direct	IMDER	21383	0
+Bilginet	inhores	232903	0
+Bilginet	insancil sahaf	42866	0
+Direct	Interm 2013	0	0
+Direct	KarÄ±nca TasarÄ±m Ã?rÃ¼nleri	17625	0
+Direct	Kayada Pazarlama	0	0
+Bilginet	Kayada Pazarlama-2	0	0
+Direct	Kayra	41215	0
+Bilginet	Kentkart	0	0
+Bilginet	Keskin Color	1204	0
+Bilginet	Kida Kitap DaÄ?Ä±tÄ±m	7679	0
+Bilginet	Kipling	3829	0
+Direct	Kobilife	0	0
+Direct	Kocakgold	34574	0
+Bilginet	Lelaq	0	0
+Direct	Luce Halkla Ä°liÅ?kiler	0	0
+Direct	Luxsahibi	0	0
+Direct	Maranki	0	0
+Direct	Markapella Elektronik	RCP Error	--
+Direct	Mavi Egitim	23084	0
+Direct	Minikbaby	0	0
+Direct	Moda  Saat	1082996	0
+Bilginet	Moda DÃ¼Ä?Ã¼n	11481	0
+Moda Elinizde	Moda Elinizde	2361215	0
+Moda Elinizde	Moda Elinizde Kampanya	0	0
+Direct	Mormeyhane	14	0
+Direct	Muddleme Inc	0	0
+Bilginet	Netvarium	0	0
+Bilginet	Netvarium2	71747234	0
+Direct	Nfinity Games_2	28	0
+Direct	nfinitygames	0	0
+Bilginet	NOGG	0	0
+Direct	Nutrishop.com.tr	0	0
+Bilginet	Oksuzogullari	0	0
+Bilginet	Okyanus Yayincilik	566	0
+Direct	Olimpia Event Hall	0	0
+Direct	Onlydent	6439	0
+Direct	Orange	RCP Error	--
+Direct	Orange_2	173541	0
+Direct	Orange_3	0	0
+Direct	Orkagroup	0	0
+Direct	Pagos	0	0
+Direct	panborekspress	RCP Error	--
+Bilginet	Papirus	17802	0
+Direct	People Communication	RCP Error	--
+Direct	Petsatis	14	0
+Direct	Postermagazasi.com	0	0
+Moda Elinizde	Private Shopping	1	0
+Direct	Quiksilver	42210	0
+Direct	Reklamz	0	0
+Direct	Revotas	1751	0
+Direct	Revotas Demo US	0	0
+Direct	Revotas Kurumsal	0	0
+Direct	Revotas Kurumsal Yeni	5544	0
+Direct	Revotas New Demo	0	0
+Direct	Roxy	1241	0
+Direct	Rubbit	423003	0
+Direct	Saatcity	RCP Error	--
+Direct	Sarrafonline.com	RCP Error	--
+Direct	Sealight Hotel	24734	0
+Direct	Sigortam.net	3826180	0
+Direct	Somuncu Grup	35739	0
+Direct	StoriesApart	0	0
+Direct	T-soft.com.tr	0	0
+Direct	Teknik Destek Grubu	RCP Error	--
+Direct	Tetas	0	0
+Direct	Toptangrup	1357500	0
+Direct	Transitions TÃ¼rkiye	0	0
+Direct	Travel Talk	57813	0
+Direct	TSUAB	8643	0
+Moda Elinizde	Twn Campus	0	0
+Direct	Ustun Zekalilar Enstitusu	RCP Error	--
+Bilginet	Valizci.com	0	0
+Direct	Vamelya	RCP Error	--
+Direct	Volkan IÅ?Ä±k Akademi	44934	0
+Direct	Wall Street Ä°nstitute	0	0
+Direct	www.bisikletcim.com	226066	0
+Direct	www.lushturkey.com	16768	0
+Direct	Yedek Parca Ford	0	0
+Bilginet	Yenen Danismanlik	0	0
+Direct	Yuke Lastik - Lastik24	0	0

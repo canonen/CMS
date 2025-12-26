@@ -1,0 +1,21 @@
+exec [z_reco_topseller]
+
+exec [z_reco_price_drop]
+
+exec [z_reco_new_product]
+
+exec [z_rec_buy_also]
+
+exec [z_rec_similar_products]
+
+exec [z_rec_view_also]
+
+exec [z_reco_trending]
+
+exec [z_rec_bought_together]
+
+exec [z_rec_you_might_add_news]
+
+exec [z_rec_you_might_for_week]
+
+exec [z_rec_you_might_rate]
