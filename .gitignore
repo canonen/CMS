@@ -1,0 +1,29 @@
+# Java
+*.rar
+*.zip
+*.7z
+
+*.class
+*.log
+
+# Eclipse / IntelliJ
+.project
+.classpath
+.settings/
+.idea/
+*.iml
+
+# Build çıktıları
+target/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build / artifacts
+classes/
+artifacts/
+web/
+*.rar
+*.zip

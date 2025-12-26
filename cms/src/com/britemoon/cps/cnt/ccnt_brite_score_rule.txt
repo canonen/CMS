@@ -1,0 +1,787 @@
+1;ACCESSDB;ACCESSDB;Message would have been caught by accessdb
+2;ACT_NOW_CAPS;ACT_NOW_CAPS;Talks about "acting now" with capitals
+3;ADDR_FREE;ADDR_FREE;From Address contains FREE
+4;ADDRESS_IN_SUBJECT;ADDRESS_IN_SUBJECT;To: address appears in Subject
+5;ALL_NATURAL;ALL_NATURAL;Spam is 100% natural?!
+6;ALL_TRUSTED;ALL_TRUSTED;Passed through trusted hosts only via SMTP
+7;ALTA_BUSCADORES_ES;ALTA_BUSCADORES_ES;Alta en buscadores hispanos.
+8;AMATEUR_PORN;AMATEUR_PORN;Possible porn - Amateur Porn
+9;AMAZING_STUFF;AMAZING_STUFF;Amazing Stuff
+10;AS_SEEN_ON;AS_SEEN_ON;As seen on national TV!
+11;AWL;AWL;From: address is in the auto white-list
+12;BAD_CREDIT;BAD_CREDIT;Eliminate Bad Credit
+13;BAD_ENC_HEADER;BAD_ENC_HEADER;Message has bad MIME encoding in the header
+14;BANG_EXERCISE;BANG_EXERCISE;Talks about exercise with an exclamation!
+15;BANG_GUAR;BANG_GUAR;Something is emphatically guaranteed
+16;BANG_MORE;BANG_MORE;Talks about more with an exclamation!
+17;BANG_OPRAH;BANG_OPRAH;Talks about Oprah with an exclamation!
+18;BARGAIN_URL;BARGAIN_URL;Includes a link to a likely spammer domain
+19;BAYES_00;BAYES_00;Bayesian spam probability is 0 to 1%
+20;BAYES_05;BAYES_05;Bayesian spam probability is 1 to 5%
+21;BAYES_20;BAYES_20;Bayesian spam probability is 5 to 20%
+22;BAYES_40;BAYES_40;Bayesian spam probability is 20 to 40%
+23;BAYES_50;BAYES_50;Bayesian spam probability is 40 to 60%
+24;BAYES_60;BAYES_60;Bayesian spam probability is 60 to 80%
+25;BAYES_80;BAYES_80;Bayesian spam probability is 80 to 95%
+26;BAYES_95;BAYES_95;Bayesian spam probability is 95 to 99%
+27;BAYES_99;BAYES_99;Bayesian spam probability is 99 to 100%
+28;BE_BOSS;BE_BOSS;Be your own boss
+29;BEST_PORN;BEST_PORN;Possible porn - Best, Largest, Most Porn
+30;BILL_1618;BILL_1618;Possible mention of bill 1618 (anti-spam bill)
+31;BILLION_DOLLARS;BILLION_DOLLARS;Talks about lots of money
+32;BIZ_TLD;BIZ_TLD;Contains an URL in the BIZ top-level domain
+33;BLANK_LINES_70_80;BLANK_LINES_70_80;Message body has 70-80% blank lines
+34;BLANK_LINES_80_90;BLANK_LINES_80_90;Message body has 80-90% blank lines
+35;BLANK_LINES_90_100;BLANK_LINES_90_100;Message body has 90-100% blank lines
+36;BODY_8BITS;BODY_8BITS;Body includes 8 consecutive 8-bit characters
+37;BODY_ENHANCEMENT;BODY_ENHANCEMENT;Information on growing body parts
+38;BODY_ENHANCEMENT2;BODY_ENHANCEMENT2;Information on getting larger body parts
+39;CHARSET_FARAWAY;CHARSET_FARAWAY;Character set indicates a foreign language
+40;CHARSET_FARAWAY_HEADER;CHARSET_FARAWAY_HEADER;A foreign language charset used in headers
+41;CHINA_HEADER;CHINA_HEADER;Involves "china.com"
+42;CLICK_BELOW_CAPS;CLICK_BELOW_CAPS;Asks you to click below (in capital letters)
+43;CLICK_ES;CLICK_ES;Haga click aqui.
+44;CLICK_TO_REMOVE_1;CLICK_TO_REMOVE_1;Click to be removed
+45;COLECTOR_DE_MAILS_ES;COLECTOR_DE_MAILS_ES;Las direcciones fueron obtenidas de internet.
+46;COMPETE;COMPETE;Compete for your business
+47;CONFIDENTIAL_ORDER;CONFIDENTIAL_ORDER;Confidentiality on all orders
+48;CONSOLIDATE_DEBT;CONSOLIDATE_DEBT;Consolidate debt, credit, or bills
+49;CONTRA_REEMBOLSO_ES;CONTRA_REEMBOLSO_ES;Pago contra reembolso.
+50;CUM_SHOT;CUM_SHOT;Possible porn - Cum Shot
+51;DATE_IN_FUTURE_03_06;DATE_IN_FUTURE_03_06;Date: is 3 to 6 hours after Received: date
+52;DATE_IN_FUTURE_06_12;DATE_IN_FUTURE_06_12;Date: is 6 to 12 hours after Received: date
+53;DATE_IN_FUTURE_12_24;DATE_IN_FUTURE_12_24;Date: is 12 to 24 hours after Received: date
+54;DATE_IN_FUTURE_24_48;DATE_IN_FUTURE_24_48;Date: is 24 to 48 hours after Received: date
+55;DATE_IN_FUTURE_48_96;DATE_IN_FUTURE_48_96;Date: is 48 to 96 hours after Received: date
+56;DATE_IN_FUTURE_96_XX;DATE_IN_FUTURE_96_XX;Date: is 96 hours or more after Received: date
+57;DATE_IN_PAST_03_06;DATE_IN_PAST_03_06;Date: is 3 to 6 hours before Received: date
+58;DATE_IN_PAST_06_12;DATE_IN_PAST_06_12;Date: is 6 to 12 hours before Received: date
+59;DATE_IN_PAST_12_24;DATE_IN_PAST_12_24;Date: is 12 to 24 hours before Received: date
+60;DATE_IN_PAST_24_48;DATE_IN_PAST_24_48;Date: is 24 to 48 hours before Received: date
+61;DATE_IN_PAST_48_96;DATE_IN_PAST_48_96;Date: is 48 to 96 hours before Received: date
+62;DATE_IN_PAST_96_XX;DATE_IN_PAST_96_XX;Date: is 96 hours or more before Received: date
+63;DATE_SPAMWARE_Y2K;DATE_SPAMWARE_Y2K;Date header uses unusual Y2K formatting
+64;DCC_CHECK;DCC_CHECK;Listed in DCC (http://rhyolite.com/anti-spam/dcc/)
+65;DEAR_FRIEND;DEAR_FRIEND;Dear Friend? That''s not very dear!
+66;DEAR_SOMETHING;DEAR_SOMETHING;Contains "Dear (something)"
+67;DEEP_DISC_MEDS;DEEP_DISC_MEDS;Deep discount medications
+68;DEJAR_DE_FUMAR_ES;DEJAR_DE_FUMAR_ES;Para dejar de fumar
+69;DIET_1;DIET_1;Lose Weight Spam
+70;DIET_2;DIET_2;Describes weight loss
+71;DIET_3;DIET_3;Describes body fat loss
+72;DISGUISE_PORN;DISGUISE_PORN;Attempts to disguise porn words
+73;DISGUISE_PORN_MUNDANE;DISGUISE_PORN_MUNDANE;Attempts to disguise mundane words used in porn
+74;DK_POLICY_SIGNALL;DK_POLICY_SIGNALL;Domain Keys: policy says domain signs all mails
+75;DK_POLICY_SIGNSOME;DK_POLICY_SIGNSOME;Domain Keys: policy says domain signs some mails
+76;DK_POLICY_TESTING;DK_POLICY_TESTING;Domain Keys: policy says domain is testing DK
+77;DK_SIGNED;DK_SIGNED;Domain Keys: message has an unverified signature
+78;DK_VERIFIED;DK_VERIFIED;Domain Keys: signature passes verification
+79;DNS_FROM_AHBL_RHSBL;DNS_FROM_AHBL_RHSBL;From: sender listed in dnsbl.ahbl.org
+80;DNS_FROM_RFC_ABUSE;DNS_FROM_RFC_ABUSE;Envelope sender in abuse.rfc-ignorant.org
+81;DNS_FROM_RFC_BOGUSMX;DNS_FROM_RFC_BOGUSMX;Envelope sender in bogusmx.rfc-ignorant.org
+82;DNS_FROM_RFC_DSN;DNS_FROM_RFC_DSN;Envelope sender in dsn.rfc-ignorant.org
+83;DNS_FROM_RFC_POST;DNS_FROM_RFC_POST;Envelope sender in postmaster.rfc-ignorant.org
+84;DNS_FROM_RFC_WHOIS;DNS_FROM_RFC_WHOIS;Envelope sender in whois.rfc-ignorant.org
+85;DNS_FROM_SECURITYSAGE;DNS_FROM_SECURITYSAGE;Envelope sender in blackholes.securitysage.com
+86;DOMAIN_4U2;DOMAIN_4U2;Domain name containing a "4u" variant
+87;DOMAIN_RATIO;DOMAIN_RATIO;Message body mentions many internet domains
+88;DRUG_DOSAGE;DRUG_DOSAGE;Talks about price per dose
+89;DRUG_ED_CAPS;DRUG_ED_CAPS;Mentions an E.D. drug
+90;DRUG_ED_COMBO;DRUG_ED_COMBO;Viagra and other drugs
+91;DRUG_ED_GENERIC;DRUG_ED_GENERIC;Mentions Generic Viagra
+92;DRUG_ED_ONLINE;DRUG_ED_ONLINE;Fast Viagra Delivery
+93;DRUG_ED_SILD;DRUG_ED_SILD;Talks about an E.D. drug using its chemical name
+94;DRUGS_SMEAR1;DRUGS_SMEAR1;Two or more drugs crammed together into one word
+95;EARN_PER_WEEK;EARN_PER_WEEK;Contains "earn (dollar) something per week"
+96;EM_ROLEX;EM_ROLEX;Message puts emphasis on the watch manufacturer
+97;EMAIL_ROT13;EMAIL_ROT13;Body contains a ROT13-encoded email address
+98;ENGLISH_UCE_SUBJECT;ENGLISH_UCE_SUBJECT;Subject contains an English UCE tag
+99;ENTITY_DEC_ALPHANUM;ENTITY_DEC_ALPHANUM;HTML contains needlessly encoded characters
+100;EXCLAMACION_ES;EXCLAMACION_ES;IMPERATIVOS/EXCLAMACIONES EN MAYUSCULAS.
+101;EXCUSE_10;EXCUSE_10;if you do not wish to receive any more
+102;EXCUSE_12;EXCUSE_12;Nobody''s perfect
+103;EXCUSE_23;EXCUSE_23;Claims you have provided permission
+104;EXCUSE_24;EXCUSE_24;Claims you wanted this ad
+105;EXCUSE_4;EXCUSE_4;Claims you can be removed from the list
+106;EXCUSE_6;EXCUSE_6;Claims you can be removed from the list
+107;EXCUSE_ES_01;EXCUSE_ES_01;Claims not to be spam in Spanish
+108;EXCUSE_ES_02;EXCUSE_ES_02;Someone fell free to send you a message in Spanish
+109;EXCUSE_ES_03;EXCUSE_ES_03;Someone requested an spammer to spam you in Spanish
+110;EXCUSE_ES_05;EXCUSE_ES_05;El correo como alternativa comercial
+111;EXCUSE_ES_06;EXCUSE_ES_06;Mensaje enviado por error
+112;EXCUSE_ES_07;EXCUSE_ES_07;No se puede considerar spam
+113;EXCUSE_REMOVE;EXCUSE_REMOVE;Talks about how to be removed from mailings
+114;EXTRA_CASH;EXTRA_CASH;Offers Extra Cash
+115;EXTRA_MPART_TYPE;EXTRA_MPART_TYPE;Header has extraneous Content-type:...type= entry
+116;FAKE_HELO_EMAIL_COM;FAKE_HELO_EMAIL_COM;Host HELO did not match rDNS: email.com
+117;FAKE_HELO_EUDORAMAIL;FAKE_HELO_EUDORAMAIL;Host HELO did not match rDNS: eudoramail.com
+118;FAKE_HELO_EXCITE;FAKE_HELO_EXCITE;Host HELO did not match rDNS: excite.com
+119;FAKE_HELO_LYCOS;FAKE_HELO_LYCOS;Host HELO did not match rDNS: lycos.com
+120;FAKE_HELO_MAIL_COM;FAKE_HELO_MAIL_COM;Host HELO did not match rDNS: mail.com
+121;FAKE_HELO_MAIL_COM_DOM;FAKE_HELO_MAIL_COM_DOM;Relay HELO''d with suspicious hostname (mail.com)
+122;FAKE_HELO_MSN;FAKE_HELO_MSN;Host HELO did not match rDNS: msn.com
+123;FAKE_HELO_YAHOO_CA;FAKE_HELO_YAHOO_CA;Host HELO did not match rDNS: yahoo.ca
+124;FAKE_OUTBLAZE_RCVD;FAKE_OUTBLAZE_RCVD;Received header contains faked "mr.outblaze.com"
+125;FAKED_UNDISC_RECIPS;FAKED_UNDISC_RECIPS;Faked To "Undisclosed-Recipients"
+126;FIN_FREE;FIN_FREE;Freedom of a financial nature
+127;FORGED_AOL_RCVD;FORGED_AOL_RCVD;Received forged, contains fake AOL relays
+128;FORGED_EUDORAMAIL_RCVD;FORGED_EUDORAMAIL_RCVD;Forged eudoramail.com "Received:" header found
+129;FORGED_GW05_RCVD;FORGED_GW05_RCVD;Forged "by gw05" "Received:" header found
+130;FORGED_HOTMAIL_RCVD;FORGED_HOTMAIL_RCVD;Forged hotmail.com "Received:" header found
+131;FORGED_HOTMAIL_RCVD2;FORGED_HOTMAIL_RCVD2;hotmail.com "From" address, but no "Received:"
+132;FORGED_JUNO_RCVD;FORGED_JUNO_RCVD;From juno.com does not match "Received" headers
+133;FORGED_RCVD_HELO;FORGED_RCVD_HELO;Received: contains a forged HELO
+134;FORGED_TELESP_RCVD;FORGED_TELESP_RCVD;Contains forged hostname for a DSL IP in Brazil
+135;FORGED_YAHOO_RCVD;FORGED_YAHOO_RCVD;From yahoo.com does not match "Received" headers
+136;FORWARD_LOOKING;FORWARD_LOOKING;Stock Disclaimer Statement
+137;FRAGMENTED_MESSAGE;FRAGMENTED_MESSAGE;Partial message
+138;FREE_ACCESS;FREE_ACCESS;Contains "free access" with capitals
+139;FREE_PORN;FREE_PORN;Possible porn - Free Porn
+140;FREE_PREVIEW;FREE_PREVIEW;Free Preview
+141;FREE_QUOTE_INSTANT;FREE_QUOTE_INSTANT;Free express or no-obligation quote
+142;FREE_SAMPLE;FREE_SAMPLE;Contains "free sample" with capitals
+143;FROM_ALL_NUMS;FROM_ALL_NUMS;From numeric address (except US/Canada phones)
+144;FROM_AND_TO_SAME;FROM_AND_TO_SAME;From and To are the same, but not exactly
+145;FROM_BLANK_NAME;FROM_BLANK_NAME;From: contains empty name
+146;FROM_DOMAIN_NOVOWEL;FROM_DOMAIN_NOVOWEL;From: domain has series of non-vowel letters
+147;FROM_ENDS_IN_NUMS;FROM_ENDS_IN_NUMS;From: ends in many numbers
+148;FROM_HAS_MIXED_NUMS;FROM_HAS_MIXED_NUMS;From: contains numbers mixed in with letters
+149;FROM_HAS_ULINE_NUMS;FROM_HAS_ULINE_NUMS;From: contains an underline and numbers/letters
+150;FROM_ILLEGAL_CHARS;FROM_ILLEGAL_CHARS;From: has too many raw illegal characters
+151;FROM_LOCAL_DIGITS;FROM_LOCAL_DIGITS;From: localpart has long digit sequence
+152;FROM_LOCAL_HEX;FROM_LOCAL_HEX;From: localpart has long hexadecimal sequence
+153;FROM_LOCAL_NOVOWEL;FROM_LOCAL_NOVOWEL;From: localpart has series of non-vowel letters
+154;FROM_NO_LOWER;FROM_NO_LOWER;From address has no lower-case characters
+155;FROM_NO_USER;FROM_NO_USER;From: has no local-part before @ sign
+156;FROM_NONSENDING_DOMAIN;FROM_NONSENDING_DOMAIN;Message is from domain that never sends email
+157;FROM_OFFERS;FROM_OFFERS;From address is "at something-offers"
+158;FROM_STARTS_WITH_NUMS;FROM_STARTS_WITH_NUMS;From: starts with many numbers
+159;FRONTPAGE;FRONTPAGE;Frontpage used to create the message
+160;FULL_REFUND;FULL_REFUND;Offers a full refund
+161;FUZZY_AFFORDABLE;FUZZY_AFFORDABLE;Attempt to obfuscate words in spam
+162;FUZZY_AMBIEN;FUZZY_AMBIEN;Attempt to obfuscate words in spam
+163;FUZZY_BILLION;FUZZY_BILLION;Attempt to obfuscate words in spam
+164;FUZZY_CELEBREX;FUZZY_CELEBREX;Attempt to obfuscate words in spam
+165;FUZZY_CPILL;FUZZY_CPILL;Attempt to obfuscate words in spam
+166;FUZZY_CREDIT;FUZZY_CREDIT;Attempt to obfuscate words in spam
+167;FUZZY_ERECT;FUZZY_ERECT;Attempt to obfuscate words in spam
+168;FUZZY_FOLLOW;FUZZY_FOLLOW;Attempt to obfuscate words in spam
+169;FUZZY_GUARANTEE;FUZZY_GUARANTEE;Attempt to obfuscate words in spam
+170;FUZZY_MEDICATION;FUZZY_MEDICATION;Attempt to obfuscate words in spam
+171;FUZZY_MILF;FUZZY_MILF;Attempt to obfuscate words in spam
+172;FUZZY_MILLION;FUZZY_MILLION;Attempt to obfuscate words in spam
+173;FUZZY_MONEY;FUZZY_MONEY;Attempt to obfuscate words in spam
+174;FUZZY_MORTGAGE;FUZZY_MORTGAGE;Attempt to obfuscate words in spam
+175;FUZZY_OBLIGATION;FUZZY_OBLIGATION;Attempt to obfuscate words in spam
+176;FUZZY_OFFERS;FUZZY_OFFERS;Attempt to obfuscate words in spam
+177;FUZZY_PHARMACY;FUZZY_PHARMACY;Attempt to obfuscate words in spam
+178;FUZZY_PHENT;FUZZY_PHENT;Attempt to obfuscate words in spam
+179;FUZZY_PLEASE;FUZZY_PLEASE;Attempt to obfuscate words in spam
+180;FUZZY_PRESCRIPT;FUZZY_PRESCRIPT;Attempt to obfuscate words in spam
+181;FUZZY_PRICES;FUZZY_PRICES;Attempt to obfuscate words in spam
+182;FUZZY_REFINANCE;FUZZY_REFINANCE;Attempt to obfuscate words in spam
+183;FUZZY_REMOVE;FUZZY_REMOVE;Attempt to obfuscate words in spam
+184;FUZZY_ROLEX;FUZZY_ROLEX;Attempt to obfuscate words in spam
+185;FUZZY_SOFTWARE;FUZZY_SOFTWARE;Attempt to obfuscate words in spam
+186;FUZZY_THOUSANDS;FUZZY_THOUSANDS;Attempt to obfuscate words in spam
+187;FUZZY_TRAMADOL;FUZZY_TRAMADOL;Attempt to obfuscate words in spam
+188;FUZZY_VICODIN;FUZZY_VICODIN;Attempt to obfuscate words in spam
+189;FUZZY_VIOXX;FUZZY_VIOXX;Attempt to obfuscate words in spam
+190;FUZZY_VLIUM;FUZZY_VLIUM;Attempt to obfuscate words in spam
+191;FUZZY_VPILL;FUZZY_VPILL;Attempt to obfuscate words in spam
+192;FUZZY_XPILL;FUZZY_XPILL;Attempt to obfuscate words in spam
+193;GANADORES_ES_01;GANADORES_ES_01;Pueden ser ganadores.
+194;GANADORES_ES_02;GANADORES_ES_02;Ha sido ganador.
+195;GAPPY_SUBJECT;GAPPY_SUBJECT;Subject: contains G.a.p.p.y-T.e.x.t
+196;GET_PAID;GET_PAID;Get Paid
+197;GRATIS_ES;GRATIS_ES;NOS CHILLAN PARA DECIR QUE ES GRATIS
+198;GTUBE  ;GTUBE  ;Generic Test for Unsolicited Bulk Email  
+199;GUARANTEED_100_PERCENT;GUARANTEED_100_PERCENT;One hundred percent guaranteed
+200;GUARANTEED_STUFF;GUARANTEED_STUFF;Guaranteed Stuff
+201;HABEAS_ACCREDITED_COI;HABEAS_ACCREDITED_COI;Habeas Accredited Confirmed Opt-In or Better
+202;HABEAS_ACCREDITED_SOI;HABEAS_ACCREDITED_SOI;Habeas Accredited Opt-In or Better
+203;HABEAS_CHECKED;HABEAS_CHECKED;Habeas Checked
+204;HAIR_LOSS;HAIR_LOSS;Cures Baldness
+205;HARDCORE_PORN;HARDCORE_PORN;Possible porn - Hardcore Porn
+206;HASHCASH_20;HASHCASH_20;Contains valid Hashcash token (20 bits)
+207;HASHCASH_21;HASHCASH_21;Contains valid Hashcash token (21 bits)
+208;HASHCASH_22;HASHCASH_22;Contains valid Hashcash token (22 bits)
+209;HASHCASH_23;HASHCASH_23;Contains valid Hashcash token (23 bits)
+210;HASHCASH_24;HASHCASH_24;Contains valid Hashcash token (24 bits)
+211;HASHCASH_25;HASHCASH_25;Contains valid Hashcash token (25 bits)
+212;HASHCASH_2SPEND;HASHCASH_2SPEND;Hashcash token already spent in another mail
+213;HASHCASH_HIGH;HASHCASH_HIGH;Contains valid Hashcash token (>25 bits)
+214;HDR_ORDER_MTSRIX;HDR_ORDER_MTSRIX;Headers are in order found in spam (MTSRIX)
+215;HDR_ORDER_TRIMRS;HDR_ORDER_TRIMRS;Headers are in order found in spam (TRIMRS)
+216;HEAD_ILLEGAL_CHARS;HEAD_ILLEGAL_CHARS;Headers have too many raw illegal characters
+217;HEAD_LONG;HEAD_LONG;Message headers are very long
+218;HEADER_COUNT_CTYPE;HEADER_COUNT_CTYPE;Multiple Content-Type headers found
+219;HEADER_SPAM;HEADER_SPAM;Bulk email fingerprint (header-based) found
+220;HELO_DYNAMIC_ADELPHIA;HELO_DYNAMIC_ADELPHIA;Relay HELO''d using suspicious hostname (Adelphia)
+221;HELO_DYNAMIC_ATTBI;HELO_DYNAMIC_ATTBI;Relay HELO''d using suspicious hostname (ATTBI.com)
+222;HELO_DYNAMIC_CHELLO_NL;HELO_DYNAMIC_CHELLO_NL;Relay HELO''d using suspicious hostname (Chello.nl)
+223;HELO_DYNAMIC_CHELLO_NO;HELO_DYNAMIC_CHELLO_NO;Relay HELO''d using suspicious hostname (Chello.no)
+224;HELO_DYNAMIC_COMCAST;HELO_DYNAMIC_COMCAST;Relay HELO''d using suspicious hostname (Comcast)
+225;HELO_DYNAMIC_DHCP;HELO_DYNAMIC_DHCP;Relay HELO''d using suspicious hostname (DHCP)
+226;HELO_DYNAMIC_DIALIN;HELO_DYNAMIC_DIALIN;Relay HELO''d using suspicious hostname (T-Dialin)
+227;HELO_DYNAMIC_HCC;HELO_DYNAMIC_HCC;Relay HELO''d using suspicious hostname (HCC)
+228;HELO_DYNAMIC_HEXIP;HELO_DYNAMIC_HEXIP;Relay HELO''d using suspicious hostname (Hex IP)
+229;HELO_DYNAMIC_HOME_NL;HELO_DYNAMIC_HOME_NL;Relay HELO''d using suspicious hostname (Home.nl)
+230;HELO_DYNAMIC_IPADDR;HELO_DYNAMIC_IPADDR;Relay HELO''d using suspicious hostname (IP addr 1)
+231;HELO_DYNAMIC_IPADDR2;HELO_DYNAMIC_IPADDR2;Relay HELO''d using suspicious hostname (IP addr 2)
+232;HELO_DYNAMIC_NTL;HELO_DYNAMIC_NTL;Relay HELO''d using suspicious hostname (NTL)
+233;HELO_DYNAMIC_OOL;HELO_DYNAMIC_OOL;Relay HELO''d using suspicious hostname (OptOnline)
+234;HELO_DYNAMIC_ROGERS;HELO_DYNAMIC_ROGERS;Relay HELO''d using suspicious hostname (Rogers)
+235;HELO_DYNAMIC_RR2;HELO_DYNAMIC_RR2;Relay HELO''d using suspicious hostname (RR 2)
+236;HELO_DYNAMIC_SPLIT_IP;HELO_DYNAMIC_SPLIT_IP;Relay HELO''d using suspicious hostname (Split IP)
+237;HELO_DYNAMIC_TELIA;HELO_DYNAMIC_TELIA;Relay HELO''d using suspicious hostname (Telia)
+238;HELO_DYNAMIC_VELOX;HELO_DYNAMIC_VELOX;Relay HELO''d using suspicious hostname (Veloxzone)
+239;HELO_DYNAMIC_VTR;HELO_DYNAMIC_VTR;Relay HELO''d using suspicious hostname (VTR)
+240;HELO_DYNAMIC_YAHOOBB;HELO_DYNAMIC_YAHOOBB;Relay HELO''d using suspicious hostname (YahooBB)
+241;HIDDEN_CHARGES;HIDDEN_CHARGES;Talks about Hidden Charges
+242;HIDE_WIN_STATUS;HIDE_WIN_STATUS;Javascript to hide URLs in browser
+243;HIGH_CODEPAGE_URI;HIGH_CODEPAGE_URI;/^https?:\/\/[^\/]*\&\#(?:\d{4,}| [3456789]\d\d);/i
+244;HOT_NASTY;HOT_NASTY;Possible porn - Hot, Nasty, Wild, Young
+245;HTML_00_10;HTML_00_10;Message is 0% to 10% HTML
+246;HTML_10_20;HTML_10_20;Message is 10% to 20% HTML
+247;HTML_20_30;HTML_20_30;Message is 20% to 30% HTML
+248;HTML_30_40;HTML_30_40;Message is 30% to 40% HTML
+249;HTML_40_50;HTML_40_50;Message is 40% to 50% HTML
+250;HTML_50_60;HTML_50_60;Message is 50% to 60% HTML
+251;HTML_60_70;HTML_60_70;Message is 60% to 70% HTML
+252;HTML_70_80;HTML_70_80;Message is 70% to 80% HTML
+253;HTML_80_90;HTML_80_90;Message is 80% to 90% HTML
+254;HTML_90_100;HTML_90_100;Message is 90% to 100% HTML
+255;HTML_ATTR_BAD;HTML_ATTR_BAD;HTML has many bad attributes in tags
+256;HTML_ATTR_UNIQUE;HTML_ATTR_UNIQUE;HTML appears to have random attributes in tags
+257;HTML_BACKHAIR_2;HTML_BACKHAIR_2;HTML tags used to obfuscate words
+258;HTML_BACKHAIR_4;HTML_BACKHAIR_4;HTML tags used to obfuscate words
+259;HTML_BACKHAIR_8;HTML_BACKHAIR_8;HTML tags used to obfuscate words
+260;HTML_BADTAG_00_10;HTML_BADTAG_00_10;HTML message is 0% to 10% bad tags
+261;HTML_BADTAG_10_20;HTML_BADTAG_10_20;HTML message is 10% to 20% bad tags
+262;HTML_BADTAG_20_30;HTML_BADTAG_20_30;HTML message is 20% to 30% bad tags
+263;HTML_BADTAG_30_40;HTML_BADTAG_30_40;HTML message is 30% to 40% bad tags
+264;HTML_BADTAG_40_50;HTML_BADTAG_40_50;HTML message is 40% to 50% bad tags
+265;HTML_BADTAG_50_60;HTML_BADTAG_50_60;HTML message is 50% to 60% bad tags
+266;HTML_BADTAG_60_70;HTML_BADTAG_60_70;HTML message is 60% to 70% bad tags
+267;HTML_BADTAG_70_80;HTML_BADTAG_70_80;HTML message is 70% to 80% bad tags
+268;HTML_BADTAG_80_90;HTML_BADTAG_80_90;HTML message is 80% to 90% bad tags
+269;HTML_BADTAG_90_100;HTML_BADTAG_90_100;HTML message is 90% to 100% bad tags
+270;HTML_COMMENT_SAVED_URL;HTML_COMMENT_SAVED_URL;HTML message is a saved web page
+271;HTML_COMMENT_SHORT;HTML_COMMENT_SHORT;HTML comment is very short
+272;HTML_EHTML2;HTML_EHTML2;HTML has doubled end HTML tag
+273;HTML_EMBEDS;HTML_EMBEDS;HTML with embedded plugin object
+274;HTML_EVENT_UNSAFE;HTML_EVENT_UNSAFE;HTML contains unsafe auto-executing code
+275;HTML_EXTRA_CLOSE;HTML_EXTRA_CLOSE;HTML contains far too many close tags
+276;HTML_FONT_BIG;HTML_FONT_BIG;HTML tag for a big font size
+277;HTML_FONT_FACE_BAD;HTML_FONT_FACE_BAD;HTML font face is not a word
+278;HTML_FONT_FACE_CAPS;HTML_FONT_FACE_CAPS;HTML font face has excess capital characters
+279;HTML_FONT_INVISIBLE;HTML_FONT_INVISIBLE;HTML font color is same as background
+280;HTML_FONT_LOW_CONTRAST;HTML_FONT_LOW_CONTRAST;HTML font color similar to background
+281;HTML_FONT_SIZE_HUGE;HTML_FONT_SIZE_HUGE;HTML font size is huge
+282;HTML_FONT_SIZE_LARGE;HTML_FONT_SIZE_LARGE;HTML font size is large
+283;HTML_FONT_SIZE_NONE;HTML_FONT_SIZE_NONE;HTML font size is negative
+284;HTML_FONT_SIZE_TINY;HTML_FONT_SIZE_TINY;HTML font size is tiny
+285;HTML_FONT_TINY;HTML_FONT_TINY;HTML tag for a tiny font size
+286;HTML_FORMACTION_MAILTO;HTML_FORMACTION_MAILTO;HTML includes a form which sends mail
+287;HTML_IMAGE_ONLY_04;HTML_IMAGE_ONLY_04;HTML: images with 0-400 bytes of words
+288;HTML_IMAGE_ONLY_08;HTML_IMAGE_ONLY_08;HTML: images with 400-800 bytes of words
+289;HTML_IMAGE_ONLY_12;HTML_IMAGE_ONLY_12;HTML: images with 800-1200 bytes of words
+290;HTML_IMAGE_ONLY_16;HTML_IMAGE_ONLY_16;HTML: images with 1200-1600 bytes of words
+291;HTML_IMAGE_ONLY_20;HTML_IMAGE_ONLY_20;HTML: images with 1600-2000 bytes of words
+292;HTML_IMAGE_ONLY_24;HTML_IMAGE_ONLY_24;HTML: images with 2000-2400 bytes of words
+293;HTML_IMAGE_ONLY_28;HTML_IMAGE_ONLY_28;HTML: images with 2400-2800 bytes of words
+294;HTML_IMAGE_ONLY_32;HTML_IMAGE_ONLY_32;HTML: images with 2800-3200 bytes of words
+295;HTML_IMAGE_RATIO_02;HTML_IMAGE_RATIO_02;HTML has a low ratio of text to image area
+296;HTML_IMAGE_RATIO_04;HTML_IMAGE_RATIO_04;HTML has a low ratio of text to image area
+297;HTML_IMAGE_RATIO_06;HTML_IMAGE_RATIO_06;HTML has a low ratio of text to image area
+298;HTML_IMAGE_RATIO_08;HTML_IMAGE_RATIO_08;HTML has a low ratio of text to image area
+299;HTML_LINK_IMAGE_BUG;HTML_LINK_IMAGE_BUG;HTML link plus image plus web bug
+300;HTML_LINK_OPT_OUT;HTML_LINK_OPT_OUT;HTML link text says "opt out" or similar
+301;HTML_LINK_PUSH_HERE;HTML_LINK_PUSH_HERE;HTML link text says "push here" or similar
+302;HTML_MESSAGE;HTML_MESSAGE;HTML included in message
+303;HTML_NONELEMENT_00_10;HTML_NONELEMENT_00_10;0% to 10% of HTML elements are non-standard
+304;HTML_NONELEMENT_10_20;HTML_NONELEMENT_10_20;10% to 20% of HTML elements are non-standard
+305;HTML_NONELEMENT_20_30;HTML_NONELEMENT_20_30;20% to 30% of HTML elements are non-standard
+306;HTML_NONELEMENT_30_40;HTML_NONELEMENT_30_40;30% to 40% of HTML elements are non-standard
+307;HTML_NONELEMENT_40_50;HTML_NONELEMENT_40_50;40% to 50% of HTML elements are non-standard
+308;HTML_NONELEMENT_50_60;HTML_NONELEMENT_50_60;50% to 60% of HTML elements are non-standard
+309;HTML_NONELEMENT_60_70;HTML_NONELEMENT_60_70;60% to 70% of HTML elements are non-standard
+310;HTML_NONELEMENT_70_80;HTML_NONELEMENT_70_80;70% to 80% of HTML elements are non-standard
+311;HTML_NONELEMENT_80_90;HTML_NONELEMENT_80_90;80% to 90% of HTML elements are non-standard
+312;HTML_NONELEMENT_90_100;HTML_NONELEMENT_90_100;90% to 100% of HTML elements are non-standard
+313;HTML_OBFUSCATE_05_10;HTML_OBFUSCATE_05_10;Message is 5% to 10% HTML obfuscation
+314;HTML_OBFUSCATE_10_20;HTML_OBFUSCATE_10_20;Message is 10% to 20% HTML obfuscation
+315;HTML_OBFUSCATE_20_30;HTML_OBFUSCATE_20_30;Message is 20% to 30% HTML obfuscation
+316;HTML_OBFUSCATE_30_40;HTML_OBFUSCATE_30_40;Message is 30% to 40% HTML obfuscation
+317;HTML_OBFUSCATE_40_50;HTML_OBFUSCATE_40_50;Message is 40% to 50% HTML obfuscation
+318;HTML_OBFUSCATE_50_60;HTML_OBFUSCATE_50_60;Message is 50% to 60% HTML obfuscation
+319;HTML_OBFUSCATE_60_70;HTML_OBFUSCATE_60_70;Message is 60% to 70% HTML obfuscation
+320;HTML_OBFUSCATE_70_80;HTML_OBFUSCATE_70_80;Message is 70% to 80% HTML obfuscation
+321;HTML_OBFUSCATE_80_90;HTML_OBFUSCATE_80_90;Message is 80% to 90% HTML obfuscation
+322;HTML_OBFUSCATE_90_100;HTML_OBFUSCATE_90_100;Message is 90% to 100% HTML obfuscation
+323;HTML_SHORT_LENGTH;HTML_SHORT_LENGTH;HTML is extremely short
+324;HTML_SHOUTING3;HTML_SHOUTING3;HTML has very strong "shouting" markup
+325;HTML_SHOUTING4;HTML_SHOUTING4;HTML has very strong "shouting" markup
+326;HTML_SHOUTING5;HTML_SHOUTING5;HTML has very strong "shouting" markup
+327;HTML_SHOUTING6;HTML_SHOUTING6;HTML has very strong "shouting" markup
+328;HTML_SHOUTING7;HTML_SHOUTING7;HTML has very strong "shouting" markup
+329;HTML_TAG_BALANCE_BODY;HTML_TAG_BALANCE_BODY;HTML has unbalanced "body" tags
+330;HTML_TAG_BALANCE_HEAD;HTML_TAG_BALANCE_HEAD;HTML has unbalanced "head" tags
+331;HTML_TAG_EXIST_BGSOUND;HTML_TAG_EXIST_BGSOUND;HTML has "bgsound" tag
+332;HTML_TAG_EXIST_MARQUEE;HTML_TAG_EXIST_MARQUEE;HTML has "marquee" tag
+333;HTML_TAG_EXIST_TBODY;HTML_TAG_EXIST_TBODY;HTML has "tbody" tag
+334;HTML_TEXT_AFTER_BODY;HTML_TEXT_AFTER_BODY;HTML contains text after BODY close tag
+335;HTML_TEXT_AFTER_HTML;HTML_TEXT_AFTER_HTML;HTML contains text after HTML close tag
+336;HTML_TINY_FONT;HTML_TINY_FONT;body contains 1 or 0-point font
+337;HTML_TITLE_EMPTY;HTML_TITLE_EMPTY;HTML title contains no text
+338;HTML_TITLE_UNTITLED;HTML_TITLE_UNTITLED;HTML title contains "Untitled"
+339;HTML_WEB_BUGS;HTML_WEB_BUGS;Image tag intended to identify you
+340;HTTP_77;HTTP_77;Contains an URL-encoded hostname (HTTP77)
+341;HTTP_CTRL_CHARS_HOST;HTTP_CTRL_CHARS_HOST;Uses control sequences inside a URL hostname
+342;HTTP_ESCAPED_HOST;HTTP_ESCAPED_HOST;Uses %-escapes inside a URL''s hostname
+343;HTTP_EXCESSIVE_ESCAPES;HTTP_EXCESSIVE_ESCAPES;Completely unnecessary %-escapes inside a URL
+344;HTTPS_IP_MISMATCH;HTTPS_IP_MISMATCH;IP to HTTPS link found in HTML
+345;IMPOTENCE;IMPOTENCE;Impotence cure
+346;INFO_TLD;INFO_TLD;Contains an URL in the INFO top-level domain
+347;INFORMACION_RESERVA_ES;INFORMACION_RESERVA_ES;Informacion y reserva
+348;INTERESADO_ES;INTERESADO_ES;Nos animan a contestar si estamos interesados
+349;INTERRUPTUS;INTERRUPTUS;Message looks to contain HTML-interrupted text
+350;INVALID_DATE;INVALID_DATE;Invalid Date: header (not RFC 2822)
+351;INVALID_DATE_TZ_ABSURD;INVALID_DATE_TZ_ABSURD;Invalid Date: header (timezone does not exist)
+352;INVALID_TZ_CST;INVALID_TZ_CST;Invalid date in header (wrong CST timezone)
+353;INVALID_TZ_EST;INVALID_TZ_EST;Invalid date in header (wrong EST timezone)
+354;INVALID_TZ_GMT;INVALID_TZ_GMT;Invalid date in header (wrong GMT/UTC timezone)
+355;INVESTMENT_ADVICE;INVESTMENT_ADVICE;Message mentions investment advice
+356;INVESTMENT_EXPERT;INVESTMENT_EXPERT;Message mentions investment expert
+357;IP_LINK_PLUS;IP_LINK_PLUS;Dotted-decimal IP address followed by CGI
+358;JAPANESE_UCE_SUBJECT;JAPANESE_UCE_SUBJECT;Subject contains a Japanese UCE tag
+359;JOIN_MILLIONS;JOIN_MILLIONS;Join Millions of Americans
+360;KOREAN_UCE_SUBJECT;KOREAN_UCE_SUBJECT;Subject: contains Korean unsolicited email tag
+361;LEY_CHILE_ES_01;LEY_CHILE_ES_01;No existe legislaci?n en Chile contra el SPAM
+362;LEY_CHILE_ES_02;LEY_CHILE_ES_02;Clama cumplir con la legislaci?n chilena
+363;LEY_ORGANICA_ES;LEY_ORGANICA_ES;Dice cumplir con la ley
+364;LIVE_PORN;LIVE_PORN;Possible porn - Live Porn
+365;LOCALPART_IN_SUBJECT;LOCALPART_IN_SUBJECT;Local part of To: address appears in Subject
+366;LOTS_OF_STUFF;LOTS_OF_STUFF;Thousands or millions of pictures, movies, etc.
+367;LOW_PRICE;LOW_PRICE;Lowest Price
+368;MAILTO_SUBJ_REMOVE;MAILTO_SUBJ_REMOVE;mailto URI includes removal text
+369;MAILTO_TO_REMOVE;MAILTO_TO_REMOVE;Includes a "remove" email address
+370;MAILTO_TO_SPAM_ADDR;MAILTO_TO_SPAM_ADDR;Includes a link to a likely spammer email
+371;MALE_ENHANCE;MALE_ENHANCE;Message talks about enhancing men
+372;MARKETING_PARTNERS;MARKETING_PARTNERS;Claims you registered with a partner
+373;MAS_INFORMACION_ES;MAS_INFORMACION_ES;Mas informacion.
+374;MEET_SINGLES;MEET_SINGLES;Meet Singles
+375;MICRO_CAP_WARNING;MICRO_CAP_WARNING;SEC-mandated penny-stock warning
+376;MICROSOFT_EXECUTABLE;MICROSOFT_EXECUTABLE;Message includes Microsoft executable program
+377;MILLION_USD;MILLION_USD;Talks about millions of dollars
+378;MIME_BAD_ISO_CHARSET;MIME_BAD_ISO_CHARSET;MIME character set is an unknown ISO charset
+379;MIME_BASE64_BLANKS;MIME_BASE64_BLANKS;Extra blank lines in base64 encoding
+380;MIME_BASE64_NO_NAME;MIME_BASE64_NO_NAME;base64 attachment does not have a file name
+381;MIME_BASE64_TEXT;MIME_BASE64_TEXT;Message text disguised using base64 encoding
+382;MIME_BOUND_DD_DIGITS;MIME_BOUND_DD_DIGITS;Spam tool pattern in MIME boundary
+383;MIME_BOUND_DIGITS_15;MIME_BOUND_DIGITS_15;Spam tool pattern in MIME boundary
+384;MIME_BOUND_DIGITS_7;MIME_BOUND_DIGITS_7;Spam tool pattern in MIME boundary
+385;MIME_BOUND_MANY_HEX;MIME_BOUND_MANY_HEX;Spam tool pattern in MIME boundary
+386;MIME_BOUND_RKFINDY;MIME_BOUND_RKFINDY;Spam tool pattern in MIME boundary (rfkindy)
+387;MIME_HTML_MOSTLY;MIME_HTML_MOSTLY;Multipart message mostly text/html MIME
+388;MIME_HTML_ONLY;MIME_HTML_ONLY;Message only has text/html MIME parts
+389;MIME_MISSING_BOUNDARY;MIME_MISSING_BOUNDARY;MIME section missing boundary
+390;MIME_QP_LONG_LINE;MIME_QP_LONG_LINE;Quoted-printable line longer than 76 chars
+391;MIME_SUSPECT_NAME;MIME_SUSPECT_NAME;MIME filename does not match content
+392;MISSING_DATE;MISSING_DATE;Missing Date: header
+393;MISSING_HB_SEP;MISSING_HB_SEP;Missing blank line between message header and body
+394;MISSING_HEADERS;MISSING_HEADERS;Missing To: header
+395;MISSING_MIME_HB_SEP;MISSING_MIME_HB_SEP;Missing blank line between MIME header and body
+396;ML_MARKETING;ML_MARKETING;Multi Level Marketing mentioned
+397;MONEY_BACK;MONEY_BACK;Money back guarantee
+398;MORE_SEX;MORE_SEX;Talks about a bigger drive for sex
+399;MORTGAGE_BEST;MORTGAGE_BEST;Information on mortgages
+400;MORTGAGE_PITCH;MORTGAGE_PITCH;Looks like mortgage pitch
+401;MORTGAGE_RATES;MORTGAGE_RATES;Information on mortgage rates
+402;MPART_ALT_DIFF;MPART_ALT_DIFF;HTML and text parts are different
+403;MPART_ALT_DIFF_COUNT;MPART_ALT_DIFF_COUNT;HTML and text parts are different
+404;MSGID_FROM_MTA_HOTMAIL;MSGID_FROM_MTA_HOTMAIL;Message-Id was added by a hotmail.com relay
+405;MSGID_FROM_MTA_ID;MSGID_FROM_MTA_ID;Message-Id for external message added locally
+406;MSGID_LONG;MSGID_LONG;Message-ID is unusually long
+407;MSGID_MULTIPLE_AT;MSGID_MULTIPLE_AT;Message-ID contains multiple "@" characters
+408;MSGID_NO_HOST;MSGID_NO_HOST;Message-Id has no hostname
+409;MSGID_OUTLOOK_INVALID;MSGID_OUTLOOK_INVALID;Message-Id is fake (in Outlook Express format)
+410;MSGID_RATWARE1;MSGID_RATWARE1;Bulk email fingerprint found
+411;MSGID_SHORT;MSGID_SHORT;Message-ID is unusually short
+412;MSGID_SPAM_99X9XX99;MSGID_SPAM_99X9XX99;Spam tool Message-Id: (99x9xx99 variant)
+413;MSGID_SPAM_ALPHA_NUM;MSGID_SPAM_ALPHA_NUM;Spam tool Message-Id: (alpha-numeric variant)
+414;MSGID_SPAM_CAPS;MSGID_SPAM_CAPS;Spam tool Message-Id: (caps variant)
+415;MSGID_SPAM_LETTERS;MSGID_SPAM_LETTERS;Spam tool Message-Id: (letters variant)
+416;MSGID_SPAM_ZEROES;MSGID_SPAM_ZEROES;Spam tool Message-Id: (12-zeroes variant)
+417;MSGID_YAHOO_CAPS;MSGID_YAHOO_CAPS;Message-ID has ALLCAPS@yahoo.com
+418;NA_DOLLARS;NA_DOLLARS;Talks about a million North American dollars
+419;NASTY_GIRLS;NASTY_GIRLS;Possible porn - Nasty Girls
+420;NO_COST;NO_COST;No such thing as a free lunch (3)
+421;NO_DNS_FOR_FROM;NO_DNS_FOR_FROM;Envelope sender has no MX or A DNS records
+422;NO_FORMS;NO_FORMS;No Claim Forms
+423;NO_MAS_MAIL_1_ES;NO_MAS_MAIL_1_ES;No nos env?an mﬂs spam... seguro que no.
+424;NO_MAS_MAIL_2_ES;NO_MAS_MAIL_2_ES;No recibirﬂ este spam otra vez... seguro que no.
+425;NO_MEDICAL;NO_MEDICAL;No Medical Exams
+426;NO_OBLIGATION;NO_OBLIGATION;There is no obligation
+427;NO_PRESCRIPTION;NO_PRESCRIPTION;No prescription needed
+428;NO_RDNS_DOTCOM_HELO;NO_RDNS_DOTCOM_HELO;Host HELO''d as a big ISP, but had no rDNS
+429;NO_REAL_NAME;NO_REAL_NAME;From: does not include a real name
+430;NO_RELAYS;NO_RELAYS;Informational: message was not relayed via SMTP
+431;NONEXISTENT_CHARSET;NONEXISTENT_CHARSET;Character set doesn"t exist
+432;NORMAL_HTTP_TO_IP;NORMAL_HTTP_TO_IP;Uses a dotted-decimal IP address in URL
+433;NORMATIVA_SPAM_ES;NORMATIVA_SPAM_ES;Clama cumplir con la normativa SPAM
+434;NOT_ADVISOR;NOT_ADVISOR;Not registered investment advisor
+435;NUMERIC_HTTP_ADDR;NUMERIC_HTTP_ADDR;Uses a numeric IP address in URL
+436;OBSCURED_EMAIL;OBSCURED_EMAIL;Message seems to contain rot13ed address
+437;OFFSHORE_SCAM;OFFSHORE_SCAM;Off Shore Scams
+438;ONE_TIME;ONE_TIME;One Time Rip Off
+439;ONLINE_PHARMACY;ONLINE_PHARMACY;Online Pharmacy
+440;OPTING_OUT_CAPS;OPTING_OUT_CAPS;Talks about opting out (capitalized version)
+441;ORG_MIME_TOOLS;ORG_MIME_TOOLS;Organization is MIME-tools
+442;PEDIDO_ES;PEDIDO_ES;Para hacer su pedido.
+443;PL_ABSOLUTNA_NOWOSC;PL_ABSOLUTNA_NOWOSC;/ABSOLUTNA.{0,10}NOWO../i
+444;PL_ADRES_EMAIL;PL_ADRES_EMAIL;Tre?µ zawiera "adres e-mail zostal..."
+445;PL_ADRES_EMAIL_3;PL_ADRES_EMAIL_3;Tre?µ zawiera "adres ... pochodzi z og?lno..."
+446;PL_ADRES_Z_BAZY;PL_ADRES_Z_BAZY;Tresc zawiera "...adres z bazy..."
+447;PL_ADRESOW_PUBLICZ;PL_ADRESOW_PUBLICZ;Tresc zawiera "e-mail publicznie dostepnych..."
+448;PL_AKCJA_PROMOCJA;PL_AKCJA_PROMOCJA;/akcj.{0,20} promoc/i
+449;PL_ARTYKUL_USTAWY;PL_ARTYKUL_USTAWY;Tre?µ zawiera "Artykul 25 ust 2 punkt 2"
+450;PL_ATRAKCYJNA_PROP;PL_ATRAKCYJNA_PROP;/atrakcyjn.{0,30}propozyc/i
+451;PL_ATRAKCYJNE_CENY;PL_ATRAKCYJNE_CENY;/atrakcyjn.{0,20} cen/i
+452;PL_BAZ_DANYCH;PL_BAZ_DANYCH;Tresc zawiera "na podstawie dost?pnych baz danych"
+453;PL_BEZPLATNIE;PL_BEZPLATNIE;/bezp.atn/i
+454;PL_BY_WYPISAC;PL_BY_WYPISAC;Tresc zawiera "aby wypisac sie z listy"
+455;PL_CENA_PROMOCYJNA;PL_CENA_PROMOCYJNA;/cen.{0,50} promoc/i
+456;PL_CENA_WYNOSI;PL_CENA_WYNOSI;/cen.{0,50} wynosi/i
+457;PL_CENY_TTO;PL_CENY_TTO;/cen.{0,50}tto/i
+458;PL_CHCIELIBYSMY;PL_CHCIELIBYSMY;/chc.{0,50} zach.ci./i
+459;PL_CZAS_OBOWIAZYWANIA;PL_CZAS_OBOWIAZYWANIA;Tresc zawiera "czas obowiazywania promocji jest"
+460;PL_DANE_OSOBOWE;PL_DANE_OSOBOWE;Tre?µ zawiera "Ustawy o ochronie danych osobowych"
+461;PL_DASHOFER;PL_DASHOFER;Tre?µ jest od wydawnictwa Verlag Dashofer
+462;PL_DO_ODWIEDZENIA;PL_DO_ODWIEDZENIA;/do odwiedzenia/i
+463;PL_DO_ODWIEDZENIA_STR;PL_DO_ODWIEDZENIA_STR;Tresc zawiera "do odwiedzenia strony"
+464;PL_DOBRE_CENY;PL_DOBRE_CENY;/dobr.{0,20} cen/i
+465;PL_DODATKOWO;PL_DODATKOWO;Tresc zawiera "dodatkowo dosta(j| ni)esz"
+466;PL_DOPISKIEM_NIE;PL_DOPISKIEM_NIE;Tre?µ zawiera "odes?anie z dopiskiem NIE"
+467;PL_GDZIEKUPIC;PL_GDZIEKUPIC;/GDZIE.{0,50}KUPI/i
+468;PL_INFORMACJE_UZYSKASZ;PL_INFORMACJE_UZYSKASZ;Tre?µ zawiera "bli?sze informacje uzyskasz pod"
+469;PL_JEDNORAZ_OTRZYMAC;PL_JEDNORAZ_OTRZYMAC;Tresc zawiera "jednorazowo otrzymac informacje"
+470;PL_JESLI_NIE_CHCESZ;PL_JESLI_NIE_CHCESZ;Tresc zawiera "Je?eli nie chcesz (otrzymywac)..."
+471;PL_JESLI_WIADOMOSC;PL_JESLI_WIADOMOSC;Tresc zawiera "Jezeli wiadomosc doszla wiecej.."
+472;PL_JESZCZE_DZIS;PL_JESZCZE_DZIS;/jeszcze .{0,50}dzi/i
+473;PL_JEZELI_NIE;PL_JEZELI_NIE;Tresc zawiera "Je?eli ... nie ?yczycie(sz) sobie"
+474;PL_JEZELI_NIE_INTERES;PL_JEZELI_NIE_INTERES;Tresc zawiera "Je?eli nie interesuj?..."
+475;PL_JEZELI_NIE_ZAINTER;PL_JEZELI_NIE_ZAINTER;Tresc zawiera "Jezeli nie jestes zainteresowany"
+476;PL_KATALOG_ZAWIERA;PL_KATALOG_ZAWIERA;/Katalog zawiera/i
+477;PL_KLIKNIJ_TUTAJ;PL_KLIKNIJ_TUTAJ;/klikn.{0,20} tutaj/i
+478;PL_KLIKNIJ_W_LINK;PL_KLIKNIJ_W_LINK;Tresc zawiera "kliknij w poni?szy link"
+479;PL_KONDERENCJA_UKRAINA;PL_KONDERENCJA_UKRAINA;Prawdopodobnie dotyczy polsko-ukrainskiego spamu
+480;PL_KOSZT_UDZIALU_W;PL_KOSZT_UDZIALU_W;Tre?µ zawiera "koszt udzialu w..."
+481;PL_KOSZT_WYSYLKI;PL_KOSZT_WYSYLKI;Tre?µ zawiera "koszt wysylki"
+482;PL_LINK_NA_DOLE;PL_LINK_NA_DOLE;Tresc zawiera "link do wypisania sie z listy..."
+483;PL_MAIL_Z_TEMATEM;PL_MAIL_Z_TEMATEM;Tresc zawiera "...mail z tematem..."
+484;PL_MAMY_PRZYJEMNOSC;PL_MAMY_PRZYJEMNOSC;Tresc zawiera "Mamy przyjemnosc.."
+485;PL_MILO_NAM_PRZEDST;PL_MILO_NAM_PRZEDST;Tresc zawiera "Milo nam przedstawic panstwu.."
+486;PL_NABYCIA_UNAS;PL_NABYCIA_UNAS;Tresc zawiera "do nabycia u nas"
+487;PL_NADANO_JEDNORAZOWO;PL_NADANO_JEDNORAZOWO;Tresc zawiera "Wiadomo?µ nadano jednorazowo..."
+488;PL_NADANO_NA_PODSTAWIE;PL_NADANO_NA_PODSTAWIE;Tresc zawiera "Wiadomo?µ nadano na podstawie..."
+489;PL_NAJNIZ_CENY;PL_NAJNIZ_CENY;/najni.{0,50} cen/i
+490;PL_NAJSZERSZA_OFERTA;PL_NAJSZERSZA_OFERTA;/szer.{0,50} ofert/i
+491;PL_NAJTANSZE;PL_NAJTANSZE;/najtansz/i
+492;PL_NASZ_FIRMA;PL_NASZ_FIRMA;/nasz.{0,50} firm/i
+493;PL_NASZ_OFERT;PL_NASZ_OFERT;/nasz.{0,50} ofert/i
+494;PL_NASZEJ_STRONIE;PL_NASZEJ_STRONIE;/nasz.{0,20} stron/i
+495;PL_NIE_CZEKAJ_DZWON;PL_NIE_CZEKAJ_DZWON;Tre?µ zawiera "Nie czekaj, dzwo±!"
+496;PL_NIE_STANOWI_OFERTY;PL_NIE_STANOWI_OFERTY;Tresc zawiera "...nie stanowi oferty w rozumieniu"
+497;PL_NIE_ZWLEKAJ;PL_NIE_ZWLEKAJ;/nie zwlekaj/i
+498;PL_NIEZAINTERESOWANY;PL_NIEZAINTERESOWANY;Tresc zawiera "nie zainteresowany otrzymywaniem.."
+499;PL_NIEZAINTERESOWANYCH;PL_NIEZAINTERESOWANYCH;Tresc zawiera "Niezainteresowanych przepraszamy"
+500;PL_NISKIE_CENY;PL_NISKIE_CENY;/nisk.{0,20} cen/i
+501;PL_NOWYCH_OFERTA;PL_NOWYCH_OFERTA;/ now.{0,50} ofert/i
+502;PL_ODESLANIE_WNIOSKU;PL_ODESLANIE_WNIOSKU;Tre?µ zawiera "odeslaniu wniosku na"
+503;PL_ODZYSK_DLUGOW;PL_ODZYSK_DLUGOW;/odzysk.{0,30} d.ug/i
+504;PL_OFERTA;PL_OFERTA;Tresc zawiera "oferta"
+505;PL_OFERTA_CENOWA;PL_OFERTA_CENOWA;/ofert.{0,50} cen/i
+506;PL_OFERTA_PROMOCYJNA;PL_OFERTA_PROMOCYJNA;/ofert.{0,50} promoc/i
+507;PL_OFERUJEMY_PANSTWU;PL_OFERUJEMY_PANSTWU;/ofer.{0,50} pa.stwu/i
+508;PL_OTRZYMASZ_BEZPLATN;PL_OTRZYMASZ_BEZPLATN;Tresc zawiera "Otrzymasz bezplatnie.."
+509;PL_OTRZYMYWANIE_INFOR;PL_OTRZYMYWANIE_INFOR;Tresc zawiera "otrzymywanie informacji dotycz"
+510;PL_PERSWAZJA_1;PL_PERSWAZJA_1;Tresc prawdopodobnie ze spamem o www.perswazja.pl
+511;PL_PERSWAZJA_2;PL_PERSWAZJA_2;Tresc prawdopodobnie ze spamem o www.perswazja.pl
+512;PL_PERSWAZJA_3;PL_PERSWAZJA_3;Tresc prawdopodobnie ze spamem o www.perswazja.pl
+513;PL_PERSWAZJA_4;PL_PERSWAZJA_4;Tresc prawdopobnie ze spamem o www.perswazja.pl
+514;PL_PERSWAZJA_PL;PL_PERSWAZJA_PL;/www\.perswazja\.pl/i
+515;PL_POLSKA_UKRAINA;PL_POLSKA_UKRAINA;Tresc prawdopodbnie dot. polsko-ukrainskiego spamu
+516;PL_POSIADAMY_W_OFERCIE;PL_POSIADAMY_W_OFERCIE;/posiadam.{0,50} ofer/i
+517;PL_PROMOCJA;PL_PROMOCJA;/promoc/i
+518;PL_PROMOCJA_GOSPOD;PL_PROMOCJA_GOSPOD;Tre?µ prawdopodbnie o SYSTEMIE PROMOCJI GOSP.
+519;PL_PROSBA_O_ZWROTNY;PL_PROSBA_O_ZWROTNY;Tresc zawiera "...prosimy o zwrotny e-mail..."
+520;PL_PROSIMY_O_SKLADANIE;PL_PROSIMY_O_SKLADANIE;Tresc zawiera "Prosimy o skladanie na..."
+521;PL_PRZES_OFERTE;PL_PRZES_OFERTE;/przesy.{0,50}ofert/i
+522;PL_PRZY_ODBIORZE;PL_PRZY_ODBIORZE;Tre?µ zawiera "p?atno?µ przy odbiorze"
+523;PL_PUBL_DOSTEPNY;PL_PUBL_DOSTEPNY;Tresc zawiera "publicznie dost?pny (email)"
+524;PL_PUSTY_MAIL;PL_PUSTY_MAIL;Tresc zawiera "Prosimy o przes?anie pustego maila"
+525;PL_PUSTY_MAIL_2;PL_PUSTY_MAIL_2;Tresc zawiera "Wys?aµ pusty mail"
+526;PL_REALIZOWANE_W_CIAGU;PL_REALIZOWANE_W_CIAGU;/realiz.{1,20}w.{1,10}ci.gu/i
+527;PL_REKLAMA;PL_REKLAMA;Tresc zawiera "reklama (bez)platna"
+528;PL_SERDECZ_ZAPRASZAMY;PL_SERDECZ_ZAPRASZAMY;/serdecznie.{0,50}zapraszamy/i
+529;PL_SPAMER_HOMOCREATORE;PL_SPAMER_HOMOCREATORE;Tre?µ dotyczy prawdopdobnie spamu HOMO CREATORE
+530;PL_SPEC_OFERTA;PL_SPEC_OFERTA;/specjaln.{0,50}ofert/i
+531;PL_SUBSKRYPCJA;PL_SUBSKRYPCJA;/subskrypc/i
+532;PL_SWOICH_ZNAJOMYCH;PL_SWOICH_ZNAJOMYCH;Tresc zawiera "swoich znajomych i przyjaciol"
+533;PL_SZANOWNI_PANSTWO;PL_SZANOWNI_PANSTWO;Tre?µ zawiera "Szanowni Pa±stwo"
+534;PL_SZCZEGOLOWE_INFO;PL_SZCZEGOLOWE_INFO;Tresc zawiera "SZCZEGOLOWE_INFORMACJE.."
+535;PL_TEMAT_USUN;PL_TEMAT_USUN;Tresc zawiera "temat USUN"
+536;PL_TWOJE_PIENIADZE;PL_TWOJE_PIENIADZE;/twoje pieni.dze/i
+537;PL_UPOWAZNIENIE_VAT;PL_UPOWAZNIENIE_VAT;Zawiera odnosnik do upowaznienia wyst. faktur VAT
+538;PL_USTAWA_DZU_144_1204;PL_USTAWA_DZU_144_1204;Tresc zawiera "Dz.U. Nr 144 poz.1204"
+539;PL_USTAWA18LIPCA2002;PL_USTAWA18LIPCA2002;Tresc zawiera "ustawa z dnia 18 lipca 2002"
+540;PL_USUN_Z_BAZY;PL_USUN_Z_BAZY;Tresc zawiera "USUN Z BAZY"
+541;PL_USUNAC_MAIL;PL_USUNAC_MAIL;Tresc zawiera "Aby usun?µ adres e-mail..."
+542;PL_WINDYKACJA;PL_WINDYKACJA;/windyk/i
+543;PL_WITAJ_INTERNAUTO;PL_WITAJ_INTERNAUTO;Tresc zawiera "witaj internauto"
+544;PL_WITAMY_PANSTWA;PL_WITAMY_PANSTWA;Tre?µ zawiera "Witamy Pa±stwa"
+545;PL_WSPOL_POLSKA_UKRAIN;PL_WSPOL_POLSKA_UKRAIN;Tresc prawdopodbnie dot. polsko-ukrainskiego spamu
+546;PL_WSPOLPRACA;PL_WSPOLPRACA;/zainteresowan.{0,50}wsp..prac/
+547;PL_WWW_ADRESY_ORG;PL_WWW_ADRESY_ORG;/www\.adresy\.org/i
+548;PL_WYPRZEDAZ;PL_WYPRZEDAZ;/wyprzeda/i
+549;PL_WYRAZASZ_ZGODE;PL_WYRAZASZ_ZGODE;Tresc zawiera "wyra?asz zgod? na"
+550;PL_WYSLANY_JEDNORAZOWO;PL_WYSLANY_JEDNORAZOWO;Tresc zawiera "wyslano jednorazowo"
+551;PL_WYSTARCZY_WEJSC;PL_WYSTARCZY_WEJSC;Tresc zawiera "wystarczy wejsc na strone"
+552;PL_ZA_PRZEPRASZAM;PL_ZA_PRZEPRASZAM;Tresc zawiera "za ... przepraszamy"
+553;PL_ZACHECAMY;PL_ZACHECAMY;/ZACHECAM/i
+554;PL_ZAJETY_CZAS;PL_ZAJETY_CZAS;Tresc zawiera "przepraszamy za zaj?ty czas"
+555;PL_ZALICZENIE_POCZT;PL_ZALICZENIE_POCZT;Tresc zawiera "Za zaliczeniem pocztowym..."
+556;PL_ZAMOW_TERAZ;PL_ZAMOW_TERAZ;Tresc zawiera "Zam?w teraz!!!"
+557;PL_ZAMOWIENIE;PL_ZAMOWIENIE;/zam.wieni/i
+558;PL_ZAPLACISZ_TYLKO;PL_ZAPLACISZ_TYLKO;/zap.acisz.{1,10}tylko/i
+559;PL_ZAPOZNAJ_OFERTA;PL_ZAPOZNAJ_OFERTA;/zapozn.{0,50} ofert/i
+560;PL_ZAPRASZAMY;PL_ZAPRASZAMY;/ZAPRASZAMY/
+561;PL_ZAPRASZAMY_SKORZYST;PL_ZAPRASZAMY_SKORZYST;/zapraszam.{0,50}korzyst/i
+562;PL_ZAPRASZAMY_UDZIAL;PL_ZAPRASZAMY_UDZIAL;Tresc zawiera "Zapraszamy do udzialu"
+563;PL_ZAPROSICI_PANSTWO;PL_ZAPROSICI_PANSTWO;Tre?µ zawiera "Zaprosiµ pa±stwa"
+564;PL_ZGLOSZENIE_POWINNO;PL_ZGLOSZENIE_POWINNO;Tresc zawiera "Zg?oszenie powinno..."
+565;PL_ZWRACAMY_Z_PYTANIEM;PL_ZWRACAMY_Z_PYTANIEM;Tresc zawiera "Zwracamy sie z pytaniem"
+566;PLING_QUERY;PLING_QUERY;Subject has exclamation mark and question mark
+567;PORN_15;PORN_15;Possible porn - various types of feline
+568;PORN_16;PORN_16;Possible porn - nasty, dirty, little etc.
+569;PORN_URL_MISC;PORN_URL_MISC;URL uses words/phrases which indicate porn (misc)
+570;PORN_URL_SEX;PORN_URL_SEX;URL uses words/phrases which indicate porn (sex)
+571;PORN_URL_SLUT;PORN_URL_SLUT;URL uses words/phrases which indicate porn (slut)
+572;PORNO_GRATIS_ES;PORNO_GRATIS_ES;Porno gratis.
+573;PRESENTAMOS_ES;PRESENTAMOS_ES;Presentaci?n de un nuevo producto.
+574;PREST_NON_ACCREDITED;PREST_NON_ACCREDITED;Prestigious Non-Accredited Universities
+575;PREVENT_NONDELIVERY;PREVENT_NONDELIVERY;Message has Prevent-NonDelivery-Report header
+576;PRICES_ARE_AFFORDABLE;PRICES_ARE_AFFORDABLE;Message says that prices aren"t too expensive
+577;PROMOCION_ES;PROMOCION_ES;Promocion especial.
+578;PYZOR_CHECK;PYZOR_CHECK;Listed in Pyzor (http://pyzor.sf.net/)
+579;QUALIFY_FOR_THIS;QUALIFY_FOR_THIS;Qualify for this special...
+580;RATWARE_BOUND_PIECE;RATWARE_BOUND_PIECE;Bulk email fingerprint (piece boundary) found
+581;RATWARE_EFROM;RATWARE_EFROM;Bulk email fingerprint (envfrom) found
+582;RATWARE_EGROUPS;RATWARE_EGROUPS;Bulk email fingerprint (eGroups) found
+583;RATWARE_GECKO_BUILD;RATWARE_GECKO_BUILD;Bulk email fingerprint (Gecko faked) found
+584;RATWARE_HASH_2;RATWARE_HASH_2;Bulk email fingerprint (hash 2) found
+585;RATWARE_HASH_2_V2;RATWARE_HASH_2_V2;Bulk email fingerprint (hash 2 v2) found
+586;RATWARE_HASH_DASH;RATWARE_HASH_DASH;Contains a hashbuster in Send-Safe format
+587;RATWARE_JPFREE;RATWARE_JPFREE;Bulk email fingerprint (jpfree) found
+588;RATWARE_MOZ_MALFORMED;RATWARE_MOZ_MALFORMED;Bulk email fingerprint (Mozilla malformed) found
+589;RATWARE_MPOP_WEBMAIL;RATWARE_MPOP_WEBMAIL;Bulk email fingerprint (mPOP Web-Mail)
+590;RATWARE_NETIP;RATWARE_NETIP;Bulk email fingerprint (netIP) found
+591;RATWARE_OE_MALFORMED;RATWARE_OE_MALFORMED;X-Mailer has malformed Outlook Express version
+592;RATWARE_RCVD_AT;RATWARE_RCVD_AT;Bulk email fingerprint (Received @) found
+593;RATWARE_RCVD_LC_ESMTP;RATWARE_RCVD_LC_ESMTP;Bulk email fingerprint ("esmtp" Received) found
+594;RATWARE_RCVD_PF;RATWARE_RCVD_PF;Bulk email fingerprint (Received PF) found
+595;RATWARE_STORM_URI;RATWARE_STORM_URI;Bulk email fingerprint (StormPost) found
+596;RAZOR2_CF_RANGE_51_100;RAZOR2_CF_RANGE_51_100;Razor2 gives confidence level above 50%
+597;RAZOR2_CF_RANGE_E4_51_100;RAZOR2_CF_RANGE_E4_51_100;Razor2 gives engine 4 confidence level above 50%
+598;RAZOR2_CF_RANGE_E8_51_100;RAZOR2_CF_RANGE_E8_51_100;Razor2 gives engine 8 confidence level above 50%
+599;RAZOR2_CHECK;RAZOR2_CHECK;Listed in Razor2 (http://razor.sf.net/)
+600;RCVD_AM_PM;RCVD_AM_PM;Received headers forged (AM/PM)
+601;RCVD_BONUS_SPC_DATE;RCVD_BONUS_SPC_DATE;Bulk email fingerprint (bonus space) found
+602;RCVD_BY_IP;RCVD_BY_IP;Received by mail server with no name
+603;RCVD_FAKE_HELO_DOTCOM;RCVD_FAKE_HELO_DOTCOM;Received contains a faked HELO hostname
+604;RCVD_HELO_IP_MISMATCH;RCVD_HELO_IP_MISMATCH;Received: HELO and IP do not match, but should
+605;RCVD_ILLEGAL_IP;RCVD_ILLEGAL_IP;Received: contains illegal IP address
+606;RCVD_IN_BL_SPAMCOP_NET;RCVD_IN_BL_SPAMCOP_NET;Received via a relay in bl.spamcop.net
+607;RCVD_IN_BSP_OTHER;RCVD_IN_BSP_OTHER;Sender is in Bonded Sender Program (other relay)
+608;RCVD_IN_BSP_TRUSTED;RCVD_IN_BSP_TRUSTED;Sender is in Bonded Sender Program (trusted relay)
+609;RCVD_IN_DSBL;RCVD_IN_DSBL;Received via a relay in list.dsbl.org
+610;RCVD_IN_IADB_VOUCHED;RCVD_IN_IADB_VOUCHED;ISIPP IADB lists as vouched-for sender
+611;RCVD_IN_MAPS_DUL;RCVD_IN_MAPS_DUL;Relay in DUL, http://www.mail-abuse.org/dul/
+612;RCVD_IN_MAPS_NML;RCVD_IN_MAPS_NML;Relay in NML, http://www.mail-abuse.org/nml/
+613;RCVD_IN_MAPS_RBL;RCVD_IN_MAPS_RBL;Relay in RBL, http://www.mail-abuse.org/rbl/
+614;RCVD_IN_MAPS_RSS;RCVD_IN_MAPS_RSS;Relay in RSS, http://www.mail-abuse.org/rss/
+615;RCVD_IN_NJABL_CGI;RCVD_IN_NJABL_CGI;NJABL: sender is an open formmail
+616;RCVD_IN_NJABL_DUL;RCVD_IN_NJABL_DUL;NJABL: dialup sender did non-local SMTP
+617;RCVD_IN_NJABL_MULTI;RCVD_IN_NJABL_MULTI;NJABL: sent through multi-stage open relay
+618;RCVD_IN_NJABL_PROXY;RCVD_IN_NJABL_PROXY;NJABL: sender is an open proxy
+619;RCVD_IN_NJABL_RELAY;RCVD_IN_NJABL_RELAY;NJABL: sender is confirmed open relay
+620;RCVD_IN_NJABL_SPAM;RCVD_IN_NJABL_SPAM;NJABL: sender is confirmed spam source
+621;RCVD_IN_SBL;RCVD_IN_SBL;Received via a relay in Spamhaus SBL
+622;RCVD_IN_SORBS_BLOCK;RCVD_IN_SORBS_BLOCK;SORBS: sender demands to never be tested
+623;RCVD_IN_SORBS_DUL;RCVD_IN_SORBS_DUL;SORBS: sent directly from dynamic IP address
+624;RCVD_IN_SORBS_HTTP;RCVD_IN_SORBS_HTTP;SORBS: sender is open HTTP proxy server
+625;RCVD_IN_SORBS_MISC;RCVD_IN_SORBS_MISC;SORBS: sender is open proxy server
+626;RCVD_IN_SORBS_SMTP;RCVD_IN_SORBS_SMTP;SORBS: sender is open SMTP relay
+627;RCVD_IN_SORBS_SOCKS;RCVD_IN_SORBS_SOCKS;SORBS: sender is open SOCKS proxy server
+628;RCVD_IN_SORBS_WEB;RCVD_IN_SORBS_WEB;SORBS: sender is a abuseable web server
+629;RCVD_IN_SORBS_ZOMBIE;RCVD_IN_SORBS_ZOMBIE;SORBS: sender is on a hijacked network
+630;RCVD_IN_WHOIS_BOGONS;RCVD_IN_WHOIS_BOGONS;CompleteWhois: sender on bogons IP block
+631;RCVD_IN_WHOIS_HIJACKED;RCVD_IN_WHOIS_HIJACKED;CompleteWhois: sender on hijacked IP block
+632;RCVD_IN_WHOIS_INVALID;RCVD_IN_WHOIS_INVALID;CompleteWhois: sender on invalid IP block
+633;RCVD_IN_XBL;RCVD_IN_XBL;Received via a relay in Spamhaus XBL
+634;RCVD_NUMERIC_HELO;RCVD_NUMERIC_HELO;Received: contains an IP address used for HELO
+635;RECEIVE_OFFER;RECEIVE_OFFER;Receive a special offer
+636;REENVIA_ES;REENVIA_ES;Conviertete en Spammer.
+637;REFINANCE_NOW;REFINANCE_NOW;Home refinancing
+638;REFINANCE_YOUR_HOME;REFINANCE_YOUR_HOME;Home refinancing
+639;REGALO_ES;REGALO_ES;Los regalos no existen, salvo de nuestros amigos.
+640;REMOVE_BEFORE_LINK;REMOVE_BEFORE_LINK;Removal phrase right before a link
+641;REMOVE_ES_01;REMOVE_ES_01;Claims you can be removed in Spanish
+642;REMOVE_ES_02;REMOVE_ES_02;Claims you can be removed in Spanish
+643;REMOVE_ES_03;REMOVE_ES_03;Claims you can be removed in Spanish
+644;REMOVE_ES_04;REMOVE_ES_04;Claims you can be removed in Spanish
+645;REMOVE_ES_05;REMOVE_ES_05;If you send an email you will be OptOut
+646;REMOVE_ES_06;REMOVE_ES_06;Claims you can opt-out
+647;REMOVE_ES_07;REMOVE_ES_07;Claims you can opt-out
+648;REMOVE_ES_08;REMOVE_ES_08;Claims you can opt-out
+649;REMOVE_PAGE;REMOVE_PAGE;URL of page called "remove"
+650;REMOVE_POSTAL;REMOVE_POSTAL;Send real mail to be unsubscribed
+651;REPLICA_WATCH;REPLICA_WATCH;Message talks about a replica watch
+652;REPLY_TO_EMPTY;REPLY_TO_EMPTY;Reply-To: is empty
+653;RESISTANCE_IS_FUTILE;RESISTANCE_IS_FUTILE;Resistance to this spam is futile
+654;REVERSE_AGING;REVERSE_AGING;Reverses Aging
+655;RISK_FREE;RISK_FREE;Risk free. Suuurreeee....
+656;ROUND_THE_WORLD;ROUND_THE_WORLD;Received: says mail sent around the world (DNS)
+657;ROUND_THE_WORLD_LOCAL;ROUND_THE_WORLD_LOCAL;Received: says mail sent around the world (HELO)
+658;SATIS_GUAR;SATIS_GUAR;Mail guarantees satisfaction
+659;SAVE_THOUSANDS;SAVE_THOUSANDS;Save big money
+660;SEE_FOR_YOURSELF;SEE_FOR_YOURSELF;See for yourself
+661;SENT_IN_COMPLIANCE;SENT_IN_COMPLIANCE;Claims compliance with spam regulations
+662;SOME_BREAKTHROUGH;SOME_BREAKTHROUGH;Describes some sort of breakthrough
+663;SOMETHING_FOR_ADULTS;SOMETHING_FOR_ADULTS;Possible porn - Adult Web Sites
+664;SORTED_RECIPS;SORTED_RECIPS;Recipient list is sorted by address
+665;SPF_FAIL;SPF_FAIL;SPF: sender does not match SPF record (fail)
+666;SPF_HELO_FAIL;SPF_HELO_FAIL;SPF: HELO does not match SPF record (fail)
+667;SPF_HELO_NEUTRAL;SPF_HELO_NEUTRAL;SPF: HELO does not match SPF record (neutral)
+668;SPF_HELO_PASS;SPF_HELO_PASS;SPF: HELO matches SPF record
+669;SPF_HELO_SOFTFAIL;SPF_HELO_SOFTFAIL;SPF: HELO does not match SPF record (softfail)
+670;SPF_NEUTRAL;SPF_NEUTRAL;SPF: sender does not match SPF record (neutral)
+671;SPF_PASS;SPF_PASS;SPF: sender matches SPF record
+672;SPF_SOFTFAIL;SPF_SOFTFAIL;SPF: sender does not match SPF record (softfail)
+673;SPOOF_COM2COM;SPOOF_COM2COM;URI contains ".com" in middle and end
+674;SPOOF_COM2OTH;SPOOF_COM2OTH;URI contains ".com" in middle
+675;SPOOF_NET2COM;SPOOF_NET2COM;URI contains ".net" or ".org", then ".com"
+676;SPOOF_OURI;SPOOF_OURI;URI has items in odd places
+677;STOCK_ALERT;STOCK_ALERT;Offers a alert about a stock
+678;STRONG_BUY;STRONG_BUY;Tells you about a strong buy
+679;SUB_FREE_OFFER;SUB_FREE_OFFER;Subject starts with "Free"
+680;SUB_HELLO;SUB_HELLO;Subject starts with "Hello"
+681;SUBJ_2_NUM_PARENS;SUBJ_2_NUM_PARENS;Subject contains common spam sign (2 numbers)
+682;SUBJ_ALL_CAPS;SUBJ_ALL_CAPS;Subject is all capitals
+683;SUBJ_AS_SEEN;SUBJ_AS_SEEN;Subject contains "As Seen"
+684;SUBJ_BUY;SUBJ_BUY;Subject line starts with Buy or Buying
+685;SUBJ_CONSONANTS;SUBJ_CONSONANTS;Subject contains consecutive consonants in "word"
+686;SUBJ_DOLLARS;SUBJ_DOLLARS;Subject starts with dollar amount
+687;SUBJ_FOR_ONLY;SUBJ_FOR_ONLY;Subject contains "For Only"
+688;SUBJ_FREE_CAP;SUBJ_FREE_CAP;Subject contains "FREE" in CAPS
+689;SUBJ_GUARANTEED;SUBJ_GUARANTEED;Subject GUARANTEED
+690;SUBJ_HAS_SPACES;SUBJ_HAS_SPACES;Subject contains lots of white space
+691;SUBJ_HAS_UNIQ_ID;SUBJ_HAS_UNIQ_ID;Subject contains a unique ID
+692;SUBJ_ILLEGAL_CHARS;SUBJ_ILLEGAL_CHARS;Subject: has too many raw illegal characters
+693;SUBJ_LIFE_INSURANCE;SUBJ_LIFE_INSURANCE;Subject includes "life insurance"
+694;SUBJ_YOUR_DEBT;SUBJ_YOUR_DEBT;Subject contains "Your Bills" or similar
+695;SUBJ_YOUR_FAMILY;SUBJ_YOUR_FAMILY;Subject contains "Your Family"
+696;SUBJ_YOUR_OWN;SUBJ_YOUR_OWN;Subject contains "Your Own"
+697;SUBJECT_DIET;SUBJECT_DIET;Subject talks about losing pounds
+698;SUBJECT_DRUG_GAP_C;SUBJECT_DRUG_GAP_C;Subject contains a gappy version of "cialis"
+699;SUBJECT_DRUG_GAP_L;SUBJECT_DRUG_GAP_L;Subject contains a gappy version of "levitra"
+700;SUBJECT_DRUG_GAP_P;SUBJECT_DRUG_GAP_P;Subject contains a gappy version of "phentermine"
+701;SUBJECT_DRUG_GAP_S;SUBJECT_DRUG_GAP_S;Subject contains a gappy version of "soma"
+702;SUBJECT_DRUG_GAP_VA;SUBJECT_DRUG_GAP_VA;Subject contains a gappy version of "valium"
+703;SUBJECT_DRUG_GAP_VIC;SUBJECT_DRUG_GAP_VIC;Subject contains a gappy version of "vicodin"
+704;SUBJECT_DRUG_GAP_X;SUBJECT_DRUG_GAP_X;Subject contains a gappy version of "xanax"
+705;SUBJECT_ENCODED_TWICE;SUBJECT_ENCODED_TWICE;Subject: MIME encoded twice
+706;SUBJECT_FUZZY_CHEAP;SUBJECT_FUZZY_CHEAP;Attempt to obfuscate words in Subject:
+707;SUBJECT_FUZZY_MEDS;SUBJECT_FUZZY_MEDS;Attempt to obfuscate words in Subject:
+708;SUBJECT_FUZZY_PENIS;SUBJECT_FUZZY_PENIS;Attempt to obfuscate words in Subject:
+709;SUBJECT_FUZZY_TION;SUBJECT_FUZZY_TION;Attempt to obfuscate words in Subject:
+710;SUBJECT_IN_BLACKLIST;SUBJECT_IN_BLACKLIST;Subject: contains string in the user''s black-list
+711;SUBJECT_IN_WHITELIST;SUBJECT_IN_WHITELIST;Subject: contains string in the user''s white-list
+712;SUBJECT_NOVOWEL;SUBJECT_NOVOWEL;Subject: has long non-vowel letter sequence
+713;SUBJECT_SEXUAL;SUBJECT_SEXUAL;Subject indicates sexually-explicit content
+714;SUBSCRIBE_ES_01;SUBSCRIBE_ES_01;If you want to subscribe...
+715;SUSPICIOUS_RECIPS;SUSPICIOUS_RECIPS;Similar addresses in recipient list
+716;TARJETA_VERDE_ES;TARJETA_VERDE_ES;Inmigraci?n legal (?) a los Estados Unidos
+717;TERRA_ES;TERRA_ES;Contains URI to a document hosted at "terra.es"
+718;TO_ADDRESS_EQ_REAL;TO_ADDRESS_EQ_REAL;To: repeats address as real name
+719;TO_EMPTY;TO_EMPTY;To: is empty
+720;TO_MALFORMED;TO_MALFORMED;To: has a malformed address
+721;TO_NO_USER;TO_NO_USER;To: has no local-part before @ sign
+722;TO_RECIP_MARKER;TO_RECIP_MARKER;To header contains "recipient" marker
+723;TO_TXT;TO_TXT;Sent to a text file
+724;TRACKER_ID;TRACKER_ID;Incorporates a tracking ID number
+725;UNCLAIMED_MONEY;UNCLAIMED_MONEY;People just leave money laying around
+726;UNCLOSED_BRACKET;UNCLOSED_BRACKET;Headers contain an unclosed bracket
+727;UNDISC_RECIPS;UNDISC_RECIPS;Valid-looking To "undisclosed-recipients"
+728;UNIQUE_WORDS;UNIQUE_WORDS;Message body has many words used only once
+729;UNPARSEABLE_RELAY;UNPARSEABLE_RELAY;Informational: message has unparseable relay lines
+730;UNRESOLVED_TEMPLATE;UNRESOLVED_TEMPLATE;Headers contain an unresolved template
+731;UNWANTED_LANGUAGE_BODY;UNWANTED_LANGUAGE_BODY;Message written in an undesired language
+732;URG_BIZ;URG_BIZ;Contains urgent matter
+733;URI_4YOU;URI_4YOU;Message has URI 4you
+734;URI_AFFILIATE;URI_AFFILIATE;Contains a URI with an affiliate ID code
+735;URI_DIGITS;URI_DIGITS;URI hostname has long digit sequence
+736;URI_HEX;URI_HEX;URI hostname has long hexadecimal sequence
+737;URI_IS_POUND;URI_IS_POUND;Filename is just a "\#"; probably a JS trick
+738;URI_NO_WWW_ANY_CGI;URI_NO_WWW_ANY_CGI;CGI with long hostname other fourth-level "www"
+739;URI_NO_WWW_BIZ_CGI;URI_NO_WWW_BIZ_CGI;CGI in .biz TLD other than third-level "www"
+740;URI_NO_WWW_INFO_CGI;URI_NO_WWW_INFO_CGI;CGI in .info TLD other than third-level "www"
+741;URI_NOVOWEL;URI_NOVOWEL;URI hostname has long non-vowel sequence
+742;URI_OFFERS;URI_OFFERS;Message has link to company offers
+743;URI_REDIRECTOR;URI_REDIRECTOR;Message has HTTP redirector URI
+744;URI_SCHEME_MIXED_CASE;URI_SCHEME_MIXED_CASE;URI scheme has mixed uppercase and lowercase
+745;URI_UNSUBSCRIBE;URI_UNSUBSCRIBE;URI contains suspicious unsubscribe link
+746;URI_UPPER_LOWER;URI_UPPER_LOWER;URI contains capitalized hostname parts ("Abcde")
+747;URIBL_AB_SURBL;URIBL_AB_SURBL;Contains an URL listed in the AB SURBL blocklist
+748;URIBL_JP_SURBL;URIBL_JP_SURBL;Contains an URL listed in the JP SURBL blocklist
+749;URIBL_OB_SURBL;URIBL_OB_SURBL;Contains an URL listed in the OB SURBL blocklist
+750;URIBL_PH_SURBL;URIBL_PH_SURBL;Contains an URL listed in the PH SURBL blocklist
+751;URIBL_SBL;URIBL_SBL;Contains an URL listed in the SBL blocklist
+752;URIBL_SC_SURBL;URIBL_SC_SURBL;Contains an URL listed in the SC SURBL blocklist
+753;URIBL_WS_SURBL;URIBL_WS_SURBL;Contains an URL listed in the WS SURBL blocklist
+754;US_DOLLARS_3;US_DOLLARS_3;Mentions millions of (dollar) ((dollar) NN,NNN,NNN.NN)
+755;USER_IN_ALL_SPAM_TO;USER_IN_ALL_SPAM_TO;User is listed in "all_spam_to"
+756;USER_IN_BLACKLIST;USER_IN_BLACKLIST;From: address is in the user''s black-list
+757;USER_IN_BLACKLIST_TO;USER_IN_BLACKLIST_TO;User is listed in "blacklist_to"
+758;USER_IN_DEF_SPF_WL;USER_IN_DEF_SPF_WL;From: address is in the default SPF white-list
+759;USER_IN_DEF_WHITELIST;USER_IN_DEF_WHITELIST;From: address is in the default white-list
+760;USER_IN_MORE_SPAM_TO;USER_IN_MORE_SPAM_TO;User is listed in "more_spam_to"
+761;USER_IN_SPF_WHITELIST;USER_IN_SPF_WHITELIST;From: address is in the user''s SPF whitelist
+762;USER_IN_WHITELIST;USER_IN_WHITELIST;From: address is in the user''s white-list
+763;USER_IN_WHITELIST_TO;USER_IN_WHITELIST_TO;User is listed in "whitelist_to"
+764;USERPASS;USERPASS;URL contains username and (optional) password
+765;VIA_GAP_GRA;VIA_GAP_GRA;Attempts to disguise the word "viagra"
+766;WE_HONOR_ALL;WE_HONOR_ALL;Claims to honor removal requests
+767;WEIRD_PORT;WEIRD_PORT;Uses non-standard port number for HTTP
+768;WEIRD_QUOTING;WEIRD_QUOTING;Weird repeated double-quotation marks
+769;WHILE_YOU_SLEEP;WHILE_YOU_SLEEP;While you Sleep
+770;WHY_PAY_MORE;WHY_PAY_MORE;Why Pay More?
+771;WHY_WAIT;WHY_WAIT;What are you waiting for
+772;WITH_LC_SMTP;WITH_LC_SMTP;Received line contains spam-sign (lowercase smtp)
+773;WRINKLES;WRINKLES;Removes Wrinkles
+774;X_AUTH_WARN_FAKED;X_AUTH_WARN_FAKED;X-Authentication-Warning header looks faked
+775;X_IP;X_IP;Message has X-IP header
+776;X_LIBRARY;X_LIBRARY;Message has X-Library header
+777;X_MAILER_SPAM;X_MAILER_SPAM;X-Mailer: header is bulk email fingerprint
+778;X_MESSAGE_FLAG_ODD;X_MESSAGE_FLAG_ODD;Message has X-Message-flag header (odd case)
+779;X_MESSAGE_INFO;X_MESSAGE_INFO;Bulk email fingerprint (X-Message-Info) found
+780;X_MIME_AUTOCONVERTED;X_MIME_AUTOCONVERTED;Message has X-MIME-Autoconverted "Yes" header
+781;X_MSMAIL_PRIORITY_HIGH;X_MSMAIL_PRIORITY_HIGH;Sent with "X-Msmail-Priority" set to high
+782;X_ORIG_IP_NOT_IPV4;X_ORIG_IP_NOT_IPV4;X-Originating-IP doesn"t look like IPv4 address
+783;X_PRIORITY_CC;X_PRIORITY_CC;Cc: after X-Priority: (bulk email fingerprint)
+784;X_PRIORITY_HIGH;X_PRIORITY_HIGH;Sent with "X-Priority" set to high
+785;YAHOO_DRS_REDIR;YAHOO_DRS_REDIR;Has Yahoo Redirect URI
+786;YAHOO_RD_REDIR;YAHOO_RD_REDIR;Has Yahoo Redirect URI
+787;YOU_CAN_SEARCH;YOU_CAN_SEARCH;You can search for anyone

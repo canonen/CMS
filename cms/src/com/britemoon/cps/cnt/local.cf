@@ -1,0 +1,89 @@
+# Britemoon Spamassassin config file
+# this file should be placed on each installation of spamassassin
+# as the $PERL_SITE\share\spamassassin\local.cf file
+#
+# HP 12/12/2005 updated for Spamassassin 3.1.0
+#
+
+######################################
+# disable various unrelated features #
+######################################
+
+use_razor2 0
+use_dcc 0
+use_pyzor 0
+use_auto_whitelist 0
+auto_learn 0
+bayes_auto_learn 0
+dns_available no
+skip_rbl_checks 0
+
+#########################################
+# default score to be considered 'spam' #
+#########################################
+
+required_score 5
+
+###################################
+# disable various unrelated rules #
+###################################
+
+score NO_RELAYS 0
+score NO_RECEIVED 0
+score ALL_TRUSTED 0
+
+score DK_POLICY_SIGNALL 0
+score DK_POLICY_SIGNSOME 0
+score DK_POLICY_TESTING 0
+score DK_SIGNED 0
+score DK_VERIFIED 0
+
+score HASHCASH_20 0
+score HASHCASH_21 0
+score HASHCASH_22 0
+score HASHCASH_23 0
+score HASHCASH_24 0
+score HASHCASH_25 0
+score HASHCASH_2SPEND 0
+score HASHCASH_HIGH 0
+
+score SPF_FAIL 0
+score SPF_HELO_FAIL 0
+score SPF_HELO_NEUTRAL 0
+score SPF_HELO_PASS 0
+score SPF_HELO_SOFTFAIL 0
+score SPF_NEUTRAL 0
+score SPF_PASS 0
+score SPF_SOFTFAIL 0
+
+score USER_IN_ALL_SPAM_TO 0
+score USER_IN_BLACKLIST 0
+score USER_IN_BLACKLIST_TO 0
+score USER_IN_DEF_SPF_WL 0
+score USER_IN_DEF_WHITELIST 0
+score USER_IN_MORE_SPAM_TO 0
+score USER_IN_SPF_WHITELIST 0
+score USER_IN_WHITELIST 0
+score USER_IN_WHITELIST_TO 0
+
+###########################################################################
+# this report template is customized for BriteScore, change with caution! #
+###########################################################################
+clear_report_template
+report Content analysis details:   (_SCORE_ points, _REQD_ required)
+report
+report " pts rule name              description"
+report  ---- ---------------------- --------------------------------------------------
+report _SUMMARY_
+
+clear_unsafe_report_template
+
+clear_headers
+fold_headers 0
+add_header all BMX-Spam-Level "BriteScore Test"
+add_header all BMX-Spam-Flag _YESNOCAPS_
+add_header all BMX-Spam-Status "_YESNO_, score=_SCORE_ required=_REQD_ tests=_TESTS_"
+
+report_safe 0
+
+
