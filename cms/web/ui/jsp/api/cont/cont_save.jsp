@@ -160,4 +160,5 @@
     jsonObject.put("cont_id", cont.s_cont_id);
     jsonArray.put(jsonObject);
     out.print(jsonArray);
+
 %>
